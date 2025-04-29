@@ -32,9 +32,34 @@ if (file_exists($filename)) {
         require_once $filename2;
     }
     if ($row_projet[0]["visibility_1_projet"] == "1") {
+
+
+
+
         require_once "data/blog/blog_sql.php";
         require_once "data/blog/blog_index.php";
         require_once "src/css/blog_style_1.php";
+
+ 
+    
+
+if($url_!=$google_title_projet[0]){
+?>
+
+
+<meta http-equiv="refresh" content="0; URL=<?=$google_title_projet[0] ?>">
+</head>
+<?php 
+}
+?>
+
+<?php
+
+
+
+
+
+ 
 
     } else {
 ?>
@@ -78,3 +103,4 @@ else{
         window.location.href = "../index.php";
     }
 </script>
+
