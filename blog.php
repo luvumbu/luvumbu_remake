@@ -24,50 +24,54 @@ $url_ = $url->get_elements()[0];
 $_SESSION["index"][4] = $url_;
 $filename = "all_projet/" . $url_ . '.php';
 $filename2 = "all_projet_img/" . $url_ . '.php';
+
+
 if (file_exists($filename)) {
     require_once $filename;
     if (file_exists($filename2)) {
         require_once $filename2;
     }
-
-
-
     if ($row_projet[0]["visibility_1_projet"] == "1") {
         require_once "data/blog/blog_sql.php";
-
-
         require_once "data/blog/blog_index.php";
         require_once "src/css/blog_style_1.php";
 
     } else {
 ?>
-
         <style>
             img {
                 width: 100%;
                 height: 100%;
             }
-
             body {
                 margin: 0;
                 background-color: black;
             }
         </style>
-
         <div onclick="redirection(this)">
             <img src="../src/img/65523fde-63db-4d5f-95b8-b503bfcbd62b.webp" alt="" srcset="">
-
-
         </div>
-
-
 <?php
     }
 }
-
+else{
+    ?>
+        <style>
+            img {
+                width: 100%;
+                height: 100%;
+            }
+            body {
+                margin: 0;
+                background-color: black;
+            }
+        </style>
+        <div onclick="redirection(this)">
+            <img src="../src/img/65523fde-63db-4d5f-95b8-b503bfcbd62b.webp" alt="" srcset="">
+        </div>
+<?php
+}
 ?>
-
-
 <script>
     function redirection(_this) {
         _this.style.display = "none";
