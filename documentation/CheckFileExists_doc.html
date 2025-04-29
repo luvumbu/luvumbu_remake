@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Technique : Fonction CheckFileExists</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: red;
+        }
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            background-color: #444;
+            border-radius: 8px;
+        }
+        h2 {
+            color: red;
+        }
+        pre {
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 1rem;
+            margin: 20px 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        a {
+            color: red;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Documentation Technique : Fonction `CheckFileExists`</h1>
+</header>
+
+<main>
+    <h2>But de la fonction</h2>
+    <p>
+        La fonction <code>CheckFileExists</code> permet de vérifier si un fichier existe à un emplacement spécifié sur le serveur.
+        Elle prend en paramètre un chemin de fichier et renvoie un booléen indiquant si le fichier est présent ou non.
+    </p>
+
+    <h2>Déclaration</h2>
+    <pre><code>function CheckFileExists($filePath)</code></pre>
+
+    <h2>Paramètres</h2>
+    <p><strong>`$filePath`</strong> (string) : Le chemin du fichier à vérifier. Ce paramètre doit être une chaîne de caractères représentant le chemin absolu ou relatif du fichier sur le serveur.</p>
+
+    <h2>Valeur de retour</h2>
+    <p>La fonction retourne un booléen :</p>
+    <ul>
+        <li><strong>true</strong> : Si le fichier existe à l'emplacement spécifié.</li>
+        <li><strong>false</strong> : Si le fichier n'existe pas à l'emplacement spécifié.</li>
+    </ul>
+
+    <h2>Description</h2>
+    <p>
+        La fonction utilise la fonction native PHP <code>file_exists()</code> pour vérifier la présence du fichier. Si le fichier est trouvé, la fonction renvoie <code>true</code>, sinon elle renvoie <code>false</code>.
+        Cette fonction est utile pour valider la présence d'un fichier avant d'effectuer des opérations qui nécessitent son existence, comme la lecture ou la modification.
+    </p>
+
+    <h2>Exemple d'utilisation</h2>
+    <pre><code>
+<?php
+// Définir le chemin du fichier
+$path = "path/to/your/file.php";
+
+// Vérifier si le fichier existe
+if (CheckFileExists($path)) {
+    echo "Le fichier existe.";
+} else {
+    echo "Le fichier n'existe pas.";
+}
+?>
+    </code></pre>
+
+    <h2>Explication de l'exemple</h2>
+    <p>
+        Dans l'exemple ci-dessus, nous définissons une variable <code>$path</code> contenant le chemin du fichier à vérifier.
+        La fonction <code>CheckFileExists</code> est ensuite appelée avec ce chemin. Si le fichier existe, le message "Le fichier existe." est affiché.
+        Si le fichier n'existe pas, le message "Le fichier n'existe pas." sera affiché.
+    </p>
+
+    <h2>Note importante</h2>
+    <p>
+        - Assurez-vous que le chemin fourni dans le paramètre <code>$filePath</code> est correct et accessible par le serveur.<br>
+        - La fonction ne gère pas les erreurs liées aux permissions ou aux fichiers ouverts en lecture/écriture. Si vous avez besoin de vérifier les permissions du fichier, vous devrez utiliser des fonctions supplémentaires telles que <code>is_readable()</code> ou <code>is_writable()</code>.
+    </p>
+
+    <h2>Améliorations possibles</h2>
+    <ul>
+        <li><strong>Gestion des erreurs :</strong> Vous pourriez étendre cette fonction pour gérer des erreurs plus spécifiques liées aux permissions ou à l'accès au fichier.</li>
+        <li><strong>Normalisation du chemin :</strong> Vous pourriez ajouter une vérification et normalisation du chemin en utilisant la fonction <code>realpath()</code> avant de vérifier l'existence du fichier.</li>
+    </ul>
+</main>
+
+<footer>
+    <p>&copy; 2024 Documentation Technique | <a href="https://www.php.net/manual/en/function.file-exists.php" target="_blank">Documentation PHP - file_exists()</a></p>
+</footer>
+
+</body>
+</html>

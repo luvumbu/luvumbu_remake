@@ -1,0 +1,12 @@
+ .display_none {
+     display: none;
+ }
+
+ .chargement {
+     width: 600px;
+     margin: auto;
+ }
+
+ .chargement img {
+     width: 100%;
+ }

@@ -1,0 +1,20 @@
+<?php
+
+ 
+ require_once "require_once.php";
+$id_sha1_projet = $_SESSION["index"][4];
+ 
+echo $id_sha1_projet  ; 
+ 
+$time = time().'_'.time() ; 
+ 
+$id_sha1_projet_lock = $_POST["id_sha1_projet_lock"];
+ 
+$databaseHandler = new DatabaseHandler($dbname, $username);
+//$databaseHandler->action_sql('UPDATE  `projet` SET `id_sha1_projet_lock` = "' . $id_sha1_projet_lock . '"   WHERE  `id_sha1_projet` ="' . $id_sha1_projet . '" ');
+$databaseHandler->action_sql('UPDATE  `projet` SET `id_sha1_projet_lock` = "'.$id_sha1_projet_lock.'"   WHERE  `id_sha1_projet` ="'.$id_sha1_projet.'" ');
+ 
+require_once "all_pages_script.php";
+ 
+ 
+?>

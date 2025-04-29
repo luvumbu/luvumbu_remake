@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Technique</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        pre {
+            background: #f9f9f9;
+            border-left: 4px solid #007bff;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Documentation Technique</h1>
+        <p>Cette documentation explique le fonctionnement et les composants du code fourni.</p>
+
+        <!-- HTML Section -->
+        <div class="section">
+            <h2>HTML</h2>
+            <p>Le code HTML structure la page avec un conteneur principal pour des éléments interactifs.</p>
+            <pre>
+&lt;div class="test1"&gt;
+    &lt;div&gt;
+        &lt;a href="Class/log_off.php"&gt;Déconnexion&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id="update_1__update_1_text01" onclick="general_send(this)" 
+        class="update_1__root__id_sha1_user__NEUTRE__id_user__5"&gt;
+        ADD
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;textarea name="" id="update_1_text01"&gt;
+Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+&lt;/textarea&gt;
+            </pre>
+            <p><b>Description :</b></p>
+            <ul>
+                <li>Un bouton de déconnexion pointe vers un fichier PHP.</li>
+                <li>Un div déclenche une fonction JavaScript <code>general_send</code> lors du clic.</li>
+                <li>Une zone de texte <code>textarea</code> contient un exemple de texte.</li>
+            </ul>
+        </div>
+
+        <!-- JavaScript Section -->
+        <div class="section">
+            <h2>JavaScript</h2>
+            <p>Le script JavaScript gère les interactions utilisateur et les envois de données.</p>
+            <pre>
+function afficherValeursFormattees(chaine) {
+    const valeurs = chaine.split("__");
+    return valeurs;
+}
+
+function general_send(_this) {
+    const texteFormatte = afficherValeursFormattees(_this.className);
+    const texteFormatte2 = afficherValeursFormattees(_this.id);
+
+    var ok = new Information("function/general.php");
+    ok.add("option00", "");
+
+    if (texteFormatte[1] != undefined) {
+        ok.add("option0_2", texteFormatte[1]);
+    }
+    if (texteFormatte[0] != undefined) {
+        ok.add("option0_1", texteFormatte[0]);
+        if (texteFormatte2[0] == texteFormatte[0]) {
+            var value = document.getElementById(texteFormatte2[1]).value;
+            var new_val = value.replace(/'/g, "&#39").replace(/"/g, "&quot");
+            ok.add("option1_2", new_val);
+        }
+    }
+    console.log(ok.info());
+    ok.push();
+}
+            </pre>
+            <p><b>Description :</b></p>
+            <ul>
+                <li>La fonction <code>afficherValeursFormattees</code> divise une chaîne par "__".</li>
+                <li>La fonction <code>general_send</code> récupère des informations des classes et ID HTML.</li>
+                <li>Les données sont formatées, loggées dans la console, puis envoyées via une instance <code>Information</code>.</li>
+            </ul>
+        </div>
+
+        <!-- PHP Section -->
+        <div class="section">
+            <h2>PHP</h2>
+            <p>Le script PHP décrit une structure utilisée pour les données utilisateur.</p>
+            <pre>
+<?php
+// Structure des données utilisées dans les classes et valeurs
+// Exemple : add_1__projet__id_sha1_user__
+// Commentaires sur les parties de la chaîne
+// - n°1 : add_1
+// - n°2 : projet
+// - n°3 : id_sha1_user
+// $_SESSION["index"][2] est l'identifiant de l'utilisateur actuel
+?>
+            </pre>
+            <p><b>Description :</b></p>
+            <ul>
+                <li>Un exemple de structure pour segmenter les données.</li>
+                <li>Les identifiants utilisateur sont stockés dans <code>$_SESSION["index"][2]</code>.</li>
+            </ul>
+        </div>
+
+        <!-- CSS Section -->
+        <div class="section">
+            <h2>CSS</h2>
+            <p>Le style CSS applique une mise en forme et des transitions pour les éléments HTML.</p>
+            <pre>
+.test1 {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    transition: 1s all;
+}
+
+.test1 div {
+    padding: 15px;
+    color: green;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.test1 div:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+            </pre>
+            <p><b>Description :</b></p>
+            <ul>
+                <li>Disposition flexible des éléments avec <code>flexbox</code>.</li>
+                <li>Effet de survol : fond blanc, texte noir, et transition fluide.</li>
+                <li>Style distinct pour les liens avec texte rouge.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

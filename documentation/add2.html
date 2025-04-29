@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Technique</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #444;
+        }
+
+        code {
+            background: #eef;
+            padding: 3px 5px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        pre {
+            background: #333;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-header {
+            border-left: 5px solid #007bff;
+            padding-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        .note {
+            background: #e7f5ff;
+            border-left: 5px solid #007bff;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Documentation Technique : Gestion de l'Interface Utilisateur et Envoi de Données</h1>
+
+    <p><strong>Objectif :</strong> Cette section décrit le fonctionnement du code permettant d'afficher une interface utilisateur interactive, où un utilisateur peut cliquer sur un élément pour envoyer des données au serveur via PHP.</p>
+
+    <h2>1. Structure HTML</h2>
+
+    <p>La structure HTML se compose de deux éléments principaux :</p>
+    <ul>
+        <li><strong>Déconnexion :</strong> Un lien qui permet à l'utilisateur de se déconnecter en redirigeant vers un script PHP dédié.</li>
+        <li><strong>Élément interactif :</strong> Un div avec un événement 'onclick' qui appelle la fonction <code>general_send()</code> pour envoyer des données au serveur.</li>
+    </ul>
+
+    <p>Voici le code HTML utilisé pour la structure :</p>
+    <div class="code-block">
+        <pre>
+&lt;div class="test1"&gt;
+    &lt;!-- Lien de déconnexion --&gt;
+    &lt;div&gt;
+        &lt;a href="Class/log_off.php"&gt;Déconnexion&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;!-- Section avec un événement 'onclick' pour déclencher la fonction 'general_send' --&gt;
+    &lt;div id="" onclick="general_send(this)" class="add_2__root__id_sha1_user__&lt;?php echo $_SESSION["index"][2] ?&gt;__id_parent_user__id_parent_user_info"&gt;
+        ADD
+    &lt;/div&gt;
+&lt;/div&gt;
+        </pre>
+    </div>
+
+    <h3>Explication :</h3>
+    <ul>
+        <li><strong>Déconnexion :</strong> Le premier div contient un lien (<code>&lt;a&gt;</code>) qui, lorsqu'il est cliqué, redirige l'utilisateur vers <code>Class/log_off.php</code> pour se déconnecter.</li>
+        <li><strong>Élément ADD :</strong> Le deuxième div est l'élément interactif. Lorsqu'il est cliqué, l'événement <code>onclick</code> déclenche la fonction JavaScript <code>general_send()</code>, envoyant les données associées à cet élément au serveur.</li>
+    </ul>
+
+    <h2>2. PHP - Manipulation de Session</h2>
+
+    <p>Le code PHP utilisé dans ce fichier sert à récupérer l'identifiant unique de l'utilisateur actuel stocké dans la session. Cette valeur est ensuite utilisée pour créer dynamiquement une classe CSS unique pour chaque utilisateur.</p>
+
+    <p>Voici un exemple de code PHP utilisé :</p>
+    <div class="code-block">
+        <pre>
+&lt;?php
+// Exemple de structure : add_2__root__id_sha1_user__
+// $_SESSION["index"][2] représente l'identifiant de l'utilisateur actuel
+?&gt;
+        </pre>
+    </div>
+
+    <h3>Explication :</h3>
+    <p>Le tableau <code>$_SESSION["index"]</code> contient des informations sur l'utilisateur actuel. L'élément <code>$_SESSION["index"][2]</code> est utilisé pour extraire l'ID unique de l'utilisateur, qui est ensuite intégré dans la classe CSS de l'élément HTML (le <code>div</code>) afin de créer une structure unique pour chaque utilisateur.</p>
+
+    <h2>3. JavaScript - Fonctionnalités de Manipulation et Envoi de Données</h2>
+
+    <p>La fonction JavaScript <code>general_send()</code> est déclenchée lors du clic sur un élément. Elle sert à extraire des informations de l'élément cliqué, à les formater et à les envoyer au serveur via une requête HTTP.</p>
+
+    <p>Voici le code JavaScript qui gère cette fonctionnalité :</p>
+    <div class="code-block">
+        <pre>
+&lt;script&gt;
+    // Fonction pour diviser une chaîne par "__" et retourner un tableau de valeurs
+    function afficherValeursFormattees(chaine) {
+        const valeurs = chaine.split("__"); // Séparation de la chaîne par "__"
+        return valeurs; // Retourne le tableau de valeurs
+    }
+
+    // Fonction principale appelée au clic de l'élément HTML
+    function general_send(_this) {
+        // Récupération et formatage des valeurs de la classe de l'élément cliqué
+        const texteFormatte = afficherValeursFormattees(_this.className);
+        console.log(texteFormatte); // Affichage des valeurs formatées dans la console
+
+        // Création d'une instance de la classe 'Information' pour envoyer les données
+        var ok = new Information("function/general.php");
+
+        // Ajout de la première information (option00 est vide ici)
+        ok.add("option00", "");
+
+        // Si la première valeur existe, on l'ajoute à l'instance 'ok'
+        if (texteFormatte[0] != undefined) {
+            ok.add("option0_1", texteFormatte[0]);
+        }
+        // Répétition du processus pour chaque valeur possible (jusqu'à 8 valeurs)
+        if (texteFormatte[1] != undefined) {
+            ok.add("option0_2", texteFormatte[1]);
+        }
+        if (texteFormatte[2] != undefined) {
+            ok.add("option1_1", texteFormatte[2]);
+        }
+        if (texteFormatte[3] != undefined) {
+            ok.add("option1_2", texteFormatte[3]);
+        }
+        if (texteFormatte[4] != undefined) {
+            ok.add("option2_1", texteFormatte[4]);
+        }
+        if (texteFormatte[5] != undefined) {
+            ok.add("option2_2", texteFormatte[5]);
+        }
+        if (texteFormatte[6] != undefined) {
+            ok.add("option3_1", texteFormatte[6]);
+        }
+        if (texteFormatte[7] != undefined) {
+            ok.add("option3_2", texteFormatte[7]);
+        }
+
+        console.log(ok.info()); // Affiche les informations collectées dans la console
+        ok.push(); // Envoie les informations collectées vers le script PHP via la méthode 'push'
+    }
+&lt;/script&gt;
+        </pre>
+    </div>
+
+    <h3>Explication :</h3>
+    <ul>
+        <li><strong>afficherValeursFormattees(chaine) :</strong> Cette fonction prend une chaîne de caractères et la divise en un tableau en utilisant le séparateur <code>"__"</code>. Cela permet de traiter chaque partie de la chaîne indépendamment.</li>
+        <li><strong>general_send(_this) :</strong> Cette fonction est déclenchée lors du clic sur un élément. Elle utilise la fonction <code>afficherValeursFormattees()</code> pour extraire les données de l'élément cliqué (à partir de sa classe), puis envoie ces données au serveur via une requête HTTP.</li>
+    </ul>
+
+    <h2>4. CSS - Style de la Page</h2>
+
+    <p>Le code CSS utilisé permet de créer un design simple mais fonctionnel pour l'interface. Le style se concentre principalement sur l'affichage flexible des éléments et les effets visuels lors du survol des éléments.</p>
+
+    <p>Voici le code CSS :</p>
+    <div class="code-block">
+        <pre>
+&lt;style&gt;
+    /* Style de la classe 'test1' qui contient les éléments flexibles */
+    .test1 {
+        display: flex;
+        justify-content: space-around; /* Espace égal entre les éléments */
+        background-color: black; /* Fond noir pour la section */
+        transition: 1s all; /* Transition fluide pour toutes les propriétés */
+    }
+
+    /* Style pour les div à l'intérieur de la classe 'test1' */
+    .test1 div {
+        padding: 15px;
+        color: green; /* Texte en vert */
+        border: 1px solid rgba(255, 255, 255, 0.6); /* Bordure semi-transparente blanche */
+    }
+
+    /* Effet au survol des éléments */
+    .test1 div:hover {
+        background-color: white; /* Fond blanc au survol */
+        transition: 1s all; /* Transition fluide */
+        color: black; /* Changement de couleur du texte en noir */
+    }
+&lt;/style&gt;
+        </pre>
+    </div>
+
+    <h3>Explication :</h3>
+    <ul>
+        <li><strong>Classe .test1 :</strong> Utilisée pour contenir et aligner les éléments à l'intérieur. L'espace est distribué de manière égale entre les éléments avec <code>justify-content: space-around</code>.</li>
+        <li><strong>Style des div :</strong> Chaque div à l'intérieur de <code>.test1</code> a un fond noir, une bordure semi-transparente et un texte vert. Lorsqu'un élément est survolé, son fond devient blanc et le texte passe en noir.</li>
+    </ul>
+
+</body>
+</html>

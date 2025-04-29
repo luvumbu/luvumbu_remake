@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Technique - Exemple Add_2</title>
+    <style>
+        /* Style de la page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        /* Style du header */
+        h1, h2 {
+            color: #333;
+        }
+
+        /* Style des sections de la documentation */
+        section {
+            margin-bottom: 20px;
+        }
+
+        code {
+            background-color: #f1f1f1;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 4px;
+            overflow: auto;
+            font-size: 16px;
+        }
+
+        .example {
+            background-color: #dcdcdc;
+            padding: 10px;
+            border-left: 5px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Documentation Technique - Exemple Add_2</h1>
+
+    <section>
+        <h2>Introduction</h2>
+        <p>
+            Cette documentation explique le fonctionnement de la fonction JavaScript <code>add_2</code>, qui est déclenchée lors du clic sur un élément HTML spécifique. Elle permet de manipuler des valeurs extraites de la classe de cet élément et de les envoyer à un serveur PHP via une méthode de la classe <code>Information</code>.
+        </p>
+    </section>
+
+    <section>
+        <h2>Structure du Code</h2>
+        <h3>HTML</h3>
+        <p>
+            L'élément HTML déclenche la fonction JavaScript <code>add_2</code> lorsqu'il est cliqué. Cet élément est un <code>div</code> avec une classe qui contient plusieurs valeurs séparées par <code>__</code>.
+        </p>
+        <pre><code>
+&lt;div onclick="add_2(this)" class="add_2__root__id_sha1_user__12345__id_parent_user__67890"&gt;
+    ADD
+&lt;/div&gt;
+        </code></pre>
+    </section>
+
+    <section>
+        <h3>JavaScript</h3>
+        <p>
+            La fonction <code>add_2</code> récupère la classe de l'élément cliqué, extrait les valeurs séparées par <code>__</code>, puis les traite et les envoie à un serveur PHP.
+        </p>
+
+        <h4>Fonction <code>afficherValeursFormattees</code></h4>
+        <p>
+            Cette fonction prend une chaîne de caractères (la classe de l'élément cliqué), la divise en un tableau de valeurs et retourne ce tableau.
+        </p>
+        <pre><code>
+function afficherValeursFormattees(chaine) {
+    return chaine.split("__"); // Retourne directement le tableau
+}
+        </code></pre>
+
+        <h4>Fonction <code>add_2</code></h4>
+        <p>
+            La fonction <code>add_2</code> effectue plusieurs étapes :
+            <ul>
+                <li>Elle récupère et formate la chaîne de la classe de l'élément cliqué.</li>
+                <li>Elle crée une instance de la classe <code>Information</code>.</li>
+                <li>Elle ajoute chaque valeur extraite à l'instance <code>Information</code>.</li>
+                <li>Elle envoie les données via la méthode <code>push()</code>.</li>
+            </ul>
+        </p>
+        <pre><code>
+function add_2(_this) {
+    const texteFormatte = afficherValeursFormattees(_this.className);
+    console.log(texteFormatte); // Affichage des valeurs formatées dans la console
+
+    var ok = new Information("function/general.php"); // Instance de la classe Information
+
+    ok.add("option00", "");
+
+    for (let i = 0; i &lt; texteFormatte.length; i++) {
+        if (texteFormatte[i] !== undefined) {
+            let optionKey = `option${Math.floor(i / 2)}_${(i % 2) + 1}`;
+            ok.add(optionKey, texteFormatte[i]);
+        }
+    }
+
+    console.log(ok.info()); // Affiche les informations collectées dans la console
+    ok.push(); // Envoie les informations collectées vers le script PHP via la méthode 'push'
+}
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Exemple d'Utilisation</h2>
+        <p>
+            Lorsque l'utilisateur clique sur le <code>div</code>, la fonction <code>add_2</code> est déclenchée. Les valeurs de la classe, telles que <code>add_2__root__id_sha1_user__12345__id_parent_user__67890</code>, sont extraites et transformées en un tableau.
+        </p>
+        <div class="example">
+            Exemple de données envoyées après un clic :
+            <pre><code>
+{
+    option00: "",
+    option0_1: "12345",
+    option1_1: "67890"
+}
+            </code></pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>Classe Information</h2>
+        <p>
+            La classe <code>Information</code> permet de gérer et d'envoyer des données au serveur. Voici son fonctionnement :
+            <ul>
+                <li><code>add(key, value)</code> : Ajoute une paire clé-valeur.</li>
+                <li><code>info()</code> : Retourne un objet contenant toutes les paires clé-valeur ajoutées.</li>
+                <li><code>push()</code> : Envoie les données vers un serveur via une requête PHP.</li>
+            </ul>
+        </p>
+        <pre><code>
+class Information {
+    constructor(url) {
+        this.url = url;
+        this.data = {};
+    }
+
+    add(key, value) {
+        this.data[key] = value;
+    }
+
+    info() {
+        return this.data;
+    }
+
+    push() {
+        console.log("Données envoyées :", this.data);
+        // Code pour envoyer ces données à un serveur PHP ici
+    }
+}
+        </code></pre>
+    </section>
+
+</body>
+</html>

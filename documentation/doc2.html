@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Technique - Classe Creat_form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+            color: #c7254e;
+        }
+
+        pre {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .method {
+            margin-bottom: 20px;
+        }
+
+        .method h3 {
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Documentation Technique</h1>
+        <p>Classe PHP : <code>Creat_form</code></p>
+    </header>
+
+    <div class="container">
+        <h2>Description</h2>
+        <p>
+            La classe <code>Creat_form</code> permet de générer dynamiquement des formulaires HTML
+            et leurs éléments enfants en attribuant des propriétés et des événements personnalisés.
+        </p>
+
+        <h2>Méthodes</h2>
+
+        <div class="method">
+            <h3>1. <code>__construct($id, $tag, $style)</code></h3>
+            <p>
+                Initialise un nouvel objet <code>Creat_form</code>.
+            </p>
+            <ul>
+                <li><strong>$id</strong> : ID unique du formulaire (type : string).</li>
+                <li><strong>$tag</strong> : Balise HTML principale (par défaut : "form").</li>
+                <li><strong>$style</strong> : Classe ou styles CSS optionnels.</li>
+            </ul>
+            <pre><code>$form = new Creat_form("formID", "form", "my-style");</code></pre>
+        </div>
+
+        <div class="method">
+            <h3>2. <code>stylesheet($path)</code></h3>
+            <p>
+                Ajoute une feuille de style externe au formulaire.
+            </p>
+            <ul>
+                <li><strong>$path</strong> : Chemin vers le fichier CSS (type : string).</li>
+            </ul>
+            <pre><code>$form->stylesheet("style.css");</code></pre>
+        </div>
+
+        <div class="method">
+            <h3>3. <code>add_child($id, $tag)</code></h3>
+            <p>
+                Ajoute un élément enfant au formulaire.
+            </p>
+            <ul>
+                <li><strong>$id</strong> : ID unique de l'élément enfant (type : string).</li>
+                <li><strong>$tag</strong> : Type d'élément HTML (par ex. : "input", "button").</li>
+            </ul>
+            <pre><code>$form->add_child("inputName", "input");</code></pre>
+        </div>
+
+        <div class="method">
+            <h3>4. <code>child_setAtribut($child_id, $attribute, $value)</code></h3>
+            <p>
+                Définit un attribut pour un élément enfant spécifique.
+            </p>
+            <ul>
+                <li><strong>$child_id</strong> : ID de l'enfant (type : string).</li>
+                <li><strong>$attribute</strong> : Nom de l'attribut HTML (par ex. : "placeholder").</li>
+                <li><strong>$value</strong> : Valeur de l'attribut (type : string).</li>
+            </ul>
+            <pre><code>$form->child_setAtribut("inputName", "placeholder", "Entrez votre nom");</code></pre>
+        </div>
+
+        <h2>Exemple d'Utilisation</h2>
+        <pre><code>
+$form = new Creat_form("monForm", "form", "");
+$form->stylesheet("styles.css");
+$form->add_child("nom", "input");
+$form->child_setAtribut("nom", "placeholder", "Entrez votre nom");
+$form->add_child("envoyer", "button");
+$form->child_setAtribut("envoyer", "innerHTML", "Envoyer");
+        </code></pre>
+
+        <h2>Rendu HTML Généré</h2>
+        <pre><code>
+<form id="monForm" class="">
+    <input id="nom" placeholder="Entrez votre nom">
+    <button id="envoyer">Envoyer</button>
+</form>
+        </code></pre>
+    </div>
+
+    <footer>
+        &copy; 2024 Documentation Creat_form
+    </footer>
+</body>
+
+</html>

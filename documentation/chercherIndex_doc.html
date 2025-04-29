@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Technique : Fonction chercherIndex</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #1e1e1e;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ff4c4c;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+        }
+        h1, h2, h3 {
+            color: #ff4c4c;
+        }
+        pre {
+            background-color: #333;
+            color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            color: #ffcc00;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        a {
+            color: #ff4c4c;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Documentation Technique : Fonction `chercherIndex`</h1>
+</header>
+
+<main>
+    <h2>But de la fonction</h2>
+    <p>
+        La fonction <code>chercherIndex</code> permet de rechercher l'index ou la clé d'une valeur spécifique dans un tableau.
+        Elle utilise la fonction PHP native <code>array_search</code> pour effectuer cette opération.
+    </p>
+
+    <h2>Déclaration</h2>
+    <pre><code>function chercherIndex($tableau, $valeur)</code></pre>
+
+    <h2>Paramètres</h2>
+    <ul>
+        <li><strong>$tableau</strong> (array) : Le tableau dans lequel effectuer la recherche.</li>
+        <li><strong>$valeur</strong> (mixed) : La valeur à rechercher dans le tableau. Cela peut être une chaîne, un entier, un booléen, etc.</li>
+    </ul>
+
+    <h2>Valeur de retour</h2>
+    <p>La fonction retourne :</p>
+    <ul>
+        <li><strong>L'index ou la clé</strong> (int|string) : Si la valeur est trouvée dans le tableau.</li>
+        <li><strong>false</strong> : Si la valeur n'est pas trouvée.</li>
+    </ul>
+
+    <h2>Description</h2>
+    <p>
+        La fonction <code>chercherIndex</code> utilise <code>array_search</code> pour localiser une valeur dans un tableau.
+        Si la valeur est trouvée, elle retourne l'index correspondant. Si elle n'est pas trouvée, elle retourne <code>false</code>.
+        Cette fonction est utile pour localiser rapidement des éléments dans un tableau associatif ou numérique.
+    </p>
+
+    <h2>Exemple d'utilisation</h2>
+    <pre><code>
+<?php
+$tableau = array("pomme", "banane", "orange", "fraise");
+$valeur_a_chercher = "orange";
+
+$resultat = chercherIndex($tableau, $valeur_a_chercher);
+
+if ($resultat !== false) {
+    echo "L'index de '$valeur_a_chercher' est $resultat.";
+} else {
+    echo "'$valeur_a_chercher' n'a pas été trouvé dans le tableau.";
+}
+?>
+    </code></pre>
+
+    <h2>Explication de l'exemple</h2>
+    <p>
+        Dans cet exemple, nous définissons un tableau de chaînes contenant des noms de fruits.
+        La fonction <code>chercherIndex</code> est utilisée pour trouver l'index du fruit "orange".
+        Si la valeur est trouvée, un message affiche son index. Sinon, un message indique qu'elle n'a pas été trouvée.
+    </p>
+
+    <h2>Note importante</h2>
+    <p>
+        - Si plusieurs clés ont la même valeur dans un tableau, <code>array_search</code> retourne la première clé trouvée.<br>
+        - Les recherches sont sensibles au type (pas de conversion implicite entre types différents).
+    </p>
+
+    <h2>Améliorations possibles</h2>
+    <ul>
+        <li><strong>Recherche insensible à la casse :</strong> Ajouter une vérification insensible à la casse pour les chaînes avec <code>strtolower()</code>.</li>
+        <li><strong>Recherche partielle :</strong> Étendre la fonction pour permettre de rechercher des valeurs partielles (par exemple, avec <code>strpos</code>).</li>
+        <li><strong>Gestion des erreurs :</strong> Ajouter un message d'erreur ou une exception si le tableau est vide ou mal formé.</li>
+    </ul>
+</main>
+
+<footer>
+    <p>&copy; 2024 Documentation Technique | <a href="https://www.php.net/manual/fr/function.array-search.php" target="_blank">Documentation PHP - array_search()</a></p>
+</footer>
+
+</body>
+</html>

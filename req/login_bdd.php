@@ -1,0 +1,312 @@
+<?php
+header("Access-Control-Allow-Origin: *");
+require_once '../Class/DatabaseHandler.php';
+$servername = "localhost";
+$dbname = $_POST["dbname"];
+$username = $_POST["username"];
+// Create connection
+$id_sha1_user = time();
+$databaseHandler = new DatabaseHandler($dbname, $username);
+if ($databaseHandler->verif != 1) {
+
+    echo 'FAKE';
+} else {
+    // Nom du fichier que tu veux créer
+    $nomFichier = "../Class/dbCheck.php";
+    // Utilisation de fopen() pour créer et ouvrir le fichier en mode écriture ('w')
+    // Le mode 'w' crée un fichier vide pour l'écriture (ou vide le fichier s'il existe déjà)
+    $fichier = fopen($nomFichier, 'w');
+    // Vérifie si le fichier a bien été ouvert
+    if ($fichier) {
+        // Contenu à écrire dans le fichier
+        $contenu = "<?php \n";
+        $contenu =  $contenu . '$dbname = "' . $dbname . '";' . "\n";
+        $contenu =  $contenu . '$username = "' . $username . '";' . "\n";
+        $contenu =  $contenu . '$admin_id_sha1_user  = "' . $id_sha1_user . '";' . "\n";
+        $contenu = $contenu . "?>\n";
+        // Écriture du contenu dans le fichier
+        fwrite($fichier, $contenu);
+        // Fermeture du fichier après écriture
+        fclose($fichier);
+        echo "Le fichier a été créé et le contenu a été écrit avec succès.";
+        require_once '../Class/dbCheck.php';
+        // Initialisation du gestionnaire de base de données
+        $databaseHandler = new DatabaseHandler($dbname, $username);
+
+        // Définition des colonnes et de leurs types dans un tableau associatif
+        $columns = [
+            "id_user"               => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+            "date_user"          => "LONGTEXT NOT NULL",
+            "id_sha1_user"          => "LONGTEXT NOT NULL",
+            "id_parent_user"        => "LONGTEXT NOT NULL",
+            "description_user"      => "LONGTEXT NOT NULL",
+            "title_user"            => "LONGTEXT NOT NULL",
+            "img_user"              => "LONGTEXT NOT NULL",
+            "nom_user"              => "LONGTEXT NOT NULL",
+            "prenom_user"           => "LONGTEXT NOT NULL",
+            "password_user"         => "LONGTEXT NOT NULL",
+            "email_user"            => "LONGTEXT NOT NULL",
+            "activation_user"       => "LONGTEXT NOT NULL",
+            "date_inscription_user" => "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        ];
+        // Itération sur le tableau pour définir les noms et types de colonnes
+        foreach ($columns as $name => $type) {
+            $databaseHandler->set_column_names($name);
+            $databaseHandler->set_column_types($type);
+        }
+        // Ajout de la table à la base de données
+        $databaseHandler->add_table($dbname);
+        // Initialisation du gestionnaire de base de données
+        $databaseHandler = new DatabaseHandler($dbname, $username);
+
+        // Définition des colonnes et de leurs types dans un tableau associatif
+        $columns = [
+            "id_projet"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+            "activation_projet"                   => "LONGTEXT NOT NULL",
+            "id_general"                          => "LONGTEXT NOT NULL",
+            "type_projet"                          => "LONGTEXT NOT NULL",
+            "id_user_projet"                      => "LONGTEXT NOT NULL",
+            "id_sha1_user_projet"                 => "LONGTEXT NOT NULL",
+            "id_sha1_projet"                      => "LONGTEXT NOT NULL",
+            "id_sha1_projet_lock"                 => "LONGTEXT NOT NULL",
+            "id_sha1_projet_song"                 => "LONGTEXT NOT NULL",
+            "color_projet"                        => "LONGTEXT NOT NULL",
+            "google_title_projet"                 => "LONGTEXT NOT NULL",
+            "level_urgence_projet"                => "LONGTEXT NOT NULL",
+            "change_meta_name_projet"             => "LONGTEXT NOT NULL",
+            "change_meta_name_projet_toggle"      => "LONGTEXT NOT NULL",
+            "change_meta_content_projet"          => "LONGTEXT NOT NULL",
+            "change_meta_content_projet_toggle"   => "LONGTEXT NOT NULL",
+            "id_sha1_parent_projet"               => "LONGTEXT NOT NULL",
+            "id_sha1_parent_projet2"              => "LONGTEXT NOT NULL",
+            "cryptage_projet"                     => "LONGTEXT NOT NULL",
+            "html_mode_projet_1"                  => "LONGTEXT NOT NULL",
+            "html_mode_projet_2"                  => "LONGTEXT NOT NULL",
+            "style_pages_projet"                  => "LONGTEXT NOT NULL",
+            "name_pages_projet"                   => "LONGTEXT NOT NULL",
+            "input_cryptage_projet"               => "LONGTEXT NOT NULL",
+            "name_projet"                         => "LONGTEXT NOT NULL",
+            "name_extention_projet"               => "LONGTEXT NOT NULL",
+            "statue_projet"                       => "LONGTEXT NOT NULL",
+            "title_projet"                        => "LONGTEXT NOT NULL",
+            "title_projet_toggle"                 => "LONGTEXT NOT NULL",
+            "description_projet"                  => "LONGTEXT NOT NULL",
+            "description_projet_toggle"           => "LONGTEXT NOT NULL",
+            "password_projet"                     => "LONGTEXT NOT NULL",
+            "visibility_1_projet"                 => "LONGTEXT NOT NULL",
+            "visibility_2_projet"                 => "LONGTEXT NOT NULL",
+            "screen_shoot_projet"                 => "LONGTEXT NOT NULL",
+            "img_projet_src1"                     => "LONGTEXT NOT NULL",
+            "img_projet_src1_toggle"              => "LONGTEXT NOT NULL",
+            "total_style_pages"                   => "LONGTEXT NOT NULL",
+            "total_style_parent_pages"            => "LONGTEXT NOT NULL",
+            "total_style_text_pages"              => "LONGTEXT NOT NULL",
+            "img_projet_src2"                     => "LONGTEXT NOT NULL",
+            "img_projet_src2_toggle"              => "LONGTEXT NOT NULL",
+            "img_projet_visibility"               => "LONGTEXT NOT NULL",
+            "group_projet"                        => "LONGTEXT NOT NULL",
+            "heure_debut_projet"                  => "LONGTEXT NOT NULL",
+            "date_debut_projet"                   => "LONGTEXT NOT NULL",
+            "dure_projet"                         => "LONGTEXT NOT NULL",
+            "publication_date_j_projet"           => "LONGTEXT NOT NULL",
+            "publication_date_h_projet"           => "LONGTEXT NOT NULL",
+            "shop_projet"                         => "LONGTEXT NOT NULL",
+            "date_inscription_projet"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        ];
+        // Itération sur le tableau pour définir les noms et types de colonnes
+        foreach ($columns as $name => $type) {
+            $databaseHandler->set_column_names($name);
+            $databaseHandler->set_column_types($type);
+        }
+        // Ajout de la table à la base de données
+        $databaseHandler->add_table("projet");
+
+
+
+
+
+
+// ******************************************************************
+$databaseHandler = new DatabaseHandler($dbname, $username);
+
+// Définition des colonnes et de leurs types dans un tableau associatif
+$columns = [
+    "id_visit"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+    "id_ip_0"                          => "LONGTEXT NOT NULL", 
+    "id_ip_1"                          => "LONGTEXT NOT NULL",
+    "id_ip_2"                          => "LONGTEXT NOT NULL",
+    "id_ip_3"                          => "LONGTEXT NOT NULL",
+    "id_ip_4"                          => "LONGTEXT NOT NULL",
+    "id_ip_5"                          => "LONGTEXT NOT NULL",
+    "id_ip_6"                          => "LONGTEXT NOT NULL",
+    "id_ip_7"                          => "LONGTEXT NOT NULL",
+    "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
+
+
+
+
+
+ 
+ 
+    "date_inscription_visit"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+];
+// Itération sur le tableau pour définir les noms et types de colonnes
+foreach ($columns as $name => $type) {
+    $databaseHandler->set_column_names($name);
+    $databaseHandler->set_column_types($type);
+}
+// Ajout de la table à la base de données
+$databaseHandler->add_table("visit");
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+// ******************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ******************************************************************
+$databaseHandler = new DatabaseHandler($dbname, $username);
+
+// Définition des colonnes et de leurs types dans un tableau associatif
+$columns = [
+    "id_req_quiz"                               => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+    "id_sha1_req_quiz"                          => "LONGTEXT NOT NULL", 
+    "id_sha1_projet_user"                          => "LONGTEXT NOT NULL", 
+    "id_sha1_child_req_quiz"                    => "LONGTEXT NOT NULL", 
+    "id_sha1_child_req_question"                 => "LONGTEXT NOT NULL", 
+    "id_sha1_child_req_reponse_1"                 => "LONGTEXT NOT NULL", 
+    "id_sha1_child_req_reponse_2"                 => "LONGTEXT NOT NULL", 
+    "id_sha1_child_req_reponse_z"                 => "LONGTEXT NOT NULL", 
+    "REMOTE_ADDR"                               => "LONGTEXT NOT NULL", 
+    "date_inscription_visit"                    => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+];
+// Itération sur le tableau pour définir les noms et types de colonnes
+foreach ($columns as $name => $type) {
+    $databaseHandler->set_column_names($name);
+    $databaseHandler->set_column_types($type);
+}
+// Ajout de la table à la base de données
+$databaseHandler->add_table("req_quiz");
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+// ******************************************************************
+
+
+
+$databaseHandler = new DatabaseHandler($dbname, $username);
+
+// Définition des colonnes et de leurs types dans un tableau associatif
+$columns = [
+    "id_visit"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+    "id_ip_0"                          => "LONGTEXT NOT NULL", 
+    "id_ip_1"                          => "LONGTEXT NOT NULL",
+    "id_ip_2"                          => "LONGTEXT NOT NULL",
+    "id_ip_3"                          => "LONGTEXT NOT NULL",
+    "id_ip_4"                          => "LONGTEXT NOT NULL",
+    "id_ip_5"                          => "LONGTEXT NOT NULL",
+    "id_ip_6"                          => "LONGTEXT NOT NULL",
+    "id_ip_7"                          => "LONGTEXT NOT NULL",
+    "id_ip_8"                          => "LONGTEXT NOT NULL",
+    "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
+
+ 
+    "date_inscription_visit"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+];
+// Itération sur le tableau pour définir les noms et types de colonnes
+foreach ($columns as $name => $type) {
+    $databaseHandler->set_column_names($name);
+    $databaseHandler->set_column_types($type);
+}
+// Ajout de la table à la base de données
+$databaseHandler->add_table("log");
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+
+
+
+        // Initialisation du gestionnaire de base de données
+        $databaseHandler = new DatabaseHandler($dbname, $username);
+
+        // Définition des colonnes et de leurs types dans un tableau associatif
+        $columns = [
+            "id_projet_img_auto"           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+            "id_general"                   => "LONGTEXT NOT NULL",
+            "id_sha1_projet_img"           => "LONGTEXT NOT NULL",
+            "id_projet_img"                => "LONGTEXT NOT NULL",
+            "id_user_projet_img"           => "LONGTEXT NOT NULL",
+            "img_projet_src_img"           => "LONGTEXT NOT NULL",
+            "extention_img"                => "LONGTEXT NOT NULL",
+            "date_inscription_projet_img"  => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        ];
+
+        // Itération sur le tableau pour définir les noms et types de colonnes
+        foreach ($columns as $name => $type) {
+            $databaseHandler->set_column_names($name);
+            $databaseHandler->set_column_types($type);
+        }
+        // Ajout de la table à la base de données
+        $databaseHandler->add_table("projet_img");
+        // Initialisation du gestionnaire de base de données
+        $databaseHandler = new DatabaseHandler($dbname, $username);
+        // Définition des colonnes et de leurs types dans un tableau associatif
+        $columns = [
+            "id_social_media"              => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+            "id_general"                   => "LONGTEXT NOT NULL",
+            "id_user_social_media"         => "LONGTEXT NOT NULL",
+            "id_sha1_social_media"         => "LONGTEXT NOT NULL",
+            "name_social_media"            => "LONGTEXT NOT NULL",
+            "statue_social_media"          => "LONGTEXT NOT NULL",
+            "title_social_media"           => "LONGTEXT NOT NULL",
+            "description_social_media"     => "LONGTEXT NOT NULL",
+            "password_social_media"        => "LONGTEXT NOT NULL",
+            "visibility_1_social_media"    => "LONGTEXT NOT NULL",
+            "visibility_2_social_media"    => "LONGTEXT NOT NULL",
+            "img_projet_src_social_media"  => "LONGTEXT NOT NULL",
+            "img_projet_visibility_social_media" => "LONGTEXT NULL",
+            "date_inscription_social_media" => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        ];
+        // Itération sur le tableau pour définir les noms et types de colonnes
+        foreach ($columns as $name => $type) {
+            $databaseHandler->set_column_names($name);
+            $databaseHandler->set_column_types($type);
+        }
+        // Ajout de la table à la base de données
+        $databaseHandler->add_table("social_media");
+        $req_sqlxx = 'SELECT * FROM `' . $dbname . '` WHERE `nom_user`="' . $dbname . '"  AND `password_user` ="' . $username . '" ';
+        $databaseHandlerxx = new DatabaseHandler($dbname, $input_2);
+        $databaseHandlerxx->getDataFromTable($req_sqlxx, "nom_user");
+        if (count($databaseHandlerxx->tableList_info) > 0) {
+        } else {
+            $databaseHandler->action_sql("INSERT INTO `$dbname` (nom_user,password_user,id_sha1_user) VALUES ('$dbname','$username','$id_sha1_user')");
+        }
+    } else {
+        echo "Erreur lors de la création du fichier.";
+    }
+}

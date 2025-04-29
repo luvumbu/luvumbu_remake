@@ -1,0 +1,47 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f5f5f5; /* Fond clair */
+}
+.hexagon:hover {
+background-color: black;
+}
+.hexagon {
+  position: relative;
+  width: 150px;
+  height: 130px;
+  background-color: #8b0000; /* Couleur rouge foncé */
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre pour donner du relief */
+
+padding: 15px;
+}
+
+.hexagon::before,
+.hexagon::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+}
+
+.hexagon::before {
+  border-bottom: 45px solid #8b0000;
+  top: -45px;
+}
+
+.hexagon::after {
+  border-top: 45px solid #8b0000;
+  bottom: -45px;
+}
