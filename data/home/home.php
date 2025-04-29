@@ -25,8 +25,6 @@
     } else {
       require_once $home_select_all;
     }
-
-    
-    ?>
+ ?>
  </section>
 

@@ -12,6 +12,8 @@ $img_8 = "https://img.icons8.com/ios-filled/40/invisible.png";
 
 require_once $home_insert_css;
 require_once $home_insert_js;
+require_once "Class/replace_element.php";
+
 ?>
 <script>
   const img_1 = "<?= $img_1  ?>";
@@ -657,15 +659,18 @@ switch ($type_projet_0) {
 <?php
     break;
 }
+$google_title_projet_ = replace_element_2($google_title_projet_);
+$source = 'all_projet/' . $_SESSION["index"][4] . ".php";
+$destination = 'all_projet/' . $google_title_projet_ . '.php';
 
-
-
-
+if (!file_exists($destination)) { 
+  if (copy($source, $destination)) {
+    echo "Le fichier a été copié avec succès.";
+  } else {
+    echo "La copie du fichier a échoué.";
+  }
+}
 ?>
-
-
-
-
 <style>
   .quiz_child {
     background-color: rgba(0, 200, 0, 0.5);
