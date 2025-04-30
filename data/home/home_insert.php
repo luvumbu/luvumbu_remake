@@ -289,7 +289,7 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
           <input type="color" onchange="changeBg(this.value, '2')">
         </div>
       </div>
-      
+
       <div class="editable-field" id="field-2" contenteditable="true"><?= $description_projet_ ?></div>
 
       <?php
@@ -435,11 +435,11 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
 
 
 
-      <a href="req/done.php">
-              <div class="cursor_pointer">
-              <img width="80" height="80" src="https://img.icons8.com/color/80/checkmark--v1.png" alt="checkmark--v1"/>
-      </div>
-      </a>
+        <a href="req/done.php">
+          <div class="cursor_pointer">
+            <img width="80" height="80" src="https://img.icons8.com/color/80/checkmark--v1.png" alt="checkmark--v1" />
+          </div>
+        </a>
         <div onclick="add_child(this)" class="cursor_pointer">
           <img width="40" height="40" src="https://img.icons8.com/office/40/add--v1.png" alt="add--v1" />
         </div>
@@ -457,6 +457,8 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
             <img width="40" height="40" src="https://img.icons8.com/ios/40/link--v1.png" alt="link--v1" />
           </a>
         </div>
+
+
 
 
         <?php
@@ -503,6 +505,7 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
         ?>
 
 
+
         <div>
           <div>
 
@@ -529,19 +532,17 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
             ?>
 
           </div>
+
+
         </div>
         <div>
-
+          <img class="cursor_pointer" onclick="function_stats(this)" width="40" height="40" src="https://img.icons8.com/ios-filled/40/graph.png" alt="graph" />
         </div>
       </div>
-
-    </div>
-
-
-
+    </div>  
   </form>
 
-
+<div id="stats" class="display_none"><?php  require_once 'data/home/home_stats.php' ?></div>
 
 
   <div class="div_elements" style="margin-bottom: 175px;margin-top: 175px;">
@@ -569,6 +570,7 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
           }
           ?>
         </div>
+
         <div class="card_element_title"><?= $title_projet_c_ ?></div>
       </div>
     <?php
@@ -687,7 +689,7 @@ if (copy($source, $destination)) {
 
 
 
- 
+
 
 
 $google_title_projet_ = replace_element_2($google_title_projet_);
@@ -704,3 +706,23 @@ if (copy($source, $destination)) {
     background-color: rgba(0, 200, 0, 0.5);
   }
 </style>
+
+
+<script>
+  function function_stats(_this){
+
+
+    if( _this.src=="https://img.icons8.com/ios-filled/40/graph.png"){
+         _this.src="https://img.icons8.com/dotty/50/graph.png" ; 
+
+         document.getElementById("stats").className ="" ; 
+    }
+    else{
+      _this.src="https://img.icons8.com/ios-filled/40/graph.png" ; 
+      document.getElementById("stats").className ="display_none" ; 
+
+      
+    }
+
+  }
+</script>

@@ -30,71 +30,7 @@ $databaseHandler->get_dynamicVariables();
  
 ?>
 
-<div style="background-color: black;padding:10px;color:white;text-align:center">
-  TOTAL  : <?= count($dynamicVariables['id_visit'])?>
-</div>
-<div class="tableau">
-
-
-
-
-  <?php
-
-  for ($i = 0; $i < count($dynamicVariables['id_visit']); $i++) {
-
-
-  ?>
-    <div>
-      <?= $dynamicVariables['id_visit'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_0'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_1'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_2'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_3'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_4'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_5'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_6'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_7'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_8'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['REMOTE_ADDR'][$i] ?>
-    </div>
-    <div >
-      <?= $dynamicVariables['date_inscription_visit'][$i] ?>
-    </div>
-
-    <div class="blue__">
-
-    </div>
  
-
-  <?php
-
-  }
-  ?>
-
-
-
-
-</div>
 
 <style>
 
@@ -185,76 +121,8 @@ $databaseHandler->get_dynamicVariables();
 
  
 ?>
-<div style="background-color: red;padding:10px;color:white;text-align:center">
-  TOTAL  : <?= count($dynamicVariables['id_visit'])?>
-</div>
-<style>
-  .tableau2 div {
-    border: 1px solid white;
-    padding: 10px;
-    max-width: 100%;
-    margin: auto;
-   
-
-  }
-</style>
-<div  class="tableau2">
-
-
-
-
-  <?php
-
-  for ($i = 0; $i < count($dynamicVariables['id_visit']); $i++) {
-
  
-  ?>
-    <div>
-      <?= $dynamicVariables['id_visit'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_0'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_1'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_2'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_3'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_4'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_5'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_6'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_7'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['id_ip_8'][$i] ?>
-    </div>
-    <div>
-      <?= $dynamicVariables['REMOTE_ADDR'][$i] ?>
-    </div>
-    <div >
-      <?= $dynamicVariables['date_inscription_visit'][$i] ?>
-    </div>
-
-    <div class="blue__">
-
-    </div>
  
-
-  <?php
-
-  }
-  ?>
 
 
 

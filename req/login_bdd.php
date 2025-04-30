@@ -141,11 +141,6 @@ $columns = [
     "id_ip_6"                          => "LONGTEXT NOT NULL",
     "id_ip_7"                          => "LONGTEXT NOT NULL",
     "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
-
-
-
-
-
  
  
     "date_inscription_visit"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
@@ -157,6 +152,54 @@ foreach ($columns as $name => $type) {
 }
 // Ajout de la table à la base de données
 $databaseHandler->add_table("visit");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ******************************************************************
+$databaseHandler = new DatabaseHandler($dbname, $username);
+
+// Définition des colonnes et de leurs types dans un tableau associatif
+$columns = [
+    "id_comment"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+    "id_sha1_user"                          => "LONGTEXT NOT NULL", 
+    "id_sha1_comment"                          => "LONGTEXT NOT NULL",
+    "id_comment_user_name"                          => "LONGTEXT NOT NULL",
+    "id_comment_text"                          => "LONGTEXT NOT NULL",
+    "id_ip_4"                          => "LONGTEXT NOT NULL",
+    "id_ip_5"                          => "LONGTEXT NOT NULL",
+    "id_ip_6"                          => "LONGTEXT NOT NULL",
+    "id_ip_7"                          => "LONGTEXT NOT NULL",
+    "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
+ 
+ 
+    "date_inscription_comment"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+];
+// Itération sur le tableau pour définir les noms et types de colonnes
+foreach ($columns as $name => $type) {
+    $databaseHandler->set_column_names($name);
+    $databaseHandler->set_column_types($type);
+}
+// Ajout de la table à la base de données
+$databaseHandler->add_table("comment");
+
+
+
+
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
