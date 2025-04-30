@@ -1,9 +1,9 @@
 <?php
 require_once "data/index/index_sesstion_start.php";
+$_SESSION["nombre"]  = 0 ; 
 ?>
 <!DOCTYPE html>
 <html lang="<?= $lang ?>">
-
 <head>
   <meta charset="UTF-8"> <!-- Encodage UTF-8 pour supporter les caractères spéciaux -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adaptation aux appareils mobiles -->
@@ -53,7 +53,5 @@ require_once "data/index/index_sesstion_start.php";
   ?>
   <div>
   </div>
-
 </body>
-
 </html>

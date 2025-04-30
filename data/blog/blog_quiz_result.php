@@ -39,10 +39,8 @@
     $id_sha1_child_req_reponse_1 =  $dynamicVariables['id_sha1_child_req_reponse_1'];
     $id_sha1_child_req_reponse_2 =  $dynamicVariables['id_sha1_child_req_reponse_2'];
     $id_sha1_child_req_reponse_z =  $dynamicVariables['id_sha1_child_req_reponse_z'];
-
     if (count($id_sha1_child_req_reponse_1) > 0) {
     ?>
-
      <style>
          #quizForm {
              display: none;
@@ -52,7 +50,6 @@
     }
 
     echo "<div class='lise_reponse'>";
-
     $bonne_reponse = 0;
     $mauvaise_reponse = 0;
     $total_reponse = 0;
@@ -99,28 +96,13 @@
 
         echo "</div>";
     }
-
     echo "<div>";
-
-
-
-
-
-
-    ?>
-
-
- <?php
     if (count($dynamicVariables['id_req_quiz']) > 0) {
     ?>
      <div class="resultat_final">
-
-
          <?php
-
             $calcul = $bonne_reponse * 100;
             $calcul2 = intval($calcul / $total_reponse);
-
             echo $calcul2 . '%';
             ?>
          <?= $bonne_reponse . "/" . $total_reponse ?>
@@ -129,39 +111,22 @@
     }
 
     ?>
-
-
-
-
-
-
  <style>
      .kook2 {
          background-color: rgba(0, 0, 200, 0.3);
-
      }
-
      .lise_reponse {
-
          width: 60%;
-
          margin: auto;
          text-align: center;
          margin-top: 135px;
      }
-
-
      .ok {
          background-color: rgba(0, 200, 0, 0.3);
-
      }
-
      .nok {
          background-color: rgba(200, 0, 0, 0.3);
-
      }
-
-
      .ok,
      .nok,
      .kook,
@@ -170,11 +135,9 @@
          text-shadow: 1px 1px 4px black;
          color: white;
      }
-
      .separation {
          margin-bottom: 45px;
      }
-
      .resultat_final {
          padding: 15px;
          text-shadow: 1px 1px 4px black;

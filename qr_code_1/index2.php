@@ -1,8 +1,6 @@
 <?php
-
 session_start() ; 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +8,13 @@ session_start() ;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
+<body>    
 <style>
     body{
         position: absolute;
         background-color: black;
     }
 </style>
-
 <?php 
 
 /*
@@ -43,57 +39,32 @@ session_start() ;
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  */
-
-
 /*
 var_dump($_POST['level']);
-
 var_dump($_POST['size']);
 var_dump($_POST['data']);
-
 */
-
-  
- 
-
- 
-
 $id_sha1_projet =  $_SESSION["id_sha1_projet2"]; 
 $id_sha1_projet_name =   $_SERVER['SERVER_NAME'].'/qr_scan.php/'.$id_sha1_projet ; 
-
- 
-
- 
-
 //set it to writable location, a place for temp generated PNG files
 $PNG_TEMP_DIR = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'temp' . DIRECTORY_SEPARATOR;
-
 //html PNG location prefix
 $PNG_WEB_DIR = 'temp/';
- 
-
-
 include "qrlib.php";
-
 //ofcourse we need rights to create temp dir
 if (!file_exists($PNG_TEMP_DIR))
     mkdir($PNG_TEMP_DIR);
-
-
 $filename = $PNG_TEMP_DIR . $id_sha1_projet.'.png';
-
 //processing form input
 //remember to sanitize user input in real-life solution !!!
 $errorCorrectionLevel = 'L';
 if (isset($_POST['level']) && in_array($_POST['level'], array('L', 'M', 'Q', 'H'))) {
     $errorCorrectionLevel = $_POST['level'];
 }
-
 $matrixPointSize = 4;
 if (isset($_POST['size'])) {
     $matrixPointSize = min(max((int)$_POST['size'], 1), 10);
 }
-
 // Get data from POST or GET
 $qrData = '';
 if (isset($_POST['data'])) {
@@ -101,13 +72,11 @@ if (isset($_POST['data'])) {
 } elseif (isset($_GET['data'])) {
     $qrData = $_GET['data'];
 }
-
 if (!empty($qrData)) {
     //it's very important!
     if (trim($qrData) == '') {
         die('data cannot be empty! <a href="?">back</a>');
     }
-
     // user data
     $filename = $PNG_TEMP_DIR . 'test' . md5($qrData . '|' . $errorCorrectionLevel . '|' . $matrixPointSize) . '.png';
     QRcode::png($qrData, $filename, $errorCorrectionLevel, $matrixPointSize, 2);
@@ -115,26 +84,11 @@ if (!empty($qrData)) {
     //default data
     QRcode::png($id_sha1_projet_name, $filename, $errorCorrectionLevel, $matrixPointSize, 2);
 }
-
 //display generated file
- 
-
 //config form
- 
- 
- 
-
 // benchmark
 QRtools::timeBenchmark();
-
-
 ?>
-
-
-
-
 <meta http-equiv="refresh" content="0; URL=../index.php" />
 </body>
-
-
 </html>

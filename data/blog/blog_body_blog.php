@@ -13,10 +13,8 @@
  <?php 
 require_once "src/css/body_blog_css.php";
  ?>
-</head>
- 
+</head> 
 <body>
-
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -29,11 +27,7 @@ require_once "src/css/body_blog_css.php";
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-
           <?php
-
-
-
           for ($i = 0; $i < count($id_sha1_projet); $i++) {
 
             $title_projet_ = $title_projet_x[$i];

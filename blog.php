@@ -1,5 +1,20 @@
 <?php
 session_start();
+ 
+if(isset($_SESSION["nombre"])){
+    $_SESSION["nombre"] ++ ; 
+}
+else{
+    $_SESSION["nombre"] = 0 ; 
+}
+
+
+if($_SESSION["nombre"]>3){
+    ?>
+    <meta http-equiv="refresh" content="0; URL=../index.php">
+    <?php 
+}
+else{
 header("Access-Control-Allow-Origin: *");
 require_once "Class/dbCheck.php";
 require_once "Class/DatabaseHandler.php";
@@ -15,8 +30,6 @@ require_once "Class/format_date_europeenne.php";
 require_once "Class/limiterMots.php";
 require_once "Class/formaterDateFr.php";
 date_default_timezone_set('Europe/Paris');
-
-
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
 $url = new Give_url();
 // Utilisation de la méthode split_basename pour séparer par "_"
@@ -30,46 +43,26 @@ if (file_exists($filename)) {
     if (file_exists($filename2)) {
         require_once $filename2;
     }
-    if ($row_projet[0]["visibility_1_projet"] == "1") {
-
- 
- 
+    if ($row_projet[0]["visibility_1_projet"] == "1") { 
         require_once "data/blog/blog_sql.php";
         require_once "data/blog/blog_index.php";
         require_once "src/css/blog_style_1.php";
-
- 
-
         $url_2 = $google_title_projet[0] . '_' . $id_projet[0];
-
         if ($url_ != $url_2) {
-
-
 ?>
 
             <meta http-equiv="refresh" content="0; URL=<?= $url_2 ?>">
     <?php
         }
-
-
 $_SESSION["id_sha1_comment"] = $id_sha1_projet[0] ; 
-
-
-
- 
         require_once "req_sql/require_once3.php";
-
-
-
         require_once "data/blog/blog_comment.php";
     }
 } else {
-
     ?>
-
-
     <meta http-equiv="refresh" content="0; URL=<?= $url_2 ?>">
 <?php
+}
 }
 ?>
 <script>
