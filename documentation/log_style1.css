@@ -1,0 +1,7 @@
+ 
+body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+.conversation { margin-bottom: 30px; border-bottom: 1px solid #eee; }
+.user-message { background: #f0f0f0; padding: 15px; border-radius: 5px; margin: 10px 0; }
+.assistant-message { background: #e8f4ff; padding: 15px; border-radius: 5px; margin: 10px 0; }
+.timestamp { color: #666; font-size: 0.8em; }
+ 

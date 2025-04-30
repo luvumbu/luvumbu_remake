@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - AsciiConverter.php</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #16a085;
+        }
+        .method {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .params {
+            margin-left: 20px;
+        }
+        .params li {
+            margin: 10px 0;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .use-cases {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .output {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 3px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Documentation de AsciiConverter.php</h1>
+
+    <div class="description">
+        <h2>Description</h2>
+        <p>La classe <code>AsciiConverter</code> fournit des méthodes statiques pour convertir des chaînes de caractères en valeurs ASCII et vice-versa. Cette classe est particulièrement utile pour le traitement de texte et la manipulation de caractères au niveau ASCII.</p>
+    </div>
+
+    <div class="method">
+        <h2>1. asciiToString()</h2>
+
+        <h3>Syntaxe</h3>
+        <pre><code>public static function asciiToString($asciiString)</code></pre>
+
+        <h3>Description</h3>
+        <p>Convertit une chaîne de valeurs ASCII (séparées par des virgules) en une chaîne de caractères.</p>
+
+        <h3>Paramètres</h3>
+        <ul class="params">
+            <li><code>$asciiString</code> : Une chaîne contenant des valeurs ASCII séparées par des virgules</li>
+        </ul>
+
+        <h3>Retour</h3>
+        <p>Retourne la chaîne de caractères correspondante aux valeurs ASCII</p>
+
+        <div class="example">
+            <h3>Exemple</h3>
+            <pre><code>$asciiString = "72, 101, 108, 108, 111";
+$result = AsciiConverter::asciiToString($asciiString);
+echo $result; // Affiche "Hello"</code></pre>
+            <div class="output">Sortie : Hello</div>
+        </div>
+    </div>
+
+    <div class="method">
+        <h2>2. stringToAscii()</h2>
+
+        <h3>Syntaxe</h3>
+        <pre><code>public static function stringToAscii($string)</code></pre>
+
+        <h3>Description</h3>
+        <p>Convertit une chaîne de caractères en une chaîne de valeurs ASCII séparées par des virgules.</p>
+
+        <h3>Paramètres</h3>
+        <ul class="params">
+            <li><code>$string</code> : La chaîne de caractères à convertir</li>
+        </ul>
+
+        <h3>Retour</h3>
+        <p>Retourne une chaîne contenant les valeurs ASCII séparées par des virgules</p>
+
+        <div class="example">
+            <h3>Exemple</h3>
+            <pre><code>$string = "Hello";
+$result = AsciiConverter::stringToAscii($string);
+echo $result; // Affiche "72,101,108,108,111"</code></pre>
+            <div class="output">Sortie : 72,101,108,108,111</div>
+        </div>
+    </div>
+
+    <div class="use-cases">
+        <h2>Cas d'utilisation</h2>
+        <ol>
+            <li>Encodage/décodage de texte pour transmission sécurisée</li>
+            <li>Traitement de caractères spéciaux</li>
+            <li>Débogage de problèmes d'encodage de caractères</li>
+            <li>Manipulation de données textuelles au niveau binaire</li>
+        </ol>
+    </div>
+
+    <div class="example">
+        <h2>Exemple complet</h2>
+        <pre><code>// Création d'un message
+$message = "Hello World";
+
+// Conversion en ASCII
+$ascii = AsciiConverter::stringToAscii($message);
+echo "ASCII: " . $ascii . "\n";
+// Sortie: 72,101,108,108,111,32,87,111,114,108,100
+
+// Reconversion en texte
+$text = AsciiConverter::asciiToString($ascii);
+echo "Texte: " . $text . "\n";
+// Sortie: Hello World</code></pre>
+    </div>
+
+    <div class="note">
+        <h2>Notes importantes</h2>
+        <ol>
+            <li>La méthode <code>asciiToString()</code> ignore les valeurs non numériques</li>
+            <li>Les valeurs ASCII sont automatiquement converties en entiers</li>
+            <li>Les espaces sont gérés (ASCII 32)</li>
+            <li>La classe utilise des méthodes statiques, donc pas besoin d'instancier la classe</li>
+        </ol>
+    </div>
+</body>
+</html>

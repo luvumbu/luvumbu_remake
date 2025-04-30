@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - afficherValeursFormattees2.php</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #16a085;
+        }
+        .function {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .params {
+            margin-left: 20px;
+        }
+        .params li {
+            margin: 10px 0;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .global-var {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Documentation de afficherValeursFormattees2.php</h1>
+
+    <div class="description">
+        <h2>Description</h2>
+        <p>Ce fichier contient une fonction JavaScript qui permet de séparer une chaîne de caractères en un tableau de sous-chaînes selon un séparateur spécifié.</p>
+    </div>
+
+    <div class="function">
+        <h2>Fonction : afficherValeursFormattees2()</h2>
+
+        <h3>Syntaxe</h3>
+        <pre><code>afficherValeursFormattees2(chaine, separation)</code></pre>
+
+        <h3>Paramètres</h3>
+        <ul class="params">
+            <li><code>chaine</code> : La chaîne de caractères à diviser</li>
+            <li><code>separation</code> : Le séparateur à utiliser pour diviser la chaîne</li>
+        </ul>
+
+        <h3>Retour</h3>
+        <p>Retourne un tableau contenant les sous-chaînes obtenues après la séparation</p>
+
+        <div class="global-var">
+            <h3>Variable globale</h3>
+            <pre><code>var __ = "__";</code></pre>
+            <p>Cette variable définit un séparateur par défaut qui peut être utilisé avec la fonction.</p>
+        </div>
+
+        <div class="example">
+            <h3>Exemple d'utilisation</h3>
+            <pre><code>// Exemple avec le séparateur par défaut
+const texte = "Bonjour__tout__le__monde";
+const resultat1 = afficherValeursFormattees2(texte, __);
+console.log(resultat1);
+// Résultat : ["Bonjour", "tout", "le", "monde"]
+
+// Exemple avec un séparateur personnalisé
+const texte2 = "pomme,orange,banane,fraise";
+const resultat2 = afficherValeursFormattees2(texte2, ",");
+console.log(resultat2);
+// Résultat : ["pomme", "orange", "banane", "fraise"]</code></pre>
+        </div>
+    </div>
+
+    <div class="note">
+        <h2>Cas d'utilisation</h2>
+        <ul>
+            <li>Séparation de chaînes de données formatées</li>
+            <li>Traitement de listes de valeurs stockées sous forme de chaînes</li>
+            <li>Parsing de données structurées avec un séparateur connu</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <h2>Notes importantes</h2>
+        <ol>
+            <li>La fonction utilise la méthode JavaScript native <code>split()</code></li>
+            <li>Elle est particulièrement utile pour traiter des données formatées avec un séparateur constant</li>
+            <li>Le séparateur peut être personnalisé selon les besoins</li>
+        </ol>
+    </div>
+</body>
+</html>

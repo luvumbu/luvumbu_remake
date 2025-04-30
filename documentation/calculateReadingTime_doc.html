@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - calculateReadingTime.php</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #16a085;
+        }
+        .method {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .params {
+            margin-left: 20px;
+        }
+        .params li {
+            margin: 10px 0;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .property {
+            background-color: #e9ecef;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .use-case {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .output {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 3px;
+            margin: 5px 0;
+        }
+        .type-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            background-color: #6c757d;
+            color: white;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Documentation de calculateReadingTime.php</h1>
+
+    <div class="description">
+        <h2>Description</h2>
+        <p>La classe <code>ReadingTimeCalculator</code> permet de calculer le temps de lecture estimé d'un texte en se basant sur une vitesse de lecture moyenne en mots par minute. Cette classe est particulièrement utile pour donner aux utilisateurs une estimation du temps nécessaire pour lire un article ou un contenu textuel.</p>
+    </div>
+
+    <div class="property">
+        <h2>Propriétés</h2>
+        
+        <h3>wordsPerMinute</h3>
+        <ul>
+            <li><span class="type-badge">Type</span> <code>int</code></li>
+            <li><span class="type-badge">Visibilité</span> <code>private</code></li>
+            <li><span class="type-badge">Défaut</span> 200 mots par minute</li>
+            <li><strong>Description :</strong> Nombre de mots qu'une personne peut lire par minute (vitesse de lecture moyenne)</li>
+        </ul>
+    </div>
+
+    <div class="method">
+        <h2>Constructeur</h2>
+
+        <h3>Syntaxe</h3>
+        <pre><code>public function __construct(int $wordsPerMinute = 200)</code></pre>
+
+        <h3>Description</h3>
+        <p>Initialise une nouvelle instance de <code>ReadingTimeCalculator</code> avec une vitesse de lecture spécifique.</p>
+
+        <h3>Paramètres</h3>
+        <ul class="params">
+            <li>
+                <code>$wordsPerMinute</code> (optionnel)
+                <ul>
+                    <li>Type : <code>int</code></li>
+                    <li>Valeur par défaut : 200</li>
+                    <li>Représente la vitesse de lecture moyenne d'un adulte</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="method">
+        <h2>Méthode calculateTime()</h2>
+
+        <h3>Syntaxe</h3>
+        <pre><code>public function calculateTime(string $text): string</code></pre>
+
+        <h3>Description</h3>
+        <p>Calcule le temps de lecture estimé pour un texte donné.</p>
+
+        <h3>Paramètres</h3>
+        <ul class="params">
+            <li>
+                <code>$text</code>
+                <ul>
+                    <li>Type : <code>string</code></li>
+                    <li>Le texte dont on veut calculer le temps de lecture</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Retour</h3>
+        <ul>
+            <li>Type : <code>string</code></li>
+            <li>Format : "X min Y sec" ou "Y sec" si moins d'une minute</li>
+            <li>Exemple : "2 min 30 sec" ou "45 sec"</li>
+        </ul>
+
+        <h3>Fonctionnement</h3>
+        <ol>
+            <li>Compte le nombre de mots dans le texte</li>
+            <li>Calcule les minutes en divisant le nombre de mots par la vitesse de lecture</li>
+            <li>Calcule les secondes restantes</li>
+            <li>Retourne une chaîne formatée avec le temps de lecture</li>
+        </ol>
+    </div>
+
+    <div class="example">
+        <h2>Exemples d'utilisation</h2>
+
+        <h3>1. Utilisation basique avec paramètres par défaut</h3>
+        <pre><code>$calculator = new ReadingTimeCalculator();
+$text = "Ceci est un exemple de texte qui permet de tester le calcul du temps de lecture.";
+echo $calculator->calculateTime($text);</code></pre>
+        <div class="output">Sortie possible : "1 sec" (car le texte est court)</div>
+
+        <h3>2. Personnalisation de la vitesse de lecture</h3>
+        <pre><code>// Pour un lecteur plus lent (150 mots par minute)
+$slowReader = new ReadingTimeCalculator(150);
+$longText = str_repeat("Ceci est une phrase exemple. ", 100);
+echo $slowReader->calculateTime($longText);
+
+// Pour un lecteur rapide (300 mots par minute)
+$fastReader = new ReadingTimeCalculator(300);
+echo $fastReader->calculateTime($longText);</code></pre>
+        <div class="output">Sortie possible pour lecteur lent : "2 min 15 sec"</div>
+        <div class="output">Sortie possible pour lecteur rapide : "1 min 10 sec"</div>
+
+        <h3>3. Utilisation avec un article</h3>
+        <pre><code>$article = "Lorem ipsum dolor sit amet... [long article text]";
+$calculator = new ReadingTimeCalculator();
+$readingTime = $calculator->calculateTime($article);
+echo "Temps de lecture estimé : " . $readingTime;</code></pre>
+    </div>
+
+    <div class="use-case">
+        <h2>Cas d'utilisation</h2>
+        <ol>
+            <li>
+                <strong>Blogs et sites d'actualités</strong>
+                <ul>
+                    <li>Afficher le temps de lecture estimé pour chaque article</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Documentation technique</strong>
+                <ul>
+                    <li>Donner une indication du temps nécessaire pour comprendre une section</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Contenu éducatif</strong>
+                <ul>
+                    <li>Planifier des sessions de lecture</li>
+                    <li>Organiser le contenu en segments digestibles</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="note">
+        <h2>Notes importantes</h2>
+        <ol>
+            <li>La vitesse de lecture par défaut (200 mots/minute) est une moyenne pour un adulte lisant en français</li>
+            <li>Le calcul est une estimation et peut varier selon :
+                <ul>
+                    <li>La complexité du texte</li>
+                    <li>Le niveau de lecture de l'utilisateur</li>
+                    <li>La langue du texte</li>
+                </ul>
+            </li>
+            <li>La méthode utilise <code>str_word_count()</code> qui est optimisée pour l'anglais
+                <ul>
+                    <li>Pour d'autres langues, les résultats peuvent nécessiter des ajustements</li>
+                </ul>
+            </li>
+            <li>Les temps sont arrondis :
+                <ul>
+                    <li>Minutes : arrondi inférieur</li>
+                    <li>Secondes : arrondi supérieur</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

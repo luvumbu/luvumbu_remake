@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Creat_form.php</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #16a085;
+        }
+        .method {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .params {
+            margin-left: 20px;
+        }
+        .params li {
+            margin: 10px 0;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .property {
+            background-color: #e9ecef;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .warning {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Documentation de Creat_form.php</h1>
+
+    <div class="method">
+        <h2>Description</h2>
+        <p>La classe <code>Creat_form</code> est un générateur dynamique de formulaires HTML qui permet de créer et manipuler des formulaires et leurs éléments de manière programmatique. Elle combine PHP et JavaScript pour offrir une interface fluide de création de formulaires avec gestion de base de données intégrée.</p>
+    </div>
+
+    <div class="method">
+        <h2>Dépendances</h2>
+        <pre><code>require_once "CheckFileExists.php"
+require_once "Delete_file.php"
+require_once "DatabaseHandler.php"</code></pre>
+    </div>
+
+    <div class="method">
+        <h2>Propriétés</h2>
+        
+        <h3>Propriétés principales</h3>
+        <div class="property">
+            <ul>
+                <li><code>$name_form</code> (private) : Nom du formulaire</li>
+                <li><code>$name_type</code> (private) : Type d'élément HTML</li>
+                <li><code>$child_info</code> (public) : Tableau stockant les informations des éléments enfants</li>
+                <li><code>$array_select_Atribut</code> (public) : Tableau pour les attributs de sélection</li>
+                <li><code>$nom_dossier</code> (public) : Nom du dossier de destination</li>
+                <li><code>$nom_fichier</code> (public) : Nom du fichier de destination</li>
+                <li><code>$path</code> (public) : Chemin complet du fichier</li>
+            </ul>
+        </div>
+
+        <h3>Propriétés de configuration</h3>
+        <div class="property">
+            <ul>
+                <li><code>$config_bool</code> (public) : État de la configuration (défaut: true)</li>
+                <li><code>$path_config</code> (public) : Chemin du fichier de configuration</li>
+                <li><code>$bool_config</code> (public) : État de la configuration secondaire</li>
+                <li><code>$config_dbname</code> (public) : Nom de la base de données</li>
+                <li><code>$config_password</code> (public) : Mot de passe de la base de données</li>
+                <li><code>$databaseHandler_verif</code> (public) : État de la vérification de la base de données</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="method">
+        <h2>Méthodes</h2>
+
+        <h3>__construct($name_form, $name_type, $para)</h3>
+        <div class="example">
+            <p><strong>Description :</strong> Initialise un nouveau formulaire.</p>
+            
+            <p><strong>Paramètres :</strong></p>
+            <ul class="params">
+                <li><code>$name_form</code> : Nom du formulaire</li>
+                <li><code>$name_type</code> : Type d'élément HTML à créer</li>
+                <li><code>$para</code> : ID de l'élément parent (optionnel)</li>
+            </ul>
+
+            <p><strong>Fonctionnement :</strong></p>
+            <ol>
+                <li>Initialise les propriétés du formulaire</li>
+                <li>Vérifie la configuration de la base de données</li>
+                <li>Crée l'élément HTML via JavaScript</li>
+                <li>L'ajoute au DOM soit dans le body, soit dans un parent spécifié</li>
+            </ol>
+
+            <p><strong>Exemple :</strong></p>
+            <pre><code>$form = new Creat_form("monFormulaire", "form", "");</code></pre>
+        </div>
+
+        <h3>add_child($name, $type)</h3>
+        <div class="example">
+            <p><strong>Description :</strong> Ajoute un élément enfant au formulaire.</p>
+            
+            <p><strong>Paramètres :</strong></p>
+            <ul class="params">
+                <li><code>$name</code> : ID de l'élément enfant</li>
+                <li><code>$type</code> : Type d'élément HTML à créer</li>
+            </ul>
+
+            <p><strong>Exemple :</strong></p>
+            <pre><code>$form->add_child("nomInput", "input");</code></pre>
+        </div>
+
+        <h3>add_child_array($list_array)</h3>
+        <div class="example">
+            <p><strong>Description :</strong> Ajoute plusieurs éléments enfants en une seule fois.</p>
+            
+            <p><strong>Paramètres :</strong></p>
+            <ul class="params">
+                <li><code>$list_array</code> : Tableau d'éléments à ajouter</li>
+            </ul>
+
+            <p><strong>Exemple :</strong></p>
+            <pre><code>$elements = [
+    ["nomInput", "input"],
+    ["emailInput", "input", "email"],
+    ["submitBtn", "button", "Envoyer"]
+];
+$form->add_child_array($elements);</code></pre>
+        </div>
+
+        <h3>child_setAtribut($id, $name_atribute, $value_atribute)</h3>
+        <div class="example">
+            <p><strong>Description :</strong> Définit un attribut pour un élément enfant.</p>
+            
+            <p><strong>Paramètres :</strong></p>
+            <ul class="params">
+                <li><code>$id</code> : ID de l'élément enfant</li>
+                <li><code>$name_atribute</code> : Nom de l'attribut (vide pour innerHTML)</li>
+                <li><code>$value_atribute</code> : Valeur de l'attribut</li>
+            </ul>
+
+            <p><strong>Exemple :</strong></p>
+            <pre><code>$form->child_setAtribut("nomInput", "type", "text");
+$form->child_setAtribut("submitBtn", "", "Envoyer"); // Définit le texte du bouton</code></pre>
+        </div>
+
+        <h3>construct_setAtribut($name_atribute, $value_atribute)</h3>
+        <div class="example">
+            <p><strong>Description :</strong> Définit un attribut pour le formulaire principal.</p>
+            
+            <p><strong>Paramètres :</strong></p>
+            <ul class="params">
+                <li><code>$name_atribute</code> : Nom de l'attribut (vide pour innerHTML)</li>
+                <li><code>$value_atribute</code> : Valeur de l'attribut</li>
+            </ul>
+
+            <p><strong>Exemple :</strong></p>
+            <pre><code>$form->construct_setAtribut("method", "POST");</code></pre>
+        </div>
+
+        <h3>stylesheet($source)</h3>
+        <div class="example">
+            <p><strong>Description :</strong> Ajoute une feuille de style au formulaire.</p>
+            
+            <p><strong>Paramètres :</strong></p>
+            <ul class="params">
+                <li><code>$source</code> : Chemin vers le fichier CSS</li>
+            </ul>
+
+            <p><strong>Exemple :</strong></p>
+            <pre><code>$form->stylesheet("styles/form.css");</code></pre>
+        </div>
+
+        <h3>select_Atribut($value, $nom_dossier, $nom_fichier)</h3>
+        <div class="example">
+            <p><strong>Description :</strong> Configure les attributs de sélection et génère un fichier PHP.</p>
+            
+            <p><strong>Paramètres :</strong></p>
+            <ul class="params">
+                <li><code>$value</code> : Valeur à sélectionner</li>
+                <li><code>$nom_dossier</code> : Dossier de destination</li>
+                <li><code>$nom_fichier</code> : Nom du fichier à générer</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="example">
+        <h2>Exemple complet</h2>
+        <pre><code>// Création d'un formulaire de contact
+$form = new Creat_form("contactForm", "form", "");
+
+// Ajout des champs
+$form->add_child("name", "input");
+$form->add_child("email", "input");
+$form->add_child("message", "textarea");
+$form->add_child("submit", "button");
+
+// Configuration des champs
+$form->child_setAtribut("name", "type", "text");
+$form->child_setAtribut("name", "placeholder", "Votre nom");
+$form->child_setAtribut("email", "type", "email");
+$form->child_setAtribut("email", "placeholder", "Votre email");
+$form->child_setAtribut("message", "placeholder", "Votre message");
+$form->child_setAtribut("submit", "", "Envoyer");
+
+// Configuration du formulaire
+$form->construct_setAtribut("method", "POST");
+$form->construct_setAtribut("action", "traitement.php");
+
+// Ajout de style
+$form->stylesheet("css/contact-form.css");</code></pre>
+    </div>
+
+    <div class="note">
+        <h2>Notes importantes</h2>
+        
+        <h3>1. Intégration Base de Données</h3>
+        <ul>
+            <li>Vérifie automatiquement la connexion à la base de données</li>
+            <li>Gère la configuration via fichier externe</li>
+            <li>Supprime la configuration si la connexion échoue</li>
+        </ul>
+
+        <h3>2. Gestion JavaScript</h3>
+        <ul>
+            <li>Crée dynamiquement les éléments HTML</li>
+            <li>Gère les événements et interactions</li>
+            <li>Permet l'actualisation automatique des données</li>
+        </ul>
+
+        <h3>3. Sécurité</h3>
+        <ul>
+            <li>Vérifie les permissions des dossiers</li>
+            <li>Gère les sessions utilisateur</li>
+            <li>Protège les informations de connexion</li>
+        </ul>
+
+        <h3>4. Bonnes pratiques</h3>
+        <ul>
+            <li>Toujours vérifier les retours des méthodes</li>
+            <li>Utiliser des noms d'ID uniques</li>
+            <li>Gérer les erreurs de base de données</li>
+            <li>Nettoyer les entrées utilisateur</li>
+        </ul>
+    </div>
+</body>
+</html>

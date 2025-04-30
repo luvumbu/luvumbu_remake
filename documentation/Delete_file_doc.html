@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Delete_file.php</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #16a085;
+        }
+        .method {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .params {
+            margin-left: 20px;
+        }
+        .params li {
+            margin: 10px 0;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Documentation de Delete_file.php</h1>
+
+    <div class="method">
+        <h2>Description</h2>
+        <p>La fonction <code>delete_file</code> est un utilitaire simple mais robuste pour la suppression sécurisée de fichiers. Elle intègre des vérifications de sécurité et fournit des retours d'information clairs sur le résultat de l'opération.</p>
+    </div>
+
+    <div class="method">
+        <h2>Syntaxe</h2>
+        <pre><code>delete_file($file_path)</code></pre>
+
+        <h3>Paramètres</h3>
+        <ul class="params">
+            <li>
+                <code>$file_path</code> (string)
+                <ul>
+                    <li>Chemin complet vers le fichier à supprimer</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="method">
+        <h2>Fonctionnement</h2>
+        <ol>
+            <li>Vérifie l'existence du fichier</li>
+            <li>Tente la suppression si le fichier existe</li>
+            <li>Fournit un retour sur le résultat de l'opération</li>
+        </ol>
+
+        <h3>Valeurs de retour</h3>
+        <p>La fonction affiche un message selon le résultat :</p>
+        <ul>
+            <li>Succès : "The file '[chemin]' was successfully deleted."</li>
+            <li>Échec de suppression : "An error occurred while deleting the file '[chemin]'."</li>
+            <li>Fichier inexistant : "The file '[chemin]' does not exist."</li>
+        </ul>
+    </div>
+
+    <div class="example">
+        <h2>Exemples d'utilisation</h2>
+
+        <h3>1. Suppression d'un fichier simple</h3>
+        <pre><code>$file_path = "documents/old_file.txt";
+delete_file($file_path);</code></pre>
+
+        <h3>2. Suppression avec chemin absolu</h3>
+        <pre><code>$file_path = "C:/UwAmp/www/project/temp/cache.tmp";
+delete_file($file_path);</code></pre>
+
+        <h3>3. Suppression dans un script de nettoyage</h3>
+        <pre><code>$temp_files = ["temp1.txt", "temp2.txt", "temp3.txt"];
+foreach($temp_files as $file) {
+    delete_file("temp/" . $file);
+}</code></pre>
+    </div>
+
+    <div class="example">
+        <h2>Cas d'utilisation</h2>
+
+        <h3>1. Nettoyage de fichiers temporaires</h3>
+        <pre><code>// Suppression des fichiers de cache
+delete_file("cache/temp_data.tmp");</code></pre>
+
+        <h3>2. Gestion des uploads</h3>
+        <pre><code>// Suppression d'un ancien fichier avant upload
+delete_file("uploads/" . $old_filename);</code></pre>
+
+        <h3>3. Maintenance système</h3>
+        <pre><code>// Nettoyage des logs obsolètes
+delete_file("logs/old_log_" . $date . ".log");</code></pre>
+    </div>
+
+    <div class="note">
+        <h2>Notes importantes</h2>
+
+        <h3>1. Sécurité</h3>
+        <ul>
+            <li>Toujours vérifier les permissions avant utilisation</li>
+            <li>Éviter de supprimer des fichiers système</li>
+            <li>Valider le chemin du fichier avant suppression</li>
+        </ul>
+
+        <h3>2. Bonnes pratiques</h3>
+        <ul>
+            <li>Sauvegarder les fichiers importants avant suppression</li>
+            <li>Journaliser les suppressions critiques</li>
+            <li>Gérer les erreurs de manière appropriée</li>
+        </ul>
+
+        <h3>3. Limitations</h3>
+        <ul>
+            <li>Ne supprime pas les dossiers (utiliser <code>rmdir()</code> pour les dossiers)</li>
+            <li>Ne gère pas les suppressions récursives</li>
+            <li>Nécessite des permissions appropriées</li>
+        </ul>
+    </div>
+
+    <div class="method">
+        <h2>Gestion des erreurs</h2>
+        <p>La fonction gère trois scénarios principaux :</p>
+        <ol>
+            <li>Fichier supprimé avec succès</li>
+            <li>Échec de la suppression (problème de permissions)</li>
+            <li>Fichier inexistant</li>
+        </ol>
+    </div>
+
+    <div class="example">
+        <h2>Exemple de code complet</h2>
+        <pre><code>// Inclusion du fichier
+require_once 'Delete_file.php';
+
+// Configuration
+$log_directory = "logs/";
+$old_log = $log_directory . "2024-01-old.log";
+
+// Vérification et suppression
+if (is_writable($log_directory)) {
+    delete_file($old_log);
+} else {
+    echo "Permission denied: Cannot access log directory";
+}</code></pre>
+    </div>
+
+    <div class="method">
+        <h2>Bonnes pratiques d'utilisation</h2>
+
+        <h3>1. Vérification préalable</h3>
+        <pre><code>if (is_writable($file_path)) {
+    delete_file($file_path);
+}</code></pre>
+
+        <h3>2. Journalisation</h3>
+        <pre><code>error_log("Attempting to delete file: " . $file_path);
+delete_file($file_path);</code></pre>
+
+        <h3>3. Gestion des erreurs</h3>
+        <pre><code>try {
+    delete_file($file_path);
+} catch (Exception $e) {
+    error_log("File deletion failed: " . $e->getMessage());
+}</code></pre>
+    </div>
+</body>
+</html>

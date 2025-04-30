@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - AsciiConverter_and_js.php</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #16a085;
+        }
+        .method {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .params {
+            margin-left: 20px;
+        }
+        .params li {
+            margin: 10px 0;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .language-section {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin: 20px 0;
+            padding: 20px;
+        }
+        .php {
+            background-color: #f8f9fa;
+        }
+        .javascript {
+            background-color: #fff3e0;
+        }
+        .combined {
+            background-color: #e8f5e9;
+        }
+        .output {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 3px;
+            margin: 5px 0;
+        }
+        .language-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .php-badge {
+            background-color: #8892BF;
+            color: white;
+        }
+        .js-badge {
+            background-color: #F7DF1E;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Documentation de AsciiConverter_and_js.php</h1>
+
+    <div class="description">
+        <h2>Description</h2>
+        <p>Ce fichier contient deux implémentations de la classe <code>AsciiConverter</code> : une en PHP et une en JavaScript. Les deux versions fournissent les mêmes fonctionnalités de conversion entre chaînes de caractères et valeurs ASCII, permettant une utilisation cohérente côté serveur et côté client.</p>
+    </div>
+
+    <div class="language-section php">
+        <h2><span class="language-badge php-badge">PHP</span> Version PHP</h2>
+        
+        <div class="method">
+            <h3>1. asciiToString()</h3>
+
+            <h4>Syntaxe</h4>
+            <pre><code>public static function asciiToString($asciiString)</code></pre>
+
+            <h4>Description</h4>
+            <p>Convertit une chaîne de valeurs ASCII (séparées par des virgules) en une chaîne de caractères.</p>
+
+            <h4>Paramètres</h4>
+            <ul class="params">
+                <li><code>$asciiString</code> : Une chaîne contenant des valeurs ASCII séparées par des virgules</li>
+            </ul>
+
+            <div class="example">
+                <h4>Exemple</h4>
+                <pre><code>$asciiString = "72, 101, 108, 108, 111";
+$result = AsciiConverter::asciiToString($asciiString);
+echo $result; // Affiche "Hello"</code></pre>
+                <div class="output">Sortie : Hello</div>
+            </div>
+        </div>
+
+        <div class="method">
+            <h3>2. stringToAscii()</h3>
+
+            <h4>Syntaxe</h4>
+            <pre><code>public static function stringToAscii($string)</code></pre>
+
+            <h4>Description</h4>
+            <p>Convertit une chaîne de caractères en une chaîne de valeurs ASCII séparées par des virgules.</p>
+
+            <h4>Paramètres</h4>
+            <ul class="params">
+                <li><code>$string</code> : La chaîne de caractères à convertir</li>
+            </ul>
+
+            <div class="example">
+                <h4>Exemple</h4>
+                <pre><code>$string = "Hello";
+$result = AsciiConverter::stringToAscii($string);
+echo $result; // Affiche "72,101,108,108,111"</code></pre>
+                <div class="output">Sortie : 72,101,108,108,111</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="language-section javascript">
+        <h2><span class="language-badge js-badge">JavaScript</span> Version JavaScript</h2>
+
+        <div class="method">
+            <h3>1. asciiToString()</h3>
+
+            <h4>Syntaxe</h4>
+            <pre><code>static asciiToString(asciiString)</code></pre>
+
+            <h4>Description</h4>
+            <p>Convertit une chaîne de valeurs ASCII (séparées par des virgules) en une chaîne de caractères.</p>
+
+            <h4>Paramètres</h4>
+            <ul class="params">
+                <li><code>asciiString</code> : Une chaîne contenant des valeurs ASCII séparées par des virgules</li>
+            </ul>
+
+            <div class="example">
+                <h4>Exemple</h4>
+                <pre><code>const asciiString = "72, 101, 108, 108, 111";
+const result = AsciiConverter.asciiToString(asciiString);
+console.log(result); // Affiche "Hello"</code></pre>
+                <div class="output">Sortie : Hello</div>
+            </div>
+        </div>
+
+        <div class="method">
+            <h3>2. stringToAscii()</h3>
+
+            <h4>Syntaxe</h4>
+            <pre><code>static stringToAscii(string)</code></pre>
+
+            <h4>Description</h4>
+            <p>Convertit une chaîne de caractères en une chaîne de valeurs ASCII séparées par des virgules.</p>
+
+            <h4>Paramètres</h4>
+            <ul class="params">
+                <li><code>string</code> : La chaîne de caractères à convertir</li>
+            </ul>
+
+            <div class="example">
+                <h4>Exemple</h4>
+                <pre><code>const string = "Hello";
+const result = AsciiConverter.stringToAscii(string);
+console.log(result); // Affiche "72,101,108,108,111"</code></pre>
+                <div class="output">Sortie : 72,101,108,108,111</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="language-section combined">
+        <h2>Utilisation combinée PHP/JavaScript</h2>
+
+        <div class="example">
+            <h3>Exemple de workflow</h3>
+            <pre><code>// Côté PHP (serveur)
+$message = "Hello";
+$ascii = AsciiConverter::stringToAscii($message);
+// Envoyer $ascii au client JavaScript
+
+// Côté JavaScript (client)
+const receivedAscii = "72,101,108,108,111"; // Reçu du serveur
+const decodedMessage = AsciiConverter.asciiToString(receivedAscii);
+// decodedMessage contient "Hello"</code></pre>
+        </div>
+    </div>
+
+    <div class="note">
+        <h2>Notes importantes</h2>
+        <ol>
+            <li>Les deux implémentations (PHP et JavaScript) sont conçues pour être compatibles</li>
+            <li>Les méthodes sont statiques dans les deux versions</li>
+            <li>La gestion des erreurs est similaire :
+                <ul>
+                    <li>Filtrage des valeurs non numériques</li>
+                    <li>Nettoyage des espaces</li>
+                </ul>
+            </li>
+            <li>Les séparateurs de valeurs ASCII sont des virgules dans les deux versions</li>
+            <li>Les deux versions utilisent le même format de sortie pour assurer l'interopérabilité</li>
+        </ol>
+    </div>
+</body>
+</html>

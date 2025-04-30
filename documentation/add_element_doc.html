@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - add_element.php</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #16a085;
+        }
+        .function {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .params {
+            margin-left: 20px;
+        }
+        .params li {
+            margin: 10px 0;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Documentation de add_element.php</h1>
+
+    <div class="description">
+        <h2>Description</h2>
+        <p>Ce fichier contient deux fonctions permettant de générer facilement des éléments HTML de manière dynamique.</p>
+    </div>
+
+    <div class="function">
+        <h2>Fonction 1: add_element()</h2>
+
+        <h3>Syntaxe</h3>
+        <pre><code>add_element($tag, $class = "", $id = "", $content = "")</code></pre>
+
+        <h3>Paramètres</h3>
+        <ul class="params">
+            <li><code>$tag</code> : Le type d'élément HTML (div, p, span, etc.)</li>
+            <li><code>$class</code> : La/les classes CSS (optionnel)</li>
+            <li><code>$id</code> : L'identifiant de l'élément (optionnel)</li>
+            <li><code>$content</code> : Le contenu de l'élément (optionnel)</li>
+        </ul>
+
+        <div class="example">
+            <h3>Exemple d'utilisation</h3>
+            <pre><code>// Créer un paragraphe avec une classe et un id
+echo add_element("p", "text-bold", "intro", "Bonjour tout le monde!");
+// Résultat: &lt;p class="text-bold" id="intro"&gt;Bonjour tout le monde!&lt;/p&gt;
+
+// Créer une div simple
+echo add_element("div", "", "", "Contenu de la div");
+// Résultat: &lt;div&gt;Contenu de la div&lt;/div&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="function">
+        <h2>Fonction 2: add_element2()</h2>
+
+        <h3>Syntaxe</h3>
+        <pre><code>add_element2($attributes = "", $_div = "div", $div_ = "div", $class = "", $id = "", $children = null)</code></pre>
+
+        <h3>Paramètres</h3>
+        <ul class="params">
+            <li><code>$attributes</code> : Attributs HTML supplémentaires (optionnel)</li>
+            <li><code>$_div</code> : Tag d'ouverture (par défaut "div")</li>
+            <li><code>$div_</code> : Tag de fermeture (par défaut "div")</li>
+            <li><code>$class</code> : La/les classes CSS (optionnel)</li>
+            <li><code>$id</code> : L'identifiant de l'élément (optionnel)</li>
+            <li><code>$children</code> : Contenu enfant (peut être une chaîne ou un tableau)</li>
+        </ul>
+
+        <div class="example">
+            <h3>Exemple d'utilisation</h3>
+            <pre><code>// Exemple avec un contenu simple
+echo add_element2("data-type='menu'", "div", "div", "menu-container", "main-menu", "Menu Principal");
+// Résultat: &lt;div class="menu-container" id="main-menu" data-type='menu'&gt;Menu Principal&lt;/div&gt;
+
+// Exemple avec des enfants multiples
+$children = [
+    '&lt;div&gt;&lt;img src="images/logo.jpg" alt="Logo"&gt;&lt;/div&gt;',
+    '&lt;div&gt;&lt;h1&gt;Titre de la page&lt;/h1&gt;&lt;/div&gt;'
+];
+echo add_element2("data-role='header'", "header", "header", "page-header", "main-header", $children);
+// Résultat:
+// &lt;header class="page-header" id="main-header" data-role='header'&gt;
+//     &lt;div&gt;&lt;img src="images/logo.jpg" alt="Logo"&gt;&lt;/div&gt;
+//     &lt;div&gt;&lt;h1&gt;Titre de la page&lt;/h1&gt;&lt;/div&gt;
+// &lt;/header&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="note">
+        <h2>Différences entre les deux fonctions</h2>
+        <ul>
+            <li><code>add_element()</code> est plus simple et directe pour créer des éléments HTML basiques</li>
+            <li><code>add_element2()</code> est plus flexible et permet :
+                <ul>
+                    <li>D'ajouter des attributs HTML personnalisés</li>
+                    <li>D'utiliser des tags différents pour l'ouverture et la fermeture</li>
+                    <li>D'inclure facilement plusieurs éléments enfants</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <h2>Cas d'utilisation recommandés</h2>
+        <ul>
+            <li>Utilisez <code>add_element()</code> pour des éléments HTML simples</li>
+            <li>Utilisez <code>add_element2()</code> pour des structures plus complexes ou quand vous avez besoin d'attributs personnalisés</li>
+        </ul>
+    </div>
+</body>
+</html>

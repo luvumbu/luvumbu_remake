@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - DatabaseHandler.php</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #16a085;
+        }
+        .method {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .params {
+            margin-left: 20px;
+        }
+        .params li {
+            margin: 10px 0;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .property {
+            background-color: #e9ecef;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .warning {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Documentation de DatabaseHandler.php</h1>
+
+    <div class="method">
+        <h2>Description</h2>
+        <p>La classe <code>DatabaseHandler</code> est un gestionnaire de base de données MySQL complet qui facilite les opérations courantes de base de données. Elle offre une interface simplifiée pour la création, la manipulation et la gestion des tables et des données.</p>
+    </div>
+
+    <div class="method">
+        <h2>Propriétés</h2>
+
+        <h3>Configuration de la connexion</h3>
+        <div class="property">
+            <ul>
+                <li><code>$servername</code> (public) : Nom du serveur (par défaut: "localhost")</li>
+                <li><code>$username</code> (public) : Nom d'utilisateur MySQL</li>
+                <li><code>$password</code> (public) : Mot de passe MySQL</li>
+                <li><code>$verif</code> (public) : État de la connexion (true/false)</li>
+                <li><code>$connection</code> (public) : Connexion principale</li>
+                <li><code>$connection_child</code> (public) : Connexion secondaire</li>
+            </ul>
+        </div>
+
+        <h3>Gestion des tables</h3>
+        <div class="property">
+            <ul>
+                <li><code>$tableList</code> (public) : Liste des tables</li>
+                <li><code>$tableList_child</code> (public) : Liste des colonnes d'une table</li>
+                <li><code>$tableList_child2</code> (public) : Liste alternative des colonnes</li>
+                <li><code>$tableList_info</code> (public) : Données récupérées</li>
+                <li><code>$tableList_info2</code> (public) : Données structurées</li>
+            </ul>
+        </div>
+
+        <h3>Variables de contrôle</h3>
+        <div class="property">
+            <ul>
+                <li><code>$table_name_general</code> (public) : Nom de table générique</li>
+                <li><code>$sql_general</code> (public) : Requête SQL générique</li>
+                <li><code>$mysql_general</code> (public) : Configuration MySQL générique</li>
+                <li><code>$table_general</code> (public) : Table générique</li>
+                <li><code>$column_names</code> (public) : Noms des colonnes</li>
+                <li><code>$column_types</code> (public) : Types des colonnes</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="method">
+        <h2>Méthodes principales</h2>
+
+        <h3>__construct($username, $password)</h3>
+        <div class="example">
+            <p><strong>Description :</strong> Initialise la connexion à la base de données.</p>
+            
+            <p><strong>Paramètres :</strong></p>
+            <ul class="params">
+                <li><code>$username</code> : Nom d'utilisateur MySQL</li>
+                <li><code>$password</code> : Mot de passe MySQL</li>
+            </ul>
+
+            <p><strong>Exemple :</strong></p>
+            <pre><code>$db = new DatabaseHandler("root", "password123");</code></pre>
+        </div>
+
+        <h3>getTables()</h3>
+        <div class="example">
+            <p><strong>Description :</strong> Récupère la liste des tables de la base de données.</p>
+            
+            <p><strong>Retour :</strong> Array contenant les noms des tables ou false si aucune table.</p>
+
+            <p><strong>Exemple :</strong></p>
+            <pre><code>$tables = $db->getTables();
+foreach($tables as $table) {
+    echo $table . "\n";
+}</code></pre>
+        </div>
+
+        <h3>getListOfTables_Child($tableName)</h3>
+        <div class="example">
+            <p><strong>Description :</strong> Récupère la liste des colonnes d'une table.</p>
+            
+            <p><strong>Paramètres :</strong></p>
+            <ul class="params">
+                <li><code>$tableName</code> : Nom de la table</li>
+            </ul>
+
+            <p><strong>Exemple :</strong></p>
+            <pre><code>$columns = $db->getListOfTables_Child("users");
+print_r($columns);</code></pre>
+        </div>
+
+        <h3>add_table($nom_table)</h3>
+        <div class="example">
+            <p><strong>Description :</strong> Crée une nouvelle table avec les colonnes définies.</p>
+            
+            <p><strong>Paramètres :</strong></p>
+            <ul class="params">
+                <li><code>$nom_table</code> : Nom de la nouvelle table</li>
+            </ul>
+
+            <p><strong>Exemple :</strong></p>
+            <pre><code>$db->set_column_names("id");
+$db->set_column_types("INT AUTO_INCREMENT PRIMARY KEY");
+$db->set_column_names("name");
+$db->set_column_types("VARCHAR(255)");
+$db->add_table("users");</code></pre>
+        </div>
+
+        <h3>action_sql($sql)</h3>
+        <div class="example">
+            <p><strong>Description :</strong> Exécute une requête SQL.</p>
+            
+            <p><strong>Paramètres :</strong></p>
+            <ul class="params">
+                <li><code>$sql</code> : Requête SQL à exécuter</li>
+            </ul>
+
+            <p><strong>Exemple :</strong></p>
+            <pre><code>$db->action_sql("INSERT INTO users (name) VALUES ('John')");</code></pre>
+        </div>
+
+        <h3>getDataFromTable($sql, $info_recherche)</h3>
+        <div class="example">
+            <p><strong>Description :</strong> Récupère des données spécifiques d'une table.</p>
+            
+            <p><strong>Paramètres :</strong></p>
+            <ul class="params">
+                <li><code>$sql</code> : Requête SQL</li>
+                <li><code>$info_recherche</code> : Colonne à extraire</li>
+            </ul>
+
+            <p><strong>Exemple :</strong></p>
+            <pre><code>$db->getDataFromTable("SELECT * FROM users", "name");
+$names = $db->tableList_info;</code></pre>
+        </div>
+    </div>
+
+    <div class="example">
+        <h2>Exemple complet d'utilisation</h2>
+        <pre><code>// Création d'une instance
+$db = new DatabaseHandler("root", "password123");
+
+// Création d'une nouvelle table
+$db->set_column_names("id");
+$db->set_column_types("INT AUTO_INCREMENT PRIMARY KEY");
+$db->set_column_names("name");
+$db->set_column_types("VARCHAR(255)");
+$db->set_column_names("email");
+$db->set_column_types("VARCHAR(255)");
+$db->add_table("users");
+
+// Insertion de données
+$db->action_sql("INSERT INTO users (name, email) VALUES ('John', 'john@example.com')");
+
+// Récupération des données
+$db->getDataFromTable("SELECT * FROM users", "name");
+$names = $db->tableList_info;
+
+// Utilisation des variables dynamiques
+$db->get_dynamicVariables();
+global $dynamicVariables;
+print_r($dynamicVariables);</code></pre>
+    </div>
+
+    <div class="note">
+        <h2>Notes importantes</h2>
+        
+        <h3>1. Gestion des connexions</h3>
+        <ul>
+            <li>La classe gère automatiquement l'ouverture et la fermeture des connexions</li>
+            <li>Vérifie systématiquement l'état de la connexion avant les opérations</li>
+            <li>Utilise des connexions distinctes pour les opérations principales et secondaires</li>
+        </ul>
+
+        <h3>2. Sécurité</h3>
+        <ul>
+            <li>Ne stocke pas les mots de passe en clair</li>
+            <li>Vérifie les erreurs de connexion</li>
+            <li>Nettoie les ressources après utilisation</li>
+        </ul>
+
+        <h3>3. Performance</h3>
+        <ul>
+            <li>Utilise des connexions optimisées</li>
+            <li>Ferme les connexions après utilisation</li>
+            <li>Gère efficacement les ressources</li>
+        </ul>
+
+        <h3>4. Bonnes pratiques</h3>
+        <ul>
+            <li>Toujours vérifier le retour des méthodes</li>
+            <li>Utiliser les méthodes de vérification avant les opérations critiques</li>
+            <li>Gérer les erreurs de manière appropriée</li>
+            <li>Utiliser les transactions pour les opérations multiples</li>
+        </ul>
+    </div>
+</body>
+</html>
