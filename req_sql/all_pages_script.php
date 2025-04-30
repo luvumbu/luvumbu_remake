@@ -14,6 +14,8 @@ $databaseHandler->get_dynamicVariables();
 // La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
 // Exemple : affichage d'une variable dynamique spécifique
 
+
+ 
 $id_projet_dyn = $dynamicVariables['id_projet'];
 $id_projet_dyn_name = $dynamicVariables['id_projet'];
 

@@ -289,6 +289,7 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
           <input type="color" onchange="changeBg(this.value, '2')">
         </div>
       </div>
+      
       <div class="editable-field" id="field-2" contenteditable="true"><?= $description_projet_ ?></div>
 
       <?php
@@ -430,6 +431,15 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
       }
       ?>
       <div class="display_flex">
+
+
+
+
+      <a href="req/done.php">
+              <div class="cursor_pointer">
+              <img width="80" height="80" src="https://img.icons8.com/color/80/checkmark--v1.png" alt="checkmark--v1"/>
+      </div>
+      </a>
         <div onclick="add_child(this)" class="cursor_pointer">
           <img width="40" height="40" src="https://img.icons8.com/office/40/add--v1.png" alt="add--v1" />
         </div>

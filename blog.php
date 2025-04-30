@@ -51,14 +51,17 @@ $url_2 = $google_title_projet[0].'_'.$id_projet[0] ;
 
 $_SESSION["index"][4] = $id_sha1_projet[0];
 if($url_!=$url_2){
-
+ 
 
     $_SESSION["index"][4] = $url_  ; 
  
 
-echo '<meta http-equiv="refresh" content="0; URL=../req_sql/creation_all_projet.php">' ; 
-    
  
+    
+ ?>
+
+<meta http-equiv="refresh" content="0; URL=<?= $url_2?>">
+<?php 
  
 }
 
@@ -71,7 +74,7 @@ else{
     $_SESSION["index"][4] = $url_  ; 
  
 
-echo '<meta http-equiv="refresh" content="0; URL=../req_sql/creation_all_projet.php">' ; 
+//echo '<meta http-equiv="refresh" content="0; URL=../index.php">' ; 
     
  
 }
