@@ -4,7 +4,6 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: #f0f2f5;
     }
-
     nav {
       background-color: #ffffff;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);

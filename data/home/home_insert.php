@@ -55,6 +55,8 @@ $change_meta_name_projet_ = AsciiConverter::asciiToString($dynamicVariables['cha
 $change_meta_content_projet_ = AsciiConverter::asciiToString($dynamicVariables['change_meta_content_projet'][0]);
 $google_title_projet_ = AsciiConverter::asciiToString($dynamicVariables['google_title_projet'][0]);
 $id_sha1_projet__ = $dynamicVariables['id_sha1_projet'][0];
+
+$id_projet_ = $dynamicVariables['id_projet'][0];
 $id_sha1_user_projet__ =   $dynamicVariables['id_sha1_user_projet'][0];
 $id_sha1_projet_lock__ = $dynamicVariables['id_sha1_projet_lock'][0];
 $id_sha1_projet_song__ = $dynamicVariables['id_sha1_projet_song'][0];
@@ -83,6 +85,8 @@ $databaseHandler->get_dynamicVariables();
 // La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
 // Exemple : affichage d'une variable dynamique spécifique
 $title_projet_c =   $dynamicVariables['title_projet'];
+
+
 $description_projet_c = $dynamicVariables['description_projet'];
 $google_title_projet_c = $dynamicVariables['google_title_projet'];
 $change_meta_name_projet_c = $dynamicVariables['change_meta_name_projet'];
@@ -659,17 +663,31 @@ switch ($type_projet_0) {
 <?php
     break;
 }
+
+
+
 $google_title_projet_ = replace_element_2($google_title_projet_);
 $source = 'all_projet/' . $_SESSION["index"][4] . ".php";
-$destination = 'all_projet/' . $google_title_projet_ . '.php';
+$destination = 'all_projet/' . $google_title_projet_ . "_" . $id_projet_ . '.php';
 
-if (!file_exists($destination)) { 
-  if (copy($source, $destination)) {
-    echo "Le fichier a été copié avec succès.";
-  } else {
-    echo "La copie du fichier a échoué.";
-  }
+
+if (copy($source, $destination)) {
 }
+
+
+
+
+ 
+
+
+$google_title_projet_ = replace_element_2($google_title_projet_);
+$source = 'all_projet_img/' . $_SESSION["index"][4] . ".php";
+$destination = 'all_projet_img/' . $google_title_projet_ . "_" . $id_projet_ . '.php';
+
+
+if (copy($source, $destination)) {
+}
+
 ?>
 <style>
   .quiz_child {

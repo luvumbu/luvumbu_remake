@@ -20,7 +20,16 @@ $databaseHandler->action_sql('UPDATE  `projet` SET `description_projet_toggle` =
 require_once "all_pages_script.php";
 $_SESSION["index"][4]  = "";
 
-
-
+//$google_title_projet_ = replace_element_2($google_title_projet_);
+$source = '../all_projet_img/' . $_SESSION["index"][4] . ".php";
+$destination = '../all_projet_img/' . $google_title_projet ."_".$id_projet_. '.php';
 
  
+
+
+
+  if (copy($source, $destination)) {
+ 
+  }  
+?>
+

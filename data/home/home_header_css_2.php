@@ -4,7 +4,6 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: #f0f2f5;
     }
-
     nav {
       background-color: #ffffff;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -20,7 +19,6 @@
       margin: 0;
       padding: 0;
     }
-
     .menu li a {
       text-decoration: none;
       color: #4a90e2;

@@ -46,5 +46,4 @@ $style_pages_projet_dynamic_1 = $dynamicVariables['style_pages_projet'];
 $html_mode_projet_1_ = $dynamicVariables['html_mode_projet_1'];
 $html_mode_projet_2_ = $dynamicVariables['html_mode_projet_2'];
 $count = count($id_sha1_projet_dynamic_1);
-
 ?>

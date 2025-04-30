@@ -14,6 +14,8 @@
         href="https://fonts.googleapis.com/css2?family=Coral+Pixels&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <?php
+ 
+   
     if ($img_projet_src1[0] != "") {
     ?>
         <link rel="icon" type="image/x-icon" href="<?= '../img_dw/' . $img_projet_src1[0] ?>">
@@ -152,7 +154,7 @@
 
             </div>
             <?php
-
+ 
             if ($img_projet_src1[$i] != "") {
                 //  require_once "all_projet_img/" . $url_ . '.php';
             ?>

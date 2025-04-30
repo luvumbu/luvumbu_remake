@@ -15,6 +15,8 @@ $databaseHandler->get_dynamicVariables();
 // Exemple : affichage d'une variable dynamique spécifique
 
 $id_projet_dyn = $dynamicVariables['id_projet'];
+$id_projet_dyn_name = $dynamicVariables['id_projet'];
+
 $activation_projet_dyn = $dynamicVariables['activation_projet'];
 $id_general_dyn = $dynamicVariables['id_general'];
 $id_user_projet_dyn = $dynamicVariables['id_user_projet'];
@@ -22,6 +24,7 @@ $id_sha1_user_projet_dyn = $dynamicVariables['id_sha1_user_projet'];
 $id_sha1_projet_dyn = $dynamicVariables['id_sha1_projet'];
 $color_projet_dyn = $dynamicVariables['color_projet'];
 $google_title_projet_dyn = $dynamicVariables['google_title_projet'];
+$google_title_projet_dyn_name = $dynamicVariables['google_title_projet'];
 $level_urgence_projet_dyn = $dynamicVariables['level_urgence_projet'];
 $change_meta_name_projet_dyn = $dynamicVariables['change_meta_name_projet'];
 $change_meta_content_projet_dyn = $dynamicVariables['change_meta_content_projet'];
@@ -671,5 +674,33 @@ $txt .= "?>";
 fwrite($myfile, $txt);
 
 fclose($myfile);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
 

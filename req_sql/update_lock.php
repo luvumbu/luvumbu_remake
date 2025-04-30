@@ -17,4 +17,7 @@ $databaseHandler->action_sql('UPDATE  `projet` SET `id_sha1_projet_lock` = "'.$i
 require_once "all_pages_script.php";
  
  
+
+
+
 ?>

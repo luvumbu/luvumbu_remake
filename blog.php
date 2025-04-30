@@ -21,11 +21,13 @@ $url = new Give_url();
 // Utilisation de la méthode split_basename pour séparer par "_"
 $url->split_basename('__');
 $url_ = $url->get_elements()[0];
-$_SESSION["index"][4] = $url_;
+
 $filename = "all_projet/" . $url_ . '.php';
 $filename2 = "all_projet_img/" . $url_ . '.php';
+ 
 
 
+ 
 if (file_exists($filename)) {
     require_once $filename;
     if (file_exists($filename2)) {
@@ -43,59 +45,37 @@ if (file_exists($filename)) {
  
     
 
-if($url_!=$google_title_projet[0]){
-?>
-
-
-<meta http-equiv="refresh" content="0; URL=<?=$google_title_projet[0] ?>">
-</head>
-<?php 
-}
-?>
-
-<?php
-
-
-
-
+$url_2 = $google_title_projet[0].'_'.$id_projet[0] ; 
 
  
 
-    } else {
-?>
-        <style>
-            img {
-                width: 100%;
-                height: 100%;
-            }
-            body {
-                margin: 0;
-                background-color: black;
-            }
-        </style>
-        <div onclick="redirection(this)">
-            <img src="../src/img/65523fde-63db-4d5f-95b8-b503bfcbd62b.webp" alt="" srcset="">
-        </div>
-<?php
+$_SESSION["index"][4] = $id_sha1_projet[0];
+if($url_!=$url_2){
+
+
+    $_SESSION["index"][4] = $url_  ; 
+ 
+
+echo '<meta http-equiv="refresh" content="0; URL=../req_sql/creation_all_projet.php">' ; 
+    
+ 
+ 
+}
+
+
     }
 }
 else{
-    ?>
-        <style>
-            img {
-                width: 100%;
-                height: 100%;
-            }
-            body {
-                margin: 0;
-                background-color: black;
-            }
-        </style>
-        <div onclick="redirection(this)">
-            <img src="../src/img/65523fde-63db-4d5f-95b8-b503bfcbd62b.webp" alt="" srcset="">
-        </div>
-<?php
+
+ 
+    $_SESSION["index"][4] = $url_  ; 
+ 
+
+echo '<meta http-equiv="refresh" content="0; URL=../req_sql/creation_all_projet.php">' ; 
+    
+ 
 }
+ 
 ?>
 <script>
     function redirection(_this) {
