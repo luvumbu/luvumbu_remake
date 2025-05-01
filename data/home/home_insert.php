@@ -14,6 +14,10 @@ require_once $home_insert_css;
 require_once $home_insert_js;
 require_once "Class/replace_element.php";
 
+
+
+
+ 
 ?>
 <script>
   const img_1 = "<?= $img_1  ?>";
@@ -58,8 +62,18 @@ $id_sha1_projet__ = $dynamicVariables['id_sha1_projet'][0];
 
 
 
-$google_title_projet__ = AsciiConverter::asciiToString($dynamicVariables['google_title_projet'][0]);
 
+
+
+
+
+
+
+
+
+
+
+$google_title_projet__ = AsciiConverter::asciiToString($dynamicVariables['google_title_projet'][0]);
 $id_projet_ = $dynamicVariables['id_projet'][0];
 $id_sha1_user_projet__ =   $dynamicVariables['id_sha1_user_projet'][0];
 $id_sha1_projet_lock__ = $dynamicVariables['id_sha1_projet_lock'][0];
@@ -73,10 +87,25 @@ $visibility_1_projet =  $dynamicVariables['visibility_1_projet'][0];
 $img_projet_src2_toggle =  $dynamicVariables['img_projet_src2_toggle'][0];
 $img_projet_src1__ = $dynamicVariables['img_projet_src1'][0];
 $img_projet_src1 = $dynamicVariables['img_projet_src1'];
-$type_projet_0 = $dynamicVariables['type_projet'][0];
- 
+$type_projet_0 = $dynamicVariables['type_projet'][0]; 
 
-// Création d'une instance de la classe `DatabaseHandler`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $databaseHandler = new DatabaseHandler($dbname, $username);
 // Requête SQL pour récupérer toutes les données de la table
 $req_sql = "SELECT * FROM `projet` WHERE `id_sha1_parent_projet`='$id_sha1_projet_'";
@@ -91,8 +120,6 @@ $databaseHandler->get_dynamicVariables();
 // La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
 // Exemple : affichage d'une variable dynamique spécifique
 $title_projet_c =   $dynamicVariables['title_projet'];
-
-
 $description_projet_c = $dynamicVariables['description_projet'];
 $google_title_projet_c = $dynamicVariables['google_title_projet'];
 $change_meta_name_projet_c = $dynamicVariables['change_meta_name_projet'];
@@ -703,28 +730,11 @@ copy($source, $destination) ;
 
 
 
+ 
 
 
 
-/*
 
-$google_title_projet_ = replace_element_2($google_title_projet_);
-$source = 'all_projet/' . $_SESSION["index"][4] . ".php";
-$destination = 'all_projet/' . $google_title_projet_ . "_" . $id_projet_ . '.php';
-
-
- copy($source, $destination) ;
-
-require_once "Class/replace_element.php";
-
-
-$google_title_projet_ = replace_element_2($google_title_projet_);
-$source = 'all_projet_img/' . $_SESSION["index"][4] . ".php";
-$destination = 'all_projet_img/' . $google_title_projet_ . "_" . $id_projet_ . '.php';
-
-
-copy($source, $destination) ;
-*/
 ?>
 <style>
   .quiz_child {

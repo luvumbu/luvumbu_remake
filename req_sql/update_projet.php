@@ -9,19 +9,10 @@ $description_projet_toggle = $_POST["description_projet_toggle"];
 $title_projet = AsciiConverter::stringToAscii($_POST["title_projet"]);
 $description_projet = AsciiConverter::stringToAscii($_POST["description_projet"]);
 $google_title_projet = filtrer($_POST["google_title_projet"]);
-
 $google_title_projet_no = $_POST["google_title_projet"];
-
 $google_title_projet = AsciiConverter::stringToAscii($google_title_projet); 
 $change_meta_name_projet = AsciiConverter::stringToAscii($_POST["change_meta_name_projet"]);
 $change_meta_content_projet = AsciiConverter::stringToAscii($_POST["change_meta_content_projet"]);
-
-
-
-
-
-
-
 $databaseHandler = new DatabaseHandler($dbname, $username);
 // Requête SQL pour récupérer toutes les données de la table
 $req_sql = 'SELECT * FROM `projet` WHERE  `id_sha1_projet` ="'.$id_sha1_projet.'"';
@@ -53,23 +44,16 @@ $databaseHandler->getDataFromTable2X($req_sql);
 $databaseHandler->get_dynamicVariables();
 // La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
 // Exemple : affichage d'une variable dynamique spécifique
- 
-if(count($dynamicVariables['id_projet'])>0){
-    
+ if(count($dynamicVariables['id_projet'])>0){    
     $key = array_search( $info, $dynamicVariables['id_projet']); // $key = 2;
-    var_dump($dynamicVariables['id_projet'][$key]) ;
-
-
     if($dynamicVariables['id_projet'][$key]==$id_projet_info)
-    {
-        
+    {        
     }
     else {
       $google_title_projet =$google_title_projet_no ."_".$id_projet_info;
       $google_title_projet = AsciiConverter::stringToAscii($google_title_projet); 
     }
 }
-
 $databaseHandler = new DatabaseHandler($dbname, $username);
 $databaseHandler->action_sql('UPDATE  `projet` SET `title_projet` = "' . $title_projet . '"   WHERE  `id_sha1_projet` ="' . $id_sha1_projet . '" ');
 $databaseHandler->action_sql('UPDATE  `projet` SET `description_projet` = "' . $description_projet . '"   WHERE  `id_sha1_projet` ="' . $id_sha1_projet . '" ');
