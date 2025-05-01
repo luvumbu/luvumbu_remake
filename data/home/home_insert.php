@@ -56,6 +56,10 @@ $change_meta_content_projet_ = AsciiConverter::asciiToString($dynamicVariables['
 $google_title_projet_ = AsciiConverter::asciiToString($dynamicVariables['google_title_projet'][0]);
 $id_sha1_projet__ = $dynamicVariables['id_sha1_projet'][0];
 
+
+
+$google_title_projet__ = AsciiConverter::asciiToString($dynamicVariables['google_title_projet'][0]);
+
 $id_projet_ = $dynamicVariables['id_projet'][0];
 $id_sha1_user_projet__ =   $dynamicVariables['id_sha1_user_projet'][0];
 $id_sha1_projet_lock__ = $dynamicVariables['id_sha1_projet_lock'][0];
@@ -70,8 +74,7 @@ $img_projet_src2_toggle =  $dynamicVariables['img_projet_src2_toggle'][0];
 $img_projet_src1__ = $dynamicVariables['img_projet_src1'][0];
 $img_projet_src1 = $dynamicVariables['img_projet_src1'];
 $type_projet_0 = $dynamicVariables['type_projet'][0];
-var_dump(AsciiConverter::asciiToString($dynamicVariables['id_sha1_parent_projet2'][0])) ; 
-
+ 
 
 // Création d'une instance de la classe `DatabaseHandler`
 $databaseHandler = new DatabaseHandler($dbname, $username);
@@ -456,7 +459,7 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
 
         </div>
         <div>
-          <a href="<?= "blog.php/" . $id_sha1_projet__ ?>">
+          <a href="<?= "blog.php/" . $google_title_projet__ ?>">
             <img width="40" height="40" src="https://img.icons8.com/ios/40/link--v1.png" alt="link--v1" />
           </a>
         </div>
