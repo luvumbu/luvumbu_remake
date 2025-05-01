@@ -1,7 +1,4 @@
 <?php
-
-
-
 $condition = false;
 if (isset($_SESSION["index"][6])) {
     if ($_SESSION["index"][6] != "") {

@@ -1,22 +1,12 @@
   <?php
-
-
   $title_projet = $dynamicVariables['title_projet'];
   $img_projet_src1 = $dynamicVariables['img_projet_src1'];
   $id_sha1_projet = $dynamicVariables['id_sha1_projet'];
   $id_sha1_projet = $dynamicVariables['id_sha1_projet'];
   $visibility_1_projet = $dynamicVariables['visibility_1_projet'];
- 
-
-  
- 
-
-
-  for ($i = 0; $i < count($title_projet); $i++) {
-
+   for ($i = 0; $i < count($title_projet); $i++) {
     $title_projet_ =   AsciiConverter::asciiToString($title_projet[$i]);
-    
-    if( $visibility_1_projet[$i]=="1"){
+      if( $visibility_1_projet[$i]=="1"){
       $visibility_1_projet_ ="1" ; 
     }
     else{
@@ -57,7 +47,6 @@
     </div>
   <?php
   }
-
   require_once "data/all/all_select_all_css.php";
   ?>
 

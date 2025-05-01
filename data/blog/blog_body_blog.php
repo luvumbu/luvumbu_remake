@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
   <title><?= $google_title_projet[0] ?></title>
   <meta charset="utf-8">
@@ -29,7 +28,6 @@ require_once "src/css/body_blog_css.php";
         <ul class="nav navbar-nav">
           <?php
           for ($i = 0; $i < count($id_sha1_projet); $i++) {
-
             $title_projet_ = $title_projet_x[$i];
             if ($i == 0) {
           ?>
@@ -40,16 +38,11 @@ require_once "src/css/body_blog_css.php";
             } else {
             ?>
               <li><a href="#<?= $id_sha1_projet[$i] ?>"><?= $title_projet_  ?></a></li>
-
           <?php
             }
           }
-
           ?>
-
         </ul>
-
-
         <?php
         if (!isset($_SESSION["index"])) {
         ?>
@@ -59,37 +52,21 @@ require_once "src/css/body_blog_css.php";
           </ul>
         <?php
         }
-
         ?>
-
       </div>
     </div>
   </nav>
-
-
   <?php
-
   require "data/blog/id_sha1_projet_song.php";
   $textes = $description_projet_z;
- 
- 
-  if($type_projet[0]==""){
+   if($type_projet[0]==""){
     require_once "data/blog/blog_audio.php";
   }
   else{
- 
-
-
- // require_once "quiz_result.php" ; 
-
+  // require_once "quiz_result.php" ; 
   require_once "data/blog/blog_quiz.php";
-
-
   }
-
   ?>
   <a href="../"><img width="25" height="25" src="https://img.icons8.com/sf-ultralight/25/return.png" alt="return" /></a>
- 
-</body>
-
+ </body>
 </html>

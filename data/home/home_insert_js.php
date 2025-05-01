@@ -208,7 +208,7 @@ function x() {
     const myTimeout = setTimeout(myGreeting, 250);
 
     function myGreeting() {
-      location.reload();
+    location.reload();
     }
   }
 

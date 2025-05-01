@@ -26,5 +26,3 @@ all_projet_img_json
 img_dw/
 all_projet
 all_projet/
-
- 

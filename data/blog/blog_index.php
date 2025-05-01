@@ -23,9 +23,16 @@
 </head>
 <body>
     <?php
+
+
+
     if ($id_sha1_parent_projet[0] != "") {
     ?>
-        <a href="<?= $id_sha1_parent_projet[0] ?>">
+
+
+ 
+ 
+        <a href="<?= AsciiConverter::asciiToString($id_sha1_parent_projet2[0]) ?>">
             <div class="exit">
                 <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/fire-exit.png" alt="fire-exit" />
             </div>
@@ -139,6 +146,39 @@ require_once "data/blog/blog_visite.php";
                         <?php
                             }
                         }
+
+                        if (count($row_projet_img) > 1) {
+                            for ($i_img = 0; $i_img < count($row_projet_img); $i_img++) {
+                                $row_projet_img_fluide  = '../img_dw/' . $row_projet_img[$i_img]["id_projet_img"];
+                                if (file_exists($row_projet_img_fluide)) {
+                        ?>
+                                    <img src="<?= $row_projet_img_fluide ?>" alt="" srcset="">
+                                <?php
+                                }
+                            }
+                            $conditiones = 0;
+                            for ($i_img = 0; $i_img < count($row_projet_img); $i_img++) {
+                                $row_projet_img_fluide  = '../img_dw/' . $row_projet_img[$i_img]["id_projet_img"];
+                                $row_projet_img_fluide_ =     str_replace("../", "", $row_projet_img_fluide);
+                                if (file_exists($row_projet_img_fluide_)) {
+                                    $conditiones++;
+                                ?>
+                                    <div class="conditiones">
+                                        <img src="<?= $row_projet_img_fluide ?>" alt="" srcset="">
+                                    </div>
+                                <?php
+                                }
+                            }
+                            if ($conditiones < 2) {
+                            ?>
+                                <style>
+                                    .conditiones {
+                                        display: none;
+                                    }
+                                </style>
+                        <?php
+                            }
+                        }
                         ?>
                     </div>
                 </div>
@@ -209,10 +249,14 @@ require_once "data/blog/blog_visite.php";
                 require "blog_sql_.php";
             }
             if ($i != 0) {
+
+           
+        
+
             ?>
-                <a href="<?= $id_sha1_projet[$i] ?>">
+                <a href="<?= $google_title_projet[$i]?>">
                     <div class="margin_autre">
-                        Voir article
+                        Voir article   ! 
                     </div>
                 </a>
                 <?php

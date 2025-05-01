@@ -152,14 +152,14 @@
     }
 
     .slider-track {
-        animation: scroll 8s linear infinite;
+        animation: scroll 18s linear infinite;
         display: flex;
         width: max-content;
     }
 
     .slider-track img {
         border-radius: 8px;
-        height: 300px;
+        height: 500px;
         margin-right: 10px;
         object-fit: cover;
         width: 300px;

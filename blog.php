@@ -1,14 +1,11 @@
 <?php
-session_start();
- 
+session_start(); 
 if(isset($_SESSION["nombre"])){
-    $_SESSION["nombre"] ++ ; 
+   // $_SESSION["nombre"] ++ ; 
 }
 else{
     $_SESSION["nombre"] = 0 ; 
 }
-
-
 if($_SESSION["nombre"]>3){
     ?>
     <meta http-equiv="refresh" content="0; URL=../index.php">
@@ -47,10 +44,10 @@ if (file_exists($filename)) {
         require_once "data/blog/blog_sql.php";
         require_once "data/blog/blog_index.php";
         require_once "src/css/blog_style_1.php";
-        $url_2 = $google_title_projet[0] . '_' . $id_projet[0];
+      
+        $url_2 = $google_title_projet[0] ;
         if ($url_ != $url_2) {
 ?>
-
             <meta http-equiv="refresh" content="0; URL=<?= $url_2 ?>">
     <?php
         }

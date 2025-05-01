@@ -70,6 +70,9 @@ $img_projet_src2_toggle =  $dynamicVariables['img_projet_src2_toggle'][0];
 $img_projet_src1__ = $dynamicVariables['img_projet_src1'][0];
 $img_projet_src1 = $dynamicVariables['img_projet_src1'];
 $type_projet_0 = $dynamicVariables['type_projet'][0];
+var_dump(AsciiConverter::asciiToString($dynamicVariables['id_sha1_parent_projet2'][0])) ; 
+
+
 // Création d'une instance de la classe `DatabaseHandler`
 $databaseHandler = new DatabaseHandler($dbname, $username);
 // Requête SQL pour récupérer toutes les données de la table
@@ -680,16 +683,36 @@ switch ($type_projet_0) {
 
 $google_title_projet_ = replace_element_2($google_title_projet_);
 $source = 'all_projet/' . $_SESSION["index"][4] . ".php";
+$destination = 'all_projet/' . $google_title_projet_ .'.php';
+
+
+ copy($source, $destination) ;
+
+require_once "Class/replace_element.php";
+
+
+$google_title_projet_ = replace_element_2($google_title_projet_);
+$source = 'all_projet_img/' . $_SESSION["index"][4] . ".php";
+$destination = 'all_projet_img/' . $google_title_projet_ .'.php';
+
+
+copy($source, $destination) ;
+
+
+
+
+
+
+/*
+
+$google_title_projet_ = replace_element_2($google_title_projet_);
+$source = 'all_projet/' . $_SESSION["index"][4] . ".php";
 $destination = 'all_projet/' . $google_title_projet_ . "_" . $id_projet_ . '.php';
 
 
-if (copy($source, $destination)) {
-}
+ copy($source, $destination) ;
 
-
-
-
-
+require_once "Class/replace_element.php";
 
 
 $google_title_projet_ = replace_element_2($google_title_projet_);
@@ -697,9 +720,8 @@ $source = 'all_projet_img/' . $_SESSION["index"][4] . ".php";
 $destination = 'all_projet_img/' . $google_title_projet_ . "_" . $id_projet_ . '.php';
 
 
-if (copy($source, $destination)) {
-}
-
+copy($source, $destination) ;
+*/
 ?>
 <style>
   .quiz_child {
