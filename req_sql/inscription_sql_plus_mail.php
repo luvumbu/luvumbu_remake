@@ -10,6 +10,9 @@ $title_user_ = htmlspecialchars($_POST["title_user"]);
 $description_user_ =  htmlspecialchars($_POST["description_user"]);
 $nom_user_ =  htmlspecialchars($_POST["nom_user"]);
 $password_ = sha1($_POST["password"]);
+
+
+$_SESSION["pass"]= $password_ ; 
 $time = time() . '_' . rand(100, 999);
 
 

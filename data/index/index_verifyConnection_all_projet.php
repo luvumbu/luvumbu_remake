@@ -405,7 +405,7 @@
 <script>
     function verifyConnection_() {
 
-
+ 
     
         const dbname = document.getElementById("dbname").value;
         const username = document.getElementById("username").value;

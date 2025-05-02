@@ -1,12 +1,12 @@
 <?php
 session_start(); 
 if(isset($_SESSION["nombre"])){
-   // $_SESSION["nombre"] ++ ; 
+ $_SESSION["nombre"] ++ ; 
 }
 else{
     $_SESSION["nombre"] = 0 ; 
 }
-if($_SESSION["nombre"]>3){
+if($_SESSION["nombre"]>7){
     ?>
     <meta http-equiv="refresh" content="0; URL=../index.php">
     <?php 

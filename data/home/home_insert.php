@@ -17,7 +17,7 @@ require_once "Class/replace_element.php";
 
 
 
- 
+
 ?>
 <script>
   const img_1 = "<?= $img_1  ?>";
@@ -87,7 +87,7 @@ $visibility_1_projet =  $dynamicVariables['visibility_1_projet'][0];
 $img_projet_src2_toggle =  $dynamicVariables['img_projet_src2_toggle'][0];
 $img_projet_src1__ = $dynamicVariables['img_projet_src1'][0];
 $img_projet_src1 = $dynamicVariables['img_projet_src1'];
-$type_projet_0 = $dynamicVariables['type_projet'][0]; 
+$type_projet_0 = $dynamicVariables['type_projet'][0];
 
 
 
@@ -476,9 +476,6 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
         <div onclick="add_child(this)" class="cursor_pointer">
           <img width="40" height="40" src="https://img.icons8.com/office/40/add--v1.png" alt="add--v1" />
         </div>
-        <div class="cursor_pointer" onclick="remove_projet(this)">
-          <img width="40" height="40" src="https://img.icons8.com/fluency/40/delete-forever.png" alt="delete-forever" />
-        </div>
         <div class="cursor_pointer">
           <a href="img_dw/index.php">
             <img width="40" height="40" src="https://img.icons8.com/ios-glyphs/40/full-image.png" alt="full-image" />
@@ -568,14 +565,12 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
 
 
         </div>
-        <div>
-          <img class="cursor_pointer" onclick="function_stats(this)" width="40" height="40" src="https://img.icons8.com/ios-filled/40/graph.png" alt="graph" />
-        </div>
+
       </div>
-    </div>  
+    </div>
   </form>
 
-<div id="stats" class="display_none"><?php  require_once 'data/home/home_stats.php' ?></div>
+  <div id="stats" class="display_none"><?php require_once 'data/home/home_stats.php' ?></div>
 
 
   <div class="div_elements" style="margin-bottom: 175px;margin-top: 175px;">
@@ -598,7 +593,14 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
           <?php
           } else {
           ?>
+            <div class="cursor_pointer" onclick="remove_projet(this)">
+              <img width="40" height="40" src="https://img.icons8.com/fluency/40/delete-forever.png" alt="delete-forever" />
+            </div>
             <img src="<?= 'img_dw/' . $img_projet_src1_c[$i] ?>" alt="" srcset="">
+          
+            <div>
+          <img class="cursor_pointer" onclick="function_stats(this)" width="40" height="40" src="https://img.icons8.com/ios-filled/40/graph.png" alt="graph" />
+        </div>
           <?php
           }
           ?>
@@ -713,24 +715,24 @@ switch ($type_projet_0) {
 
 $google_title_projet_ = replace_element_2($google_title_projet_);
 $source = 'all_projet/' . $_SESSION["index"][4] . ".php";
-$destination = 'all_projet/' . $google_title_projet_ .'.php';
+$destination = 'all_projet/' . $google_title_projet_ . '.php';
 
 
- copy($source, $destination) ;
+copy($source, $destination);
 
 require_once "Class/replace_element.php";
 
 
 $google_title_projet_ = replace_element_2($google_title_projet_);
 $source = 'all_projet_img/' . $_SESSION["index"][4] . ".php";
-$destination = 'all_projet_img/' . $google_title_projet_ .'.php';
+$destination = 'all_projet_img/' . $google_title_projet_ . '.php';
 
 
-copy($source, $destination) ;
+copy($source, $destination);
 
 
 
- 
+
 
 
 
@@ -744,19 +746,18 @@ copy($source, $destination) ;
 
 
 <script>
-  function function_stats(_this){
+  function function_stats(_this) {
 
 
-    if( _this.src=="https://img.icons8.com/ios-filled/40/graph.png"){
-         _this.src="https://img.icons8.com/dotty/50/graph.png" ; 
+    if (_this.src == "https://img.icons8.com/ios-filled/40/graph.png") {
+      _this.src = "https://img.icons8.com/dotty/50/graph.png";
 
-         document.getElementById("stats").className ="" ; 
-    }
-    else{
-      _this.src="https://img.icons8.com/ios-filled/40/graph.png" ; 
-      document.getElementById("stats").className ="display_none" ; 
+      document.getElementById("stats").className = "";
+    } else {
+      _this.src = "https://img.icons8.com/ios-filled/40/graph.png";
+      document.getElementById("stats").className = "display_none";
 
-      
+
     }
 
   }

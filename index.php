@@ -1,7 +1,7 @@
 <?php
 require_once "data/index/index_sesstion_start.php";
 $_SESSION["nombre"]  = 0 ; 
-?>
+ ?>
 <!DOCTYPE html>
 <html lang="<?= $lang ?>">
 <head>
