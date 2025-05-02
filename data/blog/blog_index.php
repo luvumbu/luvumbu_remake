@@ -299,6 +299,9 @@ require_once "data/blog/blog_visite.php";
                             </div>
                         </a>
                     </div>
+
+
+
         <?php
                 }
             }
@@ -306,7 +309,33 @@ require_once "data/blog/blog_visite.php";
         }
     }
     echo "<div>";
+    
     ?>
+    
+
+
+
+    <div class="display_flex2">
+    <div  >
+ <?php 
+require_once "data/blog/blog_alert_info_page.php"; 
+require_once "data/blog/blog_alert_like.php" ;
+?>
+    </div>
+    <div>
+    <?php 
+ 
+
+
+
+ 
+
+//require_once "data/blog/blog_alert.php" ;
+//require_once "data/blog/blog_alert_text.php" ;
+
+?>
+</div>
+    </div>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -314,4 +343,26 @@ require_once "data/blog/blog_visite.php";
     <link href="https://fonts.googleapis.com/css2?family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
 </body>
+
+
+<style>
+    #like{
+     
+        width: 100%;
+        text-align: center;
+    }
+    .display_flex2{
+        display: flex;
+        justify-content: space-around;
+
+        margin-top: 45px;
+        margin-bottom: 75px;
+
+
+    }
+    .display_flex2 div{
+cursor: pointer;
+        
+    }
+</style>
 </html>

@@ -1,6 +1,10 @@
 <?php
 require_once "data/index/index_sesstion_start.php";
 $_SESSION["nombre"]  = 0 ; 
+
+
+ 
+ 
  ?>
 <!DOCTYPE html>
 <html lang="<?= $lang ?>">
@@ -50,6 +54,9 @@ $_SESSION["nombre"]  = 0 ;
   } else {
     require_once  $login_bdd;
   }
+
+
+ 
   ?>
   <div>
   </div>

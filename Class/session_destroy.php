@@ -1,8 +1,33 @@
 <?php 
 session_start() ; 
-session_destroy() 
+unset($_SESSION["index"]);
+ 
+
+
+
+
+
+
+session_destroy() ; 
+
+
+
+
+
 ?>
 
-<script>
-    window.history.back();
-</script>
+<style>
+    body{
+        background-color: black;
+    }
+</style>
+
+
+<meta http-equiv="refresh" content="0; URL=../index.php">
+ 
+ 
+
+
+<h1>Déconnexion en cours</h1>
+
+ 
