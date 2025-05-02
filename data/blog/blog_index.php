@@ -317,10 +317,7 @@ require_once "data/blog/blog_visite.php";
 
     <div class="display_flex2">
     <div  >
- <?php 
-require_once "data/blog/blog_alert_info_page.php"; 
-require_once "data/blog/blog_alert_like.php" ;
-?>
+
     </div>
     <div>
     <?php 

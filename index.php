@@ -26,6 +26,8 @@ $_SESSION["nombre"]  = 0 ;
   <?php
   $filename = $dbCheck;
   if (file_exists($filename)) {
+
+
     require_once $dbCheck;
     // On crée une instance
     $dbHandler = new DatabaseHandler(
@@ -53,6 +55,7 @@ $_SESSION["nombre"]  = 0 ;
     } else {
       require_once $login_bdd;
     }
+      
   } else {
     require_once  $login_bdd;
   }

@@ -34,47 +34,43 @@
 
 <?php
 
- 
 
 
- if($id_like_bool){
+
+if ($id_like_bool) {
 
 
-if($id_like[0]!="false"){
-  $src_img ="https://img.icons8.com/ios-filled/40/facebook-like.png" ; 
+  if ($id_like[0] != "false") {
+    $src_img = "https://img.icons8.com/ios-filled/40/facebook-like.png";
+  } else {
 
-}
-else {
-
-  $src_img ="https://img.icons8.com/ios/40/facebook-like--v1.png" ; 
-  
-}
-}
-else {
-  $src_img ="https://img.icons8.com/ios/40/facebook-like--v1.png" ; 
-
+    $src_img = "https://img.icons8.com/ios/40/facebook-like--v1.png";
+  }
+} else {
+  $src_img = "https://img.icons8.com/ios/40/facebook-like--v1.png";
 }
 
 
-$id_sha1_projet_info_0  =  $id_sha1_projet; 
-$REMOTE_ADDR_ = $_SERVER["REMOTE_ADDR"] ;
+$id_sha1_projet_info_0  =  $id_sha1_projet;
+$REMOTE_ADDR_ = $_SERVER["REMOTE_ADDR"];
 
- 
-    ?>
 
-    
-<div>
+?>
+
+
+<div class="likeBtn">
   <img
     id="likeBtn"
     class="like-img"
-    title="<?= $id_sha1_projet_info_0?>"
+    title="<?= $id_sha1_projet_info_0 ?>"
     width="40"
     height="40"
     src="<?= $src_img ?>"
     alt="<?= $REMOTE_ADDR_ ?>" />
+
+  <div id="nombre"><?= $id_like_count ?></div>
 </div>
 
-<div id="nombre"><?= $id_like_count ?></div>
 
 
 
@@ -87,33 +83,33 @@ $REMOTE_ADDR_ = $_SERVER["REMOTE_ADDR"] ;
 
 
 
-     
+
     var ok = new Information("../req_sql/update_alert_like.php"); // création de la classe 
     likeBtn.classList.add('like-animate');
     let currentValue = parseInt(likeCounter.textContent);
 
 
 
-    
-var img_2 ="https://img.icons8.com/ios-filled/40/facebook-like.png" ; 
-var img_1 ="https://img.icons8.com/ios/40/facebook-like--v1.png" ;  
-    if (likeBtn.src==img_1) {
+
+    var img_2 = "https://img.icons8.com/ios-filled/40/facebook-like.png";
+    var img_1 = "https://img.icons8.com/ios/40/facebook-like--v1.png";
+    if (likeBtn.src == img_1) {
       likeBtn.src = img_2;
       likeCounter.textContent = currentValue + 1;
-     isLiked = true;
+      isLiked = true;
     } else {
       likeBtn.src = img_1;
       likeCounter.textContent = currentValue - 1;
-     
+
       isLiked = false;
-     
+
     }
 
- 
- 
 
-ok.add("id_sha1_user", likeBtn.alt); // ajout d'une deuxieme information denvoi  
-ok.add("id_sha1_projet", likeBtn.title); // ajout d'une deuxieme information denvoi  
+
+
+    ok.add("id_sha1_user", likeBtn.alt); // ajout d'une deuxieme information denvoi  
+    ok.add("id_sha1_projet", likeBtn.title); // ajout d'une deuxieme information denvoi  
 
 
 
@@ -133,3 +129,11 @@ ok.add("id_sha1_projet", likeBtn.title); // ajout d'une deuxieme information den
     });
   });
 </script>
+
+<style>
+  .likeBtn {
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 75px;
+  }
+</style>

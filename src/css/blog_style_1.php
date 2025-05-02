@@ -224,7 +224,7 @@
 
         .blog_index_header_img_2 {
             transition: all 1s;
-            width: 100%;
+            width: 70%;
         }
     }
 </style>
