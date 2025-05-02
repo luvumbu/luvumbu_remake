@@ -1,8 +1,9 @@
 <?php
 require_once "require_once.php";
 function filtrer($texte) {
-  return preg_replace('/[^a-zA-Z_]/', '', $texte);
+  return preg_replace('/[^a-zA-Z0-9_]/', '', $texte);
 }
+
 $id_sha1_projet = $_SESSION["index"][4];
 $title_projet_toggle = $_POST["title_projet_toggle"];
 $description_projet_toggle = $_POST["description_projet_toggle"];
