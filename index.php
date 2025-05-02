@@ -5,7 +5,9 @@ $_SESSION["nombre"]  = 0 ;
 
  
  
- ?>
+?>
+ 
+ 
 <!DOCTYPE html>
 <html lang="<?= $lang ?>">
 <head>

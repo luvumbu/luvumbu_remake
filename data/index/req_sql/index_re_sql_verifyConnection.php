@@ -11,7 +11,12 @@ $username_ =$_POST["username"] ;
  
 $_SESSION["pass"][0] =  $dbname; 
  if($dbname!=$dbname_){
-    $username_=  sha1($username_) ; 
+
+
+    if($_SERVER['SERVER_NAME']!="localhost"){
+        $username_=  sha1($username_) ; 
+
+    }
  }
 
 

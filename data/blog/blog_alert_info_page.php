@@ -5,11 +5,27 @@ $nom_table = "info_page"; // Nom de la table cible
 
 // Création d'une instance de la classe `DatabaseHandler`
 $id_sha1_user  = $_SESSION["index"][3] ; 
+
+$id_sha1_projet_info_0  =  $id_sha1_projet; 
+$REMOTE_ADDR_ = $_SERVER["REMOTE_ADDR"] ;
+
+
+
+
+if(!isset($_SESSION["index"])){
+
+$id_sha1_user  =  $_SERVER["REMOTE_ADDR"] ; 
+
+  
+}
 $databaseHandler = new DatabaseHandler($dbname, $username);
 
 
+
+ 
+$id_sha1_projet= $id_sha1_projet[0] ; 
 // Requête SQL pour récupérer toutes les données de la table
-$req_sql = "SELECT * FROM `$nom_table` WHERE `id_sha1_user` ='$id_sha1_user' ";
+$req_sql = "SELECT * FROM `$nom_table` WHERE `id_sha1_user` ='$id_sha1_user' AND `id_sha1_projet` ='$id_sha1_projet' ";
 
 // Récupération des informations des tables enfant liées
 $databaseHandler->getListOfTables_Child($nom_table);
@@ -42,9 +58,7 @@ $id_like_bool = false ;
 
 
  
-
  
-$id_sha1_projet = $id_sha1_projet[0] ; 
 // Requête SQL pour récupérer toutes les données de la table
 $req_sql = "SELECT * FROM `$nom_table` WHERE  `id_sha1_projet` ='$id_sha1_projet' AND `id_like` ='true' ";
 

@@ -7,5 +7,8 @@ $id_sha1_parent_projet = $_SESSION["index"][4];
 $databaseHandler = new DatabaseHandler($dbname, $username);
 $time = time().'_'.rand(10,99);
 $databaseHandler->action_sql("INSERT INTO `projet` (id_sha1_parent_projet,id_sha1_projet,id_sha1_user_projet,date_inscription_projet) VALUES ('$id_sha1_parent_projet','$id_sha1_projet','$id_sha1_user_projet','$date_inscription_projet')");
+
+
+
 require_once "all_pages_script.php" ; 
 ?>

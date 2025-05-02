@@ -55,6 +55,11 @@ else {
 
 }
 
+
+$id_sha1_projet_info_0  =  $id_sha1_projet; 
+$REMOTE_ADDR_ = $_SERVER["REMOTE_ADDR"] ;
+
+ 
     ?>
 
     
@@ -62,10 +67,11 @@ else {
   <img
     id="likeBtn"
     class="like-img"
+    title="<?= $id_sha1_projet_info_0?>"
     width="40"
     height="40"
     src="<?= $src_img ?>"
-    alt="like" />
+    alt="<?= $REMOTE_ADDR_ ?>" />
 </div>
 
 <div id="nombre"><?= $id_like_count ?></div>
@@ -78,6 +84,10 @@ else {
   let isLiked = false;
 
   likeBtn.addEventListener('click', () => {
+
+
+
+     
     var ok = new Information("../req_sql/update_alert_like.php"); // création de la classe 
     likeBtn.classList.add('like-animate');
     let currentValue = parseInt(likeCounter.textContent);
@@ -99,6 +109,11 @@ var img_1 ="https://img.icons8.com/ios/40/facebook-like--v1.png" ;
      
     }
 
+ 
+ 
+
+ok.add("id_sha1_user", likeBtn.alt); // ajout d'une deuxieme information denvoi  
+ok.add("id_sha1_projet", likeBtn.title); // ajout d'une deuxieme information denvoi  
 
 
 
