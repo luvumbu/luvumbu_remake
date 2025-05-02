@@ -15,7 +15,7 @@ else {
 
 $databaseHandler = new DatabaseHandler($dbname, $username);
 // Requête SQL pour récupérer toutes les données de la table
-$req_sql = "SELECT * FROM `$nom_table` WHERE 1";
+$req_sql = "SELECT * FROM `$nom_table` WHERE  `id_sha1_projet` ='$id_sha1_projet'  AND `id_sha1_user` ='$id_sha1_user' ";
 // Récupération des informations des tables enfant liées
 $databaseHandler->getListOfTables_Child($nom_table);
 // La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.
@@ -27,7 +27,7 @@ $databaseHandler->get_dynamicVariables();
 // La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
 // Exemple : affichage d'une variable dynamique spécifique
 if (count($dynamicVariables['id_sha1_projet']) > 0) {
-    $databaseHandler->action_sql('UPDATE  `info_page` SET `id_like` = "'.$id_like.'" ,`id_alert` = "'.$id_alert.'"   WHERE  `id_sha1_user` ="' . $id_sha1_user . '" ');
+    $databaseHandler->action_sql('UPDATE  `info_page` SET `id_like` = "'.$id_like.'" ,`id_alert` = "'.$id_alert.'"   WHERE  `id_sha1_projet` ="' . $id_sha1_projet . '" ');
 } else {
 
     $databaseHandler = new DatabaseHandler($dbname, $username);

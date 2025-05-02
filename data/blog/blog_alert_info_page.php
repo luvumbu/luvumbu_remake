@@ -25,7 +25,14 @@ $databaseHandler->get_dynamicVariables();
 
 // Exemple : affichage d'une variable dynamique spécifique
  
-$id_like = $dynamicVariables['id_like'] ; 
+
+ 
+$id_like_bool = false ; 
+
+ if(count($dynamicVariables['id_like'])>0){
+    $id_like = $dynamicVariables['id_like'] ; 
+    $id_like_bool = true ; 
+ }
  
 
 
@@ -34,20 +41,12 @@ $id_like = $dynamicVariables['id_like'] ;
 
 
 
+ 
 
-
-
-
-
-
-
-
-
-
-
-
+ 
+$id_sha1_projet = $id_sha1_projet[0] ; 
 // Requête SQL pour récupérer toutes les données de la table
-$req_sql = "SELECT * FROM `$nom_table` WHERE `id_like` ='true' AND `id_sha1_projet` ='$id_sha1_projet' ";
+$req_sql = "SELECT * FROM `$nom_table` WHERE  `id_sha1_projet` ='$id_sha1_projet' AND `id_like` ='true' ";
 
 // Récupération des informations des tables enfant liées
 $databaseHandler->getListOfTables_Child($nom_table);
@@ -68,7 +67,6 @@ $databaseHandler->get_dynamicVariables();
 $id_like_count = count($dynamicVariables['id_like']) ; 
 
  
-
  
 
 ?>

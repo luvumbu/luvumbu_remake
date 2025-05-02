@@ -36,6 +36,10 @@
 
  
 
+
+ if($id_like_bool){
+
+
 if($id_like[0]!="false"){
   $src_img ="https://img.icons8.com/ios-filled/40/facebook-like.png" ; 
 
@@ -45,6 +49,12 @@ else {
   $src_img ="https://img.icons8.com/ios/40/facebook-like--v1.png" ; 
   
 }
+}
+else {
+  $src_img ="https://img.icons8.com/ios/40/facebook-like--v1.png" ; 
+
+}
+
     ?>
 
     
