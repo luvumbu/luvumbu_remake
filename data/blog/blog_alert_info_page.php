@@ -47,7 +47,7 @@ $id_like = $dynamicVariables['id_like'] ;
 
 
 // Requête SQL pour récupérer toutes les données de la table
-$req_sql = "SELECT * FROM `$nom_table` WHERE `id_like` ='true' ";
+$req_sql = "SELECT * FROM `$nom_table` WHERE `id_like` ='true' AND `id_sha1_projet` ='$id_sha1_projet' ";
 
 // Récupération des informations des tables enfant liées
 $databaseHandler->getListOfTables_Child($nom_table);

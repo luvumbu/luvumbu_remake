@@ -47,11 +47,15 @@ $databaseHandler->get_dynamicVariables();
  if(count($dynamicVariables['id_projet'])>0){    
     $key = array_search( $info, $dynamicVariables['id_projet']); // $key = 2;
     if($dynamicVariables['id_projet'][$key]==$id_projet_info)
-    {        
+    {   
+      $google_title_projet =$id_projet_info;
+      $google_title_projet = AsciiConverter::stringToAscii($google_title_projet); 
+    
     }
     else {
       $google_title_projet =$google_title_projet_no ."_".$id_projet_info;
       $google_title_projet = AsciiConverter::stringToAscii($google_title_projet); 
+    
     }
 }
 $databaseHandler = new DatabaseHandler($dbname, $username);
