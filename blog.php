@@ -35,6 +35,19 @@ $url_ = $url->get_elements()[0];
 $filename = "all_projet/" . $url_ . '.php';
 $filename2 = "all_projet_img/" . $url_ . '.php';
 
+
+?>
+
+<style>
+    body{
+        display: none;
+ 
+    }
+ </style>
+
+ 
+
+<?php 
 if (file_exists($filename)) {
     require_once $filename;
     if (file_exists($filename2)) {
@@ -42,18 +55,36 @@ if (file_exists($filename)) {
     }
     if ($row_projet[0]["visibility_1_projet"] == "1") { 
 
-
+ 
         require_once "data/blog/blog_sql.php";
         
         require_once "data/blog/blog_index.php";
-        require_once "src/css/blog_style_1.php";
-     
+       
+    
         $url_2 = $google_title_projet[0] ;
         if ($url_ != $url_2) {
 ?>
+ 
+
+
+
             <meta http-equiv="refresh" content="0; URL=<?= $url_2 ?>">
     <?php
         }
+        else{
+            require_once "src/css/blog_style_1.php";
+
+            ?>
+
+<style>
+    body{
+        display: block;
+ 
+    }
+ </style>
+<?php 
+        }
+        
 $_SESSION["id_sha1_comment"] = $id_sha1_projet[0] ; 
         require_once "req_sql/require_once3.php";
 

@@ -36,8 +36,10 @@
 
 
 
-        <a href="<?= AsciiConverter::asciiToString($id_sha1_parent_projet2[0]) ?>">
-            <div class="exit">
+       
+  
+        <a href="<?= $id_sha1_parent_projet[0] ?>">
+        <div class="exit">
                 <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/fire-exit.png" alt="fire-exit" />
             </div>
         </a>
