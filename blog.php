@@ -91,13 +91,15 @@ $_SESSION["id_sha1_comment"] = $id_sha1_projet[0] ;
         require_once "data/blog/blog_comment.php";
 
 
-
+ 
         
         require_once "data/blog/blog_alert_info_page.php"; 
-        require_once "data/blog/blog_alert_like.php" ;
+       
+       
+       require_once "data/blog/blog_alert_like.php" ;
 
          
-
+ 
  
 
         

@@ -2,10 +2,12 @@
 require_once "require_once.php";
 
 
-
+ 
 if(isset($_SESSION["index"])){
  $id_sha1_projet = $_SESSION["index"][4];
- $id_sha1_user = $_SESSION["index"][3];   
+ $id_sha1_user = $_SESSION["index"][3];  
+ 
+ $id_sha1_projet = $_SESSION["index"][4];
 }
 else{
     $id_sha1_projet =   $_POST["id_sha1_projet"];
@@ -30,7 +32,7 @@ $databaseHandler = new DatabaseHandler($dbname, $username);
 $databaseHandler->action_sql("DELETE FROM `info_page` WHERE `id_sha1_projet` = '$id_sha1_projet' AND  `id_sha1_user` ='$id_sha1_user' ");
  
 
-
+ 
 
  
 

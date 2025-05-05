@@ -37,7 +37,8 @@
 
 
 
-if ($id_like_bool) {
+
+if ($id_info_page_boool) {
 
 
   if ($id_like[0] != "false") {
@@ -53,8 +54,7 @@ if ($id_like_bool) {
 
 $id_sha1_projet_info_0  =  $id_sha1_projet;
 $REMOTE_ADDR_ = $_SERVER["REMOTE_ADDR"];
-
-
+ 
 ?>
 
 
@@ -68,7 +68,7 @@ $REMOTE_ADDR_ = $_SERVER["REMOTE_ADDR"];
     src="<?= $src_img ?>"
     alt="<?= $REMOTE_ADDR_ ?>" />
 
-  <div id="nombre"><?= $id_like_count ?></div>
+  <div id="nombre"><?= $nombre_like ?></div>
 </div>
 
 

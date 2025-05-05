@@ -18,11 +18,17 @@ $id_sha1_user  =  $_SERVER["REMOTE_ADDR"] ;
 
   
 }
+
+
+ 
+ 
 $databaseHandler = new DatabaseHandler($dbname, $username);
 
 
 
  
+
+
 $id_sha1_projet= $id_sha1_projet[0] ; 
 // Requête SQL pour récupérer toutes les données de la table
 $req_sql = "SELECT * FROM `$nom_table` WHERE `id_sha1_user` ='$id_sha1_user' AND `id_sha1_projet` ='$id_sha1_projet' ";
@@ -41,14 +47,6 @@ $databaseHandler->get_dynamicVariables();
 
 // Exemple : affichage d'une variable dynamique spécifique
  
-
- 
-$id_like_bool = false ; 
-
- if(count($dynamicVariables['id_like'])>0){
-    $id_like = $dynamicVariables['id_like'] ; 
-    $id_like_bool = true ; 
- }
  
 
 
@@ -57,10 +55,48 @@ $id_like_bool = false ;
 
 
 
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+$id_info_page_boool  = false ; 
+
+if(count($dynamicVariables['id_info_page'])> 0){
+
+   $id_info_page_boool = true;
+
+
+  
+
+
+
+   if( $dynamicVariables["id_like"][0]=="false"){
+      $id_info_page_boool = false ; 
+   }
+   else {
+      $id_info_page_boool = true ; 
+   }
+
+  
+}
  
+
+// Compter le nombre delement present 
+
+
+
 // Requête SQL pour récupérer toutes les données de la table
-$req_sql = "SELECT * FROM `$nom_table` WHERE  `id_sha1_projet` ='$id_sha1_projet' AND `id_like` ='true' ";
+$req_sql = "SELECT * FROM `$nom_table` WHERE   `id_sha1_projet` ='$id_sha1_projet' AND `id_like` ='true' ";
 
 // Récupération des informations des tables enfant liées
 $databaseHandler->getListOfTables_Child($nom_table);
@@ -75,12 +111,15 @@ $databaseHandler->get_dynamicVariables();
 // La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
 
 // Exemple : affichage d'une variable dynamique spécifique
- 
 
 
-$id_like_count = count($dynamicVariables['id_like']) ; 
+
+
+
+
+$nombre_like= count( $dynamicVariables["id_like"]) ;
 
  
- 
+
 
 ?>
