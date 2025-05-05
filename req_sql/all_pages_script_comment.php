@@ -1,15 +1,9 @@
 <?php
-
 // fichier : creer_fichier_projet.php
 $nomFichier = "../all_comment/$id_sha1_comment.php";
 
- 
-
-
-$contenu = <<<EOT
-<?php
-\$row_projet = 
-array(
+// Contenu à ajouter dans le tableau si le fichier existe déjà
+$nouveauContenu = <<<EOT
     array(
         "id_sha1_user" => "$id_sha1_user",
         "id_comment_text" => "$id_comment_text", 
@@ -17,18 +11,31 @@ array(
         "date_inscription_comment" => "$date_inscription_comment", 
         "id_ip_4" => "$SERVER_ADDR", 
         "id_ip_5" => "$id_ip_5", 
-        "id_ip_6" => "$id_ip_6",
+        "id_ip_6" => "$id_ip_6"
     ),
-);
 EOT;
 
-// Ouvre le fichier en écriture (écrase s’il existe)
-$fichier = fopen($nomFichier, "w");
+// Si le fichier n'existe pas, on le crée avec tout l'encadrement PHP
+if (!file_exists($nomFichier)) {
+    $contenuInitial = <<<EOT
+<?php
+\$row_projet_comment = 
+array(
+$nouveauContenu
+);
+?>
+EOT;
 
-// Écrit le contenu dans le fichier
-fwrite($fichier, $contenu);
+    file_put_contents($nomFichier, $contenuInitial);
+    echo "Fichier créé avec le contenu initial.";
+} else {
+    // Le fichier existe, on lit son contenu
+    $contenu = file_get_contents($nomFichier);
 
-// Ferme le fichier
-fclose($fichier);
+    // On insère juste avant la dernière parenthèse fermante `);`
+    $contenu = preg_replace('/\);\s*\?>/', "$nouveauContenu\n); ?>", $contenu);
 
-echo "Le fichier 'projet.txt' a été créé avec succès.";
+    file_put_contents($nomFichier, $contenu);
+    echo "Contenu ajouté au fichier existant.";
+}
+?>

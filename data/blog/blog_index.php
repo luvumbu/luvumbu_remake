@@ -23,7 +23,15 @@
     <title><?= $google_title_projet_2[0] ?></title>
 </head>
 
-<body onmousemove="showCoords(event)">
+<body>
+
+<?php 
+
+
+// <body onmousemove="showCoords(event)">
+
+
+?>
     <?php
 
 
