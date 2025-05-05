@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +13,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Coral+Pixels&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <?php   
+    <?php
     if ($img_projet_src1[0] != "") {
     ?>
         <link rel="icon" type="image/x-icon" href="<?= '../img_dw/' . $img_projet_src1[0] ?>">
@@ -21,18 +22,21 @@
     ?>
     <title><?= $google_title_projet_2[0] ?></title>
 </head>
-<body>
+
+<body onmousemove="showCoords(event)">
     <?php
 
 
-
     if ($id_sha1_parent_projet[0] != "") {
+
+
+      
     ?>
 
 
- 
- 
-        <a href="<?= AsciiConverter::asciiToString($id_sha1_parent_projet2[0]) ?>">
+
+
+        <a href="<?= $id_sha1_parent_projet[0] ?>">
             <div class="exit">
                 <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/fire-exit.png" alt="fire-exit" />
             </div>
@@ -60,7 +64,7 @@
                         } else {
                         ?>
                             <li><a href="#<?= $id_sha1_projet[$i_] ?>"> <?= $title_projet_2[$i_] ?></a></li>
-                        <?php
+                    <?php
                         }
                     }
                     ?>
@@ -73,8 +77,8 @@
         </div>
     </nav>
     <?php
-require_once "data/blog/blog_visite.php";
-?>
+    require_once "data/blog/blog_visite.php";
+    ?>
     <div class="down" onclick="window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });">
         <img width="40" height="40" src="https://img.icons8.com/ios/40/circled-chevron-down.png"
             alt="circled-chevron-down" />
@@ -87,27 +91,27 @@ require_once "data/blog/blog_visite.php";
     echo "<div class='blog_index_general'>";
     for ($i = 0; $i < count($description_projet); $i++) {
         if ($i == 0) {
-            echo '<div class="blog_index_header_h1 g_title_projet_2">' ; 
-                if ($title_projet_toggle[$i] == "1") {
-                ?>
-                    <div class="blog_index_child_h1 g_title_projet_2">
-                        <b>
-                            <?= $title_projet_2[$i] ?>
-                        </b>
-                    </div>
-                <?php
-                } else {
-                ?>
-                    <div class="blog_index_child_h1 g_title_projet_2">
-                        <b>
-                            <?= $title_projet_1[$i] ?>
-                        </b>
-                    </div>
-                <?php
-                }
-                ?>
+            echo '<div class="blog_index_header_h1 g_title_projet_2">';
+            if ($title_projet_toggle[$i] == "1") {
+    ?>
+                <div class="blog_index_child_h1 g_title_projet_2">
+                    <b>
+                        <?= $title_projet_2[$i] ?>
+                    </b>
+                </div>
+            <?php
+            } else {
+            ?>
+                <div class="blog_index_child_h1 g_title_projet_2">
+                    <b>
+                        <?= $title_projet_1[$i] ?>
+                    </b>
+                </div>
+            <?php
+            }
+            ?>
             </div>
-            <?php 
+            <?php
             if ($img_projet_src1[$i] != "") {
                 //  require_once "all_projet_img/" . $url_ . '.php';
             ?>
@@ -137,13 +141,13 @@ require_once "data/blog/blog_visite.php";
                                 }
                             }
                             if ($conditiones < 2) {
-                            ?>
+                                ?>
                                 <style>
                                     .conditiones {
                                         display: none;
                                     }
                                 </style>
-                        <?php
+                                <?php
                             }
                         }
 
@@ -151,7 +155,7 @@ require_once "data/blog/blog_visite.php";
                             for ($i_img = 0; $i_img < count($row_projet_img); $i_img++) {
                                 $row_projet_img_fluide  = '../img_dw/' . $row_projet_img[$i_img]["id_projet_img"];
                                 if (file_exists($row_projet_img_fluide)) {
-                        ?>
+                                ?>
                                     <img src="<?= $row_projet_img_fluide ?>" alt="" srcset="">
                                 <?php
                                 }
@@ -170,7 +174,7 @@ require_once "data/blog/blog_visite.php";
                                 }
                             }
                             if ($conditiones < 2) {
-                            ?>
+                                ?>
                                 <style>
                                     .conditiones {
                                         display: none;
@@ -217,24 +221,24 @@ require_once "data/blog/blog_visite.php";
                     </div>
                 <?php
                 } else {
-               ?>
+                ?>
                     <div class="blog_index_child_h1 g_title_projet_2">
                         <b>
                             <?= $title_projet_1[$i] ?>
                         </b>
                     </div>
-                <?php
+                    <?php
                 }
                 if ($img_projet_src1[$i] != "") {
                     $filename = 'img_dw/' . $img_projet_src1[$i];
                     $filename_bool = false;
                     if (file_exists($filename)) {
-                ?>
+                    ?>
 
                         <div class="g_img_projet_src1">
                             <img src="<?= '../' . $filename ?>" alt="" srcset="">
                         </div>
-                    <?php
+                <?php
                     }
                 }
                 ?>
@@ -250,13 +254,13 @@ require_once "data/blog/blog_visite.php";
             }
             if ($i != 0) {
 
-           
-        
+
+
 
             ?>
-                <a href="<?= $google_title_projet[$i]?>">
+                <a href="<?= $google_title_projet[$i] ?>">
                     <div class="margin_autre">
-                        Voir article   ! 
+                        Voir article !
                     </div>
                 </a>
                 <?php
@@ -285,7 +289,7 @@ require_once "data/blog/blog_visite.php";
                                 ?>
                                     <div style="background-color: black;height:100%">
                                     </div>
-                                <?php
+                            <?php
                                 }
                             }
                             ?>
@@ -302,36 +306,36 @@ require_once "data/blog/blog_visite.php";
 
 
 
-        <?php
+    <?php
                 }
             }
             echo '</div>';
         }
     }
     echo "<div>";
-    
+
     ?>
-    
+
 
 
 
     <div class="display_flex2">
-    <div  >
+        <div>
 
-    </div>
-    <div>
-    <?php 
- 
-
+        </div>
+        <div>
+            <?php
 
 
- 
 
-//require_once "data/blog/blog_alert.php" ;
-//require_once "data/blog/blog_alert_text.php" ;
 
-?>
-</div>
+
+
+            //require_once "data/blog/blog_alert.php" ;
+            //require_once "data/blog/blog_alert_text.php" ;
+
+            ?>
+        </div>
     </div>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -343,12 +347,13 @@ require_once "data/blog/blog_visite.php";
 
 
 <style>
-    #like{
-     
+    #like {
+
         width: 100%;
         text-align: center;
     }
-    .display_flex2{
+
+    .display_flex2 {
         display: flex;
         justify-content: space-around;
 
@@ -357,9 +362,132 @@ require_once "data/blog/blog_visite.php";
 
 
     }
-    .display_flex2 div{
-cursor: pointer;
-        
+
+    .display_flex2 div {
+        cursor: pointer;
+
     }
 </style>
+
+
+<div id="REMOTE_ADDR" class="display_none"><?= $_SERVER["REMOTE_ADDR"] ?></div>
+<?php
+
+if (isset($_SESSION["index"])) {
+?>
+    <div id="index" class="display_none"><?= $_SESSION["index"][3] ?></div>
+<?php
+} else {
+?>
+    <div id="index" class="display_none"><?= $_SERVER["REMOTE_ADDR"] ?></div>
+<?php
+}
+?>
+
+
+
+<div id="url_" class="display_none"><?= $id_sha1_projet[0] ?></div>
+<script>
+    var ip = document.getElementById("REMOTE_ADDR").innerText;
+    var index = document.getElementById("index").innerText;
+
+    var url_ = document.getElementById("url_").innerText;
+
+
+    var nombre = 0;
+    var nombre_verif = 0;
+
+    var showCoords_array = [{
+        event_clientX: "",
+        event_clientY: "",
+        url: "",
+        ip: "",
+        user_id: ""
+    }];
+
+
+
+
+    function showCoords(event) {
+        nombre++;
+        let x = event.clientX;
+        let y = event.clientY;
+        showCoords_array.push({
+            event_clientX: x,
+            event_clientY: y,
+            url: url_,
+            ip: ip,
+            user_id: index
+        });
+
+    }
+
+    setInterval(displayHello, 1000);
+
+    function displayHello() {
+
+        if (nombre_verif != nombre) {
+
+
+
+
+
+            for (let index = 0; index < showCoords_array.length; index++) {
+                const element = showCoords_array[index];
+                console.log(element);
+
+                var ok = new Information("../req_sql/showCoords_array.php"); // création de la classe 
+
+
+
+                ok.add("showCoords_array_event_clientX", showCoords_array[index].event_clientX); // ajout de l'information pour lenvoi 
+                ok.add("showCoords_array_event_clientY", showCoords_array[index].event_clientY); // ajout de l'information pour lenvoi 
+                ok.add("showCoords_array_url", showCoords_array[index].url); // ajout de l'information pour lenvoi 
+                ok.add("showCoords_array_ip", showCoords_array[index].ip); // ajout de l'information pour lenvoi 
+                ok.add("showCoords_array_user_id", showCoords_array[index].user_id); // ajout de l'information pour lenvoi 
+
+               
+                ok.push(); // envoie l'information au code pkp 
+
+
+
+            }
+
+            //console.log(nombre_verif);
+            //console.log(showCoords_array);
+
+
+
+
+
+
+            showCoords_array = [{
+                event_clientX: "",
+                event_clientY: "",
+                url: "",
+                ip: "",
+                user_id: ""
+            }];
+
+
+            console.log(".");
+
+
+
+            nombre_verif = nombre;
+
+        }
+
+
+
+    }
+</script>
+
+
+<style>
+    .display_none{
+        display: none;
+    }
+</style>
+
 </html>

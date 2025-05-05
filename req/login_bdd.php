@@ -126,34 +126,32 @@ if ($databaseHandler->verif != 1) {
 
 
 
-// ******************************************************************
-$databaseHandler = new DatabaseHandler($dbname, $username);
+        // ******************************************************************
+        $databaseHandler = new DatabaseHandler($dbname, $username);
 
-// Définition des colonnes et de leurs types dans un tableau associatif
-$columns = [
-    "id_visit"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
-    "id_ip_0"                          => "LONGTEXT NOT NULL", 
-    "id_ip_1"                          => "LONGTEXT NOT NULL",
-    "id_ip_2"                          => "LONGTEXT NOT NULL",
-    "id_ip_3"                          => "LONGTEXT NOT NULL",
-    "id_ip_4"                          => "LONGTEXT NOT NULL",
-    "id_ip_5"                          => "LONGTEXT NOT NULL",
-    "id_ip_6"                          => "LONGTEXT NOT NULL",
-    "id_ip_7"                          => "LONGTEXT NOT NULL",
-    "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
- 
- 
-    "date_inscription_visit"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
-];
-// Itération sur le tableau pour définir les noms et types de colonnes
-foreach ($columns as $name => $type) {
-    $databaseHandler->set_column_names($name);
-    $databaseHandler->set_column_types($type);
-}
-// Ajout de la table à la base de données
-$databaseHandler->add_table("visit");
+        // Définition des colonnes et de leurs types dans un tableau associatif
+        $columns = [
+            "id_visit"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+            "id_ip_0"                          => "LONGTEXT NOT NULL",
+            "id_ip_1"                          => "LONGTEXT NOT NULL",
+            "id_ip_2"                          => "LONGTEXT NOT NULL",
+            "id_ip_3"                          => "LONGTEXT NOT NULL",
+            "id_ip_4"                          => "LONGTEXT NOT NULL",
+            "id_ip_5"                          => "LONGTEXT NOT NULL",
+            "id_ip_6"                          => "LONGTEXT NOT NULL",
+            "id_ip_7"                          => "LONGTEXT NOT NULL",
+            "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
 
 
+            "date_inscription_visit"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        ];
+        // Itération sur le tableau pour définir les noms et types de colonnes
+        foreach ($columns as $name => $type) {
+            $databaseHandler->set_column_names($name);
+            $databaseHandler->set_column_types($type);
+        }
+        // Ajout de la table à la base de données
+        $databaseHandler->add_table("visit");
 
 
 
@@ -161,48 +159,40 @@ $databaseHandler->add_table("visit");
 
 
 
-// ******************************************************************
-$databaseHandler = new DatabaseHandler($dbname, $username);
 
-// Définition des colonnes et de leurs types dans un tableau associatif
-$columns = [
-    "id_info_page"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
-    
-    "id_sha1_projet"                          => "LONGTEXT NOT NULL", 
-    "id_sha1_user"                          => "LONGTEXT NOT NULL", 
 
-    
+        // ******************************************************************
+        $databaseHandler = new DatabaseHandler($dbname, $username);
 
-    
+        // Définition des colonnes et de leurs types dans un tableau associatif
+        $columns = [
+            "id_visit"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+            "showCoords_array_event_clientX"                          => "LONGTEXT NOT NULL",
+            "showCoords_array_event_clientY"                          => "LONGTEXT NOT NULL",
+            "showCoords_array_url"                              => "LONGTEXT NOT NULL",
+            "showCoords_array_ip"                               => "LONGTEXT NOT NULL",
+            "showCoords_array_user_id"                          => "LONGTEXT NOT NULL",
+            "id_ip_1"                          => "LONGTEXT NOT NULL",
+            "id_ip_2"                          => "LONGTEXT NOT NULL",
+            "id_ip_3"                          => "LONGTEXT NOT NULL",
+            "id_ip_4"                          => "LONGTEXT NOT NULL",
+            "id_ip_5"                          => "LONGTEXT NOT NULL",
+            "id_ip_6"                          => "LONGTEXT NOT NULL",
+            "id_ip_7"                          => "LONGTEXT NOT NULL",
+            "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
 
 
-    "id_ip_0"                          => "LONGTEXT NOT NULL", 
-    "id_like"                          => "LONGTEXT NOT NULL", 
-    "id_alert"                          => "LONGTEXT NOT NULL", 
-    "id_text"                          => "LONGTEXT NOT NULL", 
-    
+            "date_inscription_showCoords"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        ];
+        // Itération sur le tableau pour définir les noms et types de colonnes
+        foreach ($columns as $name => $type) {
+            $databaseHandler->set_column_names($name);
+            $databaseHandler->set_column_types($type);
+        }
+        // Ajout de la table à la base de données
+        $databaseHandler->add_table("showcoords");
 
-    
 
-    "id_ip_1"                          => "LONGTEXT NOT NULL",
-    "id_ip_2"                          => "LONGTEXT NOT NULL",
-    "id_ip_3"                          => "LONGTEXT NOT NULL",
-    "id_ip_4"                          => "LONGTEXT NOT NULL",
-    "id_ip_5"                          => "LONGTEXT NOT NULL",
-    "id_ip_6"                          => "LONGTEXT NOT NULL",
-    "id_ip_7"                          => "LONGTEXT NOT NULL",
-    "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
- 
- 
-    "date_inscription_visit"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
-];
-// Itération sur le tableau pour définir les noms et types de colonnes
-foreach ($columns as $name => $type) {
-    $databaseHandler->set_column_names($name);
-    $databaseHandler->set_column_types($type);
-}
-// Ajout de la table à la base de données
-$databaseHandler->add_table("info_page");
 
 
 
@@ -210,56 +200,57 @@ $databaseHandler->add_table("info_page");
 
 
 
+        // ******************************************************************
+        $databaseHandler = new DatabaseHandler($dbname, $username);
 
+        // Définition des colonnes et de leurs types dans un tableau associatif
+        $columns = [
+            "id_info_page"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
 
+            "id_sha1_projet"                          => "LONGTEXT NOT NULL",
+            "id_sha1_user"                          => "LONGTEXT NOT NULL",
 
 
 
 
 
 
+            "id_ip_0"                          => "LONGTEXT NOT NULL",
+            "id_like"                          => "LONGTEXT NOT NULL",
+            "id_alert"                          => "LONGTEXT NOT NULL",
+            "id_text"                          => "LONGTEXT NOT NULL",
 
 
 
-// ******************************************************************
-$databaseHandler = new DatabaseHandler($dbname, $username);
 
-// Définition des colonnes et de leurs types dans un tableau associatif
-$columns = [
-    "id_comment"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
-    "id_sha1_user"                          => "LONGTEXT NOT NULL", 
-    "id_sha1_comment"                          => "LONGTEXT NOT NULL",
-    "id_comment_user_name"                          => "LONGTEXT NOT NULL",
-    "id_comment_text"                          => "LONGTEXT NOT NULL",
-    "id_ip_4"                          => "LONGTEXT NOT NULL",
-    "id_ip_5"                          => "LONGTEXT NOT NULL",
-    "id_ip_6"                          => "LONGTEXT NOT NULL",
-    "id_ip_7"                          => "LONGTEXT NOT NULL",
-    "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
- 
- 
-    "date_inscription_comment"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
-];
-// Itération sur le tableau pour définir les noms et types de colonnes
-foreach ($columns as $name => $type) {
-    $databaseHandler->set_column_names($name);
-    $databaseHandler->set_column_types($type);
-}
-// Ajout de la table à la base de données
-$databaseHandler->add_table("comment");
+            "id_ip_1"                          => "LONGTEXT NOT NULL",
+            "id_ip_2"                          => "LONGTEXT NOT NULL",
+            "id_ip_3"                          => "LONGTEXT NOT NULL",
+            "id_ip_4"                          => "LONGTEXT NOT NULL",
+            "id_ip_5"                          => "LONGTEXT NOT NULL",
+            "id_ip_6"                          => "LONGTEXT NOT NULL",
+            "id_ip_7"                          => "LONGTEXT NOT NULL",
+            "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
 
 
+            "date_inscription_visit"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        ];
+        // Itération sur le tableau pour définir les noms et types de colonnes
+        foreach ($columns as $name => $type) {
+            $databaseHandler->set_column_names($name);
+            $databaseHandler->set_column_types($type);
+        }
+        // Ajout de la table à la base de données
+        $databaseHandler->add_table("info_page");
 
 
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
 
 
 
-// ******************************************************************
 
 
 
@@ -269,73 +260,121 @@ $databaseHandler->add_table("comment");
 
 
 
+        // ******************************************************************
+        $databaseHandler = new DatabaseHandler($dbname, $username);
 
+        // Définition des colonnes et de leurs types dans un tableau associatif
+        $columns = [
+            "id_comment"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+            "id_sha1_user"                          => "LONGTEXT NOT NULL",
+            "id_sha1_comment"                          => "LONGTEXT NOT NULL",
+            "id_comment_user_name"                          => "LONGTEXT NOT NULL",
+            "id_comment_text"                          => "LONGTEXT NOT NULL",
+            "id_ip_4"                          => "LONGTEXT NOT NULL",
+            "id_ip_5"                          => "LONGTEXT NOT NULL",
+            "id_ip_6"                          => "LONGTEXT NOT NULL",
+            "id_ip_7"                          => "LONGTEXT NOT NULL",
+            "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
 
 
+            "date_inscription_comment"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        ];
+        // Itération sur le tableau pour définir les noms et types de colonnes
+        foreach ($columns as $name => $type) {
+            $databaseHandler->set_column_names($name);
+            $databaseHandler->set_column_types($type);
+        }
+        // Ajout de la table à la base de données
+        $databaseHandler->add_table("comment");
 
-// ******************************************************************
-$databaseHandler = new DatabaseHandler($dbname, $username);
 
-// Définition des colonnes et de leurs types dans un tableau associatif
-$columns = [
-    "id_req_quiz"                               => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
-    "id_sha1_req_quiz"                          => "LONGTEXT NOT NULL", 
-    "id_sha1_projet_user"                          => "LONGTEXT NOT NULL", 
-    "id_sha1_child_req_quiz"                    => "LONGTEXT NOT NULL", 
-    "id_sha1_child_req_question"                 => "LONGTEXT NOT NULL", 
-    "id_sha1_child_req_reponse_1"                 => "LONGTEXT NOT NULL", 
-    "id_sha1_child_req_reponse_2"                 => "LONGTEXT NOT NULL", 
-    "id_sha1_child_req_reponse_z"                 => "LONGTEXT NOT NULL", 
-    "REMOTE_ADDR"                               => "LONGTEXT NOT NULL", 
-    "date_inscription_visit"                    => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
-];
-// Itération sur le tableau pour définir les noms et types de colonnes
-foreach ($columns as $name => $type) {
-    $databaseHandler->set_column_names($name);
-    $databaseHandler->set_column_types($type);
-}
-// Ajout de la table à la base de données
-$databaseHandler->add_table("req_quiz");
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
 
-// ******************************************************************
 
 
+        // ******************************************************************
 
-$databaseHandler = new DatabaseHandler($dbname, $username);
 
-// Définition des colonnes et de leurs types dans un tableau associatif
-$columns = [
-    "id_visit"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
-    "id_ip_0"                          => "LONGTEXT NOT NULL", 
-    "id_ip_1"                          => "LONGTEXT NOT NULL",
-    "id_ip_2"                          => "LONGTEXT NOT NULL",
-    "id_ip_3"                          => "LONGTEXT NOT NULL",
-    "id_ip_4"                          => "LONGTEXT NOT NULL",
-    "id_ip_5"                          => "LONGTEXT NOT NULL",
-    "id_ip_6"                          => "LONGTEXT NOT NULL",
-    "id_ip_7"                          => "LONGTEXT NOT NULL",
-    "id_ip_8"                          => "LONGTEXT NOT NULL",
-    "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
 
- 
-    "date_inscription_visit"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
-];
-// Itération sur le tableau pour définir les noms et types de colonnes
-foreach ($columns as $name => $type) {
-    $databaseHandler->set_column_names($name);
-    $databaseHandler->set_column_types($type);
-}
-// Ajout de la table à la base de données
-$databaseHandler->add_table("log");
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+
+
+
+        // ******************************************************************
+        $databaseHandler = new DatabaseHandler($dbname, $username);
+
+        // Définition des colonnes et de leurs types dans un tableau associatif
+        $columns = [
+            "id_req_quiz"                               => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+            "id_sha1_req_quiz"                          => "LONGTEXT NOT NULL",
+            "id_sha1_projet_user"                          => "LONGTEXT NOT NULL",
+            "id_sha1_child_req_quiz"                    => "LONGTEXT NOT NULL",
+            "id_sha1_child_req_question"                 => "LONGTEXT NOT NULL",
+            "id_sha1_child_req_reponse_1"                 => "LONGTEXT NOT NULL",
+            "id_sha1_child_req_reponse_2"                 => "LONGTEXT NOT NULL",
+            "id_sha1_child_req_reponse_z"                 => "LONGTEXT NOT NULL",
+            "REMOTE_ADDR"                               => "LONGTEXT NOT NULL",
+            "date_inscription_visit"                    => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        ];
+        // Itération sur le tableau pour définir les noms et types de colonnes
+        foreach ($columns as $name => $type) {
+            $databaseHandler->set_column_names($name);
+            $databaseHandler->set_column_types($type);
+        }
+        // Ajout de la table à la base de données
+        $databaseHandler->add_table("req_quiz");
+
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+
+
+        // ******************************************************************
+
+
+
+        $databaseHandler = new DatabaseHandler($dbname, $username);
+
+        // Définition des colonnes et de leurs types dans un tableau associatif
+        $columns = [
+            "id_visit"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+            "id_ip_0"                          => "LONGTEXT NOT NULL",
+            "id_ip_1"                          => "LONGTEXT NOT NULL",
+            "id_ip_2"                          => "LONGTEXT NOT NULL",
+            "id_ip_3"                          => "LONGTEXT NOT NULL",
+            "id_ip_4"                          => "LONGTEXT NOT NULL",
+            "id_ip_5"                          => "LONGTEXT NOT NULL",
+            "id_ip_6"                          => "LONGTEXT NOT NULL",
+            "id_ip_7"                          => "LONGTEXT NOT NULL",
+            "id_ip_8"                          => "LONGTEXT NOT NULL",
+            "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
+
+
+            "date_inscription_visit"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        ];
+        // Itération sur le tableau pour définir les noms et types de colonnes
+        foreach ($columns as $name => $type) {
+            $databaseHandler->set_column_names($name);
+            $databaseHandler->set_column_types($type);
+        }
+        // Ajout de la table à la base de données
+        $databaseHandler->add_table("log");
+
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 

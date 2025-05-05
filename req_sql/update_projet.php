@@ -68,6 +68,19 @@ $databaseHandler->action_sql('UPDATE  `projet` SET `change_meta_content_projet` 
 $databaseHandler->action_sql('UPDATE  `projet` SET `title_projet_toggle` = "' . $title_projet_toggle . '"   WHERE  `id_sha1_projet` ="' . $id_sha1_projet . '" ');
 $databaseHandler->action_sql('UPDATE  `projet` SET `description_projet_toggle` = "' . $description_projet_toggle . '"   WHERE  `id_sha1_projet` ="' . $id_sha1_projet . '" ');
 $databaseHandler->action_sql('UPDATE  `projet` SET `id_sha1_parent_projet2` = "' . $google_title_projet . '"   WHERE  `id_sha1_parent_projet` ="' . $id_sha1_projet . '" ');
+
 require_once "all_pages_script.php"; 
+
+
+
+
+
+
+
+
+
+
+
+ 
 ?>
 
