@@ -88,7 +88,7 @@ if (file_exists($filename)) {
 $_SESSION["id_sha1_comment"] = $id_sha1_projet[0] ; 
         require_once "req_sql/require_once3.php";
 
-        require_once "data/blog/blog_comment.php";
+     //   require_once "data/blog/blog_comment.php";
 
 
  
