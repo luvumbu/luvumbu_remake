@@ -599,8 +599,8 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
               <img width="40" height="40" src="https://img.icons8.com/fluency/40/delete-forever.png" alt="delete-forever" />
             </div>
             <img src="<?= 'img_dw/' . $img_projet_src1_c[$i] ?>" alt="" srcset="">
-
-
+          
+        
           <?php
           }
           ?>
@@ -665,7 +665,7 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
 
 
 
-<div class="update_all_projet" onclick="update_all_projet()" >update_all_projet</div>
+
 
 
 
@@ -713,9 +713,6 @@ switch ($type_projet_0) {
 
 
 
-
-
-
 $google_title_projet_ = replace_element_2($google_title_projet_);
 $source = 'all_projet/' . $_SESSION["index"][4] . ".php";
 $destination = 'all_projet/' . $google_title_projet_ . '.php';
@@ -736,43 +733,16 @@ copy($source, $destination);
 
 
 
+
+
+
+
 ?>
-<style>
-  .quiz_child {
-    background-color: rgba(0, 200, 0, 0.5);
-  }
-  .update_all_projet{
-    background-color: black;
-    color: white;
-    padding: 15px;
-    color: white;
-  }
-</style>
-
-
-<script>
-  function function_stats(_this) {
-
-
-    if (_this.src == "https://img.icons8.com/ios-filled/40/graph.png") {
-      _this.src = "https://img.icons8.com/dotty/50/graph.png";
-
-      document.getElementById("stats").className = "";
-    } else {
-      _this.src = "https://img.icons8.com/ios-filled/40/graph.png";
-      document.getElementById("stats").className = "display_none";
-
-
-    }
-
-  }
-</script>
-
-
+<div class="update_all_projet" onclick="update_all_projet()" >update_all_projet</div>
 
 
 <style>
-  .updat_all_projet {
+  .update_all_projet {
     background-color: black;
     color: white;
     text-align: center;
@@ -876,4 +846,33 @@ ok.push();
 }
   
  
+</script>
+
+
+
+
+
+<style>
+  .quiz_child {
+    background-color: rgba(0, 200, 0, 0.5);
+  }
+</style>
+
+
+<script>
+  function function_stats(_this) {
+
+
+    if (_this.src == "https://img.icons8.com/ios-filled/40/graph.png") {
+      _this.src = "https://img.icons8.com/dotty/50/graph.png";
+
+      document.getElementById("stats").className = "";
+    } else {
+      _this.src = "https://img.icons8.com/ios-filled/40/graph.png";
+      document.getElementById("stats").className = "display_none";
+
+
+    }
+
+  }
 </script>

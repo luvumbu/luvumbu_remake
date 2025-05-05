@@ -1,118 +1,146 @@
  <style>
-     .commentaires {
-         max-width: 700px;
-         margin: auto;
-     }
-
      h2 {
-         margin-bottom: 20px;
+         color: #333;
      }
 
-     .commentaire {
-         border-left: 4px solid #007bff;
-         padding-left: 15px;
+     form {
+         background: #fff;
+         padding: 15px;
+         border-radius: 8px;
+         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
          margin-bottom: 30px;
      }
 
-     .commentaire strong {
+     input,
+     textarea,
+     button {
          display: block;
-         font-weight: bold;
-         margin-bottom: 5px;
-     }
-
-     .commentaire time {
-         display: block;
-         font-size: 0.9em;
-         color: #666;
-         margin-bottom: 5px;
-     }
-
-     .commentaire p {
-         margin: 0;
-     }
-
-     .formulaire {
-         margin-top: 40px;
-     }
-
-     .formulaire textarea {
          width: 100%;
-         height: 120px;
+         margin-top: 10px;
          padding: 10px;
-         font-size: 1em;
-         resize: vertical;
+         font-size: 16px;
+         border-radius: 5px;
          border: 1px solid #ccc;
+     }
+
+     button {
+         background: #007BFF;
+         color: white;
+         cursor: pointer;
+     }
+
+     .comment {
+         background: #fff;
+         padding: 15px;
+         margin-bottom: 15px;
+         border-left: 5px solid #007BFF;
          border-radius: 5px;
      }
 
-     .formulaire button {
-         margin-top: 15px;
-         width: 100%;
-         padding: 15px;
-         font-size: 1em;
-         background-color: #007bff;
-         color: white;
-         border: none;
-         border-radius: 6px;
-         cursor: pointer;
-         transition: background 0.3s;
+     .comment .name {
+         font-weight: bold;
      }
 
-     .formulaire button:hover {
-         background-color: #0056cc;
+     .comment .date {
+         font-size: 0.9em;
+         color: #666;
+     }
+
+     .all_comment {
+         width: 80%;
+         margin: auto;
      }
  </style>
-
- <div class="commentaires" id="commentaires_1">
-     <h2>Commentaires récents</h2>
-     <?php
+ </head>
+ <?php
 
 
-        for ($i = 0; $i < count($row_projet_comment); $i++) {
 
-        ?>
 
-         <div class="commentaire">
-             <strong>ADMIN</strong>
-             <time><?= formaterDateFr($row_projet_comment[$i]["date_inscription_comment"]) ?></time>
-             <p><?= AsciiConverter::asciiToString($row_projet_comment[$i]["id_comment_text"]) ?></p>
-         </div>
-     <?php
-        }
-        ?>
- </div>
 
- <div class="commentaires" id="commentaires_2">
-     <div class="formulaire">
+
+    $id_sha1_projet_info  = $id_sha1_projet[0];
+
+    $filename__ = 'all_comment/' . $id_sha1_projet_info . '.php';
+
+    $verif_file = true;
+
+    if (!file_exists($filename__)) {
+        $verif_file  = false;
+    } else {
+
+        require_once $filename__;
+    }
+
+
+
+ 
+
+
+    if (isset($_SESSION["index"])) {
+
+
+    ?>
+
+     <div class="all_comment">
+         <h2>Commentaires récents</h2>
+         <?php
+            for ($i = 0; $i < count($row_projet_comment); $i++) {
+
+
+                if($verif_file ){
+            ?>
+             <div class="comment">
+                 <?php
+                    if ($row_projet_comment[$i]["id_ip_5"] == $dbname) {
+                        echo '<div class="name">ADMIN</div>';
+                    } else {
+                    ?>
+                     <div class="name"><?=$row_projet_comment[$i]["id_ip_5"]  ?></div>
+                 <?php
+                    }
+                    ?>
+                 <div class="date"><?= formaterDateFr($row_projet_comment[$i]["date_inscription_comment"]) ?></div>
+                 <p><?= AsciiConverter::asciiToString($row_projet_comment[$i]["id_comment_text"]) ?></p>
+                 <?php
+
+
+ 
+ 
+                    ?>
+
+
+             </div>
+         <?php
+                }
+            }
+            $id_sha1_projet_comment = $id_sha1_projet[0];
+            ?>
          <h2>Laissez un commentaire</h2>
-
-         <textarea id="message" placeholder="Votre commentaire" required></textarea>
-         <button type="submit" onclick="envoyer_comment(this)">Envoyer</button>
-
+         <textarea id="message" placeholder="Votre commentaire" rows="4" required></textarea>
+         <button type="submit" title="<?= $id_sha1_projet_comment ?>" onclick="envoyer_comment(this)">Envoyer</button>
      </div>
- </div>
- </body>
+     <?php
 
 
-
- <script>
-     function envoyer_comment(_this) {
+        ?>
 
 
-         document.getElementById("commentaires_1").style.display = "none";
+     <script>
+         function envoyer_comment(_this) {
+             _this.style.display = "none";
+             const id_comment_text_ = document.getElementById("message").value;
+             var ok = new Information("../req_sql/envoyer_comment.php"); // création de la classe 
+             ok.add("id_comment_text", id_comment_text_); // ajout de l'information pour lenvoi 
+             console.log(ok.info()); // demande l'information dans le tableau
+             ok.push(); // envoie l'information au code pkp 
+             const myTimeout = setTimeout(x, 1000);
 
-         _this.style.display = "none";
-         const id_comment_text_ = document.getElementById("message").value;
-         var ok = new Information("../req_sql/envoyer_comment.php"); // création de la classe 
-         ok.add("id_comment_text", id_comment_text_); // ajout de l'information pour lenvoi 
-         console.log(ok.info()); // demande l'information dans le tableau
-         ok.push(); // envoie l'information au code pkp 
-         const myTimeout = setTimeout(x, 1000);
-
-         function x() {
-               location.reload();
+             function x() {
+                 location.reload();
+             }
          }
-
-
-     }
- </script>
+     </script>
+ <?php
+    }
+    ?>

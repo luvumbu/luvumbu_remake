@@ -55,18 +55,9 @@ if (file_exists($filename)) {
     <?php
         }
 $_SESSION["id_sha1_comment"] = $id_sha1_projet[0] ; 
-
-$row_projet_comment_ =  $_SESSION["id_sha1_comment"] ;
         require_once "req_sql/require_once3.php";
 
-
-
-        require_once "all_comment/$row_projet_comment_.php";
-
         require_once "data/blog/blog_comment.php";
-
- 
-
 
 
 
@@ -76,6 +67,7 @@ $row_projet_comment_ =  $_SESSION["id_sha1_comment"] ;
 
          
 
+ 
 
         
     }

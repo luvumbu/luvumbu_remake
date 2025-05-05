@@ -23,15 +23,7 @@
     <title><?= $google_title_projet_2[0] ?></title>
 </head>
 
-<body>
-
-<?php 
-
-
-// <body onmousemove="showCoords(event)">
-
-
-?>
+<body onmousemove="showCoords(event)">
     <?php
 
 
@@ -490,7 +482,6 @@ if (isset($_SESSION["index"])) {
 
     }
 </script>
-
 
 <style>
     .display_none{

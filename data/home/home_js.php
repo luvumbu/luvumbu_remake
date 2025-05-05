@@ -13,7 +13,7 @@
          //  ok.add("password", "root"); // ajout d'une deuxieme information denvoi  
          console.log(ok.info()); // demande l'information dans le tableau
           ok.push(); // envoie l'information au code pkp 
-         location.reload();
+          location.reload();
        }
      }
    }

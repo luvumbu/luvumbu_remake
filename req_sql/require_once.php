@@ -9,6 +9,7 @@ require_once "../Class/replace_element.php";
 date_default_timezone_set('Europe/Paris');
 $chemins = [
     "../all_projet",
+    "../all_comment",
     "../all_projet_img",
     "../all_projet_img_json",
     "../all_style",

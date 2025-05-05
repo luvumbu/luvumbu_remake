@@ -196,10 +196,5 @@ $txt .= "?>";
 // Affichage
 fwrite($myfile, $txt);
 fclose($myfile);
-
-
-
- 
- 
 ?>
 
