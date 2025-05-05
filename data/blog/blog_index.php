@@ -36,7 +36,7 @@
 
 
 
-        <a href="<?= $id_sha1_parent_projet[0] ?>">
+        <a href="<?= AsciiConverter::asciiToString($id_sha1_parent_projet2[0]) ?>">
             <div class="exit">
                 <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/fire-exit.png" alt="fire-exit" />
             </div>
@@ -254,9 +254,8 @@
             }
             if ($i != 0) {
 
-
-
-
+                $id_sha1_parent_projet2__ascii = AsciiConverter::asciiToString($id_sha1_parent_projet2[$i]);
+ 
             ?>
                 <a href="<?= $google_title_projet[$i] ?>">
                     <div class="margin_autre">
