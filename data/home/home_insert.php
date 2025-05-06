@@ -733,7 +733,7 @@ switch ($type_projet_0) {
 
 
 ?>
-<div class="update_all_projet" onclick="update_all_projet()">update_all_projet</div>
+<div class="update_all_projet" onclick="update_all_projet(this)">update_all_projet</div>
 
 
 <style>
@@ -780,10 +780,10 @@ switch ($type_projet_0) {
 
 
 
-  function update_all_projet() {
+  function update_all_projet(_this) {
 
 
-
+_this.style.display="none" ; 
 
 
 

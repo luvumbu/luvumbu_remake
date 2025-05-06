@@ -481,5 +481,5 @@ if (isset($_SESSION["index"])) {
 </style>
 
 
-<a href="">PAge sport</a>
+ 
 </html>
