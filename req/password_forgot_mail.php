@@ -70,11 +70,9 @@ if (mail($to, $subject, $message, $headers)) {
     echo '<div class="notification">E-mail envoyé avec succès.</div>';
 } else {
     echo '<div class="notification">Échec de l\'envoi de l\'e-mail.</div>';
-}
- 
+} 
 }
 else {
   echo "ERROR" ; 
-}
- 
+} 
 ?>

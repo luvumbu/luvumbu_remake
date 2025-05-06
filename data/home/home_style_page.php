@@ -1,6 +1,6 @@
 <?php
-require_once "data/home/home_style_page_sql_1.php";
-require_once "data/home/home_style_page_js.php";
+require_once "data/home/sql/home_style_page_sql_1.php";
+require_once "data/home/js/home_style_page_js.php";
 
 ?>
 

@@ -1,7 +1,4 @@
 <?php
-
-
-
 $visit = $_SESSION["index"][3];
 $databaseHandler = new DatabaseHandler($dbname, $username);
 // Requête SQL pour récupérer toutes les données de la table
@@ -17,16 +14,7 @@ $databaseHandler->get_dynamicVariables();
 // La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
 // Exemple : affichage d'une variable dynamique spécifique
 $id_visit = $dynamicVariables['id_visit'];
-
-?>
-
-
-
-<?php
-
 for ($i = 0; $i < count($id_visit); $i++) {
-
-
 ?>
     <div class="display_flex_x">
 
@@ -47,8 +35,6 @@ for ($i = 0; $i < count($id_visit); $i++) {
 }
 ?>
 </div>
-
-
 <style>
     .display_flex_x {
         display: flex;
