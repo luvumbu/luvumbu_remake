@@ -30,16 +30,16 @@
     if ($id_sha1_parent_projet[0] != "") {
 
 
-      
+
     ?>
 
 
 
 
-       
-  
+
+
         <a href="<?= $id_sha1_parent_projet[0] ?>">
-        <div class="exit">
+            <div class="exit">
                 <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/fire-exit.png" alt="fire-exit" />
             </div>
         </a>
@@ -120,78 +120,53 @@
                 <div class="slider-container">
                     <div class="slider-track">
                         <?php
-                        if (count($row_projet_img) > 1) {
-                            for ($i_img = 0; $i_img < count($row_projet_img); $i_img++) {
-                                $row_projet_img_fluide  = '../img_dw/' . $row_projet_img[$i_img]["id_projet_img"];
-                                if (file_exists($row_projet_img_fluide)) {
-                        ?>
-                                    <img src="<?= $row_projet_img_fluide ?>" alt="" srcset="">
-                                <?php
-                                }
-                            }
-                            $conditiones = 0;
-                            for ($i_img = 0; $i_img < count($row_projet_img); $i_img++) {
-                                $row_projet_img_fluide  = '../img_dw/' . $row_projet_img[$i_img]["id_projet_img"];
-                                $row_projet_img_fluide_ =     str_replace("../", "", $row_projet_img_fluide);
-                                if (file_exists($row_projet_img_fluide_)) {
-                                    $conditiones++;
-                                ?>
-                                    <div class="conditiones">
-                                        <img src="<?= $row_projet_img_fluide ?>" alt="" srcset="">
-                                    </div>
-                                <?php
-                                }
-                            }
-                            if ($conditiones < 2) {
-                                ?>
-                                <style>
-                                    .conditiones {
-                                        display: none;
-                                    }
-                                </style>
-                                <?php
-                            }
-                        }
 
-                        if (count($row_projet_img) > 1) {
-                            for ($i_img = 0; $i_img < count($row_projet_img); $i_img++) {
-                                $row_projet_img_fluide  = '../img_dw/' . $row_projet_img[$i_img]["id_projet_img"];
-                                if (file_exists($row_projet_img_fluide)) {
-                                ?>
-                                    <img src="<?= $row_projet_img_fluide ?>" alt="" srcset="">
-                                <?php
-                                }
-                            }
-                            $conditiones = 0;
-                            for ($i_img = 0; $i_img < count($row_projet_img); $i_img++) {
-                                $row_projet_img_fluide  = '../img_dw/' . $row_projet_img[$i_img]["id_projet_img"];
-                                $row_projet_img_fluide_ =     str_replace("../", "", $row_projet_img_fluide);
-                                if (file_exists($row_projet_img_fluide_)) {
-                                    $conditiones++;
-                                ?>
-                                    <div class="conditiones">
+
+
+
+
+                        for ($i_boucle_img=0; $i_boucle_img < 4; $i_boucle_img++) { 
+                            if (count($row_projet_img) > 1) {
+                                for ($i_img = 0; $i_img < count($row_projet_img); $i_img++) {
+                                    $row_projet_img_fluide  = '../img_dw/' . $row_projet_img[$i_img]["id_projet_img"];
+                                    if (file_exists($row_projet_img_fluide)) {
+                            ?>
                                         <img src="<?= $row_projet_img_fluide ?>" alt="" srcset="">
-                                    </div>
-                                <?php
-                                }
-                            }
-                            if ($conditiones < 2) {
-                                ?>
-                                <style>
-                                    .conditiones {
-                                        display: none;
+                                    <?php
                                     }
-                                </style>
-                        <?php
+                                }
+                                $conditiones = 0;
+                                for ($i_img = 0; $i_img < count($row_projet_img); $i_img++) {
+                                    $row_projet_img_fluide  = '../img_dw/' . $row_projet_img[$i_img]["id_projet_img"];
+                                    $row_projet_img_fluide_ =     str_replace("../", "", $row_projet_img_fluide);
+                                    if (file_exists($row_projet_img_fluide_)) {
+                                        $conditiones++;
+                                    ?>
+                                        <div class="conditiones">
+                                            <img src="<?= $row_projet_img_fluide ?>" alt="" srcset="">
+                                        </div>
+                                    <?php
+                                    }
+                                }
+                                if ($conditiones < 2) {
+                                    ?>
+                                    <style>
+                                        .conditiones {
+                                            display: none;
+                                        }
+                                    </style>
+                                    <?php
+                                }
                             }
                         }
+ 
                         ?>
                     </div>
                 </div>
                 <?php
                 ?>
 
-                <div class="blog_index_header_img_2 blog_index_header_img g_img_projet_src1">
+                <div class="page_image">
 
                     <?php
 
@@ -236,8 +211,8 @@
                     $filename_bool = false;
                     if (file_exists($filename)) {
                     ?>
-
-                        <div class="g_img_projet_src1">
+ 
+                        <div class="page_image">
                             <img src="<?= '../' . $filename ?>" alt="" srcset="">
                         </div>
                 <?php
@@ -257,9 +232,9 @@
             if ($i != 0) {
 
                 $id_sha1_parent_projet2__ascii = AsciiConverter::asciiToString($id_sha1_parent_projet2[$i]);
- 
+
             ?>
-                <a href="<?= $google_title_projet[$i] ?>">
+                <a href="<?= $id_sha1_projet[$i]  ?>">
                     <div class="margin_autre">
                         Voir article !
                     </div>
@@ -368,6 +343,21 @@
         cursor: pointer;
 
     }
+
+    .page_image {
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.page_image img {
+    width: 100%;
+ 
+    object-fit: cover;
+    display: block;
+}
+
 </style>
 
 
@@ -447,7 +437,7 @@ if (isset($_SESSION["index"])) {
                 ok.add("showCoords_array_ip", showCoords_array[index].ip); // ajout de l'information pour lenvoi 
                 ok.add("showCoords_array_user_id", showCoords_array[index].user_id); // ajout de l'information pour lenvoi 
 
-               
+
                 ok.push(); // envoie l'information au code pkp 
 
 
@@ -485,9 +475,11 @@ if (isset($_SESSION["index"])) {
 </script>
 
 <style>
-    .display_none{
+    .display_none {
         display: none;
     }
 </style>
 
+
+<a href="">PAge sport</a>
 </html>

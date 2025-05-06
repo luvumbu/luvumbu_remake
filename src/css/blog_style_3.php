@@ -1,5 +1,7 @@
 <style>
- 
+    a {
+        text-decoration: none;
+    }
 
     body {
         font-family: "Tuffy", sans-serif;
@@ -92,7 +94,7 @@
     }
 
     .g_title_projet_2 {
-        font-size: 1.4em;
+        font-size: 2em;
         margin: 50px;
         text-align: center;
     }
@@ -122,9 +124,12 @@
     }
 
     .margin_autre {
-       
-  padding-left:25px ;
-  text-shadow: 1px 1px 4px  rgb(20, 7, 92);;
+        background-color: rgb(20, 7, 92);
+        color: white;
+        margin: 45px auto 45px auto;
+        padding: 15px;
+        text-align: center;
+        width: 85%;
     }
 
     .margin_autre2 {
@@ -136,7 +141,29 @@
         width: 100%;
     }
 
+    .slider-container {
+        background: #222;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        margin: auto;
+        margin-bottom: 45px;
+        overflow: hidden;
+        width: 70%;
+    }
 
+    .slider-track {
+        animation: scroll 18s linear infinite;
+        display: flex;
+        width: max-content;
+    }
+
+    .slider-track img {
+        border-radius: 8px;
+        height: 500px;
+        margin-right: 10px;
+        object-fit: cover;
+        width: 300px;
+    }
 
     .title_projet_2 {
         padding: 10px;

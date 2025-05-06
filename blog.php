@@ -26,6 +26,15 @@ require_once "Class/Js.php";
 require_once "Class/format_date_europeenne.php";
 require_once "Class/limiterMots.php";
 require_once "Class/formaterDateFr.php";
+/*
+require_once "src/css/blog_style_1.php";
+require_once "src/css/blog_slider_1.php";
+*/
+?>
+
+<link rel="stylesheet" href="../src/css/blog_style_1.css">
+<link rel="stylesheet" href="../src/css/blog_slider_1.css">
+<?php 
 date_default_timezone_set('Europe/Paris');
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
 $url = new Give_url();
@@ -38,12 +47,7 @@ $filename2 = "all_projet_img/" . $url_ . '.php';
 
 ?>
 
-<style>
-    body{
-        display: none;
  
-    }
- </style>
 
  
 
@@ -62,33 +66,15 @@ if (file_exists($filename)) {
        
     
         $url_2 = $google_title_projet[0] ;
-        if ($url_ != $url_2) {
-?>
  
 
-
-
-            <meta http-equiv="refresh" content="0; URL=<?= $url_2 ?>">
-    <?php
-        }
-        else{
-            require_once "src/css/blog_style_1.php";
-
-            ?>
-
-<style>
-    body{
-        display: block;
  
-    }
- </style>
-<?php 
-        }
+    
         
 $_SESSION["id_sha1_comment"] = $id_sha1_projet[0] ; 
         require_once "req_sql/require_once3.php";
 
-     //   require_once "data/blog/blog_comment.php";
+        require_once "data/blog/blog_comment.php";
 
 
  
@@ -104,11 +90,7 @@ $_SESSION["id_sha1_comment"] = $id_sha1_projet[0] ;
 
         
     }
-} else {
-    ?>
-    <meta http-equiv="refresh" content="0; URL=<?= $url_2 ?>">
-<?php
-}
+} 
 }
 ?>
 <script>
@@ -117,3 +99,10 @@ $_SESSION["id_sha1_comment"] = $id_sha1_projet[0] ;
         window.location.href = "../index.php";
     }
 </script>
+
+
+<style>
+    img{
+        max-width: 100%;
+    }
+</style>

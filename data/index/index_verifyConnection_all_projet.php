@@ -1,58 +1,5 @@
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      padding: 2rem;
-    }
-
-    /* Formulaire */
-    form {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 400px;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    form input,
-    form button {
-      display: block;
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 10px;
-      font-size: 16px;
-    }
-
-    form button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    form button:hover {
-      background-color: #45a049;
-    }
-
-    /* Card */
-    .card {
-      background-color: white;
-      padding: 20px;
-      max-width: 400px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .card h3 {
-      margin-top: 0;
-    }
-
-    .card p {
-      color: #555;
-    }
-  </style>
+ 
 </head>
  
 <div class="form-container">
@@ -395,10 +342,28 @@
  
   .form-container{
  
-    width:300px;
+    width:50%;
     margin: auto;
     text-align: center;
+    margin-top: 55px;
+    transition: 1s all;
   }
+  input{
+    margin-top: 15px;
+  }
+
+  @media (max-width: 800px) {
+ 
+    .form-container{
+ 
+ width:80%;
+ margin: auto;
+ text-align: center;
+ transition: 1s all;
+}
+}
+
+
 </style>
 
 

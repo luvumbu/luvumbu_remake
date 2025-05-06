@@ -294,6 +294,8 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
         echo '<div style="margin-top:75px"><img id="field_1_toggle" onclick="toggle(this)" width="50" height="50" src="' . $img_2 . '" alt="toggle-on--v1" /></div>';
       }
       ?>
+
+
       <img width="50" title="field-1" onclick='remove(this)' height="50" src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
     </div>
     <!-- CHAMP 2 -->
@@ -365,7 +367,6 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
       <div class="editable-field" id="field-3" contenteditable="true"><?= $change_meta_name_projet_ ?></div>
       <img width="50" title="field-3" onclick='remove(this)' height="50" src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
     </div>
-
     <!-- CHAMP 4 -->
     <div class="field-container" id="container-4">
       <div class="field-header">
@@ -421,6 +422,7 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
           <input type="color" onchange="changeBg(this.value, '5')">
         </div>
       </div>
+
       <div class="editable-field" id="field-5" contenteditable="true"><?= $google_title_projet_ ?></div>
       <img width="50" title="field-5" onclick='remove(this)' height="50" src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
       <div class="display_img">
@@ -460,6 +462,10 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
       if ($acces) {
       ?>
         <div class="submit-btn cursor_pointer" onclick="valider(this)">Envoyer</div>
+
+        <div class="remove_projet" onclick="remove_projet(this)">
+          <img width="46" height="46" src="https://img.icons8.com/color/46/delete-forever.png" alt="delete-forever" />
+        </div>
       <?php
       }
       ?>
@@ -483,7 +489,7 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
 
         </div>
         <div>
-          <a href="<?= "blog.php/" . $google_title_projet__ ?>">
+          <a href="<?= "blog.php/" . $id_sha1_projet__ ?>">
             <img width="40" height="40" src="https://img.icons8.com/ios/40/link--v1.png" alt="link--v1" />
           </a>
         </div>
@@ -595,15 +601,18 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
           <?php
           } else {
           ?>
-            <div class="cursor_pointer" onclick="remove_projet(this)">
-              <img width="40" height="40" src="https://img.icons8.com/fluency/40/delete-forever.png" alt="delete-forever" />
-            </div>
+
             <img src="<?= 'img_dw/' . $img_projet_src1_c[$i] ?>" alt="" srcset="">
-          
-        
+
+
           <?php
           }
           ?>
+ 
+
+
+
+
         </div>
 
         <div class="card_element_title"><?= $title_projet_c_ ?></div>
@@ -713,22 +722,8 @@ switch ($type_projet_0) {
 
 
 
-$google_title_projet_ = replace_element_2($google_title_projet_);
-$source = 'all_projet/' . $_SESSION["index"][4] . ".php";
-$destination = 'all_projet/' . $google_title_projet_ . '.php';
 
 
-copy($source, $destination);
-
-require_once "Class/replace_element.php";
-
-
-$google_title_projet_ = replace_element_2($google_title_projet_);
-$source = 'all_projet_img/' . $_SESSION["index"][4] . ".php";
-$destination = 'all_projet_img/' . $google_title_projet_ . '.php';
-
-
-copy($source, $destination);
 
 
 
@@ -738,7 +733,7 @@ copy($source, $destination);
 
 
 ?>
-<div class="update_all_projet" onclick="update_all_projet()" >update_all_projet</div>
+<div class="update_all_projet" onclick="update_all_projet()">update_all_projet</div>
 
 
 <style>
@@ -749,7 +744,7 @@ copy($source, $destination);
     padding: 15px;
   }
 </style>
- 
+
 
 <script>
   var ok = new Information("req_sql/updat_all_projet_1.php");
@@ -785,51 +780,38 @@ copy($source, $destination);
 
 
 
-function update_all_projet(){
-
-
-
-
-
- 
-  const refreshIntervalId = setInterval(function() {
-
-    // On affiche la longueur (inutile d'accéder à [0].length)
-    console.log("Total éléments :", total);
-
-    if (index > total) {
-      clearInterval(refreshIntervalId);
-      console.log("Fin du traitement.");
-      return;
-    }
-
-    // Exemple de traitement à chaque étape
-    console.log("Traitement de :", idSha1ProjetBoucle[index]);
-
-    var ok = new Information("req_sql/updat_all_projet_2.php");
-    ok.add("idSha1ProjetBoucle", idSha1ProjetBoucle[index]);
-    ok.add("google_title_projet_boucle", google_title_projet_boucle[index]);
+  function update_all_projet() {
 
 
 
 
 
 
-    console.log(ok.info());
-    ok.push();
+    const refreshIntervalId = setInterval(function() {
+
+      // On affiche la longueur (inutile d'accéder à [0].length)
+      console.log("Total éléments :", total);
+
+      if (index > total) {
+        clearInterval(refreshIntervalId);
+        console.log("Fin du traitement.");
+        return;
+      }
+
+      // Exemple de traitement à chaque étape
+      console.log("Traitement de :", idSha1ProjetBoucle[index]);
+
+      var ok = new Information("req_sql/updat_all_projet_2.php");
+      ok.add("idSha1ProjetBoucle", idSha1ProjetBoucle[index]);
+      ok.add("google_title_projet_boucle", google_title_projet_boucle[index]);
 
 
 
 
 
 
-
-
-
-    var ok = new Information("req_sql/copie_all.php");
-
-console.log(ok.info());
-ok.push();
+      console.log(ok.info());
+      ok.push();
 
 
 
@@ -837,15 +819,26 @@ ok.push();
 
 
 
- 
 
 
-    index++;
-  }, 500)
-  
-}
-  
- 
+      var ok = new Information("req_sql/copie_all.php");
+
+      console.log(ok.info());
+      ok.push();
+
+
+
+
+
+
+
+
+
+
+      index++;
+    }, 500)
+
+  }
 </script>
 
 
@@ -876,3 +869,14 @@ ok.push();
 
   }
 </script>
+
+<style>
+  .remove_projet {
+    margin-bottom: 45px;
+    float: right;
+  }
+
+  .remove_projet:hover {
+    cursor: pointer;
+  }
+</style>
