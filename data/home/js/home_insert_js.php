@@ -262,3 +262,124 @@ function x() {
 
   }
 </script>
+
+
+<script>
+  var ok = new Information("req_sql/updat_all_projet_1.php");
+  console.log(ok.info());
+  ok.push();
+
+
+
+
+
+
+
+
+  // On récupère le tableau PHP encodé en JSON
+  const idSha1ProjetBoucle = <?php echo json_encode($_SESSION['id_sha1_projet_boucle']); ?>;
+  const google_title_projet_boucle = <?php echo json_encode($_SESSION['google_title_projet_boucle']); ?>;
+
+
+
+  let index = 0;
+
+
+
+
+  // Vérifie la longueur correcte
+  const total = idSha1ProjetBoucle.length;
+
+
+
+
+
+
+
+
+
+  function update_all_projet(_this) {
+
+
+_this.style.display="none" ; 
+
+
+
+    const refreshIntervalId = setInterval(function() {
+
+      // On affiche la longueur (inutile d'accéder à [0].length)
+      console.log("Total éléments :", total);
+
+      if (index > total) {
+        clearInterval(refreshIntervalId);
+        console.log("Fin du traitement.");
+        return;
+      }
+
+      // Exemple de traitement à chaque étape
+      console.log("Traitement de :", idSha1ProjetBoucle[index]);
+
+      var ok = new Information("req_sql/updat_all_projet_2.php");
+      ok.add("idSha1ProjetBoucle", idSha1ProjetBoucle[index]);
+      ok.add("google_title_projet_boucle", google_title_projet_boucle[index]);
+
+
+
+
+
+
+      console.log(ok.info());
+      ok.push();
+
+
+
+
+
+
+
+
+
+      var ok = new Information("req_sql/copie_all.php");
+
+      console.log(ok.info());
+      ok.push();
+
+
+
+
+
+
+
+
+
+
+      index++;
+    }, 500)
+
+  }
+</script>
+
+
+
+
+
+ 
+
+
+<script>
+  function function_stats(_this) {
+
+
+    if (_this.src == "https://img.icons8.com/ios-filled/40/graph.png") {
+      _this.src = "https://img.icons8.com/dotty/50/graph.png";
+
+      document.getElementById("stats").className = "";
+    } else {
+      _this.src = "https://img.icons8.com/ios-filled/40/graph.png";
+      document.getElementById("stats").className = "display_none";
+
+
+    }
+
+  }
+</script>

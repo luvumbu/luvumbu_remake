@@ -1,5 +1,8 @@
 <?php
-session_start();
+require_once "data/all/requare_one_1.php" ; 
+
+
+
 if (isset($_SESSION["nombre"])) {
     $_SESSION["nombre"]++;
 } else {
@@ -10,30 +13,11 @@ if ($_SESSION["nombre"] > 10) {
     <meta http-equiv="refresh" content="0; URL=../index.php">
 <?php
 } else {
-    header("Access-Control-Allow-Origin: *");
-    require_once "Class/dbCheck.php";
-    require_once "Class/DatabaseHandler.php";
-    require_once "Class/AsciiConverter.php";
-    require_once "Class/extraireAlphabetique.php";
-    require_once "Class/Give_url.php";
-    require_once "Class/removeHtmlTags.php";
-    require_once "Class/replace_element.php";
-    require_once "Class/add_element.php";
-    require_once "Class/afficherValeursFormattees2.php";
-    require_once "Class/Js.php";
-    require_once "Class/format_date_europeenne.php";
-    require_once "Class/limiterMots.php";
-    require_once "Class/formaterDateFr.php";
-    /*
-require_once "src/css/blog_style_1.php";
-require_once "src/css/blog_slider_1.php";
-*/
 ?>
-
-    <link rel="stylesheet" href="../src/css/blog_style_1.css">
-    <link rel="stylesheet" href="../src/css/blog_slider_1.css">
+    <link rel="stylesheet" href="../data/blog/css/blog_style_1.css">
+    <link rel="stylesheet" href="../data/blog/css/blog_slider_1.css">
 <?php
-    date_default_timezone_set('Europe/Paris');
+  
     // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
     $url = new Give_url();
     // Utilisation de la méthode split_basename pour séparer par "_"

@@ -460,6 +460,8 @@ $databaseHandler->add_table($nom_table_ajout); // Nom de la table à créer : "u
  * Ce script montre comment utiliser la classe `DatabaseHandler` pour manipuler des données
  * d'une table spécifique dans une base de données en générant des variables dynamiques.
  */
+
+ //007
 /*
 // Configuration de la base de données
 $dbname = "root";   // Nom d'utilisateur pour la base de données
@@ -781,4 +783,108 @@ $databaseHandler->action_sql("INSERT INTO  `visit_user` (`id_visit_user`, `id_ge
 // Suppression d'un enregistrement dans la base de données
 // Exemple de suppression d'un élément dans une table spécifique
  */
+?>
+
+<?php
+
+
+/*
+// Configuration de la base de données
+$nom_table = "projet"; // Nom de la table cible
+
+// Connexion à la base (tu dois définir $dbname et $username quelque part avant)
+$databaseHandler = new DatabaseHandler($dbname, $username);
+
+// Requête SQL pour récupérer toutes les données de la table
+$req_sql = "SELECT * FROM `$nom_table` WHERE 1";
+
+// Récupération des informations des tables enfants liées
+$databaseHandler->getListOfTables_Child($nom_table);
+
+// Récupération des données de la table
+$databaseHandler->getDataFromTable2X($req_sql);
+
+// Génération des variables dynamiques (remplit le tableau $dynamicVariables)
+$databaseHandler->get_dynamicVariables();
+
+// Vérifie que $dynamicVariables existe
+if (!isset($dynamicVariables) || !is_array($dynamicVariables)) {
+    die("Erreur : \$dynamicVariables n'est pas défini ou n'est pas un tableau.");
+}
+*/
+// Création des variables dynamiques à partir des colonnes
+
+
+// exemple dutilisation 
+
+/*
+$all_array_array = [];
+
+foreach ($dynamicVariables as $key => $values) {
+    ${$key} = $values; // Création de la variable dynamique
+    $all_array_array[] = $key;
+}
+
+// Exemple : affichage d'une des colonnes récupérées
+echo "<pre>";
+echo "Clés disponibles dans \$dynamicVariables :\n";
+print_r($all_array_array);
+
+echo "\nExemple de contenu de 'id_sha1_user_projet' :\n";
+print_r($id_sha1_user_projet);
+echo "</pre>";
+*/
+?>
+
+
+<?php
+
+/*
+// Configuration de la base de données
+$nom_table = "projet"; // Nom de la table cible
+
+// Connexion à la base (tu dois définir $dbname et $username avant ce fichier)
+$databaseHandler = new DatabaseHandler($dbname, $username);
+
+// Requête SQL pour récupérer toutes les données de la table
+$req_sql = "SELECT * FROM `$nom_table` WHERE 1";
+
+// Récupération des informations des tables enfants liées
+$databaseHandler->getListOfTables_Child($nom_table);
+
+// Récupération des données de la table
+$databaseHandler->getDataFromTable2X($req_sql);
+
+// Génération des variables dynamiques dans $dynamicVariables
+$databaseHandler->get_dynamicVariables();
+
+// Vérifie que $dynamicVariables est bien défini
+if (!isset($dynamicVariables) || !is_array($dynamicVariables)) {
+    die("Erreur : \$dynamicVariables n'est pas défini ou n'est pas un tableau.");
+}
+
+// Création des variables dynamiques avec suffixe "_a"
+$all_array_array = [];
+
+foreach ($dynamicVariables as $key => $values) {
+    $varName = $key . '_a';
+    $$varName = $values; // Crée une variable dynamique, ex: $id_projet_a
+    $all_array_array[] = $varName;
+}
+
+*/
+/*
+// Exemple d'affichage
+echo "<pre>";
+echo "Variables créées avec suffixe _a :\n";
+print_r($all_array_array);
+
+echo "\nExemple de contenu de \$id_projet_a (si existe) :\n";
+if (isset($id_projet_a)) {
+    print_r($id_projet_a);
+} else {
+    echo "La variable \$id_projet_a n'existe pas.";
+}
+echo "</pre>";
+*/
 ?>

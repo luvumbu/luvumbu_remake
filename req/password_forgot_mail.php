@@ -5,24 +5,12 @@ require_once '../Class/give_url.php';
 require_once '../Class/path_config.php';
 require_once '../Class/DatabaseHandler.php';
 require_once '../Class/dbCheck.php';
-
-$username_ = $_POST["username"] ; 
- 
+$username_ = $_POST["username"] ;  
 $req_sql = 'SELECT * FROM `'.$dbname.'` WHERE `nom_user` ="'.$username_.'" ' ;
- 
 $databaseHandler = new DatabaseHandler($dbname, $username);
 $databaseHandler->getDataFromTable($req_sql, "id_user");
 $id_user = $databaseHandler->tableList_info;
-
-
-
- 
- 
-
- 
 if($id_user[0]!=""){
-
-
 
 if (isset($_POST["username"])) {
     $username = htmlspecialchars($_POST["username"], ENT_QUOTES, 'UTF-8');
@@ -34,10 +22,8 @@ if (isset($_POST["username"])) {
 }
 
 $SERVER_NAME = isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'nom_du_site_par_defaut';
-
 $to = $_POST["username"];
 $subject = 'Confirmation de la validation de votre inscription sur ' . $SERVER_NAME;
-
 $message = '
 <html>
 <head>

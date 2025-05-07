@@ -9,15 +9,9 @@ $img_5 = "https://img.icons8.com/ios/40/high-volume--v1.png";
 $img_6 = "https://img.icons8.com/ios/40/no-audio--v1.png";
 $img_7 = "https://img.icons8.com/ios-glyphs/40/invisible.png";
 $img_8 = "https://img.icons8.com/ios-filled/40/invisible.png";
-
 require_once $home_insert_css;
 require_once $home_insert_js;
 require_once "Class/replace_element.php";
-
-
-
-
-
 ?>
 <script>
   const img_1 = "<?= $img_1  ?>";
@@ -39,112 +33,9 @@ require_once "Class/replace_element.php";
   }
 </script>
 <?php
-// Création d'une instance de la classe `DatabaseHandler`
-$databaseHandler = new DatabaseHandler($dbname, $username);
-// Requête SQL pour récupérer toutes les données de la table
-$req_sql = "SELECT * FROM `projet` WHERE `id_sha1_projet`='$id_sha1_projet_'";
-// Récupération des informations des tables enfant liées
-$databaseHandler->getListOfTables_Child("projet");
-// La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.
-// Récupération des données de la table via une méthode spécialisée
-$databaseHandler->getDataFromTable2X($req_sql);
-// La méthode `getDataFromTable2X` exécute la requête SQL et prépare les données à être utilisées dynamiquement.
-// Génération de variables dynamiques à partir des données récupérées
-$databaseHandler->get_dynamicVariables();
-// La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
-// Exemple : affichage d'une variable dynamique spécifique
-$title_projet_ =   AsciiConverter::asciiToString($dynamicVariables['title_projet'][0]);
-$description_projet_ = AsciiConverter::asciiToString($dynamicVariables['description_projet'][0]);
-$change_meta_name_projet_ = AsciiConverter::asciiToString($dynamicVariables['change_meta_name_projet'][0]);
-$change_meta_content_projet_ = AsciiConverter::asciiToString($dynamicVariables['change_meta_content_projet'][0]);
-$google_title_projet_ = AsciiConverter::asciiToString($dynamicVariables['google_title_projet'][0]);
-$id_sha1_projet__ = $dynamicVariables['id_sha1_projet'][0];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-$google_title_projet__ = AsciiConverter::asciiToString($dynamicVariables['google_title_projet'][0]);
-$id_projet_ = $dynamicVariables['id_projet'][0];
-$id_sha1_user_projet__ =   $dynamicVariables['id_sha1_user_projet'][0];
-$id_sha1_projet_lock__ = $dynamicVariables['id_sha1_projet_lock'][0];
-$id_sha1_projet_song__ = $dynamicVariables['id_sha1_projet_song'][0];
-$change_meta_name_projet_toggle =  $dynamicVariables['change_meta_name_projet_toggle'][0];
-$change_meta_content_projet_toggle =  $dynamicVariables['change_meta_content_projet_toggle'][0];
-$title_projet_toggle =  $dynamicVariables['title_projet_toggle'][0];
-$description_projet_toggle =  $dynamicVariables['description_projet_toggle'][0];
-$img_projet_src1_toggle =  $dynamicVariables['img_projet_src1_toggle'][0];
-$visibility_1_projet =  $dynamicVariables['visibility_1_projet'][0];
-$img_projet_src2_toggle =  $dynamicVariables['img_projet_src2_toggle'][0];
-$img_projet_src1__ = $dynamicVariables['img_projet_src1'][0];
-$img_projet_src1 = $dynamicVariables['img_projet_src1'];
-$type_projet_0 = $dynamicVariables['type_projet'][0];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$databaseHandler = new DatabaseHandler($dbname, $username);
-// Requête SQL pour récupérer toutes les données de la table
-$req_sql = "SELECT * FROM `projet` WHERE `id_sha1_parent_projet`='$id_sha1_projet_'";
-// Récupération des informations des tables enfant liées
-$databaseHandler->getListOfTables_Child("projet");
-// La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.
-// Récupération des données de la table via une méthode spécialisée
-$databaseHandler->getDataFromTable2X($req_sql);
-// La méthode `getDataFromTable2X` exécute la requête SQL et prépare les données à être utilisées dynamiquement.
-// Génération de variables dynamiques à partir des données récupérées
-$databaseHandler->get_dynamicVariables();
-// La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
-// Exemple : affichage d'une variable dynamique spécifique
-$title_projet_c =   $dynamicVariables['title_projet'];
-$description_projet_c = $dynamicVariables['description_projet'];
-$google_title_projet_c = $dynamicVariables['google_title_projet'];
-$change_meta_name_projet_c = $dynamicVariables['change_meta_name_projet'];
-$change_meta_content_projet_c = $dynamicVariables['change_meta_content_projet'];
-$id_sha1_projet_cc = $dynamicVariables['id_sha1_projet'];
-$img_projet_src1_c = $dynamicVariables['img_projet_src1'];
-// Création d'une instance de la classe `DatabaseHandler`
-$databaseHandler = new DatabaseHandler($dbname, $username);
-// Requête SQL pour récupérer toutes les données de la table
-$req_sql = "SELECT * FROM `projet_img` WHERE  `id_sha1_projet_img`='" . $id_sha1_projet_ . " ' ";
-// Récupération des informations des tables enfant liées
-$databaseHandler->getListOfTables_Child("projet_img");
-// La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.
-// Récupération des données de la table via une méthode spécialisée
-$databaseHandler->getDataFromTable2X($req_sql);
-// La méthode `getDataFromTable2X` exécute la requête SQL et prépare les données à être utilisées dynamiquement.
-// Génération de variables dynamiques à partir des données récupérées
-$databaseHandler->get_dynamicVariables();
-// La méthode `get_dynamicVariables` transforme les données récupérées en variables dynamiques disponibles dans le tableau `$dynamicVariables`.
-// Exemple : affichage d'une variable dynamique spécifique
-$id_projet_img_c = $dynamicVariables['id_projet_img'];
-$id_sha1_projet_c = $dynamicVariables['id_sha1_projet'];
-$id_sha1_projet_img_c = $dynamicVariables['id_sha1_projet_img'];
-$id_projet_img_c = $dynamicVariables['id_projet_img'];
-$id_general = $dynamicVariables['id_general'];
+require_once "home_insert_1.php" ; 
+require_once "home_insert_2.php" ; 
 for ($i = 0; $i < count($id_projet_img_c); $i++) {
   $filename = "img_dw/" . $id_projet_img_c[$i];
   if (file_exists($filename)) {
@@ -156,86 +47,10 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
 <div class="class_img_top">
   <img id="class_img_top" src="<?= 'img_dw/' . $img_projet_src1[0] ?>" alt="" srcset="">
 </div>
-
-
-<style>
-  .class_img_top {
-    width: 50%;
-    margin: auto;
-    background-color: black;
-    text-align: center;
-    margin-top: 75px;
-
-  }
-
-  .class_img_top img {
-    max-width: 100%;
-
-  }
-
-  .display_img {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 75px;
-    margin-bottom: 75px;
-    flex-wrap: wrap;
-    margin: 100px;
-    width: 50%;
-    margin: auto;
-    max-width: 100%;
-
-  }
-
-  .display_img img {
-
-    max-width: 100%;
-
-  }
-
-  .all_img {
-    width: 400px;
-    margin: 25px;
-  }
-
-  .all_img img {}
-
-  .all_img__ {
-    width: 100%;
-  }
-
-  .display_imgs {
-    display: flex;
-    justify-content: space-around;
-    margin: 50px;
-  }
-
-  .display_imgs div:hover {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 17px;
-    cursor: pointer;
-  }
-
-  .display_imgs div {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 17px;
-
-  }
-
-  .div_h1 {
-    text-align: center;
-  }
-</style>
-</head>
-
 <body>
-
   <form method="post" action="submit.php">
-
     <!-- CHAMP 1 -->
     <div class="field-container" id="container-1">
-
-
-
       <div class="display_flex">
         <div title="" class="action_div" onclick="function_type(this)">
           <div>
@@ -243,7 +58,6 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
           </div>
           <div>
             <img width="40" height="40" src="https://img.icons8.com/pulsar-line/40/blog.png" alt="blog" />
-
           </div>
         </div>
         <div class="action_div <?= $type_projet_0 ?>" onclick="function_type(this)" title="quiz">
@@ -254,10 +68,7 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
             <img width="40" height="40" src="https://img.icons8.com/ios/40/test-passed--v1.png" alt="test-passed--v1" />
           </div>
         </div>
-
-
       </div>
-
       <div class="div_h1">
         <h1><?= $_SESSION["index"][4] ?></h1>
       </div>
@@ -294,8 +105,6 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
         echo '<div style="margin-top:75px"><img id="field_1_toggle" onclick="toggle(this)" width="50" height="50" src="' . $img_2 . '" alt="toggle-on--v1" /></div>';
       }
       ?>
-
-
       <img width="50" title="field-1" onclick='remove(this)' height="50" src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
     </div>
     <!-- CHAMP 2 -->
@@ -324,9 +133,7 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
           <input type="color" onchange="changeBg(this.value, '2')">
         </div>
       </div>
-
       <div class="editable-field" id="field-2" contenteditable="true"><?= $description_projet_ ?></div>
-
       <?php
       #toggle 2
       if ($description_projet_toggle != "") {
@@ -470,10 +277,6 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
       }
       ?>
       <div class="display_flex">
-
-
-
-
         <a href="req/done.php">
           <div class="cursor_pointer">
             <img width="80" height="80" src="https://img.icons8.com/color/80/checkmark--v1.png" alt="checkmark--v1" />
@@ -496,18 +299,12 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
         <div>
           <img class="cursor_pointer" onclick="function_stats(this)" width="40" height="40" src="https://img.icons8.com/ios-filled/40/graph.png" alt="graph" />
         </div>
-
-
-
         <?php
         if ($id_sha1_projet_song__ == "") {
         ?>
           <div class="cursor_pointer">
             <img onclick="function_song(this)" width="40" height="40" src="<?= $img_6 ?>" alt="high-volume--v1" />
           </div>
-
-
-
         <?php
 
         } else {
@@ -515,17 +312,9 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
           <div class="cursor_pointer">
             <img onclick="function_song(this)" width="40" height="40" src="<?= $img_5 ?>" alt="high-volume--v1" />
           </div>
-
-
-
         <?php
         }
-
-
         //$dynamicVariables['id_sha1_projet'][0]
-
-
-
         if ($visibility_1_projet[0] != "") {
         ?>
           <div class="cursor_pointer">
@@ -541,16 +330,9 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
         <?php
         }
         ?>
-
-
-
         <div>
           <div>
-
             <?php
-
-
-
             if ($acces) {
               if ($id_sha1_projet_lock__ == "") {
             ?>
@@ -570,313 +352,70 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
             ?>
 
           </div>
-
-
         </div>
-
       </div>
     </div>
   </form>
-
   <div id="stats" class="display_none"><?php require_once 'data/home/home_stats.php' ?></div>
-
-
   <div class="div_elements" style="margin-bottom: 175px;margin-top: 175px;">
     <?php
     for ($i = 0; $i < count($title_projet_c); $i++) {
-
       $title_projet_c_ =   AsciiConverter::asciiToString($title_projet_c[$i]);
-
     ?>
 
       <div class="card_element cursor_pointer bordures_img" onclick="child_element(this)" title="<?= $id_sha1_projet_cc[$i] ?>">
         <div class="card_element_img">
-
-
           <?php
-
           if ($img_projet_src1_c[$i] == '') {
           ?>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwfimb60bedU2xAWQhwyEC40kxb8z3efu7CtFK0XzOEE9iVfcBpEvM96wwTUKZ-hqKtMy3UN5KPuWUI1flHUY4nRY2sq-hKIEqvW3rox4" alt="">
           <?php
           } else {
           ?>
-
             <img src="<?= 'img_dw/' . $img_projet_src1_c[$i] ?>" alt="" srcset="">
-
-
           <?php
           }
           ?>
- 
-
-
-
-
         </div>
-
         <div class="card_element_title"><?= $title_projet_c_ ?></div>
       </div>
     <?php
     }
-
-
     ?>
   </div>
-
-
-
   <div>
     <?php
-
     require_once $home_stat;
-
     ?>
   </div>
-
-
-  <style>
-    .bordures_img {
-      border-radius: 17px;
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      padding: 1px;
-    }
-
-    .bordures_img img {
-      border-radius: 17px;
-
-    }
-
-    .action_div:hover {
-      border: 1px solid black;
-      cursor: pointer;
-      padding: 3px;
-      border-radius: 7px;
-    }
-
-    .action_div {
-      border: 1px solid rgba(0, 0, 0, 0);
-      cursor: pointer;
-      padding: 3px;
-      text-align: center;
-    }
-
-    .quiz {
-
-      background-color: rgba(200, 0, 0, 0.5);
-
-    }
-  </style>
-
-
 </body>
-
-
-
-
-
-
-
-
 <?php
-
-
-
-
-
 switch ($type_projet_0) {
   case "":
 
     break;
   case "quiz":
 ?>
-
     <script>
       document.getElementById("title_projet_info").innerHTML = "Titre du quizz";
       document.getElementById("description_projet_info").innerHTML = "Déscription du blog";
-
       document.getElementById("change_meta_name_projet_info").innerHTML = "";
-
       document.getElementById("change_meta_content_projet_info").innerHTML = "";
-
       document.getElementById("google_title_projet_info").innerHTML = "";
     </script>
   <?php
     break;
   case "quiz_child":
   ?>
-
     <script>
       document.getElementById("title_projet_info").innerHTML = "Titre du quizz";
       document.getElementById("description_projet_info").innerHTML = "Question n°1";
-
       document.getElementById("change_meta_name_projet_info").innerHTML = "Question n°2";
-
       document.getElementById("change_meta_content_projet_info").innerHTML = "Question n°3";
-
       document.getElementById("google_title_projet_info").innerHTML = "Réponse du quiz de 1 a 3 ";
     </script>
 <?php
     break;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
 <div class="update_all_projet" onclick="update_all_projet(this)">update_all_projet</div>
-
-
-<style>
-  .update_all_projet {
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 15px;
-  }
-</style>
-
-
-<script>
-  var ok = new Information("req_sql/updat_all_projet_1.php");
-  console.log(ok.info());
-  ok.push();
-
-
-
-
-
-
-
-
-  // On récupère le tableau PHP encodé en JSON
-  const idSha1ProjetBoucle = <?php echo json_encode($_SESSION['id_sha1_projet_boucle']); ?>;
-  const google_title_projet_boucle = <?php echo json_encode($_SESSION['google_title_projet_boucle']); ?>;
-
-
-
-  let index = 0;
-
-
-
-
-  // Vérifie la longueur correcte
-  const total = idSha1ProjetBoucle.length;
-
-
-
-
-
-
-
-
-
-  function update_all_projet(_this) {
-
-
-_this.style.display="none" ; 
-
-
-
-    const refreshIntervalId = setInterval(function() {
-
-      // On affiche la longueur (inutile d'accéder à [0].length)
-      console.log("Total éléments :", total);
-
-      if (index > total) {
-        clearInterval(refreshIntervalId);
-        console.log("Fin du traitement.");
-        return;
-      }
-
-      // Exemple de traitement à chaque étape
-      console.log("Traitement de :", idSha1ProjetBoucle[index]);
-
-      var ok = new Information("req_sql/updat_all_projet_2.php");
-      ok.add("idSha1ProjetBoucle", idSha1ProjetBoucle[index]);
-      ok.add("google_title_projet_boucle", google_title_projet_boucle[index]);
-
-
-
-
-
-
-      console.log(ok.info());
-      ok.push();
-
-
-
-
-
-
-
-
-
-      var ok = new Information("req_sql/copie_all.php");
-
-      console.log(ok.info());
-      ok.push();
-
-
-
-
-
-
-
-
-
-
-      index++;
-    }, 500)
-
-  }
-</script>
-
-
-
-
-
-<style>
-  .quiz_child {
-    background-color: rgba(0, 200, 0, 0.5);
-  }
-</style>
-
-
-<script>
-  function function_stats(_this) {
-
-
-    if (_this.src == "https://img.icons8.com/ios-filled/40/graph.png") {
-      _this.src = "https://img.icons8.com/dotty/50/graph.png";
-
-      document.getElementById("stats").className = "";
-    } else {
-      _this.src = "https://img.icons8.com/ios-filled/40/graph.png";
-      document.getElementById("stats").className = "display_none";
-
-
-    }
-
-  }
-</script>
-
-<style>
-  .remove_projet {
-    margin-bottom: 45px;
-    float: right;
-  }
-
-  .remove_projet:hover {
-    cursor: pointer;
-  }
-</style>

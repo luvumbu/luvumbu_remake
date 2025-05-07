@@ -1,9 +1,10 @@
  <?php
   require_once $home_header_css_1;
   require_once $home_js;
+ 
 
- 
- 
+
+
   ?>
  <nav>
    <ul class="menu">
@@ -16,16 +17,26 @@
    </ul>
  </nav>
  <section>
- 
+
 
 
    <?php
-    if ($_SESSION["index"][4] != "") {
-       //require_once "home_setting_files.php" ; 
-      require_once   $home_insert;
+
+
+
+    if (isset($_SESSION["index"][4])) {
+      if ($_SESSION["index"][4] != "") {
+        //require_once "home_setting_files.php" ; 
+        require_once   $home_insert;
+      } else {
+        require_once $home_select_all;
+      }
     } else {
       require_once $home_select_all;
     }
- ?>
- </section>
 
+
+    ?>
+
+
+ </section>

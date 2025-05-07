@@ -1,8 +1,7 @@
 <style>
      body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f2f5;
+ 
     }
     nav {
       background-color: #ffffff;
