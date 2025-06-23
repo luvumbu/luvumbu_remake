@@ -111,42 +111,4 @@
     }
 
     ?>
- <style>
-     .kook2 {
-         background-color: rgba(0, 0, 200, 0.3);
-     }
-     .lise_reponse {
-         width: 60%;
-         margin: auto;
-         text-align: center;
-         margin-top: 135px;
-     }
-     .ok {
-         background-color: rgba(0, 200, 0, 0.3);
-     }
-     .nok {
-         background-color: rgba(200, 0, 0, 0.3);
-     }
-     .ok,
-     .nok,
-     .kook,
-     .kook2 {
-         padding: 10px;
-         text-shadow: 1px 1px 4px black;
-         color: white;
-     }
-     .separation {
-         margin-bottom: 45px;
-     }
-     .resultat_final {
-         padding: 15px;
-         text-shadow: 1px 1px 4px black;
-         color: white;
-         border-radius: 12px;
-         margin: 50px auto;
-         background: linear-gradient(to right,
-                 rgba(0, 200, 0, 0.3) <?= $calcul2 . '%' ?>,
-                 rgba(200, 0, 0, 0.8) 100%);
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-     }
- </style>
+ 

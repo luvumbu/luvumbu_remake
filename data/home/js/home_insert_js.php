@@ -113,6 +113,8 @@ function x() {
   }
 
   function change_img_select(_this) {
+
+  
     document.documentElement.scrollTop = 0; // sans animation
     document.getElementById("class_img_top").src = "img_dw/" + _this.title;
     document.getElementById("class_img_top2").src = "img_dw/" + _this.title;
@@ -212,7 +214,43 @@ function x() {
     }
   }
 
+
+    function valider2(_this) {
+    _this.style.display = 'none';
+    const field_1 = document.getElementById("field-1").innerHTML;
+    const field_2 = document.getElementById("field-2").innerHTML;
+    const field_3 = document.getElementById("field-3").innerHTML;
+    const field_4 = document.getElementById("field-4").innerHTML;
+    const field_5 = document.getElementById("field-5").innerHTML;
+    const field_1_toggle = document.getElementById("field_1_toggle").src;
+    const field_2_toggle = document.getElementById("field_2_toggle").src;
+    if (field_1_toggle == img_1) {
+      field_1_toggle_info = "1";
+    } else {
+      field_1_toggle_info = "";
+    }
+    if (field_2_toggle == img_1) {
+      field_2_toggle_info = "1";
+    } else {
+      field_2_toggle_info = "";
+    }
+    var ok = new Information("req_sql/update_projet.php"); // création de la classe 
+    ok.add("title_projet", field_1); // ajout de l'information pour lenvoi 
+    ok.add("description_projet", field_2); // ajout de l'information pour lenvoi 
+    ok.add("change_meta_name_projet", field_3); // ajout de l'information pour lenvoi 
+    ok.add("change_meta_content_projet", field_4); // ajout de l'information pour lenvoi 
+    ok.add("google_title_projet", field_5); // ajout de l'information pour lenvoi 
+    ok.add("title_projet_toggle", field_1_toggle_info); // ajout de l'information pour lenvoi 
+    ok.add("description_projet_toggle", field_2_toggle_info); // ajout de l'information pour lenvoi 
+    console.log(ok.info()); // demande l'information dans le tableau
+    ok.push(); // envoie l'information au code pkp 
+ 
+  }
+
   function add_child(_this) {
+
+
+ 
     _this.style.display = 'none';
     var ok = new Information("req_sql/add_child.php"); // création de la classe 
     //ok.add("title_projet", field_1); // ajout de l'information pour lenvoi 
@@ -228,6 +266,8 @@ function x() {
 
     
   }
+
+
 
   function remove(_this) {
     document.getElementById(_this.title).innerHTML = "";

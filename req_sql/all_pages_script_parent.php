@@ -2,7 +2,7 @@
 // Création d'une instance de la classe `DatabaseHandler`
 $databaseHandler = new DatabaseHandler($dbname, $username);
 // Requête SQL pour récupérer toutes les données de la table
-$req_sql = "SELECT * FROM `projet` WHERE id_sha1_parent_projet ='$$id_sha1_projet_info' ";
+$req_sql = "SELECT * FROM `projet` WHERE id_sha1_parent_projet ='$id_sha1_projet_info' ";
 // Récupération des informations des tables enfant liées
 $databaseHandler->getListOfTables_Child("projet");
 // La méthode `getListOfTables_Child` récupère les tables enfants associées à `$nom_table`.

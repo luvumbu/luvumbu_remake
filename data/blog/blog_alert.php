@@ -48,14 +48,7 @@
   });
 </script>
 <style>
-  .dislike-img {
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.dislike-animate {
-  animation: alarmClock 0.6s ease-in-out;
-}
+ 
 
 @keyframes alarmClock {
   0%   { transform: rotate(0deg) scale(1); }

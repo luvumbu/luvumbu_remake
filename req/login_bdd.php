@@ -56,6 +56,43 @@ if ($databaseHandler->verif != 1) {
         }
         // Ajout de la table à la base de données
         $databaseHandler->add_table($dbname);
+
+
+
+
+
+
+        $databaseHandler = new DatabaseHandler($dbname, $username);
+
+        // Définition des colonnes et de leurs types dans un tableau associatif
+        $columns = [
+            "id_user"               => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+            "date_user"          => "LONGTEXT NOT NULL",
+            "id_sha1_user"          => "LONGTEXT NOT NULL",
+            "id_parent_user"        => "LONGTEXT NOT NULL",
+            "description_user"      => "LONGTEXT NOT NULL",
+            "title_user"            => "LONGTEXT NOT NULL",
+            "img_user"              => "LONGTEXT NOT NULL",
+            "nom_user"              => "LONGTEXT NOT NULL",
+            "prenom_user"           => "LONGTEXT NOT NULL",
+            "password_user"         => "LONGTEXT NOT NULL",
+            "email_user"            => "LONGTEXT NOT NULL",
+            "activation_user"       => "LONGTEXT NOT NULL",
+            "date_inscription_user" => "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        ];
+        // Itération sur le tableau pour définir les noms et types de colonnes
+        foreach ($columns as $name => $type) {
+            $databaseHandler->set_column_names($name);
+            $databaseHandler->set_column_types($type);
+        }
+        // Ajout de la table à la base de données
+        $databaseHandler->add_table("profil_user");
+
+
+
+
+
+
         // Initialisation du gestionnaire de base de données
         $databaseHandler = new DatabaseHandler($dbname, $username);
 

@@ -34,8 +34,8 @@ require_once "Class/replace_element.php";
 </script>
 <?php
 
-require_once "home_insert_1.php" ; 
-require_once "home_insert_2.php" ; 
+require_once "home_insert_1.php";
+require_once "home_insert_2.php";
 for ($i = 0; $i < count($id_projet_img_c); $i++) {
   $filename = "img_dw/" . $id_projet_img_c[$i];
   if (file_exists($filename)) {
@@ -47,6 +47,7 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
 <div class="class_img_top">
   <img id="class_img_top" src="<?= 'img_dw/' . $img_projet_src1[0] ?>" alt="" srcset="">
 </div>
+
 <body>
   <form method="post" action="submit.php">
     <!-- CHAMP 1 -->
@@ -277,11 +278,15 @@ for ($i = 0; $i < count($id_projet_img_c); $i++) {
       }
       ?>
       <div class="display_flex">
-        <a href="req/done.php">
-          <div class="cursor_pointer">
-            <img width="80" height="80" src="https://img.icons8.com/color/80/checkmark--v1.png" alt="checkmark--v1" />
-          </div>
-        </a>
+
+        <div class="cursor_pointer" onclick="valider2(this)">
+          <img width="80" height="80" src="https://img.icons8.com/color/80/checkmark--v1.png" alt="checkmark--v1" />
+        </div>
+
+        <div class="cursor_pointer" onclick="terminer(this)">
+          <img width="80" height="80" src="https://img.icons8.com/emoji/40/ok-hand-medium-dark-skin-tone.png" alt="checkmark--v1" />
+        </div>
+
         <div onclick="add_child(this)" class="cursor_pointer">
           <img width="40" height="40" src="https://img.icons8.com/office/40/add--v1.png" alt="add--v1" />
         </div>
@@ -418,4 +423,3 @@ switch ($type_projet_0) {
     break;
 }
 ?>
-<div class="update_all_projet" onclick="update_all_projet(this)">update_all_projet</div>

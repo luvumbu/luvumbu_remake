@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Étape 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6200ee;
+            --primary-light: #bb86fc;
+            --secondary-color: #03dac6;
+            --background-dark: #121212;
+            --surface-dark: #1e1e1e;
+            --surface-medium: #2d2d2d;
+            --surface-light: #3a3a3a;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-disabled: rgba(255, 255, 255, 0.5);
+            --error-color: #cf6679;
+            --warning-color: #ff9800;
+            --success-color: #4caf50;
+            --code-bg: #2b2b2b;
+            --code-text: #e6e6e6;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--background-dark);
+            transition: all 0.3s ease;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        h2 {
+            color: var(--primary-light);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-weight: 500;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 25px;
+            font-weight: 500;
+        }
+        
+        .container {
+            background-color: var(--surface-dark);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: var(--surface-medium);
+            color: var(--code-text);
+            border: none;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background-color: var(--code-bg);
+            border: 1px solid var(--surface-light);
+            border-radius: 6px;
+            padding: 20px;
+            overflow-x: auto;
+            line-height: 1.5;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        pre code {
+            border: none;
+            padding: 0;
+            background-color: transparent;
+            color: var(--code-text);
+        }
+        
+        .security-warning {
+            background-color: rgba(207, 102, 121, 0.1);
+            border-left: 4px solid var(--error-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .flow-diagram {
+            margin: 40px 0;
+            text-align: center;
+            background-color: var(--surface-medium);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .flow-diagram img {
+            max-width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .method {
+            background-color: rgba(187, 134, 252, 0.1);
+            border-left: 4px solid var(--primary-light);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .timestamp {
+            text-align: right;
+            font-size: 0.8em;
+            color: var(--text-secondary);
+            margin-top: 50px;
+            font-style: italic;
+        }
+        
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tab {
+            padding: 12px 24px;
+            cursor: pointer;
+            border: none;
+            background-color: var(--surface-medium);
+            color: var(--text-secondary);
+            border-radius: 8px 8px 0 0;
+            margin-right: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .tab:hover {
+            background-color: var(--surface-light);
+            color: var(--text-primary);
+        }
+        
+        .tab.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            border: none;
+            padding: 30px;
+            border-radius: 0 8px 8px 8px;
+            background-color: var(--surface-dark);
+            position: relative;
+            top: -1px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        ul, ol {
+            color: var(--text-secondary);
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--surface-medium);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-light);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Documentation Technique - Étape 1</h1>
+        <p>Système de navigation automatique et collecte de données</p>
+    </header>
+
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="openTab(event, 'javascript')">JavaScript (Frontend)</div>
+            <div class="tab" onclick="openTab(event, 'php')">PHP (Backend)</div>
+            <div class="tab" onclick="openTab(event, 'flow')">Flux de données</div>
+            <div class="tab" onclick="openTab(event, 'security')">Sécurité</div>
+        </div>
+
+        <div id="javascript" class="tab-content active">
+            <h2>Classes principales JavaScript</h2>
+
+            <h3>1. Classe <code>Information</code></h3>
+            <div class="method">
+                <p>Cette classe permet de collecter des informations et de les envoyer à un serveur via une requête AJAX (XMLHttpRequest).</p>
+                <ul>
+                    <li>Elle stocke des paires clé-valeur dans un tableau</li>
+                    <li>Elle permet d'ajouter des informations avec la méthode <code>add()</code></li>
+                    <li>Elle envoie toutes les données collectées au serveur avec la méthode <code>push()</code></li>
+                </ul>
+
+                <pre><code>class Information {
+    constructor(link) {
+        this.link = link;
+        this.identite = new FormData();
+        this.req = new XMLHttpRequest();
+        this.identite_tab = [];
+    }
+    info() {
+        return this.identite_tab; 
+    }
+    add(info, text){
+        this.identite_tab.push([info, text]); 
+    }
+    push(){
+        for(var i = 0 ; i < this.identite_tab.length ; i++){
+            console.log(this.identite_tab[i][1]);
+            this.identite.append(this.identite_tab[i][0], this.identite_tab[i][1]);		 
+        }		
+        this.req.open("POST",this.link);
+        this.req.send(this.identite);
+        console.log(this.req);	 
+    }
+}</code></pre>
+            </div>
+
+            <h3>2. Classe <code>Url_page_class</code></h3>
+            <div class="method">
+                <p>Cette classe gère la navigation automatique entre les pages :</p>
+                <ul>
+                    <li>Elle analyse l'URL actuelle</li>
+                    <li>Elle extrait des paramètres comme <code>frmannee</code> (année) et <code>frmposition</code> (position/page)</li>
+                    <li>Elle incrémente automatiquement ces paramètres pour naviguer vers la page suivante</li>
+                    <li>Elle utilise <code>setTimeout</code> pour déclencher la redirection après un délai spécifié</li>
+                </ul>
+            </div>
+
+            <h3>Fonctionnement global</h3>
+            <ol>
+                <li>Le code vérifie d'abord si l'URL actuelle se termine par un nombre</li>
+                <li>Si ce n'est pas le cas, il ajoute "&frmposition=0" à l'URL et redirige</li>
+                <li>Si c'est le cas, il analyse l'URL pour extraire les paramètres</li>
+                <li>Il incrémente l'année si nécessaire et modifie le paramètre de position</li>
+                <li>Il vérifie si l'année extraite correspond à l'année actuelle (avec <code>getFullYear_</code>)</li>
+                <li>Il prépare une nouvelle URL pour la redirection</li>
+                <li>Il collecte des informations sur la page actuelle (URL et nombre total de pages)</li>
+                <li>Il envoie ces informations à un serveur externe (https://bokonzi.com/instructions/etape_1.php)</li>
+                <li>Après un délai (500ms), il redirige automatiquement vers la nouvelle URL</li>
+            </ol>
+
+            <h3>Exemple d'utilisation</h3>
+            <pre><code>var window_location_href = window.location.href;
+var redirection = new Url_page_class(window_location_href, 500);
+var u489596434_bokonzi_on_url = document.getElementsByClassName("barSelect");
+var u489596434_bokonzi_on_url = u489596434_bokonzi_on_url[0].length;
+var ok = new Information("https://bokonzi.com/instructions/etape_1.php"); // création de la classe 
+ok.add("u489596434_bokonzi_on_url", window.location.href); // ajout de l'information pour lenvoi 
+ok.add("u489596434_bokonzi_on_page_total", u489596434_bokonzi_on_url); // ajout d'une deuxieme information denvoi  
+console.log(ok.info()); // demande l'information dans le tableau
+ok.push(); // envoie l'information au code pkp</code></pre>
+        </div>
+
+        <div id="php" class="tab-content">
+            <h2>Script PHP de réception</h2>
+            <p>Ce script PHP est responsable de recevoir les données envoyées par la classe <code>Information</code> du code JavaScript et de les stocker dans une base de données.</p>
+
+            <h3>1. Configuration initiale</h3>
+            <pre><code>session_start();
+header("Access-Control-Allow-Origin: *");
+require_once "../Class/DatabaseHandler.php";</code></pre>
+            <ul>
+                <li>Démarre une session PHP</li>
+                <li>Configure les en-têtes CORS pour permettre les requêtes de n'importe quelle origine</li>
+                <li>Inclut la classe <code>DatabaseHandler</code> qui gère les connexions à la base de données</li>
+            </ul>
+
+            <h3>2. Fonction utilitaire</h3>
+            <pre><code>function getLastChar($str) {
+    if (!is_string($str) || $str === '') {
+        return null;
+    }
+    return substr($str, -1);
+}</code></pre>
+            <p>Cette fonction est définie pour extraire le dernier caractère d'une chaîne, mais elle n'est pas utilisée dans le reste du code.</p>
+
+            <h3>3. Réception et traitement des données</h3>
+            <pre><code>$u489596434_bokonzi_on_url = $u489596434_bokonzi_on_url.'&frmposition=0';
+$u489596434_bokonzi_on_url = htmlspecialchars($_POST["u489596434_bokonzi_on_url"]);
+$u489596434_bokonzi_on_page_total = htmlspecialchars($_POST["u489596434_bokonzi_on_page_total"]);</code></pre>
+            <ul>
+                <li>Il y a une erreur logique ici : la première ligne ajoute <code>&frmposition=0</code> à une variable qui n'a pas encore été définie</li>
+                <li>Ensuite, les données envoyées par le JavaScript sont récupérées via <code>$_POST</code> et échappées avec <code>htmlspecialchars()</code> pour prévenir les attaques XSS</li>
+            </ul>
+
+            <h3>4. Connexion à la base de données</h3>
+            <pre><code>$dbname = "u489596434_bokonzi_on";
+$username = "v3p9r3e@59A";
+$databaseHandler = new DatabaseHandler($dbname, $username);</code></pre>
+            <ul>
+                <li>Définit les paramètres de connexion à la base de données</li>
+                <li>Crée une instance de <code>DatabaseHandler</code> pour gérer la connexion</li>
+                <li><strong>Remarque importante sur la sécurité</strong> : Le nom d'utilisateur est exposé directement dans le code, mais il manque le mot de passe (qui est probablement géré dans la classe <code>DatabaseHandler</code>)</li>
+            </ul>
+
+            <h3>5. Insertion des données dans la base</h3>
+            <pre><code>$databaseHandler->action_sql("INSERT INTO `u489596434_bokonzi_on` (
+`u489596434_bokonzi_on_url`,
+`u489596434_bokonzi_on_page_total`
+) VALUES (
+'$u489596434_bokonzi_on_url',
+'$u489596434_bokonzi_on_page_total'
+)");</code></pre>
+            <ul>
+                <li>Exécute une requête SQL pour insérer les données reçues dans la table <code>u489596434_bokonzi_on</code></li>
+                <li><strong>Problème de sécurité</strong> : La requête est construite par concaténation directe des variables, ce qui expose l'application aux injections SQL</li>
+            </ul>
+        </div>
+
+        <div id="flow" class="tab-content">
+            <h2>Flux de données</h2>
+            <div class="flow-diagram">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNDAwIj48c3R5bGU+cmVjdCwgcGF0aCwgbGluZSB7IHN0cm9rZTogIzMzMzsgc3Ryb2tlLXdpZHRoOiAycHg7IH0gLmJveCB7IGZpbGw6ICNmMGY3ZmI7IH0gLnBoYm94IHsgZmlsbDogI2Y4ZjFmZjsgfSAuZGJib3ggeyBmaWxsOiAjZjFlY2VjOyB9IHRleHQgeyBmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTRweDsgfSAuYXJyb3cgeyBmaWxsOiBub25lOyBtYXJrZXItZW5kOiB1cmwoI2Fycm93aGVhZCk7IH08L3N0eWxlPjxkZWZzPjxtYXJrZXIgaWQ9ImFycm93aGVhZCIgbWFya2VyV2lkdGg9IjEwIiBtYXJrZXJIZWlnaHQ9IjciIG1hcmtlclVuaXRzPSJzdHJva2VXaWR0aCIgcmVmWD0iMCIgcmVmWT0iMy41IiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0gMCAwIEwgMTAgMy41IEwgMCA3IHoiIGZpbGw9IiMzMzMiLz48L21hcmtlcj48L2RlZnM+PHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgcng9IjUiIHJ5PSI1IiBjbGFzcz0iYm94Ii8+PHRleHQgeD0iMTUwIiB5PSI4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2xhc3NlIEluZm9ybWF0aW9uPC90ZXh0Pjx0ZXh0IHg9IjE1MCIgeT0iMTEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4oSmF2YVNjcmlwdCk8L3RleHQ+PHJlY3QgeD0iNTAiIHk9IjIwMCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHJ4PSI1IiByeT0iNSIgY2xhc3M9ImJveCIvPjx0ZXh0IHg9IjE1MCIgeT0iMjMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DbGFzc2UgVXJsX3BhZ2VfY2xhc3M8L3RleHQ+PHRleHQgeD0iMTUwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPihKYXZhU2NyaXB0KTwvdGV4dD48cmVjdCB4PSIzNTAiIHk9IjEyNSIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxMDAiIHJ4PSI1IiByeT0iNSIgY2xhc3M9InBoYm94Ii8+PHRleHQgeD0iNDUwIiB5PSIxNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNjcmlwdCBkZSByw6ljZXB0aW9uPC90ZXh0Pjx0ZXh0IHg9IjQ1MCIgeT0iMTg1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4oUEhQKTwvdGV4dD48cmVjdCB4PSIzNTAiIHk9IjI3NSIgd2lkdGg9IjIwMCIgaGVpZ2h0PSI3NSIgcng9IjUiIHJ5PSI1IiBjbGFzcz0iZGJib3giLz48dGV4dCB4PSI0NTAiIHk9IjMxNSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QmFzZSBkZSBkb25uw6llczwvdGV4dD48bGluZSB4MT0iMTUwIiB5MT0iMTUwIiB4Mj0iMTUwIiB5Mj0iMjAwIiBjbGFzcz0iYXJyb3ciIHN0cm9rZT0iIzMzMyIvPjxsaW5lIHgxPSIyNTAiIHkxPSIxMDAiIHgyPSIzNTAiIHkyPSIxNTAiIGNsYXNzPSJhcnJvdyIgc3Ryb2tlPSIjMzMzIi8+PGxpbmUgeDE9IjQ1MCIgeTE9IjIyNSIgeDI9IjQ1MCIgeTI9IjI3NSIgY2xhc3M9ImFycm93IiBzdHJva2U9IiMzMzMiLz48dGV4dCB4PSIxMzAiIHk9IjE4MCIgdGV4dC1hbmNob3I9ImVuZCI+VXRpbGlzZTwvdGV4dD48dGV4dCB4PSIzMDAiIHk9IjEyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RW52b2llIGRvbm7DqWVzPC90ZXh0Pjx0ZXh0IHg9IjQ3MCIgeT0iMjUwIiB0ZXh0LWFuY2hvcj0iZW5kIj5TdG9ja2UgZG9ubsOpZXM8L3RleHQ+PC9zdmc+" alt="Diagramme de flux de données" width="600">
+            </div>
+            <h3>Description du flux</h3>
+            <ol>
+                <li>La classe <code>Url_page_class</code> analyse l'URL actuelle et prépare la navigation</li>
+                <li>La classe <code>Information</code> collecte des données sur la page actuelle (URL et nombre total de pages)</li>
+                <li>Les données sont envoyées via une requête AJAX POST au script PHP</li>
+                <li>Le script PHP reçoit les données, les traite et les stocke dans la base de données</li>
+                <li>Après un délai, le JavaScript redirige automatiquement vers la page suivante</li>
+                <li>Le processus se répète pour chaque page visitée</li>
+            </ol>
+        </div>
+
+        <div id="security" class="tab-content">
+            <h2>Analyse de sécurité</h2>
+            
+            <div class="security-warning">
+                <h3>Problèmes de sécurité identifiés</h3>
+                <ol>
+                    <li><strong>Injection SQL</strong> : Les variables sont directement insérées dans la requête SQL sans utiliser de requêtes préparées</li>
+                    <li><strong>Informations d'identification exposées</strong> : Le nom d'utilisateur de la base de données est directement dans le code</li>
+                    <li><strong>CORS trop permissif</strong> : <code>Access-Control-Allow-Origin: *</code> autorise les requêtes de n'importe quelle origine</li>
+                    <li><strong>Erreur logique</strong> : La première ligne du code PHP tente de modifier une variable non définie</li>
+                    <li><strong>Manque de validation des données</strong> : Peu de validation des données côté client et serveur</li>
+                    <li><strong>Redirections automatiques</strong> : Potentiellement risquées si mal configurées</li>
+                </ol>
+            </div>
+
+            <h3>Recommandations de sécurité</h3>
+            <ol>
+                <li><strong>Utiliser des requêtes préparées</strong> pour prévenir les injections SQL :
+                    <pre><code>$stmt = $pdo->prepare("INSERT INTO `u489596434_bokonzi_on` 
+    (`u489596434_bokonzi_on_url`, `u489596434_bokonzi_on_page_total`) 
+    VALUES (?, ?)");
+$stmt->execute([$u489596434_bokonzi_on_url, $u489596434_bokonzi_on_page_total]);</code></pre>
+                </li>
+                <li><strong>Déplacer les informations d'identification</strong> dans un fichier de configuration sécurisé</li>
+                <li><strong>Restreindre CORS</strong> aux domaines spécifiques nécessaires :
+                    <pre><code>header("Access-Control-Allow-Origin: https://example.com");</code></pre>
+                </li>
+                <li><strong>Corriger l'erreur logique</strong> dans le traitement des données :
+                    <pre><code>$u489596434_bokonzi_on_url = htmlspecialchars($_POST["u489596434_bokonzi_on_url"]);
+$u489596434_bokonzi_on_url = $u489596434_bokonzi_on_url . '&frmposition=0';</code></pre>
+                </li>
+                <li><strong>Ajouter une validation des données</strong> côté client et serveur</li>
+                <li><strong>Mettre en place une authentification</strong> pour les requêtes API</li>
+            </ol>
+        </div>
+
+        <div class="timestamp">
+            Documentation générée le 21 mai 2025
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+            }
+            
+            // Remove active class from all tabs
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            
+            // Show the current tab and add active class to the button
+            document.getElementById(tabName).className += " active";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

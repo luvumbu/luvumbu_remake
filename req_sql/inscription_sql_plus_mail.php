@@ -1,13 +1,16 @@
 <?php
 session_start();
 require_once '../Class/DatabaseHandler.php';
+require_once '../Class/AsciiConverter.php.php';
+
 require_once '../Class/dbCheck.php';
 date_default_timezone_set('Europe/Paris');
 
+echo AsciiConverter::stringToAscii($string); // Affiche "72,101,108,108,111"
 
 
-$title_user_ = htmlspecialchars($_POST["title_user"]);
-$description_user_ =  htmlspecialchars($_POST["description_user"]);
+$title_user_ = AsciiConverter::stringToAscii(htmlspecialchars($_POST["title_user"]));
+$description_user_ =  AsciiConverter::stringToAscii(htmlspecialchars($_POST["description_user"]));
 $nom_user_ =  htmlspecialchars($_POST["nom_user"]);
 $password_ = sha1($_POST["password"]);
 

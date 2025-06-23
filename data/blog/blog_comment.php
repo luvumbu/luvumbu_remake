@@ -1,56 +1,4 @@
-<style>
-     h2 {
-         color: #333;
-     }
-
-     form {
-         background: #fff;
-         padding: 15px;
-         border-radius: 8px;
-         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-         margin-bottom: 30px;
-     }
-
-     input,
-     textarea,
-     button {
-         display: block;
-         width: 100%;
-         margin-top: 10px;
-         padding: 10px;
-         font-size: 16px;
-         border-radius: 5px;
-         border: 1px solid #ccc;
-     }
-
-     button {
-         background: #007BFF;
-         color: white;
-         cursor: pointer;
-     }
-
-     .comment {
-         background: #fff;
-         padding: 15px;
-         margin-bottom: 15px;
-         border-left: 5px solid #007BFF;
-         border-radius: 5px;
-     }
-
-     .comment .name {
-         font-weight: bold;
-     }
-
-     .comment .date {
-         font-size: 0.9em;
-         color: #666;
-     }
-
-     .all_comment {
-         width: 80%;
-         margin: auto;
-     }
- </style>
+ 
  </head>
  <?php
 
@@ -151,7 +99,9 @@ if($verif_file){
 ?>
  <script>
      function envoyer_comment(_this) {
-         _this.style.display = "none";
+
+  
+        
          const id_comment_text_ = document.getElementById("message").value;
          var ok = new Information("../req_sql/envoyer_comment.php"); // création de la classe 
          ok.add("id_comment_text", id_comment_text_); // ajout de l'information pour lenvoi 
@@ -160,7 +110,7 @@ if($verif_file){
          const myTimeout = setTimeout(x, 1000);
 
          function x() {
-             location.reload();
+           location.reload();
          }
      }
  </script>

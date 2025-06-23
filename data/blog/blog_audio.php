@@ -160,22 +160,4 @@
 <?php
 require_once "src/css/audio_css_2.php";
 ?>
-<style>
-  .text-x {
-    display: none;
-  }    
-  @media screen and (max-width: 1000px) {
-    .audio_display_flex  div  {
-width: 100%; 
-    }
-    .audio_display_flex     {
-width: 100%; 
-    }
-    .audio_display_flex img{
-      width: 80%;
-    }
-    .audio_description{
-      padding: 20px;
-    } 
-}
-</style>
+ 

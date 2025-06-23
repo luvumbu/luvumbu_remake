@@ -8,12 +8,14 @@ require_once "../Class/extraireAlphabetique.php" ;
 require_once "../Class/replace_element.php";
 date_default_timezone_set('Europe/Paris');
 $chemins = [
-    "../all_projet",
     "../all_comment",
+    "../all_profil_user",
+    "../all_projet",
     "../all_projet_img",
     "../all_projet_img_json",
+    "../all_projet_json",
     "../all_style",
-    "../qr_code_1/temp"
+    "../qr_code_1/temp" 
 ];
 
 foreach ($chemins as $chemin) {

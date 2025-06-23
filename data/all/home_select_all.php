@@ -36,7 +36,22 @@ for ($i_a = 0; $i_a < count($id_sha1_projet); $i_a++) {
             <p><?= $title_projet_1[$i_a] ?><br><b class="spetit"><?= $id_sha1_projet[$i_a] ?></b></p>
         </div>
 
-        <div class="flex_card_all">
+     
+
+
+            <?php
+            
+            if($id_sha1_parent_projet[$i_a]!=""){
+$id_sha1_parent_projet ="flex_card_all parent_off" ; 
+
+            }
+            else {
+$id_sha1_parent_projet ="flex_card_all" ; 
+            }
+
+
+            ?>
+   <div class="<?= $id_sha1_parent_projet ?>">
             <?php 
             if (isset($_SESSION["index"]))
             {
@@ -69,9 +84,19 @@ for ($i_a = 0; $i_a < count($id_sha1_projet); $i_a++) {
 <?php
 }
 echo '</div>';
+
+
+
+ 
+
+ 
 ?>
 
 <style>
+  
+  /*  
+  STYLE DE TOUS LES PROJET EN INDEX.PHP ET EN  CONNEXION STYLE COMMUN
+ */
     .spetit{
         font-size: 0.7em;
         float: left;
@@ -83,7 +108,9 @@ echo '</div>';
         margin-top: 40px;
         gap: 20px;
     }
-
+.parent_off{
+    background-color: rgba(228, 36, 100, 0.4);
+}
     .card_all {
         width: 350px;
         margin-bottom: 45px;
@@ -94,7 +121,7 @@ echo '</div>';
         border: 1px solid rgba(0, 0, 0, 0.2);
         border-radius: 8px;
         box-sizing: border-box;
-        background-color: #fff;
+ font-family: Arial, Helvetica, sans-serif;
 
     }
 
@@ -102,7 +129,7 @@ echo '</div>';
         width: 100%;
         height: 100px;
         object-fit: cover;
-        /* remplit la zone sans déformer, rogne si nécessaire */
+     
         display: block;
     }
 
@@ -134,6 +161,8 @@ echo '</div>';
         padding: 10px;
         margin-bottom: 10px;
     }
+
+   
 </style>
 
 <script>

@@ -46,12 +46,7 @@ function name_file() {
 
 
  console.log(time) ; 
-
-
-
-
-
- var ok = new Information("name.php"); // création de la classe 
+var ok = new Information("name.php"); // création de la classe 
 ok.add("name", time); // ajout de l'information pour lenvoi 
    
 console.log(ok.info()); // demande l'information dans le tableau

@@ -1,4 +1,6 @@
 <?php 
+
+ 
 function replace_element_3($element) {
     $element = str_replace("&lt;", "<", AsciiConverter::asciiToString($element));
     $element = str_replace("&gt;", ">",  $element);
@@ -26,5 +28,6 @@ function replace_element_2($element) {
     $element = str_replace("&nbsp;", "",  $element);
     return $element ;      
 }
+ 
 
 ?>
