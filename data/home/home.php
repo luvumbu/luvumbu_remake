@@ -33,9 +33,12 @@
   require_once 'data/home/add_profil.php';
   require_once 'data/home/update_profil.php';
 
+
+ 
   if (isset($_SESSION["index"][4])) {
     if ($_SESSION["index"][4] != "") {
       //require_once "home_setting_files.php" ; 
+
       require_once   $home_insert;
     } else {
       require_once $home_select_all;

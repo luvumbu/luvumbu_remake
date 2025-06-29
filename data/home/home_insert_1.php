@@ -21,8 +21,20 @@ $change_meta_name_projet_ = AsciiConverter::asciiToString($dynamicVariables['cha
 $change_meta_content_projet_ = AsciiConverter::asciiToString($dynamicVariables['change_meta_content_projet'][0]);
 $google_title_projet_ = AsciiConverter::asciiToString($dynamicVariables['google_title_projet'][0]);
 $id_sha1_projet__ = $dynamicVariables['id_sha1_projet'][0];
+$id_sha1_user_projet__ = $dynamicVariables['id_sha1_user_projet'][0];
 
+ 
 
+ 
+
+if($id_sha1_user_projet__ ==$_SESSION["index"][3]){
+    $id_sha1_user_projet_class="";
+}
+else{
+    $id_sha1_user_projet_class="display_none";
+
+}
+ 
 
 $google_title_projet__ = AsciiConverter::asciiToString($dynamicVariables['google_title_projet'][0]);
 $id_projet_ = $dynamicVariables['id_projet'][0];

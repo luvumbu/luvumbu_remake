@@ -26,3 +26,10 @@ all_projet_img_json
 img_dw/
 all_projet
 all_projet/
+all_comment
+all_profil_user
+all_profil_user_array
+all_projet
+all_projet_img
+all_projet_img_json
+all_projet_json

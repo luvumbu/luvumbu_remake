@@ -1,28 +1,15 @@
  
  </head>
  <?php
-
-
-
-
-
-
     $id_sha1_projet_info  = $id_sha1_projet[0];
-
     $filename__ = 'all_comment/' . $id_sha1_projet_info . '.php';
-
     $verif_file = true;
-
     if (!file_exists($filename__)) {
         $verif_file  = false;
     } else {
-
         require_once $filename__;
     }
 
-
-
- 
     ?>
 <?php
 

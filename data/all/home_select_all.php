@@ -1,3 +1,80 @@
+<style>
+  
+  /*  
+  STYLE DE TOUS LES PROJET EN INDEX.PHP ET EN  CONNEXION STYLE COMMUN
+ */
+    .spetit{
+        font-size: 0.7em;
+        float: left;
+    }
+    .card_all_element {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        gap: 20px;
+    }
+.parent_off{
+    background-color: black;
+    color: white;
+}
+.parent_off div{
+    background-color: white;
+}
+    .card_all {
+        width: 350px;
+        margin-bottom: 45px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        box-sizing: border-box;
+ font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    .img_card {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+     
+        display: block;
+    }
+
+    .card_all p {
+        text-align: center;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        height: 50px;
+        padding: 10px 10px 0 10px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .flex_card_all {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        padding: 10px 0;
+        box-sizing: border-box;
+    }
+
+    .cursor_pointer:hover {
+        cursor: pointer;
+    }
+
+    .padding_10 {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+   
+</style>
+
 <?php
 $val_knock = "";
 $nom_table = "projet";
@@ -60,6 +137,9 @@ $id_sha1_parent_projet ="flex_card_all" ;
 
                 if($_SESSION["index"][3]==$id_sha1_user_projet[$i_a]){
         
+
+
+
                     ?>
 
          
@@ -92,78 +172,6 @@ echo '</div>';
  
 ?>
 
-<style>
-  
-  /*  
-  STYLE DE TOUS LES PROJET EN INDEX.PHP ET EN  CONNEXION STYLE COMMUN
- */
-    .spetit{
-        font-size: 0.7em;
-        float: left;
-    }
-    .card_all_element {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        margin-top: 40px;
-        gap: 20px;
-    }
-.parent_off{
-    background-color: rgba(228, 36, 100, 0.4);
-}
-    .card_all {
-        width: 350px;
-        margin-bottom: 45px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow: hidden;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        border-radius: 8px;
-        box-sizing: border-box;
- font-family: Arial, Helvetica, sans-serif;
-
-    }
-
-    .img_card {
-        width: 100%;
-        height: 100px;
-        object-fit: cover;
-     
-        display: block;
-    }
-
-    .card_all p {
-        text-align: center;
-        max-width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        height: 50px;
-        padding: 10px 10px 0 10px;
-        box-sizing: border-box;
-        font-size: 16px;
-    }
-
-    .flex_card_all {
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        padding: 10px 0;
-        box-sizing: border-box;
-    }
-
-    .cursor_pointer:hover {
-        cursor: pointer;
-    }
-
-    .padding_10 {
-        padding: 10px;
-        margin-bottom: 10px;
-    }
-
-   
-</style>
 
 <script>
     function home_all_element_projet(_this) {
