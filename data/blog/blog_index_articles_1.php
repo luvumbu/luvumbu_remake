@@ -98,7 +98,7 @@
 
           if($i>0){
 ?>
-       <div class="description-limitee">
+       <div class="description-limitee space_width">
          <?php echo $description_projet[$i]; ?>
        </div>
        <div class="points">
@@ -109,7 +109,7 @@
           }
           else{
             ?>
-       <div class="">
+       <div class="space_width">
          <?php echo $description_projet[$i]; ?>
        </div>
        <div>
@@ -180,6 +180,27 @@
      .description-limitee {
   max-height: 200px; /* tu choisis la hauteur */
   overflow: hidden;
+}
+.space_width {
+  max-width: 100vw;       /* Jamais plus large que la largeur visible de l'écran */
+  width: auto;            /* Largeur naturelle, sauf en petit écran */
+  overflow-x: hidden;     /* Masque tout débordement horizontal */
+  box-sizing: border-box; /* Inclut padding/border dans la largeur */
+}
+
+@media screen and (max-width: 800px) {
+  .space_width {
+    width: 100%;          /* Prend toute la largeur de l’écran en responsive */
+  }
+
+     .width_80p {
+     margin: auto;
+     width: 100%;
+     margin-bottom: 75px;
+     margin-top: 45px;
+     text-align: justify;
+
+   }
 }
 
    </style>

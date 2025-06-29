@@ -1,12 +1,12 @@
 <style>
-  
-  /*  
+    /*  
   STYLE DE TOUS LES PROJET EN INDEX.PHP ET EN  CONNEXION STYLE COMMUN
  */
-    .spetit{
+    .spetit {
         font-size: 0.7em;
         float: left;
     }
+
     .card_all_element {
         display: flex;
         justify-content: space-around;
@@ -14,13 +14,16 @@
         margin-top: 40px;
         gap: 20px;
     }
-.parent_off{
-    background-color: black;
-    color: white;
-}
-.parent_off div{
-    background-color: white;
-}
+
+    .parent_off {
+        background-color: black;
+        color: white;
+    }
+
+    .parent_off div {
+        background-color: white;
+    }
+
     .card_all {
         width: 350px;
         margin-bottom: 45px;
@@ -31,7 +34,7 @@
         border: 1px solid rgba(0, 0, 0, 0.2);
         border-radius: 8px;
         box-sizing: border-box;
- font-family: Arial, Helvetica, sans-serif;
+        font-family: Arial, Helvetica, sans-serif;
 
     }
 
@@ -39,7 +42,7 @@
         width: 100%;
         height: 100px;
         object-fit: cover;
-     
+
         display: block;
     }
 
@@ -71,8 +74,6 @@
         padding: 10px;
         margin-bottom: 10px;
     }
-
-   
 </style>
 
 <?php
@@ -104,8 +105,26 @@ for ($i_a = 0; $i_a < count($id_sha1_projet); $i_a++) {
 
 
 
+
+
+
+    if ($id_sha1_parent_projet[$i_a] != "") {
+
+
+        if (isset($_SESSION["index"])) {
+            $id_sha1_parent_projet = "flex_card_all parent_off";
+            $id_sha1_parent_projet_general = "";
+        } else {
+            $id_sha1_parent_projet = "flex_card_all parent_off display_none";
+            $id_sha1_parent_projet_general = "petit";
+        }
+    } else {
+        $id_sha1_parent_projet = "flex_card_all";
+    }
+
+
 ?>
-    <div class="card_all">
+    <div class="card_all <?=  $id_sha1_parent_projet_general ?>">
 
         <img class="img_card" src="<?= $img_projet_src1_i_a ?>" alt="Image projet">
 
@@ -113,46 +132,31 @@ for ($i_a = 0; $i_a < count($id_sha1_projet); $i_a++) {
             <p><?= $title_projet_1[$i_a] ?><br><b class="spetit"><?= $id_sha1_projet[$i_a] ?></b></p>
         </div>
 
-     
 
 
+
+
+        <div class="<?= $id_sha1_parent_projet ?>">
             <?php
-            
-            if($id_sha1_parent_projet[$i_a]!=""){
-$id_sha1_parent_projet ="flex_card_all parent_off" ; 
+            if (isset($_SESSION["index"])) {
 
-            }
-            else {
-$id_sha1_parent_projet ="flex_card_all" ; 
-            }
+
+
+                if ($_SESSION["index"][3] == $id_sha1_user_projet[$i_a]) {
+
+
 
 
             ?>
-   <div class="<?= $id_sha1_parent_projet ?>">
-            <?php 
-            if (isset($_SESSION["index"]))
-            {
 
 
-
-                if($_SESSION["index"][3]==$id_sha1_user_projet[$i_a]){
-        
-
-
-
-                    ?>
-
-         
                     <div title="<?= $id_sha1_projet_i_a ?>" class="cursor_pointer padding_10" onclick="home_all_element_projet(this)">
                         <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/40/settings--v1.png" alt="settings" />
                     </div>
-           <?php 
+            <?php
                 }
- 
- 
-
             }
-       ?>
+            ?>
             <div class="cursor_pointer padding_10">
 
                 <a href="<?= 'blog.php/' . $id_sha1_projet_i_a ?>">
@@ -167,9 +171,9 @@ echo '</div>';
 
 
 
- 
 
- 
+
+
 ?>
 
 
@@ -197,3 +201,15 @@ echo '</div>';
 
     }
 </script>
+
+
+
+<style>
+    .display_none {
+        display: none;
+    }
+    .petit{
+        width: 100px;
+        height: 100px;
+    }
+</style>
