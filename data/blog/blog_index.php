@@ -73,6 +73,10 @@ if (file_exists($nomFichier_2)) {
     <?php require_once "blog_index_menu_1.php"; ?>
     <?php require_once "blog_index_section_1.php"; ?>
     <?php require_once "blog_index_articles_1.php" ?>
+
+    <?php require_once "all_profil_user/".$id_sha1_user_projet.".php"; ?>
+    <?php require_once "blog_index_profil_1.php" ?>
+
     <?php require_once "blog_index_footer_1.php"  ?>
 </body>
 

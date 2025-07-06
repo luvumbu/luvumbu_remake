@@ -33,7 +33,7 @@ Variables liées à la page d’accueil ou au fonctionnement global :
 <body class="display_none" id="body">
   <link rel="stylesheet" href="<?= $index_css ?>"> <!-- Inclusion du fichier CSS -->
   <?php
- 
+
   // index/index_sesstion_start
   if (file_exists($dbCheck)) {
 
@@ -46,25 +46,32 @@ Variables liées à la page d’accueil ou au fonctionnement global :
 
 
 
-    // On vérifie si une table existe
-    $resultat = $dbHandler->existance_table($dbname);
-    // On affiche le résultat
-    if ($resultat == "1") {
-      if (isset($_SESSION["index"])) {
-        // l'utilisateur est en ligne 
-        require_once $index_verif_url;
-        // PErmet de vérifier si le lien est correcte si non lui faire une redirection
-        require_once  $home;
-        
+    if ($dbHandler->verif == false) {
+      unlink($dbCheck);
 
-      } else {
- 
-        require_once $index_verifyConnection_all_projet;
-
-        require_once $home_select_all;
-      }
+      header("Refresh: 1");
     } else {
-      require_once $login_bdd;
+
+
+
+      // On vérifie si une table existe
+      $resultat = $dbHandler->existance_table($dbname);
+      // On affiche le résultat
+      if ($resultat == "1") {
+        if (isset($_SESSION["index"])) {
+          // l'utilisateur est en ligne 
+          require_once $index_verif_url;
+          // PErmet de vérifier si le lien est correcte si non lui faire une redirection
+          require_once  $home;
+        } else {
+
+          require_once $index_verifyConnection_all_projet;
+
+          require_once $home_select_all;
+        }
+      } else {
+        require_once $login_bdd;
+      }
     }
   } else {
     require_once  $login_bdd;
