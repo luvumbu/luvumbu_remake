@@ -23,15 +23,23 @@ if (isset($_SESSION["index"])) {
 
 $filename = "all_projet/" . $url_ . '.php';
 $filename2 = "all_projet_img/" . $url_ . '.php';
+
 if (file_exists($filename)) {
+
     require_once $filename;
+
+    
     if (file_exists($filename2)) {
+
         require_once $filename2;
+
     }
     if ($row_projet[0]["visibility_1_projet"] == "1") {
+
+ 
+
         require_once "data/blog/blog_sql.php";
         require_once "data/blog/blog_index.php";
-        
         $url_2 = $google_title_projet[0];
         $_SESSION["id_sha1_comment"] = $id_sha1_projet[0];
         require_once "req_sql/require_once3.php";
@@ -39,8 +47,11 @@ if (file_exists($filename)) {
         require_once "data/blog/blog_alert_info_page.php";
         require_once "data/blog/blog_alert_like.php";
     }
+} else {
+  
+    $id_sha1_projet = $url_;
+    require_once "req_sql/all_pages_script_blog.php"; 
 }
-
 ?>
 <script>
     function redirection(_this) {
@@ -48,12 +59,3 @@ if (file_exists($filename)) {
         window.location.href = "../index.php";
     }
 </script>
-
-
-<script>
-    /*
-    // Supprimer toutes les feuilles de style externes et internes
-document.querySelectorAll('link[rel="stylesheet"], style').forEach(el => el.remove());
-*/
-</script>
-

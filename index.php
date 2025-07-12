@@ -66,7 +66,6 @@ Variables liées à la page d’accueil ou au fonctionnement global :
         } else {
 
           require_once $index_verifyConnection_all_projet;
-
           require_once $home_select_all;
         }
       } else {

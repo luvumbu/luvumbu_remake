@@ -8,7 +8,6 @@ $data_home = "data/home/";
 $data_index = "data/index/";
 $data_all = "data/all/";
 
-
 /*
 data/home
 ├─ index.php
@@ -71,6 +70,8 @@ $index_verifyConnection_all_projet ,
 $lang = "fr";
 $favicon = "https://ih1.redbubble.net/image.1762483057.7729/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.webp";
 $src_js = "Class/Js.js";
+$getFileExtension ="Class/getFileExtension.php";
+$getFileExtension ="Class/getFileExtension.php" ; 
 $index_css = $data_index . "index_css.css";
 $index_verif_url = $data_index . "index_verif_url.php";
 $home_updat_all =$data_home . "home_updat_all.php";
@@ -105,6 +106,7 @@ $home_all_element_css = $data_home."css/home_all_element_css.php" ;
 $removeHtmlTags= $source_file."/removeHtmlTags.php";
 
 
+
 $home_select_all_js=  $data_home."js/home_select_all_js.php" ; 
 // ==================== INCLUSIONS DES CLASSES ====================
 require_once $pathAfficherValeurs;
@@ -115,6 +117,7 @@ require_once $pathDeleteFile;
 require_once $pathGiveUrl;
 require_once $pathNettoyerTexte;
 require_once $removeHtmlTags;
+require_once $getFileExtension;
 
 
 

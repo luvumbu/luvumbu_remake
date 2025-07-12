@@ -1,5 +1,4 @@
 <?php
-
 // Assure-toi que toutes les variables dynamiques sont présentes
 foreach ($all_array_array as $base_name) {
     // Crée une version de la variable avec le suffixe "_a"
@@ -21,5 +20,4 @@ foreach ($all_array_array as $base_name) {
         ${$base_name . '_4'}[$ii] = replace_element_4($val);
     }
 }
-
 ?>

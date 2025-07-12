@@ -2,23 +2,44 @@
 
 
 
+ 
 
-
-
-
-
-
-
+  
 echo "<div class='all_logo'> ";
-for ($ii = 0; $ii < count($all_profil_user)-1; $ii++) {
+for ($ii = 0; $ii < count($all_profil_user); $ii++) {
 
-
-    $img_ = '../img_dw/' . $all_profil_user[$ii]["img_user"];
-
-    $link_ =  AsciiConverter::asciiToString($all_profil_user[$ii]["prenom_user"]) ;
 
 
  
+
+
+    if($id_sha1_user_projet!=$all_profil_user[$ii]["id_parent_user"]){
+ 
+
+    
+
+ 
+
+
+
+ 
+
+
+    if($all_profil_user[$ii]["img_user"]!=''){
+    $img_ = '../img_dw/' . $all_profil_user[$ii]["img_user"];
+           
+    }
+    else{
+    $img_ = 'https://i.pinimg.com/736x/be/27/d1/be27d1148026157159d67b7e0ecb17e5.jpg';
+
+    }
+
+    $link_ =  AsciiConverter::asciiToString($all_profil_user[$ii]["prenom_user"]) ;
+
+    $alt_ =  AsciiConverter::asciiToString($all_profil_user[$ii]["description_user"]) ;
+
+
+
  
 
 ?>
@@ -26,7 +47,7 @@ for ($ii = 0; $ii < count($all_profil_user)-1; $ii++) {
 
     <a href="<?=   $link_ ?>">
         <div class="logo_img">
-            <img src="<?= $img_ ?>" alt="" srcset="">
+            <img src="<?= $img_ ?>" alt="<?=  $alt_ ?>" srcset=""  >
             <div class="text_logo">
 
                 <?= AsciiConverter::asciiToString($all_profil_user[$ii]["title_user"]) ?>
@@ -34,6 +55,8 @@ for ($ii = 0; $ii < count($all_profil_user)-1; $ii++) {
         </div>
     </a>
 <?php
+    }
+
 }
 echo "</div> ";
 
@@ -60,6 +83,7 @@ echo "</div> ";
         justify-content: space-around;
         margin-bottom: 100px;
         text-align: center;
+        flex-wrap: wrap;
 
     }
 

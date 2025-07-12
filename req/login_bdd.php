@@ -433,6 +433,7 @@ if ($databaseHandler->verif != 1) {
             "id_user_projet_img"           => "LONGTEXT NOT NULL",
             "img_projet_src_img"           => "LONGTEXT NOT NULL",
             "extention_img"                => "LONGTEXT NOT NULL",
+            "img_activate"                => "LONGTEXT NOT NULL",
             "date_inscription_projet_img"  => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
         ];
 
