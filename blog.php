@@ -6,6 +6,8 @@ require_once "Class/fichierExiste.php";
 <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 <link rel="stylesheet" href="../data/blog/css/blog_style_1.css">
 <link rel="stylesheet" href="../data/blog/css/blog_slider_1.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  
 <?php
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
 $url = new Give_url();
@@ -24,6 +26,9 @@ if (isset($_SESSION["index"])) {
 $filename = "all_projet/" . $url_ . '.php';
 $filename2 = "all_projet_img/" . $url_ . '.php';
 
+ 
+
+ 
 if (file_exists($filename)) {
 
     require_once $filename;
@@ -59,3 +64,33 @@ if (file_exists($filename)) {
         window.location.href = "../index.php";
     }
 </script>
+ 
+    <button  class="btn_btn"  onclick="window.print()">Télécharger la page en PDF</button>
+  <style>
+
+    /* 
+
+style format pdf
+
+    */
+ 
+
+      .btn_btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 75px;
+      margin-top: 45px;
+    }
+
+    .btn_btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+ 
+ 

@@ -4,7 +4,7 @@ session_start() ;
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,7 +59,7 @@ var_dump($_POST['data']);
  
 
 $id_sha1_projet =  $_SESSION["index"][4] ; 
-$id_sha1_projet_name =   $_SERVER['SERVER_NAME'].'/qr_scan.php/'.$_SESSION["id_sha1_projet"] ; 
+$id_sha1_projet_name =   $_SERVER['SERVER_NAME'].'/qr_scan.php/'.$id_sha1_projet ; 
 
  
 

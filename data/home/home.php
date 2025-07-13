@@ -6,6 +6,15 @@
   $index_3 = $_SESSION["index"][3];
 
 
+
+
+  if (isset($_SESSION["add_projet"])) {
+    //var_dump($_SESSION["add_projet"]);
+    unset($_SESSION["add_projet"]);
+    header('Location:qr_code_1/index.php ');
+    exit();
+  } 
+
   ?>
  <nav>
    <ul class="menu">
@@ -34,7 +43,7 @@
   require_once 'data/home/update_profil.php';
 
 
- 
+
   if (isset($_SESSION["index"][4])) {
     if ($_SESSION["index"][4] != "") {
       //require_once "home_setting_files.php" ; 

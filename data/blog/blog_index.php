@@ -50,7 +50,7 @@ if (file_exists($nomFichier_2)) {
   z-index: 2;
 }
 </style>
-<body>
+<body id="content">
 <?php
 //var_dump($id_sha1_projet) ; 
 ?>

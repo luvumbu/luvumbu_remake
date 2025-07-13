@@ -8,5 +8,7 @@ $databaseHandler = new DatabaseHandler($dbname, $username);
 // Afficher la date et l'heure au format spécifié
 $date_inscription_projet = date("Y-m-d H:i:s");
 $databaseHandler->action_sql("INSERT INTO `projet` (id_sha1_projet,id_sha1_user_projet ,date_inscription_projet) VALUES ('$id_sha1_projet','$id_sha1_user_projet','$date_inscription_projet')");
- require_once "all_pages_script.php" ; 
+ 
+$_SESSION["add_projet"] = $id_sha1_projet;
+require_once "all_pages_script.php" ; 
 ?>

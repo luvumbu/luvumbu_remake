@@ -61,17 +61,17 @@
    }
 
    .points {
-     font-size: 2em;
+     font-size: 4em;
      color: grey;
      transition: 0.2s all;
 
    }
 
    .points:hover {
-     font-size: 2em;
+     font-size: 4em;
      cursor: pointer;
-     background-color: black;
-     color: white;
+
+     text-shadow: 1px 1px 4px black;
      transition: 1s all;
    }
 
@@ -92,6 +92,11 @@
      box-sizing: border-box;
      /* Inclut padding/border dans la largeur */
    }
+   .qr_code_center{
+
+ 
+   }
+
 
    @media screen and (max-width: 800px) {
      .space_width {
@@ -107,14 +112,30 @@
        text-align: justify;
 
      }
+
+     .meta,
+     .space_width,
+     .width_80p,
+     .points,
+     .voir_article {
+       width: 95%;
+       margin: auto;
+     }
+
+     .voir_article {
+       width: 300px;
+     }
    }
  </style>
  <div class="display_flex color_black margin_bottom_45 width_80p">
 
    <?php
-
-
-
+    $qr_code = "../qr_code_1/temp/" . $url_ . ".png";
+    ?>
+   <div class="qr_code_center">
+     <img src="<?= $qr_code ?>" alt="" srcset="">
+   </div>
+   <?php
 
 
 
@@ -232,20 +253,14 @@
               //  var_dump($row_projet_img[$i_x]);
 
               $row_projet_img_ =     "../img_dw/" . $row_projet_img[$i_x]["id_projet_img"];
-               $row_projet_img___ =     "img_dw/" . $row_projet_img[$i_x]["id_projet_img"];
+              $row_projet_img___ =     "img_dw/" . $row_projet_img[$i_x]["id_projet_img"];
 
 
 
-               
 
-              if (!file_exists($row_projet_img___ )) {
-              $row_projet_img_  = "../src/img/lumumba.jpg";
-           
 
-      
-
- 
- 
+              if (!file_exists($row_projet_img___)) {
+                $row_projet_img_  = "../src/img/lumumba.jpg";
               }
 
 
@@ -271,8 +286,7 @@
        <?php echo $description_projet[$i]; ?>
      </div>
      <div class="points" onclick="description(this)" title="<?= $id_sha1_projet_ ?>">
-       <?php echo "..." ?>
-
+       ...
      </div>
    <?php
           } else {
