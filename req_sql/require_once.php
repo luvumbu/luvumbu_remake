@@ -7,6 +7,9 @@ require_once "../Class/AsciiConverter.php";
 require_once "../Class/extraireAlphabetique.php" ; 
 require_once "../Class/replace_element.php";
 date_default_timezone_set('Europe/Paris');
+
+
+$time_date = date('Y-m-d H:i:s');
 $chemins = [
     "../all_comment",
     "../all_profil_user",

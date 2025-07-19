@@ -2,58 +2,46 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Exemple de téléchargement PDF</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  
-  
+  <title>Logo NDENGA Style Netflix</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      padding: 30px;
-      background-color: #f4f4f4;
+      background-color: #000;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    #content {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .netflix-style {
+      font-family: 'Anton', sans-serif;
+      color: #E50914;
+      font-size: 100px;
+      letter-spacing: 2px;
     }
 
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
+    /* Ajustement fin taille des lettres individuellement */
+    .netflix-style span {
+      display: inline-block;
+      vertical-align: baseline;
     }
 
-    button:hover {
-      background-color: #0056b3;
-    }
+    .N { font-size: 105px; }
+    .D { font-size: 100px; }
+    .E { font-size: 97px; }
+    .G { font-size: 102px; }
+    .A { font-size: 99px; }
   </style>
 </head>
 <body>
-
-  <div id="content">
-    <h1>Bienvenue sur ma page</h1>
-    <p>
-      Ceci est un exemple de contenu que vous pouvez télécharger au format PDF.
-      Le bouton ci-dessous utilise une librairie JavaScript pour convertir cette section HTML en document PDF.
-    </p>
+  <div class="netflix-style">
+    <span class="N">N</span>
+    <span class="D">D</span>
+    <span class="E">E</span>
+    <span class="N">N</span>
+    <span class="G">G</span>
+    <span class="A">A</span>
   </div>
-
-  <button onclick="telechargerPDF()">Télécharger en PDF</button>
-
-  <script>
-    function telechargerPDF() {
-      const element = document.getElementById('content');
-      html2pdf().from(element).save('ma_page.pdf');
-    }
-  </script>
-
 </body>
 </html>
