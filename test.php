@@ -2,46 +2,34 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Logo NDENGA Style Netflix</title>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <title>Transition Jour/Nuit avec 1 div</title>
   <style>
-    body {
-      background-color: #000;
+    html, body {
       margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding: 0;
       height: 100vh;
     }
 
-    .netflix-style {
-      font-family: 'Anton', sans-serif;
-      color: #E50914;
-      font-size: 100px;
-      letter-spacing: 2px;
+    .background {
+      width: 410px;
+      height: 800px;
+      margin: auto;
+      background-size: cover;
+      background-position: center;
+      animation: backgroundFade 8s infinite alternate ease-in-out;
     }
 
-    /* Ajustement fin taille des lettres individuellement */
-    .netflix-style span {
-      display: inline-block;
-      vertical-align: baseline;
+    @keyframes backgroundFade {
+      0% {
+        background-image: url('marion_dessin/01.png');
+      }
+      100% {
+        background-image: url('marion_dessin/02.png');
+      }
     }
-
-    .N { font-size: 105px; }
-    .D { font-size: 100px; }
-    .E { font-size: 97px; }
-    .G { font-size: 102px; }
-    .A { font-size: 99px; }
   </style>
 </head>
 <body>
-  <div class="netflix-style">
-    <span class="N">N</span>
-    <span class="D">D</span>
-    <span class="E">E</span>
-    <span class="N">N</span>
-    <span class="G">G</span>
-    <span class="A">A</span>
-  </div>
+  <div class="background"></div>
 </body>
 </html>
