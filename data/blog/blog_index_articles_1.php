@@ -125,6 +125,20 @@
      .voir_article {
        width: 300px;
      }
+
+        .div_img {
+     width: 100%;
+     margin: auto;
+   }
+
+   .div_img img {
+
+     width: 100%;
+     margin-bottom: 40px;
+     margin-top: 40px;
+
+
+   }
    }
  </style>
  <div class="display_flex color_black margin_bottom_45 width_80p">
@@ -271,7 +285,7 @@
 
           ?>
 
-       <div>
+       <div class="div_img">
          <img src="<?= $row_projet_img_ ?>" alt="" srcset="">
        </div>
      <?php

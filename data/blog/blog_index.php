@@ -25,8 +25,10 @@ if (file_exists($nomFichier_2)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Document</title>
+   <link rel="icon" type="image/x-icon" href="<?= '../img_dw/'.$img_projet_src1[0] ?>">
+    <title><?=  $title_projet[0] ; ?></title>
 </head>
+ 
 <style>
 .galactic-net {
   position: relative;
@@ -54,7 +56,7 @@ if (file_exists($nomFichier_2)) {
 <?php
 //var_dump($id_sha1_projet) ; 
 ?>
-    <?php require_once "blog_index_menu_0.php"; ?>
+    <?php require_once "blog_index_menu_1.php"; ?>
     <?php require_once "blog_index_section_0.php"; ?>
     <?php require_once "blog_index_articles_1.php" ?>
     <?php require_once "all_profil_user/".$id_sha1_user_projet.".php"; ?>
