@@ -137,11 +137,7 @@ if ($id_sha1_user_projet_class == "") {
 
 
               </select>
-              <?php
-
-
-
-              ?>
+    
 
 
               <script>
@@ -337,7 +333,6 @@ if ($id_sha1_user_projet_class == "") {
         <img width="50" title="field-5" onclick='remove(this)' height="50"
           src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
         <div class="display_img">
-          <img id="class_img_top2" src="<?= 'img_dw/' . $img_projet_src1__ ?>" alt="" srcset="">
           <?php
           for ($i__ = 0; $i__ < count($id_projet_img_c); $i__++) {
           ?>
@@ -355,6 +350,23 @@ if ($id_sha1_user_projet_class == "") {
                     src="https://img.icons8.com/fluency-systems-regular/40/delete-forever.png"
                     alt="delete-forever" />
                 </div>
+                <?php 
+if($img_activate_c[$i__]==""){
+
+
+   $img_1__ = "https://img.icons8.com/ios/40/unchecked-checkbox.png" ; 
+  
+
+
+
+}
+else{
+ $img_1__ = "https://img.icons8.com/ios/40/checked-checkbox--v1.png" ; 
+}
+
+?>
+                  <img class="cursor_pointer" id="<?= 'active_'.$id_sha1_projet_img_c[$i__] ?>" onclick="change_img_active(this)" title="<?= $id_projet_img_c[$i__] ?>" width="40" height="40" src="<?=  $img_1__ ?>" alt="unchecked-checkbox"/>
+    
               </div>
             </div>
           <?php
@@ -582,6 +594,53 @@ if ($id_sha1_user_projet_class == "") {
 
 
   function redirection_edit_text(_this) {
+
+  }
+
+  function change_img_active(_this){
+ 
+
+   
+let result = _this.id.replace("active_", "");
+ 
+
+ 
+
+ 
+  
+ 
+const img_1 = "https://img.icons8.com/ios/40/unchecked-checkbox.png" ; 
+const img_2 = "https://img.icons8.com/ios/40/checked-checkbox--v1.png" ; 
+
+
+if(_this.src==img_1){
+  _this.src=img_2; 
+  
+ 
+  img_activate = "1" ; 
+}
+else{
+  img_activate = "" ; 
+
+  _this.src=img_1; 
+
+}
+
+  
+
+
+ 
+    var ok = new Information("req_sql/update_change_img_active.php"); // création de la classe 
+    ok.add("img_activate", img_activate); // ajout de l'information pour lenvoi 
+    ok.add("id_projet_img", _this.title); // ajout de l'information pour lenvoi 
+ 
+
+    console.log(ok.info()); // demande l'information dans le tableau
+    ok.push(); // envoie l'information au code pkp  
+ 
+
+
+
 
   }
 </script>

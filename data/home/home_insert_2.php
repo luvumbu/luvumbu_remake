@@ -41,4 +41,7 @@ $id_projet_img_c = $dynamicVariables['id_projet_img'];
 $id_general = $dynamicVariables['id_general'];
 
 
+$img_activate_c = $dynamicVariables['img_activate'];
+ 
+
 ?>

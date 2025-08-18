@@ -100,6 +100,7 @@ if ($databaseHandler->verif != 1) {
         $columns = [
             "id_projet"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
             "activation_projet"                   => "LONGTEXT NOT NULL",
+            "activate_img"                        => "LONGTEXT NOT NULL",
             "style_projet"                         => "LONGTEXT NOT NULL",
             "id_general"                          => "LONGTEXT NOT NULL",
             "type_projet"                          => "LONGTEXT NOT NULL",
