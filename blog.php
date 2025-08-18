@@ -44,13 +44,17 @@ if (file_exists($filename)) {
  
 
         require_once "data/blog/blog_sql.php";
-        require_once "data/blog/blog_index.php";
+         require_once "data/blog/blog_index.php";
+  
+    
         $url_2 = $google_title_projet[0];
         $_SESSION["id_sha1_comment"] = $id_sha1_projet[0];
         require_once "req_sql/require_once3.php";
         require_once "data/blog/blog_comment.php";
         require_once "data/blog/blog_alert_info_page.php";
         require_once "data/blog/blog_alert_like.php";
+
+      
     }
 } else {
   

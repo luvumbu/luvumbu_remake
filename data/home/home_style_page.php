@@ -62,3 +62,4 @@ for ($i = 0; $i < count($dynamicVariables['id_style_page_auto']); $i++) {
 <?php
 }
 ?>
+

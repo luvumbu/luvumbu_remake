@@ -98,17 +98,19 @@ if ($id_sha1_user_projet_class == "") {
 
               require "home_all_style.php";
 
-$index_of_style= $dynamicVariables['id_style_page'] ;
-$index = array_search($id_projet_style[0], $index_of_style);
+              $index_of_style = $dynamicVariables['id_style_page'];
+
+
+              $index = array_search($id_projet_style[0], $index_of_style);
+         
+              $index_id_projet_style = $id_projet_style[0];
+              $select_name_style_page =  AsciiConverter::asciiToString($dynamicVariables['name_style_page'][$index]);
+
 
  
 
-  
 
 
-$index_id_projet_style = $id_projet_style[0] ; 
-$select_name_style_page = $dynamicVariables['name_style_page'][$index]
-         
               ?>
               <select title="<?= $_SESSION["index"][4] ?>" name="choix" id="choix" onchange="select_style(this)">
 
@@ -120,10 +122,10 @@ $select_name_style_page = $dynamicVariables['name_style_page'][$index]
 
                 ?>
 
-                  <option class="<?= $dynamicVariables['id_style_page'][$i_y] ?>" value="<?= $dynamicVariables['id_style_page'][$i_y] ?>"><?= $dynamicVariables['name_style_page'][$i_y] ?></option>
-              
-              
-              <?php
+                  <option class="<?= $dynamicVariables['id_style_page'][$i_y] ?>" value="<?= $dynamicVariables['id_style_page'][$i_y] ?>"><?= AsciiConverter::asciiToString($dynamicVariables['name_style_page'][$i_y]) ?></option>
+
+
+                <?php
                 }
 
 
@@ -131,42 +133,38 @@ $select_name_style_page = $dynamicVariables['name_style_page'][$index]
 
                 //$id_projet_style
                 ?>
-                  <option selected  class="<?= $index_id_projet_style ?>"  value="<?= $index_id_projet_style ?>"><?= $select_name_style_page ?></option>
+                <option selected class="<?= $index_of_style[$index] ?>" value="<?= $index_of_style[$index] ?>"><?=AsciiConverter::asciiToString( $dynamicVariables['name_style_page'][$index]) ?></option>
 
-         
+
               </select>
- <?php
+              <?php
 
 
 
-?>
+              ?>
 
 
-<script>
-  const myTimeout = setTimeout(action_ok, 1000);
+              <script>
+                const myTimeout = setTimeout(action_ok, 1000);
 
-function action_ok() {
- 
-    var el = document.getElementsByClassName(<?= json_encode($index_id_projet_style) ?>);
-  action_ok
-  if(el.length>1){
-    el[0].className="display_none";
-  }
- 
+                function action_ok() {
 
-}
+                  var el = document.getElementsByClassName(<?= json_encode($index_id_projet_style) ?>);
+                  action_ok
+                  if (el.length > 1) {
+                    el[0].className = "display_none";
+                  }
 
 
-
-
-</script>
+                }
+              </script>
             </div>
 
-            <div id="edit_style"  title="<?= $_SESSION["index"][4] ?>" class="display_none" onclick="redirection_edit_text(this)">          
-            <a href="add_style.php">
-            <img width="50" height="50" src="https://img.icons8.com/ios/50/create-new.png" alt="create-new"/>
+            <div id="edit_style" title="<?= $_SESSION["index"][4] ?>" class="display_none" onclick="redirection_edit_text(this)">
+              <a href="add_style.php">
+                <img width="50" height="50" src="https://img.icons8.com/ios/50/create-new.png" alt="create-new" />
 
-            </a>  
+              </a>
             </div>
           </div>
         </div>
@@ -568,22 +566,22 @@ function action_ok() {
 
 <script>
   function select_style(_this) {
- 
- document.getElementById("edit_style").className="cursor_pointer" ; 
- 
+
+    document.getElementById("edit_style").className = "cursor_pointer";
+
     var ok = new Information("req_sql/select_style.php"); // création de la classe 
     ok.add("id_sha1_projet", _this.title); // ajout de l'information pour lenvoi 
     ok.add("style_projet", _this.value); // ajout de l'information pour lenvoi 
 
-  
+
     console.log(ok.info()); // demande l'information dans le tableau
     ok.push(); // envoie l'information au code pkp  
 
-  
+
   }
 
 
-  function redirection_edit_text(_this){
-  
+  function redirection_edit_text(_this) {
+
   }
 </script>
