@@ -26,9 +26,10 @@ if (file_exists($nomFichier_2)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
    <link rel="icon" type="image/x-icon" href="<?= '../img_dw/'.$img_projet_src1[0] ?>">
-    <title><?=  $title_projet[0] ; ?></title>
+    <title><?=  $google_title_projet[0] ; ?></title>
 </head>
  
+
 <style>
 .galactic-net {
   position: relative;

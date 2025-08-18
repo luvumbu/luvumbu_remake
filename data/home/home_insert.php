@@ -44,7 +44,7 @@ require_once "home_insert_2.php";
 
 
 
- 
+
 
 
 
@@ -84,7 +84,89 @@ if ($id_sha1_user_projet_class == "") {
               quiz
             </div>
             <div>
-              <img width="40" height="40" src="https://img.icons8.com/ios/40/test-passed--v1.png" alt="test-passed--v1" />
+              <img width="40" height="40" src="https://img.icons8.com/ios/40/test-passed--v1.png"
+                alt="test-passed--v1" />
+            </div>
+          </div>
+
+
+          <div title="0">
+            <div>
+
+              <?php
+
+
+              require "home_all_style.php";
+
+$index_of_style= $dynamicVariables['id_style_page'] ;
+$index = array_search($id_projet_style[0], $index_of_style);
+
+ 
+
+  
+
+
+$index_id_projet_style = $id_projet_style[0] ; 
+$select_name_style_page = $dynamicVariables['name_style_page'][$index]
+         
+              ?>
+              <select title="<?= $_SESSION["index"][4] ?>" name="choix" id="choix" onchange="select_style(this)">
+
+
+
+                <?php
+                for ($i_y = 0; $i_y < count($dynamicVariables['id_style_page']); $i_y++) {
+
+
+                ?>
+
+                  <option class="<?= $dynamicVariables['id_style_page'][$i_y] ?>" value="<?= $dynamicVariables['id_style_page'][$i_y] ?>"><?= $dynamicVariables['name_style_page'][$i_y] ?></option>
+              
+              
+              <?php
+                }
+
+
+
+
+                //$id_projet_style
+                ?>
+                  <option selected  class="<?= $index_id_projet_style ?>"  value="<?= $index_id_projet_style ?>"><?= $select_name_style_page ?></option>
+
+         
+              </select>
+ <?php
+
+
+
+?>
+
+
+<script>
+  const myTimeout = setTimeout(action_ok, 1000);
+
+function action_ok() {
+ 
+    var el = document.getElementsByClassName(<?= json_encode($index_id_projet_style) ?>);
+  action_ok
+  if(el.length>1){
+    el[0].className="display_none";
+  }
+ 
+
+}
+
+
+
+
+</script>
+            </div>
+
+            <div id="edit_style"  title="<?= $_SESSION["index"][4] ?>" class="display_none" onclick="redirection_edit_text(this)">          
+            <a href="add_style.php">
+            <img width="50" height="50" src="https://img.icons8.com/ios/50/create-new.png" alt="create-new"/>
+
+            </a>  
             </div>
           </div>
         </div>
@@ -124,7 +206,8 @@ if ($id_sha1_user_projet_class == "") {
           echo '<div style="margin-top:75px"><img id="field_1_toggle" onclick="toggle(this)" width="50" height="50" src="' . $img_2 . '" alt="toggle-on--v1" /></div>';
         }
         ?>
-        <img width="50" title="field-1" onclick='remove(this)' height="50" src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
+        <img width="50" title="field-1" onclick='remove(this)' height="50"
+          src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
       </div>
       <!-- CHAMP 2 -->
       <div class="field-container" id="container-2">
@@ -162,7 +245,8 @@ if ($id_sha1_user_projet_class == "") {
           echo '<div style="margin-top:75px"><img id="field_2_toggle" onclick="toggle(this)" width="50" height="50" src="' . $img_2 . '" alt="toggle-on--v1" /></div>';
         }
         ?>
-        <img width="50" title="field-2" onclick='remove(this)' height="50" src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
+        <img width="50" title="field-2" onclick='remove(this)' height="50"
+          src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
       </div>
       <!-- CHAMP 3 -->
       <div class="field-container" id="container-3">
@@ -191,7 +275,8 @@ if ($id_sha1_user_projet_class == "") {
           </div>
         </div>
         <div class="editable-field" id="field-3" contenteditable="true"><?= $change_meta_name_projet_ ?></div>
-        <img width="50" title="field-3" onclick='remove(this)' height="50" src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
+        <img width="50" title="field-3" onclick='remove(this)' height="50"
+          src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
       </div>
       <!-- CHAMP 4 -->
       <div class="field-container" id="container-4">
@@ -220,7 +305,8 @@ if ($id_sha1_user_projet_class == "") {
           </div>
         </div>
         <div class="editable-field" id="field-4" contenteditable="true"><?= $change_meta_content_projet_ ?></div>
-        <img width="50" title="field-4" onclick='remove(this)' height="50" src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
+        <img width="50" title="field-4" onclick='remove(this)' height="50"
+          src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
       </div>
       <!-- CHAMP 5 -->
       <div class="field-container" id="container-5">
@@ -250,7 +336,8 @@ if ($id_sha1_user_projet_class == "") {
         </div>
 
         <div class="editable-field" id="field-5" contenteditable="true"><?= $google_title_projet_ ?></div>
-        <img width="50" title="field-5" onclick='remove(this)' height="50" src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
+        <img width="50" title="field-5" onclick='remove(this)' height="50"
+          src="https://img.icons8.com/ios-filled/50/delete-forever.png" alt="delete-forever" />
         <div class="display_img">
           <img id="class_img_top2" src="<?= 'img_dw/' . $img_projet_src1__ ?>" alt="" srcset="">
           <?php
@@ -261,10 +348,14 @@ if ($id_sha1_user_projet_class == "") {
 
               <div class="display_imgs">
                 <div onclick="change_img_select(this)" title="<?= $id_projet_img_c[$i__] ?>">
-                  <img width="40" height="40" src="https://img.icons8.com/material-two-tone/40/hand-cursor.png" alt="hand-cursor" />
+                  <img width="40" height="40"
+                    src="https://img.icons8.com/material-two-tone/40/hand-cursor.png" alt="hand-cursor" />
                 </div>
-                <div class="<?= $id_sha1_projet_img_c[$i__] . $i__ ?>" onclick="remove_img_select(this)" title="<?= $id_projet_img_c[$i__] ?>">
-                  <img width="40" height="40" src="https://img.icons8.com/fluency-systems-regular/40/delete-forever.png" alt="delete-forever" />
+                <div class="<?= $id_sha1_projet_img_c[$i__] . $i__ ?>" onclick="remove_img_select(this)"
+                  title="<?= $id_projet_img_c[$i__] ?>">
+                  <img width="40" height="40"
+                    src="https://img.icons8.com/fluency-systems-regular/40/delete-forever.png"
+                    alt="delete-forever" />
                 </div>
               </div>
             </div>
@@ -290,7 +381,8 @@ if ($id_sha1_user_projet_class == "") {
           <div class="submit-btn cursor_pointer" onclick="valider(this)">Envoyer</div>
 
           <div class="remove_projet" onclick="remove_projet(this)">
-            <img width="46" height="46" src="https://img.icons8.com/color/46/delete-forever.png" alt="delete-forever" />
+            <img width="46" height="46" src="https://img.icons8.com/color/46/delete-forever.png"
+              alt="delete-forever" />
           </div>
         <?php
         }
@@ -298,11 +390,13 @@ if ($id_sha1_user_projet_class == "") {
         <div class="display_flex">
 
           <div class="cursor_pointer" onclick="valider2(this)">
-            <img width="80" height="80" src="https://img.icons8.com/color/80/checkmark--v1.png" alt="checkmark--v1" />
+            <img width="80" height="80" src="https://img.icons8.com/color/80/checkmark--v1.png"
+              alt="checkmark--v1" />
           </div>
 
           <div class="cursor_pointer" onclick="terminer(this)">
-            <img width="80" height="80" src="https://img.icons8.com/emoji/40/ok-hand-medium-dark-skin-tone.png" alt="checkmark--v1" />
+            <img width="80" height="80" src="https://img.icons8.com/emoji/40/ok-hand-medium-dark-skin-tone.png"
+              alt="checkmark--v1" />
           </div>
 
           <div onclick="add_child(this)" class="cursor_pointer">
@@ -310,7 +404,8 @@ if ($id_sha1_user_projet_class == "") {
           </div>
           <div class="cursor_pointer">
             <a href="img_dw/index.php">
-              <img width="40" height="40" src="https://img.icons8.com/ios-glyphs/40/full-image.png" alt="full-image" />
+              <img width="40" height="40" src="https://img.icons8.com/ios-glyphs/40/full-image.png"
+                alt="full-image" />
             </a>
 
           </div>
@@ -320,20 +415,23 @@ if ($id_sha1_user_projet_class == "") {
             </a>
           </div>
           <div>
-            <img class="cursor_pointer" onclick="function_stats(this)" width="40" height="40" src="https://img.icons8.com/ios-filled/40/graph.png" alt="graph" />
+            <img class="cursor_pointer" onclick="function_stats(this)" width="40" height="40"
+              src="https://img.icons8.com/ios-filled/40/graph.png" alt="graph" />
           </div>
           <?php
           if ($id_sha1_projet_song__ == "") {
           ?>
             <div class="cursor_pointer">
-              <img onclick="function_song(this)" width="40" height="40" src="<?= $img_6 ?>" alt="high-volume--v1" />
+              <img onclick="function_song(this)" width="40" height="40" src="<?= $img_6 ?>"
+                alt="high-volume--v1" />
             </div>
           <?php
 
           } else {
           ?>
             <div class="cursor_pointer">
-              <img onclick="function_song(this)" width="40" height="40" src="<?= $img_5 ?>" alt="high-volume--v1" />
+              <img onclick="function_song(this)" width="40" height="40" src="<?= $img_5 ?>"
+                alt="high-volume--v1" />
             </div>
           <?php
           }
@@ -341,13 +439,15 @@ if ($id_sha1_user_projet_class == "") {
           if ($visibility_1_projet[0] != "") {
           ?>
             <div class="cursor_pointer">
-              <img onclick="function_visibility(this)" width="40" height="40" src="<?= $img_8 ?>" alt="high-volume--v1" />
+              <img onclick="function_visibility(this)" width="40" height="40" src="<?= $img_8 ?>"
+                alt="high-volume--v1" />
             </div>
           <?php
           } else {
           ?>
             <div class="cursor_pointer">
-              <img onclick="function_visibility(this)" width="40" height="40" src="<?= $img_7 ?>" alt="high-volume--v1" />
+              <img onclick="function_visibility(this)" width="40" height="40" src="<?= $img_7 ?>"
+                alt="high-volume--v1" />
             </div>
 
           <?php
@@ -359,17 +459,21 @@ if ($id_sha1_user_projet_class == "") {
               if ($acces) {
                 if ($id_sha1_projet_lock__ == "") {
               ?>
-                  <img class="cursor_pointer" onclick="function_lock(this)" width="40" height="40" src="<?= $img_3 ?>" alt="lock-2" />
+                  <img class="cursor_pointer" onclick="function_lock(this)" width="40" height="40"
+                    src="<?= $img_3 ?>" alt="lock-2" />
                 <?php
                 } else {
                 ?>
-                  <img class="cursor_pointer" onclick="function_lock(this)" width="40" height="40" src="<?= $img_4 ?>" alt="lock-2" />
+                  <img class="cursor_pointer" onclick="function_lock(this)" width="40" height="40"
+                    src="<?= $img_4 ?>" alt="lock-2" />
 
                 <?php
                 }
               } else {
                 ?>
-                <img onclick="function_done()" style="margin-top:57px" class="cursor_pointer" width="40" height="40" src="https://img.icons8.com/emoji/40/ok-hand-medium-dark-skin-tone.png" alt="ok-hand-medium-dark-skin-tone" />
+                <img onclick="function_done()" style="margin-top:57px" class="cursor_pointer" width="40"
+                  height="40" src="https://img.icons8.com/emoji/40/ok-hand-medium-dark-skin-tone.png"
+                  alt="ok-hand-medium-dark-skin-tone" />
               <?php
               }
               ?>
@@ -386,12 +490,14 @@ if ($id_sha1_user_projet_class == "") {
         $title_projet_c_ =   AsciiConverter::asciiToString($title_projet_c[$i]);
       ?>
 
-        <div class="card_element cursor_pointer bordures_img" onclick="child_element(this)" title="<?= $id_sha1_projet_cc[$i] ?>">
+        <div class="card_element cursor_pointer bordures_img" onclick="child_element(this)"
+          title="<?= $id_sha1_projet_cc[$i] ?>">
           <div class="card_element_img">
             <?php
             if ($img_projet_src1_c[$i] == '') {
             ?>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwfimb60bedU2xAWQhwyEC40kxb8z3efu7CtFK0XzOEE9iVfcBpEvM96wwTUKZ-hqKtMy3UN5KPuWUI1flHUY4nRY2sq-hKIEqvW3rox4" alt="">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwfimb60bedU2xAWQhwyEC40kxb8z3efu7CtFK0XzOEE9iVfcBpEvM96wwTUKZ-hqKtMy3UN5KPuWUI1flHUY4nRY2sq-hKIEqvW3rox4"
+                alt="">
             <?php
             } else {
             ?>
@@ -447,7 +553,8 @@ if ($id_sha1_user_projet_class == "") {
 
 
   <div class="cursor_pointer" onclick="terminer(this)">
-    <img width="80" height="80" src="https://img.icons8.com/emoji/40/ok-hand-medium-dark-skin-tone.png" alt="checkmark--v1">
+    <img width="80" height="80" src="https://img.icons8.com/emoji/40/ok-hand-medium-dark-skin-tone.png"
+      alt="checkmark--v1">
   </div>
 <?php
 
@@ -456,3 +563,27 @@ if ($id_sha1_user_projet_class == "") {
 
 
 ?>
+
+
+
+<script>
+  function select_style(_this) {
+ 
+ document.getElementById("edit_style").className="cursor_pointer" ; 
+ 
+    var ok = new Information("req_sql/select_style.php"); // création de la classe 
+    ok.add("id_sha1_projet", _this.title); // ajout de l'information pour lenvoi 
+    ok.add("style_projet", _this.value); // ajout de l'information pour lenvoi 
+
+  
+    console.log(ok.info()); // demande l'information dans le tableau
+    ok.push(); // envoie l'information au code pkp  
+
+  
+  }
+
+
+  function redirection_edit_text(_this){
+  
+  }
+</script>

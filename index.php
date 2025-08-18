@@ -1,7 +1,12 @@
 <?php
 require_once "data/all/index_sesstion_start.php";
 $_SESSION["nombre"]  = 0;
-
+ 
+/*
+if(isset( $_SESSION["select_style"])){
+ unset($_SESSION["select_style"]);
+}
+ */
 /*
 Variables globales liées à la base :
   $dbname, $username, $dbCheck

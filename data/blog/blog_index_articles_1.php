@@ -172,11 +172,18 @@
 
 
 
+      
 
+if($title_projet_toggle[$i]==""){
+  $title_projet_x = $title_projet_1[$i] ;
+}
+else{
+  $title_projet_x = $title_projet_2[$i] ;
 
+}
     ?>
      <div>
-       <h2><?= $title_projet[$i] ?></h2>
+       <h2><?=  $title_projet_x  ?></h2>
 
 
 

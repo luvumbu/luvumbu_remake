@@ -221,10 +221,15 @@ if ($databaseHandler->verif != 1) {
 
 
 
-/*
 
 
 
+
+
+
+
+        
+                // ******************************************************************
         $databaseHandler = new DatabaseHandler($dbname, $username);
 
         // Définition des colonnes et de leurs types dans un tableau associatif
@@ -247,7 +252,7 @@ if ($databaseHandler->verif != 1) {
 
 
 
-        */
+
 
 
 

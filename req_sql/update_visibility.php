@@ -9,5 +9,5 @@ $databaseHandler->action_sql('UPDATE  `projet` SET `visibility_1_projet` = "'.$v
 $databaseHandler->action_sql('UPDATE  `projet` SET `visibility_1_projet` = "'.$visibility_1_projet.'"   WHERE  `id_sha1_parent_projet` ="'.$id_sha1_projet.'" ');
 
 
-
+require_once "all_pages_script.php";
 ?>

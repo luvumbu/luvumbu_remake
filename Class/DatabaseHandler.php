@@ -734,6 +734,8 @@ $databaseHandler->action_sql('UPDATE `projet` SET `activation_projet` = "off" WH
 
 // Mise à jour dans la base de données
 // Exemple de mise à jour d'un enregistrement dans une table spécifique
+
+// 005
 */
 ?>
 <?php 
@@ -782,6 +784,7 @@ $databaseHandler->action_sql("INSERT INTO  `visit_user` (`id_visit_user`, `id_ge
 
 // Suppression d'un enregistrement dans la base de données
 // Exemple de suppression d'un élément dans une table spécifique
+// 006
  */
 ?>
 
