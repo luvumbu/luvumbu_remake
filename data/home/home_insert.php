@@ -9,11 +9,13 @@ $img_5 = "https://img.icons8.com/ios/40/high-volume--v1.png";
 $img_6 = "https://img.icons8.com/ios/40/no-audio--v1.png";
 $img_7 = "https://img.icons8.com/ios-glyphs/40/invisible.png";
 $img_8 = "https://img.icons8.com/ios-filled/40/invisible.png";
+
 require_once $home_insert_css;
+
 require_once $home_insert_js;
 require_once "Class/replace_element.php";
 
-
+ 
 
 ?>
 <script>

@@ -123,51 +123,7 @@
  </div>
 
  <script>
-   function update_all() {
-     var ok = new Information("update_home_projet.php"); // création de la classe 
-     console.log(ok.info()); // demande l'information dans le tableau
-     ok.push(); // envoie l'information au code pkp 
-
-
-     var ok = new Information("update_home_profil.php"); // création de la classe 
-     console.log(ok.info()); // demande l'information dans le tableau
-     ok.push(); // envoie l'information au code pkp 
-
-
-     var ok = new Information("update_home_profil2.php"); // création de la classe 
-     console.log(ok.info()); // demande l'information dans le tableau
-     ok.push(); // envoie l'information au code pkp 
-
-
-
-
-     var ok = new Information("update_home_img.php"); // création de la classe 
-     console.log(ok.info()); // demande l'information dans le tableau
-     ok.push(); // envoie l'information au code pkp 
-
-   }
-   var ok = new Information("update_home_projet.php"); // création de la classe 
-   console.log(ok.info()); // demande l'information dans le tableau
-   ok.push(); // envoie l'information au code pkp 
-
-
-   var ok = new Information("update_home_profil.php"); // création de la classe 
-   console.log(ok.info()); // demande l'information dans le tableau
-   ok.push(); // envoie l'information au code pkp 
-
-
-   var ok = new Information("update_home_profil2.php"); // création de la classe 
-   console.log(ok.info()); // demande l'information dans le tableau
-   ok.push(); // envoie l'information au code pkp 
-
-
-
-
-   var ok = new Information("update_home_img.php"); // création de la classe 
-   console.log(ok.info()); // demande l'information dans le tableau
-   ok.push(); // envoie l'information au code pkp 
-
-
+ 
 
 
 

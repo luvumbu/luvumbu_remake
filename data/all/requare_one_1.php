@@ -1,5 +1,4 @@
 <?php 
-
 session_start();
 header("Access-Control-Allow-Origin: *");
 require_once "Class/dbCheck.php";
@@ -16,7 +15,4 @@ require_once "Class/format_date_europeenne.php";
 require_once "Class/limiterMots.php";
 require_once "Class/formaterDateFr.php";
 date_default_timezone_set('Europe/Paris');
-
-
-
 ?>

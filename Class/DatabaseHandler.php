@@ -45,6 +45,78 @@ class DatabaseHandler
             $conn->close();
                 }
     }
+
+
+
+
+        /**
+     * Récupère toutes les données d'une table, génère des variables dynamiques
+     * et retourne un tableau associatif [nom_variable => valeur].
+     *
+     * @param string $nom_table Nom de la table à interroger
+     * @param string $val_knock Suffixe ajouté aux variables (par défaut "_a")
+     * @return array Tableau associatif des variables dynamiques générées
+     */
+/**
+ * Récupère les données d'une table et crée des variables dynamiques
+ *
+ * @param string $nom_table Nom de la table à interroger
+ * @param string $val_knock Suffixe à ajouter aux variables dynamiques (ex: "_x")
+ * @param string $req_sql Requête SQL à exécuter pour récupérer les données
+ * @return array Tableau associatif contenant toutes les variables générées
+ */
+function know_variables_name($nom_table, $val_knock, $req_sql) {
+    // Vérifie si la table est bien définie
+    if (empty($nom_table)) {
+        die('$nom_table n\'existe pas, il faut la créer pour continuer le traitement');
+    }
+
+    // Tableau de retour qui contiendra toutes les variables générées
+    $all_array_array = [];
+
+    // 1) Récupération des colonnes de la table
+    $this->getListOfTables_Child($nom_table);
+
+    // 2) Exécution de la requête SQL et récupération des données
+    $this->getDataFromTable2X($req_sql);
+
+    // 3) Génération du tableau $dynamicVariables
+    $this->get_dynamicVariables();
+    global $dynamicVariables; // $dynamicVariables est généré globalement
+
+    // Vérifie que $dynamicVariables est bien un tableau
+    if (!is_array($dynamicVariables)) {
+        die("Erreur : \$dynamicVariables n'est pas défini ou n'est pas un tableau.");
+    }
+
+    // 4) Création des variables dynamiques avec suffixe
+    if (!empty($val_knock)) {
+        foreach ($dynamicVariables as $key => $values) {
+            // Exemple : $key = "id_projet", $val_knock = "_x" => $varName = "id_projet_x"
+            $varName = $key . $val_knock;
+
+            // 4a) Création d'une variable locale dynamique
+            $$varName = $values;
+
+            // 4b) Rendre la variable accessible globalement (ex: $id_projet_x)
+            $GLOBALS[$varName] = $values;
+
+            // 4c) Stockage dans le tableau de retour
+            $all_array_array[$varName] = $values;
+        }
+    } else {
+        echo 'Attention : vous devez définir $val_knock';
+    }
+
+    // Retourne toutes les variables générées
+    return $all_array_array;
+}
+
+
+
+
+
+
     function function_affiche_all()
     {   
     }
@@ -294,6 +366,9 @@ class DatabaseHandler
     {
         return $this->tableList_info;
     }
+
+
+ 
     function get_dynamicVariables()
     {
         global $dynamicVariables; // Rend la variable accessible globalement
@@ -893,4 +968,33 @@ echo "</pre>";
 
 
  ?>
+
+
+
+
+<?php 
+/*
+$db = new DatabaseHandler("root", "root");
+
+// Appel de la fonction
+$result = $db->know_variables_name("projet", "_x", $req_sql);
+
+// Accès via le tableau
+var_dump($result['id_projet_x']);
+
+// Accès direct via la variable dynamique
+var_dump($id_projet_x);
+
+// Accès global via $GLOBALS
+var_dump($GLOBALS['id_projet_x']);
+
+ 
+*/
+
+
+
+
+?>
+
+
 

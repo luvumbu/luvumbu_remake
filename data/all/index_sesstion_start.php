@@ -7,12 +7,10 @@ session_start();
 $data_home = "data/home/";
 $data_index = "data/index/";
 $data_all = "data/all/";
-
 /*
 data/home
 ├─ index.php
 */
-
 $home = $data_home."home.php";
 $all_element = $data_home . "home_all_element.php";
 $home_header  = $data_home . "home_header.php";
