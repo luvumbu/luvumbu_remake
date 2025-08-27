@@ -113,16 +113,18 @@ function x() {
   }
 
   function change_img_select(_this) {
-
-  
-    document.documentElement.scrollTop = 0; // sans animation
-    document.getElementById("class_img_top").src = "img_dw/" + _this.title;
-    document.getElementById("class_img_top2").src = "img_dw/" + _this.title;
+ 
+ 
+ document.getElementById("class_img_top").src = 'img_dw/' + _this.title;
+ 
+ 
+  window.scrollTo(0, 0);
+ 
     var ok = new Information("req_sql/change_img_select.php"); // création de la classe 
     ok.add("img_projet_src1", _this.title); // ajout de l'information pour lenvoi 
     console.log(ok.info()); // demande l'information dans le tableau
     ok.push(); // envoie l'information au code pkp 
-
+ /*
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -134,7 +136,9 @@ function x() {
   update_all();
 }
 
+*/
 
+ 
   }
 
   function remove_img_select(_this) {

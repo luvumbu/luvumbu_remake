@@ -1,18 +1,27 @@
 <?php
- 
+     $src_img_array = array();
+
+
+
+
 $slidesData = [];
 for ($i=0; $i < count($id_projet_img_y); $i++) { 
      
 
   if($img_activate_y[$i] == "1"   )
   {
+
+if($id_projet_img_y[$i] != ""){
+
+
+        array_push($src_img_array, "../img_dw/$id_projet_img_y[$i]");
         $slidesData[] = [
         "url" => "../img_dw/$id_projet_img_y[$i]",
         "caption" => "$title_projet_x[0]"
     ];
   }
 
-}
+}}
 ?>
  
 <style>

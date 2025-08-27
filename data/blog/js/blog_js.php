@@ -1,5 +1,7 @@
 <script>
      function envoyer_comment(_this) {
+
+        
         _this.style.display="none";
          const id_comment_text_ = document.getElementById("message").value;
          var ok = new Information("../req_sql/envoyer_comment.php"); // création de la classe 
