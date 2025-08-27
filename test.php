@@ -65,7 +65,6 @@ ctx.fillStyle = "#2f2f2f";
 ctx.beginPath();
 ctx.ellipse(200, 330, 20, 90, 0, 0, Math.PI * 2);
 ctx.fill();
-
 </script>
 </body>
 </html>
