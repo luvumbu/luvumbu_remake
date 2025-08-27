@@ -1,12 +1,7 @@
  <?php
   require_once $home_header_css_1;
   require_once $home_js;
-
-
   $index_3 = $_SESSION["index"][3];
-
-
-
 
   if (isset($_SESSION["add_projet"])) {
     //var_dump($_SESSION["add_projet"]);
@@ -14,7 +9,6 @@
     header('Location:qr_code_1/index.php ');
     exit();
   } 
-
   ?>
  <nav>
    <ul class="menu">
@@ -25,25 +19,12 @@
        </a>
      </li>
      <li title="<?= $index_3 ?>" class="cursor_pointer" onclick="add_id_sha1_user(this)"><img width="30" height="30" src="https://img.icons8.com/office/30/add--v1.png" alt="add--v1" />
-
-     </li>
-
-
- 
+     </li> 
   <li>      
     <a href="add_style.php" class="btn-style">Ajouter un style</a>
-  </li>
- 
-
+  </li> 
    </ul>
-
-
  </nav>
-
-
- 
-
-
  <?php
 
   require_once 'data/home/home_all_style.php';

@@ -67,7 +67,6 @@ if ($id_sha1_user_projet_class == "") {
   <div class="class_img_top">
     <img id="class_img_top" src="<?= 'img_dw/' . $img_projet_src1[0] ?>" alt="" srcset="">
   </div>
-
   <body>
     <form method="post" action="submit.php">
       <!-- CHAMP 1 -->
@@ -193,6 +192,8 @@ if ($id_sha1_user_projet_class == "") {
             <input type="color" onchange="changeBg(this.value, '1')">
           </div>
         </div>
+
+        
         <div class="editable-field" id="field-1" contenteditable="true"><?= $title_projet_ ?></div>
         <?php
         #toggle 1
@@ -502,8 +503,7 @@ else{
         $title_projet_c_ =   AsciiConverter::asciiToString($title_projet_c[$i]);
       ?>
 
-        <div class="card_element cursor_pointer bordures_img" onclick="child_element(this)"
-          title="<?= $id_sha1_projet_cc[$i] ?>">
+        <div class="card_element cursor_pointer bordures_img">
           <div class="card_element_img">
             <?php
             if ($img_projet_src1_c[$i] == '') {
@@ -517,6 +517,11 @@ else{
             <?php
             }
             ?>
+
+            <a href="<?= 'blog.php/'.$id_sha1_projet_cc[$i] ?>"><img style="width: 50px;height: 50px;" width="50" height="50" src="https://img.icons8.com/ios/50/link.png" alt="link"/></a>
+         
+         <img onclick="child_element(this)" style="width: 50px;height: 50px;"
+          title="<?= $id_sha1_projet_cc[$i] ?>" width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1"/>
           </div>
           <div class="card_element_title"><?= $title_projet_c_ ?></div>
         </div>
@@ -646,3 +651,4 @@ else{
 
   }
 </script>
+
