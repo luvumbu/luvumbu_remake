@@ -253,10 +253,6 @@
             <div class="game-meta">Plateforme: Megadrive — 1991</div>
           </div>
         </article>
-
-
-        
-
         <article class="game-card">
           <div class="game-thumb">STREET</div>
           <div>
