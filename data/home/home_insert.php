@@ -503,6 +503,8 @@ else{
         $title_projet_c_ =   AsciiConverter::asciiToString($title_projet_c[$i]);
       ?>
 
+
+
         <div class="card_element cursor_pointer bordures_img">
           <div class="card_element_img">
             <?php
