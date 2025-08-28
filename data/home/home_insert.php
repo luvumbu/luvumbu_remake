@@ -507,6 +507,7 @@ else{
 
 
 
+
         <div class="card_element cursor_pointer bordures_img">
           <div class="card_element_img">
             <?php
