@@ -3,6 +3,8 @@ require_once "data/all/requare_one_1.php";
 require_once "Class/formatDateFr.php";
 require_once "Class/fichierExiste.php";
 require_once "Class/FrenchClock.php";
+require_once "Class/dbCheck.php";
+
 $stories = array();
 ?>
 <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
@@ -220,7 +222,22 @@ id_sha1_user
 
 <?php 
  
+
+
+
+
+
+
+
+
+
+
+require_once "data/blog/styles/profil.php";
 require_once "data/blog/styles/audio.php";
+
+
+
+
 
 ?>
 
