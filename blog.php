@@ -210,6 +210,8 @@ id_sha1_user
         width: 150px;
     }
 
+
+    
     #qr_code img {
         max-width: 100%;
         height: auto;
