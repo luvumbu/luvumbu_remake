@@ -10,18 +10,23 @@
     exit();
   } 
   ?>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
  <nav>
    <ul class="menu">
      <li class="cursor_pointer" onclick="add_projet(this)" id="add_projet_">➕ Ajouter un projet</li>
      <li class="cursor_pointer">
+      
        <a href="Class/session_destroy.php">
-         Déconnexion
+      <img width="20" height="20" src="https://img.icons8.com/office/20/shutdown--v1.png" alt="shutdown--v1"/>   Déconnexion
        </a>
      </li>
-     <li title="<?= $index_3 ?>" class="cursor_pointer" onclick="add_id_sha1_user(this)"><img width="30" height="30" src="https://img.icons8.com/office/30/add--v1.png" alt="add--v1" />
-     </li> 
+     <li title="<?= $index_3 ?>" class="cursor_pointer" onclick="add_id_sha1_user(this)">
+    <img width="30" height="30" src="https://img.icons8.com/pastel-glyph/30/info--v3.png" alt="info--v3"/> ajouter informations 
+    
+    </li> 
   <li>      
-    <a href="add_style.php" class="btn-style">Ajouter un style</a>
+    <img width="20" height="20" src="https://img.icons8.com/pulsar-gradient/20/women-shoe-side-view.png" alt="women-shoe-side-view"/> <a href="add_style.php" class="btn-style">Ajouter un style</a>
   </li> 
    </ul>
  </nav>
@@ -95,13 +100,7 @@
 
   ?>
 
- <div onclick="update_all()" class="cursor_pointer">
-
-   <img width="100" height="100" src="https://img.icons8.com/pastel-glyph/100/loop.png" alt="loop" />
-   <p>
-     update_all
-   </p>
- </div>
+ 
 
  <script>
  

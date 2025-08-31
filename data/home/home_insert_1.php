@@ -52,6 +52,13 @@ $img_projet_src1__ = $dynamicVariables['img_projet_src1'][0];
 $img_projet_src1 = $dynamicVariables['img_projet_src1'];
 $type_projet_0 = $dynamicVariables['type_projet'][0];
 
+$date_debut_projet = $dynamicVariables['date_debut_projet'][0];
+$date_fin_projet = $dynamicVariables['date_fin_projet'][0];
+
+
+$password_projet = AsciiConverter::asciiToString($dynamicVariables['password_projet'][0]);
+
+
 
 
 ?>

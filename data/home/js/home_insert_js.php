@@ -220,7 +220,7 @@ function x() {
 
 
     function valider2(_this) {
-    _this.style.display = 'none';
+ 
     const field_1 = document.getElementById("field-1").innerHTML;
     const field_2 = document.getElementById("field-2").innerHTML;
     const field_3 = document.getElementById("field-3").innerHTML;

@@ -15,7 +15,7 @@ require_once $home_insert_css;
 require_once $home_insert_js;
 require_once "Class/replace_element.php";
 
- 
+
 
 ?>
 <script>
@@ -67,7 +67,36 @@ if ($id_sha1_user_projet_class == "") {
   <div class="class_img_top">
     <img id="class_img_top" src="<?= 'img_dw/' . $img_projet_src1[0] ?>" alt="" srcset="">
   </div>
+  <style>
+    .update_function_password {
+      text-align: center;
+      margin: auto;
+      width: 100%;
+      margin-bottom: 45px;
+      border-radius: 3px;
+      padding: 15px;
+
+    }
+
+    .terminer {
+      position: fixed;
+      bottom: 20px;
+
+      right: 0;
+      width: 50px;
+      height: 50px;
+    }
+
+    .terminer img {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
   <body>
+
+
+
     <form method="post" action="submit.php">
       <!-- CHAMP 1 -->
       <div class="field-container" id="container-1">
@@ -91,7 +120,10 @@ if ($id_sha1_user_projet_class == "") {
           </div>
 
 
+
+
           <div title="0">
+
             <div>
 
               <?php
@@ -103,12 +135,12 @@ if ($id_sha1_user_projet_class == "") {
 
 
               $index = array_search($id_projet_style[0], $index_of_style);
-         
+
               $index_id_projet_style = $id_projet_style[0];
               $select_name_style_page =  AsciiConverter::asciiToString($dynamicVariables['name_style_page'][$index]);
 
 
- 
+
 
 
 
@@ -134,11 +166,11 @@ if ($id_sha1_user_projet_class == "") {
 
                 //$id_projet_style
                 ?>
-                <option selected class="<?= $index_of_style[$index] ?>" value="<?= $index_of_style[$index] ?>"><?=AsciiConverter::asciiToString( $dynamicVariables['name_style_page'][$index]) ?></option>
+                <option selected class="<?= $index_of_style[$index] ?>" value="<?= $index_of_style[$index] ?>"><?= AsciiConverter::asciiToString($dynamicVariables['name_style_page'][$index]) ?></option>
 
 
               </select>
-    
+
 
 
               <script>
@@ -164,10 +196,15 @@ if ($id_sha1_user_projet_class == "") {
               </a>
             </div>
           </div>
+
         </div>
         <div class="div_h1">
           <h1><?= $_SESSION["index"][4] ?></h1>
         </div>
+        <div>
+          <input value="<?= $password_projet ?>" type="text" title="<?= $_SESSION["index"][4] ?>" class="update_function_password" onkeyup="update_function_password(this)" placeholder="Mot de passe pour la page">
+        </div>
+
         <div class="field-header" id="title_projet_info">
           title_projet
           <button type="button" onclick="toggleToolbar('1')">Options</button>
@@ -193,7 +230,7 @@ if ($id_sha1_user_projet_class == "") {
           </div>
         </div>
 
-        
+
         <div class="editable-field" id="field-1" contenteditable="true"><?= $title_projet_ ?></div>
         <?php
         #toggle 1
@@ -353,23 +390,18 @@ if ($id_sha1_user_projet_class == "") {
                     src="https://img.icons8.com/fluency-systems-regular/40/delete-forever.png"
                     alt="delete-forever" />
                 </div>
-                <?php 
-if($img_activate_c[$i__]==""){
+                <?php
+                if ($img_activate_c[$i__] == "") {
 
 
-   $img_1__ = "https://img.icons8.com/ios/40/unchecked-checkbox.png" ; 
-  
+                  $img_1__ = "https://img.icons8.com/ios/40/unchecked-checkbox.png";
+                } else {
+                  $img_1__ = "https://img.icons8.com/ios/40/checked-checkbox--v1.png";
+                }
 
+                ?>
+                <img class="cursor_pointer" id="<?= 'active_' . $id_sha1_projet_img_c[$i__] ?>" onclick="change_img_active(this)" title="<?= $id_projet_img_c[$i__] ?>" width="40" height="40" src="<?= $img_1__ ?>" alt="unchecked-checkbox" />
 
-
-}
-else{
- $img_1__ = "https://img.icons8.com/ios/40/checked-checkbox--v1.png" ; 
-}
-
-?>
-                  <img class="cursor_pointer" id="<?= 'active_'.$id_sha1_projet_img_c[$i__] ?>" onclick="change_img_active(this)" title="<?= $id_projet_img_c[$i__] ?>" width="40" height="40" src="<?=  $img_1__ ?>" alt="unchecked-checkbox"/>
-    
               </div>
             </div>
           <?php
@@ -402,15 +434,13 @@ else{
         ?>
         <div class="display_flex">
 
+
           <div class="cursor_pointer" onclick="valider2(this)">
             <img width="80" height="80" src="https://img.icons8.com/color/80/checkmark--v1.png"
               alt="checkmark--v1" />
           </div>
 
-          <div class="cursor_pointer" onclick="terminer(this)">
-            <img width="80" height="80" src="https://img.icons8.com/emoji/40/ok-hand-medium-dark-skin-tone.png"
-              alt="checkmark--v1" />
-          </div>
+
 
           <div onclick="add_child(this)" class="cursor_pointer">
             <img width="40" height="40" src="https://img.icons8.com/office/40/add--v1.png" alt="add--v1" />
@@ -490,8 +520,20 @@ else{
               <?php
               }
               ?>
-
             </div>
+          </div>
+          <div>
+
+            <div>
+              <b>Début</b>
+              <input type="date" title="<?= $id_sha1_projet__ ?>" value="<?= $date_debut_projet ?>" id="date_gene_debut" onchange="update_date_general_df(this)">
+            </div>
+            <div>
+              <b>Fin</b>
+              <input type="date" title="<?= $id_sha1_projet__ ?>" value="<?= $date_fin_projet ?>" id="date_gene_fin" onchange="update_date_general_df(this)">
+            </div>
+
+
           </div>
         </div>
       </div>
@@ -502,6 +544,7 @@ else{
       for ($i = 0; $i < count($title_projet_c); $i++) {
         $title_projet_c_ =   AsciiConverter::asciiToString($title_projet_c[$i]);
       ?>
+
 
 
 
@@ -523,16 +566,30 @@ else{
             }
             ?>
 
-            <a href="<?= 'blog.php/'.$id_sha1_projet_cc[$i] ?>"><img style="width: 50px;height: 50px;" width="50" height="50" src="https://img.icons8.com/ios/50/link.png" alt="link"/></a>
-         
-         <img onclick="child_element(this)" style="width: 50px;height: 50px;"
-          title="<?= $id_sha1_projet_cc[$i] ?>" width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1"/>
+
+
+            <div class="display_flex">
+              <div>
+                <a href="<?= 'blog.php/' . $id_sha1_projet_cc[$i] ?>">
+                  <img style="width: 50px;height: 50px;" width="50" height="50" src="https://img.icons8.com/ios/50/link.png" alt="link" />
+                </a>
+              </div>
+              <div>
+                <img onclick="child_element(this)" style="width: 50px;height: 50px;"
+                  title="<?= $id_sha1_projet_cc[$i] ?>" width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" />
+              </div>
+            </div>
+               
+
+
           </div>
           <div class="card_element_title"><?= $title_projet_c_ ?></div>
+
         </div>
       <?php
       }
       ?>
+
     </div>
     <div>
       <?php
@@ -578,6 +635,9 @@ else{
     <img width="80" height="80" src="https://img.icons8.com/emoji/40/ok-hand-medium-dark-skin-tone.png"
       alt="checkmark--v1">
   </div>
+
+
+
 <?php
 
 
@@ -588,7 +648,37 @@ else{
 
 
 
+
+
+<div class="cursor_pointer terminer" onclick="terminer(this)">
+  <img width="100" height="100" src="https://img.icons8.com/external-microdots-premium-microdot-graphic/100/external-finish-sport-fitness-vol2-microdots-premium-microdot-graphic-2.png" alt="external-finish-sport-fitness-vol2-microdots-premium-microdot-graphic-2"
+    alt="checkmark--v1" />
+</div>
+
 <script>
+  function update_date_general_df(_this) {
+    var date_debut = document.getElementById("date_gene_debut").value;
+    var date_fin = document.getElementById("date_gene_fin").value;
+
+
+    var id_sha1_projet = _this.title;
+
+    var ok = new Information("req_sql/update_date_general_df.php"); // création de la classe
+    ok.add("date_debut_projet", date_debut); // ajout de l'information pour lenvoi
+    ok.add("date_fin_projet", date_fin); // ajout de l'information pour lenvoi
+    ok.add("id_sha1_projet", id_sha1_projet); // ajout de l'information pour lenvoi
+
+
+
+    console.log(ok.info()); // demande l'information dans le tableau
+    ok.push(); // envoie l'information au code pkp  
+
+
+
+
+
+  }
+
   function select_style(_this) {
 
     document.getElementById("edit_style").className = "cursor_pointer";
@@ -609,51 +699,58 @@ else{
 
   }
 
-  function change_img_active(_this){
- 
-
-   
-let result = _this.id.replace("active_", "");
- 
-
- 
-
- 
-  
- 
-const img_1 = "https://img.icons8.com/ios/40/unchecked-checkbox.png" ; 
-const img_2 = "https://img.icons8.com/ios/40/checked-checkbox--v1.png" ; 
+  function change_img_active(_this) {
 
 
-if(_this.src==img_1){
-  _this.src=img_2; 
-  
- 
-  img_activate = "1" ; 
-}
-else{
-  img_activate = "" ; 
 
-  _this.src=img_1; 
-
-}
-
-  
+    let result = _this.id.replace("active_", "");
 
 
- 
+
+
+
+
+
+    const img_1 = "https://img.icons8.com/ios/40/unchecked-checkbox.png";
+    const img_2 = "https://img.icons8.com/ios/40/checked-checkbox--v1.png";
+
+
+    if (_this.src == img_1) {
+      _this.src = img_2;
+
+
+      img_activate = "1";
+    } else {
+      img_activate = "";
+
+      _this.src = img_1;
+
+    }
+
+
+
+
+
     var ok = new Information("req_sql/update_change_img_active.php"); // création de la classe 
     ok.add("img_activate", img_activate); // ajout de l'information pour lenvoi 
     ok.add("id_projet_img", _this.title); // ajout de l'information pour lenvoi 
- 
+
 
     console.log(ok.info()); // demande l'information dans le tableau
     ok.push(); // envoie l'information au code pkp  
- 
-
-
-
 
   }
-</script>
 
+  function update_function_password(_this) {
+    var password_projet = _this.value;
+    var id_sha1_projet = _this.title;
+    console.log(password_projet);
+    console.log(password_projet);
+
+    var ok = new Information("req_sql/update_function_password.php"); // création de la classe
+
+    ok.add("id_sha1_projet", id_sha1_projet); // ajout de l'information pour lenvoi 
+    ok.add("password_projet", password_projet); // ajout de l'information pour lenvoi
+    ok.push(); // envoie l'information au code pkp
+  }
+</script>

@@ -144,11 +144,12 @@ if ($databaseHandler->verif != 1) {
             "img_projet_src2_toggle"              => "LONGTEXT NOT NULL",
             "img_projet_visibility"               => "LONGTEXT NOT NULL",
             "group_projet"                        => "LONGTEXT NOT NULL",
-            "heure_debut_projet"                  => "LONGTEXT NOT NULL",
-            "date_debut_projet"                   => "LONGTEXT NOT NULL",
+            "date_debut_projet"                  => "LONGTEXT NOT NULL",
+            "date_fin_projet"                   => "LONGTEXT NOT NULL",
             "dure_projet"                         => "LONGTEXT NOT NULL",
             "publication_date_j_projet"           => "LONGTEXT NOT NULL",
             "publication_date_h_projet"           => "LONGTEXT NOT NULL",
+            "publication_password"                 => "LONGTEXT NOT NULL",
             "shop_projet"                         => "LONGTEXT NOT NULL",
             "date_inscription_projet"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
         ];
