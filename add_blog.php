@@ -7,6 +7,8 @@ if (isset($_SESSION["index"][6])) {
     }
 };
 
+
+
 if($condition){
     $name_file = "../all_projet_img/" . $id_sha1_projet . ".php";
     $_SESSION["index"][7] = $name_file;
