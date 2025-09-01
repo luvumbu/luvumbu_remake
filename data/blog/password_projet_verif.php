@@ -9,18 +9,43 @@
 
     ?>
 
+
+     <h1>Cette page est protégée par un mot de passe</h1>
      <div class="password_input">
          <input type="password" id="password" placeholder="Entrez le mot de passe de la page">
          <div class="submit_button" title="<?= $_SESSION["index"][4] ?>" onclick="verifierMotDePasse()">Envoyer</div>
      </div>
- <?php
+     <?php
     } else {
 
-        require_once "data/blog/blog_body.php";
+
+
+        if ($_SESSION["password_projet"] == $password_projet_x[0]) {
+
+
+
+
+            require_once "data/blog/blog_body.php";
+        } else {
+        ?>
+
+
+
+
+         <h1>Cette page est protégée par un mot de passe</h1>
+         <div class="password_input">
+             <input type="password" id="password" placeholder="Entrez le mot de passe de la page">
+             <div class="submit_button" title="<?= $_SESSION["index"][4] ?>" onclick="verifierMotDePasse()">Envoyer</div>
+         </div>
+
+     <?php
+        }
+
+
 
         ?>
 
-<?php 
+ <?php
     }
 
     ?>
@@ -59,7 +84,7 @@
      function verifierMotDePasse(_this) {
 
 
-       
+
          var verifierMotDePasse = document.getElementById("password").value;
 
 
@@ -72,14 +97,14 @@
 
 
 
- 
+
          const myTimeout = setTimeout(myGreeting, 300);
 
          function myGreeting() {
              location.reload();
          }
 
-    
+
 
 
 

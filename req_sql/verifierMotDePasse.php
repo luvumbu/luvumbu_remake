@@ -11,7 +11,7 @@ $password_projet_ascii = $_SESSION["password_projet_ascii"];
 if($ascii_password === $password_projet_ascii) {
  
 
-    $_SESSION["password_projet"] = true;
+    $_SESSION["password_projet"] =$_SESSION["password_projet_ascii"];
 } else {
  
     unset($_SESSION["password_projet"]);
