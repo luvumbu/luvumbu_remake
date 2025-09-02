@@ -184,6 +184,13 @@ if ($databaseHandler->verif != 1) {
             "id_ip_9"                          => "LONGTEXT NOT NULL",
             "id_ip_10"                          => "LONGTEXT NOT NULL",
             "id_ip_11"                          => "LONGTEXT NOT NULL",
+            "id_ip_12"                          => "LONGTEXT NOT NULL",
+            "id_ip_13"                          => "LONGTEXT NOT NULL",
+            "id_ip_14"                          => "LONGTEXT NOT NULL",
+            "id_ip_15"                          => "LONGTEXT NOT NULL",
+
+
+
 
             "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
 

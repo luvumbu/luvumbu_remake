@@ -14,5 +14,4 @@
         location.reload();
         }
     }
-    
 </script>

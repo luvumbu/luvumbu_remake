@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "require_once2.php";
+require_once "require_once.php";
 
 $databaseHandler = new DatabaseHandler($dbname, $username);
 
@@ -39,7 +39,7 @@ if (strpos($userInfo['id_ip_2'], 'Firefox') !== false) {
 $userInfo['id_ip_4'] = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'Inconnue';
 
 // 5. Page demandée
-$userInfo['id_ip_5'] = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : 'Inconnu';
+$userInfo['id_ip_5'] = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : 'Inconnue';
 
 // 6. Nom du serveur
 $userInfo['id_ip_6'] = isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'Inconnu';
@@ -61,13 +61,6 @@ $userInfo['id_ip_11'] = isset($_SESSION["index"]) ? 'true' : 'false';
 
 // 12. Heure exacte (Europe/Paris)
 $userInfo['id_ip_12'] = date('Y-m-d H:i:s');
-
-// 13. Page précédente
-if (isset($_SERVER['HTTP_REFERER'])) {
-    $userInfo['id_ip_13'] = $_SERVER['HTTP_REFERER'];
-} else {
-    $userInfo['id_ip_13'] = 'Aucune';
-}
 
 // --- Construire la requête SQL
 $columns = implode("`, `", array_keys($userInfo));

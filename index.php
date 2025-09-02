@@ -79,6 +79,16 @@ Variables liées à la page d’accueil ou au fonctionnement global :
   }
 
 
+ 
+
+
+
+    require_once "req_sql/log_general.php";
+
+
+
+
+
 
   ?>
   <div>
