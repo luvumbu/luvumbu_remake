@@ -10,13 +10,42 @@
     ?>
 
 
-     <h1>Cette page est protégée par un mot de passe</h1>
-     <div class="password_input">
-         <input type="password" id="password" placeholder="Entrez le mot de passe de la page">
-         <div class="submit_button" title="<?= $_SESSION["index"][4] ?>" onclick="verifierMotDePasse()">Envoyer</div>
-     </div>
+     <!DOCTYPE html>
+     <html lang="en">
+
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Document</title>
+     </head>
+
+     <body>
+
+
+
+         <link rel="stylesheet" href="../data/blog/css_protection_password.css">
+         <div class="page_protechtion">
+             <h1>Cette page est protégée par un mot de passe</h1>
+             <div class="password_input">
+                 <input type="password" id="password" placeholder="Entrez le mot de passe de la page">
+                 <div class="submit_button" title="<?= $_SESSION["index"][4] ?>" onclick="verifierMotDePasse()">Entrer</div>
+             </div>
+             <div class="home">
+
+                 <a href="../index.php">
+                     <img width="50" height="50" src="https://img.icons8.com/ios/50/home.png" alt="home" />
+
+                 </a>
+             </div>
+         </div>
+
+
+     </body>
+
+     </html>
      <?php
     } else {
+
 
 
 
@@ -29,15 +58,40 @@
         } else {
         ?>
 
+         <!DOCTYPE html>
+         <html lang="en">
+
+         <head>
+             <meta charset="UTF-8">
+             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+             <title>Document</title>
+         </head>
+
+         <body>
 
 
 
-         <h1>Cette page est protégée par un mot de passe</h1>
-         <div class="password_input">
-             <input type="password" id="password" placeholder="Entrez le mot de passe de la page">
-             <div class="submit_button" title="<?= $_SESSION["index"][4] ?>" onclick="verifierMotDePasse()">Envoyer</div>
-         </div>
+             <link rel="stylesheet" href="../data/blog/css_protection_password.css">
 
+             <div class="page_protechtion">
+                 <h1>Cette page est protégée par un mot de passe</h1>
+                 <div class="password_input">
+                     <input type="password" id="password" placeholder="Entrez le mot de passe de la page">
+                     <div class="submit_button" title="<?= $_SESSION["index"][4] ?>" onclick="verifierMotDePasse()">Envoyer</div>
+                 </div>
+             </div>
+
+             <div>
+
+                 <a href="../index.php">
+                     <img width="50" height="50" src="https://img.icons8.com/ios/50/home.png" alt="home" />
+
+                 </a>
+             </div>
+
+         </body>
+
+         </html>
      <?php
         }
 
@@ -53,32 +107,8 @@
 
 
 
- <style>
-     .password_input {
-         width: 80%;
-         margin: auto;
-         margin-top: 45px;
 
-         border-radius: 7px;
-     }
 
-     .password_input input {
-         width: 100%;
-         padding: 15px;
-
-     }
-
-     .submit_button {
-         background-color: #4CAF50;
-         color: white;
-         padding: 15px 20px;
-         border: none;
-         border-radius: 5px;
-         cursor: pointer;
-         margin-top: 25px;
-         text-align: center;
-     }
- </style>
 
  <script>
      function verifierMotDePasse(_this) {
