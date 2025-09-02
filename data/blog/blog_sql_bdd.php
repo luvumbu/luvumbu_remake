@@ -56,16 +56,28 @@
 }
 
 .div_article {
+  
+ margin: auto;
+ 
 
-    width: 80%;
-    margin: auto;
+    max-width: 90%; /* largeur maximale souhaitée */
+  
+    box-sizing: border-box; /* inclut la bordure dans la largeur */
 }
 
+/* Tous les éléments à l’intérieur */
+.div_article * {
+    max-width: 100%; /* ne dépasse jamais la largeur de .div_article */
+    box-sizing: border-box; /* s’assure que padding/border n’agrandissent pas l’élément */
+}
+
+
 .div_article {
-    width: 80%;
-    max-width: 1200px;
-    margin: auto;
-    overflow: hidden;
+  
+   
+  width: 90%;
+  margin: auto;
+    
     /* cache tout ce qui dépasse */
 }
 
@@ -74,18 +86,14 @@
     width: 100%;
     /* ou ce que tu veux */
 
-    overflow: hidden;
-    /* cache tout ce qui dépasse */
+      /* cache tout ce qui dépasse */
 }
 
 
 
 /* Sur téléphone (moins de 600px) */
 @media (max-width: 600px) {
-    .div_article {
-        width: 95%;
-        /* occupe presque tout l’écran */
-    }
+   
 }
 
 .article_img_dw {
@@ -107,13 +115,9 @@
 
     }
 
-    .div_article {
+ 
 
-        width: 90%;
-        margin: auto;
-    }
-
-    .description_projet_1_class_off {}
+ 
 
 }
 

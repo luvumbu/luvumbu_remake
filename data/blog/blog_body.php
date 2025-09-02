@@ -45,6 +45,8 @@ var_dump($description_projet_x);
 
 require_once "data/blog/blog_sql_bdd.php";
 
+
+
 $name_files = "qr_code_1/temp/" . $url_ . ".png";
 
 
@@ -223,7 +225,7 @@ id_sha1_user
 
 
 
-
+ 
 
 require_once "data/blog/styles/profil.php";
 require_once "data/blog/styles/audio.php";
