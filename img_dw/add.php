@@ -1,7 +1,4 @@
 <?php
-
-
-
 $condition = false;
 if (isset($_SESSION["index"][6])) {
     if ($_SESSION["index"][6] != "") {
@@ -35,12 +32,17 @@ else{
 <body>
     <style>
         body {
+         
             background-color: black;
             margin: 0;
             padding: 0;
+
+       
         }
     </style>
 </body>
 
 </html>
-<meta http-equiv="refresh" content="0; URL=../index.php">
+
+
+<meta http-equiv="refresh" content="1; URL=../index.php">

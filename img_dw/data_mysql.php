@@ -21,13 +21,14 @@ $databaseHandler = new DatabaseHandler($dbname, $username);
 
 $id_sha1_user = $_SESSION["id_sha1_user"];
 
-
+ 
 
 
 if (isset($_SESSION["card_profil"])) {
 
 
 
+ 
 
 
 

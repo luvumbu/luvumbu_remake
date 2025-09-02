@@ -16,6 +16,8 @@ Variables liées à la page d’accueil ou au fonctionnement global :
   
   └── utilisées dans : data/index/index_sesstion_start.php
 */
+
+ 
 ?>
 
 <!DOCTYPE html>

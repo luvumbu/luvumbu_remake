@@ -44,41 +44,10 @@ $liste_array_dyn = array(
     "date_inscription_projet_img"
 );
 
-$myfile = fopen($name_file, "w") or die("Unable to open file!");
-for ($i = 0; $i < count($dynamicVariables['id_projet_img_auto']); $i++) {
-    $txt .= "    array(\n"; // Début d'un sous-tableau
-    for ($y = 0; $y < count($liste_array_dyn); $y++) {
-        $key = $liste_array_dyn[$y];
-        // Vérifie si l'élément existe, sinon assigne une chaîne vide
-        $value = isset($dynamicVariables[$key][$i]) ? $dynamicVariables[$key][$i] : "";
-        // Ajoute la clé et la valeur au tableau
-        $txt .= '        "' . $key . '" => "' . $value . '",';
-        $txt .= "\n";
-    }
-    $txt .= "    ),\n"; // Fin du sous-tableau
-}
-$txt .= ");\n"; // Fin du tableau principal
-$txt .= "?>";
-fwrite($myfile, $txt);
-fclose($myfile);
-$name_file = "../all_projet_img_json/" . $id_sha1_projet . ".php";
-$myfile = fopen($name_file, "w") or die("Unable to open file!");
-$txt = "<?php";
-$txt .= "\n";
-$txt .= 'require_once "../req_sql/require_once.php";';
-$txt .= "\n";
-$txt .= 'require_once "../all_projet/' . $id_sha1_projet . '.php";';
-$txt .= "\n";
-$txt .= '$json_projet = json_encode($row_projet, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);';
-$txt .= "\n";
-$txt .= 'echo $json_projet;';
-$txt .= "\n";
-$txt .= "?>";
-fwrite($myfile, $txt);
-fclose($myfile);
+ 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">

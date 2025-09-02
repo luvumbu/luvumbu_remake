@@ -434,10 +434,3 @@ if (count($dynamicVariables["img_user"]) > 0) {
         }
     </script>
 
-
-    <?php
-
-
-
-
-    ?>
