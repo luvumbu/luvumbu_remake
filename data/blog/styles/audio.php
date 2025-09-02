@@ -33,7 +33,7 @@ $id_sha1_projet_song_array=array();
  
   
 
-for($index = 0; $index < count($stories); $index++){
+for($index = 1; $index < count($stories); $index++){
 
 if($index==0){
 array_push($id_sha1_projet_song_array,$id_sha1_projet_song_x[0]);

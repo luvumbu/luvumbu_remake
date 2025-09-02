@@ -228,9 +228,12 @@ id_sha1_user
  
 
 require_once "data/blog/styles/profil.php";
+
+//images_container_all
+ ; 
 require_once "data/blog/styles/audio.php";
 
-
+ 
 
 
 
