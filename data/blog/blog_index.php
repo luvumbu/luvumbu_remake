@@ -54,7 +54,7 @@ if (file_exists($nomFichier_2)) {
 
  
  
-       require_once "styles/a1.php";
+    require_once "styles/a1.php";
 /*
 
   

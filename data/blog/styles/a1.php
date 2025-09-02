@@ -14,10 +14,18 @@ for ($i=0; $i < count($id_projet_img_y); $i++) {
 if($id_projet_img_y[$i] != ""){
 
 
+
+  if($title_projet_toggle_x[0] == ""){
+    $title_projet_xx_ = $title_projet_x[0] ; 
+  }
+  else{
+    $title_projet_xx_ = replace_element_2($title_projet_x[0]) ; 
+
+  }
         array_push($src_img_array, "../img_dw/$id_projet_img_y[$i]");
         $slidesData[] = [
         "url" => "../img_dw/$id_projet_img_y[$i]",
-        "caption" => "$title_projet_x[0]"
+        "caption" => "$title_projet_xx_"
     ];
   }
 

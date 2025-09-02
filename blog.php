@@ -70,7 +70,7 @@ $filename2 = "all_projet_img/" . $url_ . '.php';
 
 if($id_sha1_projet_lock_x[0] == 1) {
 
-require_once "data/blog/blog_body.php";
+       require_once "data/blog/blog_body.php";
 
 
     }
@@ -82,5 +82,5 @@ require_once "data/blog/blog_body.php";
 
  
 
-    require_once "req_sql/log_general.php";
+   // require_once "req_sql/log_general.php";
 ?>

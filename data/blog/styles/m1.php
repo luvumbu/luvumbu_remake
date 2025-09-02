@@ -22,7 +22,7 @@
 
  if($visibility_1_projet_y[$i] == "1" ) {
 ?>
-                <a href="<?= $id_sha1_projet_ ?>"><?=   $title_projet_y[$i] ?></a>
+                <a href="<?= $id_sha1_projet_ ?>"><?=   replace_element_2($title_projet_y[$i]) ?></a>
 
 <?php
  }
