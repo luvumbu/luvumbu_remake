@@ -30,9 +30,17 @@
   </li> 
    </ul>
  </nav>
- <?php
 
+
+ <?php
+$lorem = "
+
+ Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ducimus eius eligendi! Sint ex possimus earum veritatis sapiente. Dolor beatae quo minus earum nisi, aspernatur dignissimos eligendi optio mollitia rem.
+";
   require_once 'data/home/home_all_style.php';
+
+
+
   require_once 'data/home/add_profil.php';
   require_once 'data/home/update_profil.php';
 
@@ -43,6 +51,8 @@
       //require_once "home_setting_files.php" ; 
 
       require_once   $home_insert;
+ 
+
     } else {
       require_once $home_select_all;
     }

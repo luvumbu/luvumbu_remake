@@ -42,6 +42,5 @@ $id_general = $dynamicVariables['id_general'];
 
 
 $img_activate_c = $dynamicVariables['img_activate'];
- 
 
 ?>

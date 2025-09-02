@@ -63,6 +63,10 @@ if ($id_sha1_user_projet_class == "") {
       echo '<meta http-equiv="refresh" content="0; URL=req_sql/check_img_bdd.php">';
     }
   }
+
+
+
+
 ?>
   <div class="class_img_top">
     <img id="class_img_top" src="<?= 'img_dw/' . $img_projet_src1[0] ?>" alt="" srcset="">
@@ -77,6 +81,12 @@ if ($id_sha1_user_projet_class == "") {
       padding: 15px;
 
     }
+
+
+    .card_element_title {
+      padding: 15px;
+    }
+
 
     .terminer {
       position: fixed;
@@ -541,6 +551,13 @@ if ($id_sha1_user_projet_class == "") {
     <div id="stats" class="display_none"><?php require_once 'data/home/home_stats.php' ?></div>
     <div class="div_elements" style="margin-bottom: 175px;margin-top: 175px;">
       <?php
+
+
+
+
+
+
+
       for ($i = 0; $i < count($title_projet_c); $i++) {
         $title_projet_c_ =   AsciiConverter::asciiToString($title_projet_c[$i]);
       ?>
@@ -579,11 +596,11 @@ if ($id_sha1_user_projet_class == "") {
                   title="<?= $id_sha1_projet_cc[$i] ?>" width="50" height="50" src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" />
               </div>
             </div>
-               
+
 
 
           </div>
-          <div class="card_element_title"><?= $title_projet_c_ ?></div>
+          <div class="card_element_title"><?= replace_element_2($title_projet_c_) ?></div>
 
         </div>
       <?php
@@ -642,7 +659,6 @@ if ($id_sha1_user_projet_class == "") {
 
 
 }
-
 
 ?>
 
