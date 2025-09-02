@@ -48,8 +48,8 @@ if ($img_user_zz[0] != "") {
 
 <style>
  .image_profil {
-  width: 80px;      /* largeur du cadre */
-  height: 80px;     /* hauteur du cadre */
+  width: 300px;      /* largeur du cadre */
+  height: 300px;     /* hauteur du cadre */
   overflow: hidden;  /* cache ce qui dépasse */
 }
 
