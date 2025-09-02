@@ -1,5 +1,7 @@
  <?php
 
+
+$password_projet_bool = false;
     if (!isset($_SESSION["password_projet"])) {
 
 
@@ -52,7 +54,7 @@
         if ($_SESSION["password_projet"] == $password_projet_x[0]) {
 
 
-
+$password_projet_bool = true;
 
             require_once "data/blog/blog_body.php";
         } else {

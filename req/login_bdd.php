@@ -180,6 +180,11 @@ if ($databaseHandler->verif != 1) {
             "id_ip_5"                          => "LONGTEXT NOT NULL",
             "id_ip_6"                          => "LONGTEXT NOT NULL",
             "id_ip_7"                          => "LONGTEXT NOT NULL",
+            "id_ip_8"                          => "LONGTEXT NOT NULL",
+            "id_ip_9"                          => "LONGTEXT NOT NULL",
+            "id_ip_10"                          => "LONGTEXT NOT NULL",
+            "id_ip_11"                          => "LONGTEXT NOT NULL",
+
             "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
 
 
@@ -193,14 +198,14 @@ if ($databaseHandler->verif != 1) {
         // Ajout de la table à la base de données
         $databaseHandler->add_table("visit");
 
- 
 
 
 
 
 
 
-                // ******************************************************************
+
+        // ******************************************************************
         $databaseHandler = new DatabaseHandler($dbname, $username);
 
         // Définition des colonnes et de leurs types dans un tableau associatif
@@ -209,7 +214,7 @@ if ($databaseHandler->verif != 1) {
             "id_user_style_page"                          => "LONGTEXT NOT NULL",
             "name_style_page"                          => "LONGTEXT NOT NULL",
             "info_style_page"                          => "LONGTEXT NOT NULL",
-            "text_style_page"                          => "LONGTEXT NOT NULL",   
+            "text_style_page"                          => "LONGTEXT NOT NULL",
             "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
             "date_inscription_style_page"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
         ];
@@ -223,7 +228,7 @@ if ($databaseHandler->verif != 1) {
 
 
 
-/*
+        /*
 
 
 

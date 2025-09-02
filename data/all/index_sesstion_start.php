@@ -58,6 +58,8 @@ $index_verifyConnection_all_projet ,
 $lang = "fr";
 $favicon = "https://ih1.redbubble.net/image.1762483057.7729/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.webp";
 $src_js = "Class/Js.js";
+$src_js_add_ip = "data/index/js/src_js_add_ip.js";
+
 $getFileExtension ="Class/getFileExtension.php";
 $getFileExtension ="Class/getFileExtension.php" ; 
 $index_css = $data_index . "index_css.css";

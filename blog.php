@@ -5,6 +5,9 @@ require_once "Class/fichierExiste.php";
 require_once "Class/FrenchClock.php";
 require_once "Class/dbCheck.php";
 
+
+
+
 $stories = array();
 ?>
 <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
@@ -72,6 +75,12 @@ require_once "data/blog/blog_body.php";
 
     }
     else{
+
+      
         require_once "data/blog/password_projet_verif.php";
     }
+
+ 
+
+    require_once "req_sql/log_general.php";
 ?>

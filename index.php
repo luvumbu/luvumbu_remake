@@ -1,8 +1,5 @@
 <?php
 require_once "data/all/index_sesstion_start.php";
-$_SESSION["nombre"]  = 0;
- 
- 
 if(isset( $_SESSION["select_style"])){
  unset($_SESSION["select_style"]);
 }
@@ -34,7 +31,7 @@ Variables liées à la page d’accueil ou au fonctionnement global :
   ?>
 </head>
 <script src="<?= $src_js ?>"></script> <!-- Inclusion d'un fichier JavaScript -->
-
+<script src="<?= $src_js_add_ip?>"></script>
 <body class="display_none" id="body">
   <link rel="stylesheet" href="<?= $index_css ?>"> <!-- Inclusion du fichier CSS -->
   <?php
