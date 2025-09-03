@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 
@@ -6,37 +6,37 @@
 
 
 
-  for ($i = 0; $i < count($title_projet_x); $i++) {
+for ($i = 0; $i < count($title_projet_x); $i++) {
 
     $title_projet_x[$i] = AsciiConverter::asciiToString($title_projet_x[$i]);
     $description_projet_x[$i] = AsciiConverter::asciiToString($description_projet_x[$i]);
-  }
+}
 
-  /*
+/*
 var_dump($title_projet_x);
 var_dump($description_projet_x);
  
 */
 
-  $req_sql = "SELECT * FROM `$nom_table` WHERE `id_sha1_parent_projet` ='$id_sha1_projet'";
-  // Instanciation de la classe
-  $db = new DatabaseHandler($dbname, $username);
-  // Appel de la fonction
-  $result = $db->know_variables_name($nom_table, "_y", $req_sql);
+$req_sql = "SELECT * FROM `$nom_table` WHERE `id_sha1_parent_projet` ='$id_sha1_projet'";
+// Instanciation de la classe
+$db = new DatabaseHandler($dbname, $username);
+// Appel de la fonction
+$result = $db->know_variables_name($nom_table, "_y", $req_sql);
 
-  for ($i = 0; $i < count($title_projet_y); $i++) {
+for ($i = 0; $i < count($title_projet_y); $i++) {
 
     $title_projet_y[$i] = AsciiConverter::asciiToString($title_projet_y[$i]);
     $description_projet_y[$i] = AsciiConverter::asciiToString($description_projet_y[$i]);
-  }
+}
 
 
-  $nom_table = "projet_img";
-  $req_sql = "SELECT * FROM `$nom_table` WHERE `id_sha1_projet_img` ='$id_sha1_projet'";
-  // Instanciation de la classe
-  $db = new DatabaseHandler($dbname, $username);
-  // Appel de la fonction
-  $result = $db->know_variables_name($nom_table, "_y", $req_sql);
+$nom_table = "projet_img";
+$req_sql = "SELECT * FROM `$nom_table` WHERE `id_sha1_projet_img` ='$id_sha1_projet'";
+// Instanciation de la classe
+$db = new DatabaseHandler($dbname, $username);
+// Appel de la fonction
+$result = $db->know_variables_name($nom_table, "_y", $req_sql);
 
 
 
@@ -70,7 +70,7 @@ if (file_exists($name_files)) {
 
 
 
- /* 
+    /* 
     echo "<div class='title_user_za'>";
     echo replace_element_2(AsciiConverter::asciiToString($title_user_za[0])); // Affiche "Hello"
 
@@ -105,13 +105,25 @@ id_sha1_user
         echo "<div>";
 
 
+
+        $filename = 'img_dw/' . $img_user_zb[$i];
+
+        if (file_exists($filename)) {
 ?>
 
+            <a href="<?= replace_element_2(AsciiConverter::asciiToString($prenom_user_zb[$i])) ?>">
+                <div class="social_mdeia">
+                    <img src="<?= '../img_dw/' . $img_user_zb[$i]; ?>" alt="" sizes="" srcset="">
+                </div>
+            </a>
 
-        <a href="<?= replace_element_2(AsciiConverter::asciiToString($prenom_user_zb[$i])) ?>">
-            <img src="<?= '../img_dw/' . $img_user_zb[$i]; ?>" alt="" sizes="" srcset="">
+        <?php
+        }
 
-        </a>
+
+        ?>
+
+
 
 
     <?php
@@ -204,7 +216,7 @@ id_sha1_user
     }
 
 
-    
+
     #qr_code img {
         max-width: 100%;
         height: auto;
@@ -215,8 +227,7 @@ id_sha1_user
 
 
 
-<?php 
- 
+<?php
 
 
 
@@ -225,67 +236,59 @@ id_sha1_user
 
 
 
- 
+
+
 
 require_once "data/blog/styles/profil.php";
 
-//images_container_all
- ; 
+
 require_once "data/blog/styles/audio.php";
 
- 
+
 
 
 
 ?>
 
-      <a href="#bas">
-          <div class="fleche_bas">
-              <img style="width: 30px;height: 30px;" width="30" height="30"
-                  src="https://img.icons8.com/ios-filled/30/circled-chevron-down.png" alt="circled-chevron-down" />
-          </div>
-      </a>
-      <div id="bas"></div>
-      </div>
+<a href="#bas">
+    <div class="fleche_bas">
+        <img style="width: 30px;height: 30px;" width="30" height="30"
+            src="https://img.icons8.com/ios-filled/30/circled-chevron-down.png" alt="circled-chevron-down" />
+    </div>
+</a>
+<div id="bas"></div>
+</div>
 
 
 
-      <a href="#<?= $id_sha1_projet_x[0] ?>">
-          <div class="tout_haut">
-              <img style="width: 30px;height:30px" width="30" height="30"
-                  src="https://img.icons8.com/ios-filled/50/circled-chevron-up.png" alt="circled-chevron-up" />
-          </div>
-      </a>
+<a href="#<?= $id_sha1_projet_x[0] ?>">
+    <div class="tout_haut">
+        <img style="width: 30px;height:30px" width="30" height="30"
+            src="https://img.icons8.com/ios-filled/50/circled-chevron-up.png" alt="circled-chevron-up" />
+    </div>
+</a>
 
 
-            <div class="buttons-container">
-          <!-- Bouton vers menu principal -->
-          <a href="../index.php" class="btn">
-              <i class="fa-solid fa-house"></i> Menu Principal
-          </a>
+<div class="buttons-container">
+    <!-- Bouton vers menu principal -->
+    <a href="../index.php" class="btn">
+        <i class="fa-solid fa-house"></i> Menu Principal
+    </a>
 
 
-          <?php
-
-
-
-
-      if ($id_sha1_parent_projet_x[0] != "") {
-      ?>
-          <a href="<?= $id_sha1_parent_projet_x[0] ?>" class="btn">
-              <i class="fa-solid fa-arrow-left"></i> Retour Blog
-          </a>
-          <?php
-      }
-      ?>
-          <!-- Bouton vers parent du blog -->
-
-      </div>
-
- 
-
-
- 
+    <?php
 
 
 
+
+    if ($id_sha1_parent_projet_x[0] != "") {
+    ?>
+        <a href="<?= $id_sha1_parent_projet_x[0] ?>" class="btn">
+            <i class="fa-solid fa-arrow-left"></i> Retour Blog
+        </a>
+    <?php
+    }
+    ?>
+    <!-- Bouton vers parent du blog -->
+
+</div>

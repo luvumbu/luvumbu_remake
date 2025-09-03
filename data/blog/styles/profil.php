@@ -28,8 +28,10 @@ $result = $db->know_variables_name($dbname, "_zz", $req_sql);
 
 <?php
  
+$filename = 'img_dw/' .$img_user_zz[0];
 
-
+if (file_exists($filename)) {
+ 
 if ($img_user_zz[0] != "") {
 ?>
     <div class="image_profil"> 
@@ -38,7 +40,7 @@ if ($img_user_zz[0] != "") {
 
 <?php
 }
-
+}  
 ?>
 
 
