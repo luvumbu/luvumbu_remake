@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Documentation - Application de gestion et envoi d’emails</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f5f8ff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background: #007bff;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 5px solid #0056b3;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .container {
+      max-width: 950px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 40px;
+      color: #007bff;
+      border-left: 5px solid #007bff;
+      padding-left: 10px;
+    }
+    code {
+      background: #f1f1f1;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-size: 0.95em;
+      color: #d63384;
+    }
+    pre {
+      background: #1e1e1e;
+      color: #f5f5f5;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .schema {
+      background: #f9f9f9;
+      border-left: 4px solid #28a745;
+      padding: 15px;
+      margin: 20px 0;
+      font-family: monospace;
+      white-space: pre-line;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    .tips {
+      background: #e9f7ef;
+      border-left: 5px solid #28a745;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .warning {
+      background: #fff3cd;
+      border-left: 5px solid #ffc107;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+      margin: 40px 0 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📄 Documentation - Application de centralisation et d’envoi de mails</h1>
+</header>
+
+<div class="container">
+
+  <h2>⚙️ Fonctionnement général</h2>
+  <p>Cette mini-application permet de :</p>
+  <ul>
+    <li><b>Ajouter</b> une adresse mail avec un nom associé.</li>
+    <li><b>Lister</b> toutes les adresses mails enregistrées dans la base.</li>
+    <li><b>Envoyer un mail groupé</b> (avec texte et pièces jointes) à toutes les adresses stockées.</li>
+  </ul>
+
+  <h2>📂 Fichiers principaux</h2>
+
+  <h3>1. ajout.php → Page de gestion des adresses</h3>
+  <ul>
+    <li>Affiche la liste des adresses déjà enregistrées.</li>
+    <li>Formulaire pour saisir une nouvelle adresse + un nom.</li>
+    <li>Bouton ➕ qui envoie vers <code>insert.php</code> via AJAX.</li>
+    <li>Lien vers <code>index.php</code> pour envoyer un mail groupé.</li>
+  </ul>
+
+  <h3>2. index.php → Formulaire d’envoi de mail</h3>
+  <ul>
+    <li>Zone de texte pour rédiger le message.</li>
+    <li>Champ pour ajouter plusieurs images.</li>
+    <li>Bouton "Envoyer" protégé par un mot de passe (par défaut <code>send_mail</code>).</li>
+  </ul>
+
+  <h3>3. insert.php → Insertion en base</h3>
+  <ul>
+    <li>Récupère les données du formulaire (adresse + nom).</li>
+    <li>Insère dans la table <code>adresse_mail_coops</code> avec <code>DatabaseHandler</code>.</li>
+  </ul>
+
+  <h3>4. sendmail.php → Envoi des mails</h3>
+  <ul>
+    <li>Récupère toutes les adresses mails depuis la base.</li>
+    <li>Construit le mail en format <b>MIME</b> (texte + pièces jointes).</li>
+    <li>Envoie le message avec la fonction native <code>mail()</code>.</li>
+    <li>Affiche un retour ✅ succès ou ❌ erreur.</li>
+  </ul>
+
+  <h2>📊 Schéma du fonctionnement</h2>
+  <div class="schema">
+ajout.php  → (AJAX POST) → insert.php → (INSERT en DB)
+   ↑                              ↓
+   |                           adresse_mail_coops
+   |                               ↓
+   |---- (SELECT) ---------------> ↓
+index.php → (POST form) → sendmail.php → (SELECT mails en DB → mail() → Destinataires)
+  </div>
+
+  <h2>📌 Points forts</h2>
+  <ul>
+    <li>Interface simple et intuitive.</li>
+    <li>Ajout d’adresses instantané via AJAX.</li>
+    <li>Envoi groupé avec pièces jointes.</li>
+    <li>Sécurisation basique par mot de passe.</li>
+  </ul>
+
+  <h2>🔧 Améliorations possibles</h2>
+  <div class="warning">
+    <ul>
+      <li>Ajouter une <b>validation stricte des emails</b> côté backend.</li>
+      <li>Remplacer le mot de passe en dur par un vrai <b>système d’authentification</b>.</li>
+      <li>Meilleure gestion des erreurs (adresse invalide, envoi échoué).</li>
+      <li>Interface responsive complète avec Bootstrap pour toutes les pages.</li>
+      <li>Feedback utilisateur plus visible après ajout ou envoi.</li>
+    </ul>
+  </div>
+
+  <footer>
+    📧 Documentation générée pour l’application d’envoi de mails – 2025
+  </footer>
+</div>
+
+</body>
+</html>

@@ -129,15 +129,5 @@ if (mail($to, $subject, $body, $headers)) {
 ?>
 
 
-
-<script>
-
-    const myTimeout = setTimeout(myGreeting, 300);
-
-function myGreeting() {
-     window.location.replace("total_mail.php");
-
-}
-
-
-</script>
+<meta http-equiv="refresh" content="2; URL=." />
+ 

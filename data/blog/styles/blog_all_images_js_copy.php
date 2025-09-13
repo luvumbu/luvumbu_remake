@@ -1,0 +1,1 @@
+<div id="blog_all_images_js_copy"></div>

@@ -29,7 +29,11 @@
         $title_user = AsciiConverter::asciiToString($dynamicVariables["title_user"][0]);
         $description_user = AsciiConverter::asciiToString($dynamicVariables["description_user"][0]);
 
- 
+     $info_user_1 = AsciiConverter::asciiToString($dynamicVariables["info_user_1"][0]);
+     $info_user_2 = AsciiConverter::asciiToString($dynamicVariables["info_user_2"][0]);
+     $info_user_3 = AsciiConverter::asciiToString($dynamicVariables["info_user_3"][0]);
+
+     
 
         if ($dynamicVariables["img_user"][0] == "") {
             $img_user = "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/bb/a3/97/predator-ride-in-the.jpg?w=900&h=500&s=1";
@@ -47,6 +51,9 @@
 
         <input class="description_user_profil" id="description_user_profil" onkeyup="update_profil(this)" type="text" placeholder="Nom" value="<?= $description_user ?>">
 
+        <textarea placeholder="information ici 1" style="margin-bottom: 40px;" onkeyup="update_profil(this)" name="info_user_1" id="info_user_1"><?= $info_user_1 ?></textarea>
+        <textarea placeholder="information ici 2" style="margin-bottom: 40px;" onkeyup="update_profil(this)" name="info_user_2" id="info_user_2"><?= $info_user_2 ?></textarea>
+        <textarea placeholder="information ici 3" style="margin-bottom: 40px;" onkeyup="update_profil(this)" name="info_user_3" id="info_user_3"><?= $info_user_3 ?></textarea>
 
 
         <div class="card_profil cursor_pointer" onclick="card_profil()">
@@ -59,13 +66,23 @@
 
             var title_user_profil = document.getElementById("title_user_profil").value;
             var description_user_profil = document.getElementById("description_user_profil").value;
-
+            var info_user_1 = document.getElementById("info_user_1").value;
+            var info_user_2 = document.getElementById("info_user_2").value;
+            var info_user_3 = document.getElementById("info_user_3").value;
+ 
             var ok = new Information("req_sql/update_profil.php"); // création de la classe 
 
             ok.add("title_user", title_user_profil); // ajout de l'information pour lenvoi 
             ok.add("description_user", description_user_profil); // ajout d'une deuxieme information denvoi  
+            ok.add("info_user_1", info_user_1); // ajout d'une deuxieme information denvoi  
+            ok.add("info_user_2", info_user_2); // ajout d'une deuxieme information denvoi  
+            ok.add("info_user_3", info_user_3); // ajout d'une deuxieme information denvoi  
+                     
+           
+         
             console.log(ok.info()); // demande l'information dans le tableau
             ok.push(); // envoie l'information au code pkp 
+   
         }
 
         function card_profil() {

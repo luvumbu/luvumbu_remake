@@ -260,10 +260,12 @@ var_dump($description_projet_y);
 
 
     require_once 'data/blog/styles/m1.php';
+
+
+  
     require_once 'data/blog/styles/a1.php';
-
-
-
+    require_once 'data/blog/styles/blog_all_images_js_copy.php';
+ 
 
    
 
@@ -477,4 +479,27 @@ $stories[] =  replace_element_2($description_projet_y[$i]);
           top: 50px;
       }
       </style>
+
+
+
+
+ <?php 
+/*
+$db = new DatabaseHandler($dbname, $username);
+$id_user_mail_user =  $_SESSION["index"][3];
+$req_sql = "SELECT * FROM `mail_user` WHERE `id_user_mail_user`='$id_user_mail_user'";
+// Appel de la fonction
+$result = $db->know_variables_name("mail_user", "_x", $req_sql);
+
+
+
+// Accès direct via la variable dynamique
+var_dump($id_user_mail_user_x);
+
+// Accès global via $GLOBALS
+
+
+*/
+
+
 

@@ -89,23 +89,19 @@ function know_variables_name($nom_table, $val_knock, $req_sql) {
         die("Erreur : \$dynamicVariables n'est pas défini ou n'est pas un tableau.");
     }
 
-    // 4) Création des variables dynamiques avec suffixe
-    if (!empty($val_knock)) {
-        foreach ($dynamicVariables as $key => $values) {
-            // Exemple : $key = "id_projet", $val_knock = "_x" => $varName = "id_projet_x"
-            $varName = $key . $val_knock;
+    // 4) Création des variables dynamiques avec suffixe (même si $val_knock est vide)
+    foreach ($dynamicVariables as $key => $values) {
+        // Exemple : $key = "id_projet", $val_knock peut être vide => $varName = "id_projet" ou "id_projet_x"
+        $varName = $key . $val_knock;
 
-            // 4a) Création d'une variable locale dynamique
-            $$varName = $values;
+        // 4a) Création d'une variable locale dynamique
+        $$varName = $values;
 
-            // 4b) Rendre la variable accessible globalement (ex: $id_projet_x)
-            $GLOBALS[$varName] = $values;
+        // 4b) Rendre la variable accessible globalement (ex: $id_projet_x)
+        $GLOBALS[$varName] = $values;
 
-            // 4c) Stockage dans le tableau de retour
-            $all_array_array[$varName] = $values;
-        }
-    } else {
-        echo 'Attention : vous devez définir $val_knock';
+        // 4c) Stockage dans le tableau de retour
+        $all_array_array[$varName] = $values;
     }
 
     // Retourne toutes les variables générées
@@ -974,21 +970,20 @@ echo "</pre>";
 
 <?php 
 /*
-$db = new DatabaseHandler("root", "root");
 
+$db = new DatabaseHandler($dbname, $username);
+$id_user_mail_user =  $_SESSION["index"][3];
+$req_sql = "SELECT * FROM `mail_user` WHERE `id_user_mail_user`='$id_user_mail_user'";
 // Appel de la fonction
-$result = $db->know_variables_name("projet", "_x", $req_sql);
+$result = $db->know_variables_name("mail_user", "_x", $req_sql);
 
-// Accès via le tableau
-var_dump($result['id_projet_x']);
+
 
 // Accès direct via la variable dynamique
-var_dump($id_projet_x);
+var_dump($id_user_mail_user_x);
 
 // Accès global via $GLOBALS
-var_dump($GLOBALS['id_projet_x']);
 
- 
 */
 
 

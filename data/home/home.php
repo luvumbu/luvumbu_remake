@@ -8,32 +8,38 @@
     unset($_SESSION["add_projet"]);
     header('Location:qr_code_1/index.php ');
     exit();
-  } 
+  }
   ?>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
  <nav>
    <ul class="menu">
      <li class="cursor_pointer" onclick="add_projet(this)" id="add_projet_">➕ Ajouter un projet</li>
      <li class="cursor_pointer">
-      
+
        <a href="Class/session_destroy.php">
-      <img width="20" height="20" src="https://img.icons8.com/office/20/shutdown--v1.png" alt="shutdown--v1"/>   Déconnexion
+         <img width="20" height="20" src="https://img.icons8.com/office/20/shutdown--v1.png" alt="shutdown--v1" /> Déconnexion
        </a>
      </li>
      <li title="<?= $index_3 ?>" class="cursor_pointer" onclick="add_id_sha1_user(this)">
-    <img width="30" height="30" src="https://img.icons8.com/pastel-glyph/30/info--v3.png" alt="info--v3"/> ajouter informations 
-    
-    </li> 
-  <li>      
-    <img width="20" height="20" src="https://img.icons8.com/pulsar-gradient/20/women-shoe-side-view.png" alt="women-shoe-side-view"/> <a href="add_style.php" class="btn-style">Ajouter un style</a>
-  </li> 
+       <img width="30" height="30" src="https://img.icons8.com/pastel-glyph/30/info--v3.png" alt="info--v3" /> ajouter informations
+
+     </li>
+     <li>
+       <img width="20" height="20" src="https://img.icons8.com/pulsar-gradient/20/women-shoe-side-view.png" alt="women-shoe-side-view" /> <a href="add_style.php" class="btn-style">Ajouter un style</a>
+     </li>
+     <li>
+      <a href="mail_programe.php">
+       <img width="50" height="50" src="https://img.icons8.com/ios/50/mail.png" alt="mail" />
+
+      </a>
+     </li>
    </ul>
  </nav>
 
 
  <?php
-$lorem = "
+  $lorem = "
 
  Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ducimus eius eligendi! Sint ex possimus earum veritatis sapiente. Dolor beatae quo minus earum nisi, aspernatur dignissimos eligendi optio mollitia rem.
 ";
@@ -45,7 +51,7 @@ $lorem = "
 
 
   require_once 'data/home/update_profil.php';
- 
+
 
 
   if (isset($_SESSION["index"][4])) {
@@ -53,9 +59,6 @@ $lorem = "
       //require_once "home_setting_files.php" ; 
 
       require_once   $home_insert;
- 
- 
-
     } else {
       require_once $home_select_all;
     }
@@ -113,14 +116,9 @@ $lorem = "
 
   ?>
 
- 
+
 
  <script>
- 
-
-
-
-
    function terminer(_this) {
 
      _this.display = "none";

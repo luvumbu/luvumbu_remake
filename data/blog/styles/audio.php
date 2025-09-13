@@ -51,7 +51,7 @@ array_push($id_sha1_projet_song_array,$id_sha1_projet_song_y[$index-1]);
 
  
 
-   if($id_sha1_projet_song_array[$index]=="1"){
+ 
 
    
     ?>
@@ -94,7 +94,11 @@ array_push($id_sha1_projet_song_array,$id_sha1_projet_song_y[$index-1]);
     </div>
 <?php
 }
-} 
+
+
+
+
+
 ?>
 
 </div>

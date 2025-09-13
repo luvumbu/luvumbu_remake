@@ -145,7 +145,13 @@ for ($i_a = 0; $i_a < count($id_sha1_projet); $i_a++) {
 
 
 
+ 
+
+if(isset($_SESSION["index"])){
 ?>
+
+
+
     <div class="card_all <?= $styles_element ?>">
         <img class="img_card" src="<?= $img_projet_src1_i_a ?>" alt="Image projet">
         <div class="card_content">
@@ -165,7 +171,36 @@ for ($i_a = 0; $i_a < count($id_sha1_projet); $i_a++) {
     </div>
 <?php
 
+}
+else{
+ 
+if($visibility_1_projet[$i_a]!=""){
+?>
 
+
+
+    <div class="card_all <?= $styles_element ?>">
+        <img class="img_card" src="<?= $img_projet_src1_i_a ?>" alt="Image projet">
+        <div class="card_content">
+            <p><?= replace_element_2($title_projet_1[$i_a]) ?></p>
+            <span class="spetit"><?= $id_sha1_projet[$i_a] ?></span>
+        </div>
+        <div class="flex_card_all">
+            <?php if (isset($_SESSION["index"]) && $_SESSION["index"][3] == $id_sha1_user_projet[$i_a]) { ?>
+                <button class="action_btn" title="<?= $id_sha1_projet_i_a ?>" onclick="home_all_element_projet(this)">
+                    <img src="https://img.icons8.com/ios-glyphs/40/settings--v1.png" alt="settings" />
+                </button>
+            <?php } ?>
+            <a href="<?= 'blog.php/' . $id_sha1_projet_i_a ?>" class="action_btn">
+                <img src="https://img.icons8.com/ios/30/link--v1.png" alt="link" />
+            </a>
+        </div>
+    </div>
+<?php
+
+}
+    
+}
 
 
 

@@ -40,6 +40,9 @@ if ($databaseHandler->verif != 1) {
             "id_sha1_user"          => "LONGTEXT NOT NULL",
             "id_parent_user"        => "LONGTEXT NOT NULL",
             "description_user"      => "LONGTEXT NOT NULL",
+            "info_user_1"      => "LONGTEXT NOT NULL",
+            "info_user_2"      => "LONGTEXT NOT NULL",
+            "info_user_3"      => "LONGTEXT NOT NULL",
             "title_user"            => "LONGTEXT NOT NULL",
             "img_user"              => "LONGTEXT NOT NULL",
             "nom_user"              => "LONGTEXT NOT NULL",
@@ -232,6 +235,89 @@ if ($databaseHandler->verif != 1) {
         }
         // Ajout de la table à la base de données
         $databaseHandler->add_table("style_page");
+
+
+
+
+
+
+
+
+        // ******************************************************************
+        $databaseHandler = new DatabaseHandler($dbname, $username);
+
+        // Définition des colonnes et de leurs types dans un tableau associatif
+        $columns = [
+            "id_mail_user"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+            "id_user_mail_user"                          => "LONGTEXT NOT NULL",
+            "name_mail_user"                          => "LONGTEXT NOT NULL",
+            "info_mail_user"                          => "LONGTEXT NOT NULL",
+            "info_plus_1__mail_user"                          => "LONGTEXT NOT NULL",
+            "info_plus_2__mail_user"                          => "LONGTEXT NOT NULL",
+            "info_plus_3__mail_user"                          => "LONGTEXT NOT NULL",
+            "info_plus_4__mail_user"                          => "LONGTEXT NOT NULL",
+            "info_plus_5__mail_user"                          => "LONGTEXT NOT NULL",
+            "text_mail_user"                          => "LONGTEXT NOT NULL",
+            "activation_mail_user"                    => "LONGTEXT NOT NULL",
+
+            "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
+            "date_inscription_mail_user"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        ];
+        // Itération sur le tableau pour définir les noms et types de colonnes
+        foreach ($columns as $name => $type) {
+            $databaseHandler->set_column_names($name);
+            $databaseHandler->set_column_types($type);
+        }
+        // Ajout de la table à la base de données
+        $databaseHandler->add_table("mail_user");
+
+
+
+
+
+
+
+
+
+
+        // ******************************************************************
+        $databaseHandler = new DatabaseHandler($dbname, $username);
+
+        // Définition des colonnes et de leurs types dans un tableau associatif
+        $columns = [
+            "id_send_mail"                           => "INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY",
+            "id_user_send_mail"                          => "LONGTEXT NOT NULL",
+            "name_send_mail"                          => "LONGTEXT NOT NULL",
+            "info_send_mail"                          => "LONGTEXT NOT NULL",
+            "info_plus_1_send_mail"                          => "LONGTEXT NOT NULL",
+            "info_plus_2_send_mail"                          => "LONGTEXT NOT NULL",
+            "info_plus_3_send_mail"                          => "LONGTEXT NOT NULL",
+            "info_plus_4_send_mail"                          => "LONGTEXT NOT NULL",
+            "info_plus_5_send_mail"                          => "LONGTEXT NOT NULL",
+            "text_send_mail"                          => "LONGTEXT NOT NULL",
+            "activation_send_mail"                    => "LONGTEXT NOT NULL",
+            "REMOTE_ADDR"                      => "LONGTEXT NOT NULL",
+            "date_inscription_send_mail"             => "TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
+        ];
+        // Itération sur le tableau pour définir les noms et types de colonnes
+        foreach ($columns as $name => $type) {
+            $databaseHandler->set_column_names($name);
+            $databaseHandler->set_column_types($type);
+        }
+        // Ajout de la table à la base de données
+        $databaseHandler->add_table("send_mail");
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -4,7 +4,7 @@
 
 
 
-
+ 
 
 for ($i = 0; $i < count($title_projet_x); $i++) {
 
@@ -41,11 +41,14 @@ $result = $db->know_variables_name($nom_table, "_y", $req_sql);
 
 
 
-
+  
 
 require_once "data/blog/blog_sql_bdd.php";
 
+?>
 
+
+<?php 
 
 $name_files = "qr_code_1/temp/" . $url_ . ".png";
 
@@ -244,7 +247,7 @@ require_once "data/blog/styles/profil.php";
 
 require_once "data/blog/styles/audio.php";
 
-
+require_once "data/blog/styles/blog_all_images.php" ; 
 
 
 
