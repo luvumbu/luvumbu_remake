@@ -308,7 +308,7 @@ https://templatemo.com/tm-596-electric-xtra
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+           margin-top: 250px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -573,7 +573,7 @@ https://templatemo.com/tm-596-electric-xtra
             font-size: 3rem;
             font-weight: 900;
             text-align: center;
-            margin-bottom: 60px;
+            
             background: linear-gradient(45deg, #FF5E00, #00B2FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -647,7 +647,7 @@ https://templatemo.com/tm-596-electric-xtra
             font-size: 2rem;
             margin-bottom: 20px;
             background: linear-gradient(45deg, #ffffff, #FF5E00);
-            -webkit-background-clip: text;
+    
             -webkit-text-fill-color: transparent;
         }
 
@@ -919,7 +919,7 @@ https://templatemo.com/tm-596-electric-xtra
 
         /* Map Section */
         .map-container {
-            margin-top: 40px;
+          
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 94, 0, 0.2);
             border-radius: 10px;
