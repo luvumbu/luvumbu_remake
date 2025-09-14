@@ -1,18 +1,34 @@
 <?php
 require_once "data/all/requare_one_1.php";
-require_once "Class/SessionTracker.php";
+require_once "Class/formatDateFr.php";
+require_once "Class/fichierExiste.php";
+require_once "Class/FrenchClock.php";
+require_once "Class/dbCheck.php";
+require_once "Class/Js.php";
+
+
+
+
+
 $stories = array();
 ?>
 <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 <link rel="stylesheet" href="../data/blog/css/blog_style_1.css">
 <link rel="stylesheet" href="../data/blog/css/blog_slider_1.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+
+
 <?php
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
 $url = new Give_url();
 // Utilisation de la méthode split_basename pour séparer par "_"
 $url->split_basename('__');
 $url_ = $url->get_elements()[0];
+
+
+
 $nom_table = "projet"; // Nom de la table cible
 $id_sha1_projet = $url_;
 // Requête SQL pour récupérer toutes les données de la table
@@ -21,23 +37,67 @@ $req_sql = "SELECT * FROM `$nom_table` WHERE `id_sha1_projet` ='$id_sha1_projet'
 $db = new DatabaseHandler($dbname, $username);
 // Appel de la fonction
 $result = $db->know_variables_name($nom_table, "", $req_sql);
+
+
+
+
+
+
+
 if ($id_projet) {
+
+
+
+
+
   // Requête SQL pour récupérer toutes les données de la table
   $req_sql = 'SELECT * FROM `projet_img` WHERE `id_sha1_projet_img`="' . $id_sha1_projet[0] . '" ';
   // Instanciation de la classe
   $db = new DatabaseHandler($dbname, $username);
   // Appel de la fonction
   $result = $db->know_variables_name("projet_img", "", $req_sql);
+
+
+
+
+
+
+
+
+
+
   $img_projet_src1_ = $img_projet_src1[0];
+
+
+
+
+
+
   // Requête SQL pour récupérer toutes les données de la table
   $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ="' . $id_sha1_projet[0] . '" ORDER BY `id_sha1_parent_projet` ASC';
   // Instanciation de la classe
   $db = new DatabaseHandler($dbname, $username);
   // Appel de la fonction
   $result = $db->know_variables_name($nom_table, "_a", $req_sql);
+
+
+
+
+
+
+
+
+
+
+
+
+
   $id_sha1_user_projet_ = $id_sha1_user_projet[0];
+
   // Requête SQL pour récupérer toutes les données de la table
   $req_sql = 'SELECT * FROM `' . $dbname . '` WHERE `id_sha1_user`="' . $id_sha1_user_projet_ . '" ';
+
+
   // Instanciation de la classe
   $db = new DatabaseHandler($dbname, $username);
   // Appel de la fonction
@@ -146,165 +206,66 @@ var_dump($id_sha1_projet_lock[0]) ;
 
 
 
+
   $password_projet_1 = AsciiConverter::stringToAscii($_SESSION["password_projet"]);
   $password_projet_2 = $password_projet[0];
 
+  if (isset($_SESSION["password_projet"])) {  
 
-  //echo "01";
-  if (isset($_SESSION["password_projet"])) {
-
-
-    if ($_SESSION["password_projet"] == $password_projet_2) {
+    if ($password_projet_2 == $_SESSION["password_projet"]) {
       require_once 'x.php';
     } else {
-      header('Location: ../index.php');
-      exit();
+      require_once 'x_no1.php';
     }
   } else {
-    //echo "_10";
-
 
 
     if (!isset($_SESSION["index"][3])) {
-      //echo "_11";
-
 
       if ($visibility_1_projet[0] == "" && $id_sha1_projet_lock[0] == "") {
-        //echo "_12";
 
         header('Location: ../index.php');
         exit();
       } else {
-        //echo "_13";
 
 
         if ($visibility_1_projet[0] == "") {
 
-          //echo "_14";
 
           header('Location: ../index.php');
           exit();
         } else {
-          //echo "_15";
 
 
           if ($id_sha1_projet_lock[0] != "") {
-            //echo "_16";
 
 
             require_once 'x.php';
           } else {
-            //echo "_17";
-
             require_once 'x_no1.php';
           }
         }
       }
     } else {
-      //echo "_18";
 
 
       if ($_SESSION["index"][3] == $id_sha1_user_c[0]) {
-        //echo "_19";
-
-        require_once 'x.php';
+        // require_once 'x.php';
       } else {
-
-        //echo "_20";
-
         if ($visibility_1_projet[0] == "" && $id_sha1_projet_lock[0] == "") {
-          //echo "_21";
-
           require_once 'x_no1.php';
         } else {
-          //echo "_22";
-
 
           if ($visibility_1_projet[0] == "") {
-            //echo "_23";
 
 
             require_once 'x_no1.php';
           } else {
-            //echo "_24";
-
           }
         }
       }
     }
   }
 } else {
-  //echo "_25";
-
   require_once 'x_no2.php';
 }
-
-
-// -----------------------
-// Exemple d’utilisation
-
-$tracker = new SessionTracker();
-
-// Affichage global sur une seule ligne
-
-
-// Affichage individuel
-$ip = $tracker->getIp();
-$host = $tracker->getHost();
-$port = $tracker->getPort();
-$userAgent = $tracker->getUserAgent();
-$browser = $tracker->getBrowser();
-$os = $tracker->getOs();
-$language = $tracker->getLanguage();
-$referer = $tracker->getReferer();
-$method = $tracker->getPreviousPage();
-$serverIp = $tracker->getMethod();
-$serverName = $tracker->getServerIp();
-$uri = $tracker->getServerName();
-$protocol = $tracker->getUri();
-$https = $tracker->getProtocol();
-$visitDate = $tracker->getHttps();
-
-
-$date_inscription_visit = date("Y-m-d H:i:s");
-$databaseHandler = new DatabaseHandler($dbname, $username);
-$databaseHandler->action_sql("INSERT INTO  `visite` (
-    `ip`,
-    `host`,
-    `port`,
-    `userAgent`,
-    `browser`,
-    `os`,
-    `language`,
-    `referer`,
-    `method`,
-    `serverIp`,
-    `serverName`,
-    `uri`,
-    `protocol`,
-    `https`,
-    `visitDate`,
-    `date_inscription_visit`,
-    `id_ip_1`
-
-
-
-) VALUES (
-    '$ip',
-    '$host',
-    '$port',
-    '$userAgent',
-    '$browser',
-    '$os',
-    '$language',
-    '$referer',
-    '$method',
-    '$serverIp',
-    '$serverName',
-    '$uri',
-    '$protocol',
-    '$https',
-    '$visitDate',
-    '$date_inscription_visit',
-    '$url_'
-);");
