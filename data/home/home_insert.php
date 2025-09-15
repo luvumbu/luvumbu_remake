@@ -19,6 +19,7 @@ require_once "Class/replace_element.php";
 
 ?>
 <script>
+
   const img_1 = "<?= $img_1  ?>";
   const img_2 = "<?= $img_2  ?>";
   const img_3 = "<?= $img_3  ?>";
@@ -36,15 +37,21 @@ require_once "Class/replace_element.php";
       document.getElementById(_this.id).src = img_1;
     }
   }
-</script>
-<?php
 
-require_once "home_insert_1.php";
-require_once "home_insert_2.php";
 
 
  
 
+</script>
+
+
+
+<?php
+
+
+ 
+require_once "home_insert_1.php";
+require_once "home_insert_2.php";
 
 
 
@@ -139,6 +146,7 @@ if ($id_sha1_user_projet_class == "") {
 
 
               require "home_all_style.php";
+
 
               $index_of_style = $dynamicVariables['id_style_page'];
 
@@ -470,7 +478,20 @@ if ($id_sha1_user_projet_class == "") {
             <img class="cursor_pointer" onclick="function_stats(this)" width="40" height="40"
               src="https://img.icons8.com/ios-filled/40/graph.png" alt="graph" />
           </div>
-          <?php
+       
+       
+       
+       
+       
+
+      
+
+       <?php
+
+
+
+
+
           if ($id_sha1_projet_song__ == "") {
           ?>
             <div class="cursor_pointer">
@@ -533,6 +554,9 @@ if ($id_sha1_user_projet_class == "") {
           </div>
           <div>
 
+
+                
+
             <div>
               <b>Début</b>
               <input type="date" title="<?= $id_sha1_projet__ ?>" value="<?= $date_debut_projet ?>" id="date_gene_debut" onchange="update_date_general_df(this)">
@@ -547,8 +571,20 @@ if ($id_sha1_user_projet_class == "") {
         </div>
       </div>
     </form>
-    <div id="stats" class="display_none"><?php require_once 'data/home/home_stats.php' ?></div>
+
+      
+ 
+
+
+ 
     <div class="div_elements" style="margin-bottom: 175px;margin-top: 175px;">
+      
+      
+      
+      
+ 
+
+
       <?php
 
 
@@ -607,8 +643,13 @@ if ($id_sha1_user_projet_class == "") {
       ?>
 
     </div>
+
+
+
     <div>
       <?php
+
+
       require_once $home_stat;
       ?>
     </div>
@@ -671,6 +712,9 @@ if ($id_sha1_user_projet_class == "") {
 </div>
 
 <script>
+
+
+
   function update_date_general_df(_this) {
     var date_debut = document.getElementById("date_gene_debut").value;
     var date_fin = document.getElementById("date_gene_fin").value;
@@ -768,4 +812,6 @@ if ($id_sha1_user_projet_class == "") {
     ok.add("password_projet", password_projet); // ajout de l'information pour lenvoi
     ok.push(); // envoie l'information au code pkp
   }
+
+
 </script>

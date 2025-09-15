@@ -32,7 +32,21 @@ $tracker = new SessionTracker();
  
  
 
-
+    $ip=$tracker->getIp();
+    $host=$tracker->getHost();
+    $port=$tracker->getPort();
+    $userAgent=$tracker->getUserAgent();
+    $browser=$tracker->getBrowser();
+    $os=$tracker->getOs();
+    $language=$tracker->getLanguage();
+    $referer=$tracker->getReferer();
+    $method=$tracker->getPreviousPage();
+    $serverIp=$tracker->getMethod();
+    $serverName= $tracker->getServerIp();
+    $uri=$tracker->getServerName();
+    $protocol= $tracker->getUri();
+    $https=$tracker->getProtocol();
+    $visitDate=$tracker->getHttps();
 
  
 

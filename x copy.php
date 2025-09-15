@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= replace_element_2(AsciiConverter::asciiToString($google_title_projet[0])) ?></title>
-    <link rel="icon" type="image/x-icon" href="<?= '..img_dw/' . $img_projet_src1[0] ?>">
+     <link rel="icon" type="image/x-icon" href="<?= '..img_dw/'.$img_projet_src1[0] ?>">
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;700&display=swap"
         rel="stylesheet">
@@ -20,7 +20,7 @@ https://templatemo.com/tm-596-electric-xtra
 </head>
 
 <body>
-
+ 
     <!-- Animated Grid Background -->
     <div class="grid-bg"></div>
     <div class="gradient-overlay"></div>
@@ -38,11 +38,11 @@ https://templatemo.com/tm-596-electric-xtra
 
     <!-- Navigation -->
 
-    <?php
+    <?php 
 
 
 
-    ?>
+?>
     <nav id="navbar">
         <div class="nav-container">
             <a href="#home" class="logo-link">
@@ -96,8 +96,8 @@ https://templatemo.com/tm-596-electric-xtra
             <div class="text-rotator">
                 <div class="text-set active">
                     <h1 class="glitch-text"
-                        data-text="<?= replace_element_2(AsciiConverter::asciiToString($title_projet[0])) ?>">
-                        <?= replace_element_2(AsciiConverter::asciiToString($title_projet[0])) ?></h1>
+                        data-text="<?= replace_element_2(AsciiConverter::asciiToString($title_user_b[0])) ?>">
+                        <?= replace_element_2(AsciiConverter::asciiToString($title_user_b[0])) ?></h1>
                     <p class="subtitle">
                         <?php
                         $text = replace_element_2(AsciiConverter::asciiToString($description_projet[0]));
@@ -268,15 +268,15 @@ https://templatemo.com/tm-596-electric-xtra
             </div>
 
             <div class="about-text">
-                <p><?= replace_element_2(AsciiConverter::asciiToString($description_user_c[0])); ?>
+                <p><?=  replace_element_2(AsciiConverter::asciiToString($description_user_c[0])) ;?> 
 
-                    <?= ' ' . replace_element_2(AsciiConverter::asciiToString($title_user_c[0])); ?></p>
+              <?=  ' '. replace_element_2(AsciiConverter::asciiToString($title_user_c[0])) ; ?></p>
 
-                <p><?= replace_element_2(AsciiConverter::asciiToString($info_user_1_c[0])); ?>
-                <p><?= replace_element_2(AsciiConverter::asciiToString($info_user_2_c[0])); ?>
-                <p><?= replace_element_2(AsciiConverter::asciiToString($info_user_3_c[0])); ?>
+                <p><?=  replace_element_2(AsciiConverter::asciiToString($info_user_1_c[0])) ;?> 
+                <p><?=  replace_element_2(AsciiConverter::asciiToString($info_user_2_c[0])) ;?> 
+                <p><?=  replace_element_2(AsciiConverter::asciiToString($info_user_3_c[0])) ;?> 
 
-
+     
             </div>
 
 

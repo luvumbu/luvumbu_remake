@@ -42,9 +42,14 @@
                         if ($img_user_b_ != "") {
                             if (file_exists('img_dw/' . $img_user_b_)) {
                                 $img_user_b_ = '../img_dw/' . $img_user_b_;
+
+
+
+
+                                if ($img_activate[$i] != "") {
+
                     ?>
 
- 
 
 
 
@@ -55,16 +60,19 @@
 
 
 
-                                <div class="coverflow-item" data-index="2">
-                                    <div class="cover image-loading">
-                                        <img src="<?= $img_user_b_ ?>" alt="Lake Reflection" loading="lazy">
+
+                                    <div class="coverflow-item" data-index="2">
+                                        <div class="cover image-loading">
+                                            <img src="<?= $img_user_b_ ?>" alt="Lake Reflection" loading="lazy">
+                                        </div>
+                                        <div class="reflection"></div>
                                     </div>
-                                    <div class="reflection"></div>
-                                </div>
 
 
 
                     <?php
+
+                                }
                             }
                         }
                     }
@@ -99,7 +107,7 @@
 
 
     <!-- Scroll to top button -->
- 
+
 
 
 
