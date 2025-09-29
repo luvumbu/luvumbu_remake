@@ -6,6 +6,7 @@ $stories = array();
 <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <?php
+
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
 $url = new Give_url();
 // Utilisation de la méthode split_basename pour séparer par "_"
