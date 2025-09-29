@@ -1,4 +1,6 @@
 <?php
+ini_set('memory_limit', '256M'); // ou plus si besoin
+
 function parcourirDossier($racine, $chaineRecherche, $mode = 1) {
     if (!is_dir($racine)) {
         echo "<p class='error'>❌ Le chemin spécifié n'est pas un dossier.</p>";

@@ -23,7 +23,7 @@ $nombre = 4;
  
  
 if (count($id_projet_img) != 0) {
-       require_once "data/blog/carouselles/carouselle_2.php";
+    //   require_once "data/blog/carouselles/carouselle_2.php";
     }
  
    

@@ -45,6 +45,7 @@ $columns = [
 "info_user_3" => "LONGTEXT NOT NULL",
 "title_user" => "LONGTEXT NOT NULL",
 "img_user" => "LONGTEXT NOT NULL",
+"img_user2" => "LONGTEXT NOT NULL",
 "nom_user" => "LONGTEXT NOT NULL",
 "prenom_user" => "LONGTEXT NOT NULL",
 "password_user" => "LONGTEXT NOT NULL",
