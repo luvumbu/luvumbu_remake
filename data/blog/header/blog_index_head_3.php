@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menu Burger Croix Propre</title>
-<style>
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ <style>
  
 
   h1 {
@@ -81,7 +87,7 @@
 </head>
 <body>
 
-<h1>Clique sur le bouton burger en haut à gauche 🍔</h1>
+ 
 
 <!-- Bouton burger -->
 <div class="burger" id="burger">
@@ -91,22 +97,40 @@
 </div>
 
 <!-- Menu -->
+
+ 
 <nav class="menu" id="menu">
-  <a href="#">Accueil</a>
-  <a href="#">Services</a>
-  <a href="#">Portfolio</a>
-  <a href="#">Contact</a>
+ 
+ <?php 
+
+      for ($i = 0; $i < count($title_projet_a); $i++) {
+      ?>
+       
+         <a href="#<?= $id_sha1_projet_a[$i] ?>" >
+           <?= replace_element_2(AsciiConverter::asciiToString($title_projet_a[$i])) ?>
+         </a>
+    
+     <?php
+      }
+?>
 </nav>
 
 <script>
   const burger = document.getElementById("burger");
   const menu = document.getElementById("menu");
 
-  burger.addEventListener("click", () => {
+  // Toggle menu quand on clique sur le burger
+  burger.addEventListener("click", (e) => {
+    e.stopPropagation(); // Empêche le clic de se propager au document
     burger.classList.toggle("active");
     menu.classList.toggle("active");
   });
-</script>
 
-</body>
-</html>
+  // Fermer le menu si on clique ailleurs
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !burger.contains(e.target)) {
+      burger.classList.remove("active");
+      menu.classList.remove("active");
+    }
+  });
+</script>

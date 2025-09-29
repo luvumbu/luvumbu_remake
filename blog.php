@@ -1,11 +1,11 @@
 <?php
 require_once "data/all/requare_one_1.php";
 require_once "Class/SessionTracker.php" ; 
+ 
+
 $stories = array();
 ?>
 <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
-<link rel="stylesheet" href="../data/blog/css/blog_style_1.css">
-<link rel="stylesheet" href="../data/blog/css/blog_slider_1.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <?php
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
@@ -68,27 +68,11 @@ $date_inscription_user_b_ = $date_inscription_user_b[0];
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 $req_sql = 'SELECT * FROM `' . $dbname . '` WHERE `id_sha1_user`="' . $id_sha1_user_projet_ . '" ';
-
-
 // Instanciation de la classe
 $db = new DatabaseHandler($dbname, $username);
 // Appel de la fonction
 $result = $db->know_variables_name($dbname, "_c", $req_sql);
-
-
-
 
 
 
@@ -100,133 +84,78 @@ $result = $db->know_variables_name($dbname, "_c", $req_sql);
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= replace_element_2(AsciiConverter::asciiToString($google_title_projet[0])) ?></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+
+    <?php 
+
+if($img_projet_src1_!=""){
+echo ' <link rel="icon" type="image/x-icon" href="img_dw/'.$img_projet_src1_.'">' ; 
+
+}
+else{
+echo ' <link rel="icon" type="image/x-icon" href="/images/favicon.ico">' ; 
+}
+
+?>
+    <title><?= replace_element_2(AsciiConverter::asciiToString($google_title_projet[0])) ?></title>
 </head>
 
 <body>
 
 
-  <?php
-
-
-
-
-
-
-
-  /*
-
-var_dump($id_sha1_projet) ; 
-
-
-
- 
-var_dump( $id_projet_a ) ; 
-var_dump( $title_projet_a ) ; 
- 
-*/
-
-  //require_once "integration_image_carouselle.php";
-  /*
-
-var_dump($visibility_1_projet[0]) ; 
-
-var_dump($id_sha1_user_c[0]) ; 
-
-
-var_dump($id_sha1_projet_lock[0]) ; 
-
-*/
-
-
-
-
- 
-
-
+    <?php
   $password_projet_1 = AsciiConverter::stringToAscii($_SESSION["password_projet"]);
   $password_projet_2 = $password_projet[0];
-
 
   //echo "01";
   if (isset($_SESSION["password_projet"])) {
  
 if($_SESSION["password_projet"]==  $password_projet_2 ){
-            require_once 'x.php';
+            require_once 'data/blog/blog_index.php';
+
 }
 else{
-              require_once 'x_no1.php';
+            
+              require_once 'data/blog/home_x_no1.php' ; 
+
 }
 
   } else {
-  //echo "_10";
-
-
-
+ 
     if (!isset($_SESSION["index"][3])) {
-  //echo "_11";
-
-
+ 
       if ($visibility_1_projet[0] == "" && $id_sha1_projet_lock[0] == "") {
-  //echo "_12";
-
-        header('Location: ../index.php');
+ header('Location: ../index.php');
         exit();
       } else {
-  //echo "_13";
-
-
-        if ($visibility_1_projet[0] == "") {
-
-  //echo "_14";
-
+       if ($visibility_1_projet[0] == "") {
           header('Location: ../index.php');
           exit();
         } else {
-  //echo "_15";
-
-
           if ($id_sha1_projet_lock[0] != "") {
-  //echo "_16";
+                        require_once 'data/blog/blog_index.php';
 
-
-            require_once 'x.php';
           } else {
-  //echo "_17";
-
-            require_once 'x_no1.php';
+                          require_once 'data/blog/home_x_no1.php' ; 
           }
         }
       }
     } else {
-  //echo "_18";
-
-
       if ($_SESSION["index"][3] == $id_sha1_user_c[0]) {
-  //echo "_19";
+                   require_once 'data/blog/blog_index.php';
 
-       require_once 'x.php';
       } else {
 
-  //echo "_20";
-
         if ($visibility_1_projet[0] == "" && $id_sha1_projet_lock[0] == "") {
-  //echo "_21";
+        require_once 'data/blog/home_x_no1.php' ; 
 
-          require_once 'x_no1.php';
         } else {
-  //echo "_22";
-
-
           if ($visibility_1_projet[0] == "") {
-  //echo "_23";
+                          require_once 'data/blog/home_x_no1.php' ; 
 
-
-            require_once 'x_no1.php';
           } else {
-  //echo "_24";
 
           }
         }
@@ -235,21 +164,14 @@ else{
   }
 }
 else{
-//echo "_25";
-
-          require_once 'x_no2.php';
+          
+                          require_once 'data/blog/home_x_no2.php' ; 
 
 }
-
-
  // -----------------------
 // Exemple d’utilisation
-
 $tracker = new SessionTracker();
-
 // Affichage global sur une seule ligne
- 
-
 // Affichage individuel
     $ip=$tracker->getIp();
     $host=$tracker->getHost();
@@ -266,9 +188,6 @@ $tracker = new SessionTracker();
     $protocol= $tracker->getUri();
     $https=$tracker->getProtocol();
     $visitDate=$tracker->getHttps();
- 
-
-
 
     if(isset($_SESSION["index"][3])){
       $info = $_SESSION["index"][3] ;
@@ -322,4 +241,14 @@ $databaseHandler->action_sql("INSERT INTO  `visite` (
     '$url_',
     '$info'
 );");
- 
+
+
+
+
+require_once "blog_css.php";
+?>
+
+
+
+    <!-- Ajouter dans le <head> de ton HTML -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">

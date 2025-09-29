@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <title>Menu</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
+ 
         .navbar {
             display: flex;
             justify-content: space-between;

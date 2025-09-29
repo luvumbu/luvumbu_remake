@@ -348,7 +348,7 @@ if (count($dynamicVariables["img_user"]) > 0) {
         }
 
         function add_id_sha1_user(_this) {
-            alert(_this.title); 
+          
             var ok = new Information("req_sql/add_id_sha1_user.php"); // création de la classe 
             ok.add("id_sha1_user", _this.title); // ajout de l'information pour lenvoi 
             console.log(ok.info()); // demande l'information dans le tableau

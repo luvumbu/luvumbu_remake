@@ -1,66 +1,117 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
+ 
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f7fa;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #1a1a1a;
+      color: #f5f5f5;
+    }
+    /* --- NAVIGATION --- */
+    nav {
+      background-color: #111;
+      padding: 12px 20px;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      height: 100vh;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-
-    .form-box {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      width: 300px;
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #ffbf00;
+      text-decoration: none;
     }
-
-    .form-box h2 {
-      margin-bottom: 15px;
-      text-align: center;
-      color: #333;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
     }
-
-    .form-box input {
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      width: 0;
+      background: #ffbf00;
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
       width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
     }
-
-    .form-box button {
-      width: 100%;
-      padding: 10px;
-      background: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
+    /* --- BURGER BUTTON --- */
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
       cursor: pointer;
-      margin-top: 10px;
-      transition: background 0.3s;
     }
-
-    .form-box button:hover {
-      background: #0056b3;
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    /* --- MENU MOBILE --- */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 12px;
+        border-radius: 6px;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .burger {
+        display: flex;
+      }
+    }
+    /* --- FOOTER --- */
+    footer {
+      text-align: center;
+      padding: 24px 0;
+      background: #111;
+      color: #777;
     }
   </style>
 </head>
-<body>
+ 
 
-  <form class="form-box">
-    <h2>Connexion</h2>
-    <input type="email" placeholder="Email" required>
-    <input type="password" placeholder="Mot de passe" required>
-    <button type="submit">Send</button>
-  </form>
+  <nav>
+    <a href="#" class="logo">Burger House</a>
+    <ul id="menu">
+      <li><a href="#home">Accueil</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="burger" id="burger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
 
-</body>
-</html>
+ 
+
+ 
+
+ 

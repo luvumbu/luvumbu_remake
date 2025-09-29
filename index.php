@@ -22,14 +22,13 @@ Variables liées à la page d’accueil ou au fonctionnement global :
 
 <!DOCTYPE html>
 <html lang="<?= $lang ?>">
-
 <head>
   <meta charset="UTF-8"> <!-- Encodage UTF-8 pour supporter les caractères spéciaux -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adaptation aux appareils mobiles -->
   <title><?= $index_title ?></title> <!-- Titre de la page -->
   <link rel="icon" type="image/x-icon" href="<?= $favicon ?>"> <!-- Icône de la page -->
   <?php
-  require_once $index_script_1;
+      require_once $index_script_1;
   ?>
 </head>
 <script src="<?= $src_js ?>"></script> <!-- Inclusion d'un fichier JavaScript -->
@@ -79,19 +78,7 @@ Variables liées à la page d’accueil ou au fonctionnement global :
   } else {
     require_once  $login_bdd;
   }
-
-
- 
-
-
-
   //  require_once "req_sql/log_general.php";
-
-
-
-
-
-
   ?>
   <div>
   </div>

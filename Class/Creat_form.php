@@ -132,7 +132,7 @@ class Creat_form
                     _this.style.opacity = 1;
 
                     envoyer = true;
-                    //alert() ; 
+                
                     var ok = new Information("<?php echo $this->path ?>"); // création de la classe 
                     for (var y = 0; y < list_name.length; y++) {
 
