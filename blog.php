@@ -1,8 +1,6 @@
 <?php
 require_once "data/all/requare_one_1.php";
 require_once "Class/SessionTracker.php" ; 
- 
-
 $stories = array();
 ?>
 <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
