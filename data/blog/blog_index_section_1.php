@@ -35,13 +35,25 @@ echo '</div>';
 }
 ?>
 
-<div class="img_dw">
-<img src="../img_dw/<?= $img_projet_src1[0] ?>" alt="" srcset="">
+ 
 
-</div>
+
+
+
 <?php
 
  
+
+ 
+ 
+
+
+    echo "<div class='img_dw'>";
+    echo "<img src='../img_dw/".$img_projet_src1[0]."' alt='image projet' onclick=\"openLightbox(this.src)\" />";
+    echo "</div>";
+
+
+
 
 
  
@@ -92,7 +104,7 @@ text-align: center;
 .img_dw {
 
  
-  height: 250px; /* Hauteur fixe */
+  height: 550px; /* Hauteur fixe */
   overflow: hidden; /* Cache ce qui dépasse */
 }
 .section_1{
@@ -109,7 +121,7 @@ padding: 20px;
   width: 100%;
   height: 100%;
   object-fit: cover; /* Garde le ratio sans déformation */
-  margin-bottom: 1450x;
+  margin-bottom: 1450px;
 }
 
  

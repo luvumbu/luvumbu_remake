@@ -20,35 +20,88 @@ echo "<h1>";
 echo  $title_projet_a_2;
 echo '</h1>';
 echo '</div>';
+
+
+
+
+
+
+ 
+ 
+
+$req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet`="'.$id_sha1_projet_a[$i].'" ';
+$db = new DatabaseHandler($dbname, $username);
+// Appel de la fonction
+$result = $db->know_variables_name("projet", "x", $req_sql);
+
+
+
+
+
+
+
+
+
+
+
+
+$req_sql = 'SELECT * FROM `projet_img` WHERE `id_sha1_projet_img`="'.$id_sha1_projet_a[$i].'" ';
+$db = new DatabaseHandler($dbname, $username);
+// Appel de la fonction
+$result = $db->know_variables_name("projet_img", "x", $req_sql);
+
+
+
+ 
+
+
+
+ 
+
 }
 
+
+
+ 
  
 
 
+ 
+ 
 
-            if ($img_user_b_ != "") {
-                if (file_exists('img_dw/' . $img_user_b_)) {
-                    $img_user_b_ = '../img_dw/' . $img_user_b_;
-                ?>
+
+echo "<div class='projet-images'>";
+
+for ($ii = 0; $ii < count($id_projet_imgx); $ii++) {
+ 
+   if ($img_activatex[$ii] != "") {
+       $ext = isset($extention_imgx[$ii]) ? $extention_imgx[$ii] : '';
+       $src = "../img_dw/uploads/copy/" . $img_projet_src_imgx[$ii] . '_400px' . $ext;
+
+       echo "<div class='projet-imagex'>";
+       echo "<img src='" . htmlspecialchars($src, ENT_QUOTES) . "' alt='image projet' onclick=\"openLightbox(this.src)\" />";
+       echo "</div>";
+   }
+}
+
+echo "</div>";
+
+
+
+
+
+
+
+
+
 
  
 
 
-        
-                    <div class="img_dw">
-    <img src="<?= $img_user_b_ ?>" alt="" srcset="">
-
-    <?php 
+ 
+ require_once "data/blog/blog_index_projet_child.php"; 
 
 
-
-//echo  format_date_europeenne($date_inscription_projet_a[$i]) ;
-?>
-</div>
-</div>
-        <?php
-                }
-            }
 
 
 

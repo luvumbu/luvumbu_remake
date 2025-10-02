@@ -67,7 +67,9 @@ function create_resized_copy($source_file, $destination_file, $max_size) {
 }
 
 // --- Tailles à générer ---
-$sizes = array(400, 600);
+//$sizes = array(400, 800, 1200);
+$sizes = array(400);
+
 
 foreach ($sizes as $size) {
     $destination_file = $copy_dir . $_SESSION["name"] . '_' . $size . 'px' . $_SESSION["extention_img"];

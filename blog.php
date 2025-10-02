@@ -27,6 +27,33 @@ $req_sql = 'SELECT * FROM `projet_img` WHERE `id_sha1_projet_img`="' . $id_sha1_
 $db = new DatabaseHandler($dbname, $username);
 // Appel de la fonction
 $result = $db->know_variables_name("projet_img", "", $req_sql);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $img_projet_src1_ = $img_projet_src1[0];
 // Requête SQL pour récupérer toutes les données de la table
 $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ="' . $id_sha1_projet[0] . '" ORDER BY `id_sha1_parent_projet` ASC';
@@ -35,6 +62,10 @@ $db = new DatabaseHandler($dbname, $username);
 // Appel de la fonction
 $result = $db->know_variables_name($nom_table, "_a", $req_sql);
 $id_sha1_user_projet_ = $id_sha1_user_projet[0];
+
+
+ 
+
 // Requête SQL pour récupérer toutes les données de la table
 $req_sql = 'SELECT * FROM `' . $dbname . '` WHERE `id_sha1_user`="' . $id_sha1_user_projet_ . '" ';
 // Instanciation de la classe
@@ -240,7 +271,6 @@ $databaseHandler->action_sql("INSERT INTO  `visite` (
     '$url_',
     '$info'
 );");
-
 
 
 
