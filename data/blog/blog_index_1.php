@@ -1,4 +1,10 @@
 <?php
+
+
+
+
+
+
       for ($i = 0; $i < count($title_projet_a); $i++) {
      $title_projet_a_1 =     replace_element_1(AsciiConverter::asciiToString($title_projet_a[$i]))  ;
      $title_projet_a_2 =     replace_element_2(AsciiConverter::asciiToString($title_projet_a[$i]))  ;
@@ -137,10 +143,19 @@ echo '</div>';
 
 }
 
-
+ 
  
 
 
+
+
+
+$description_projet_boucle = $description_projet ; 
+ $nombre_0 = $ii;
+if($id_sha1_projet_song_a[$ii]!=""){
+  require "data/blog/blog_audio_description.php" ; 
+}
+ 
 
 
 

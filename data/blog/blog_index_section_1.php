@@ -43,7 +43,6 @@ echo '</div>';
 <?php
 
  
-
  
  
 
@@ -90,6 +89,14 @@ echo '</p>';
 echo '</div>';
 
 }
+
+
+$description_projet_boucle = $description_projet ; 
+$nombre = 0; // Indice de l'histoire à afficher
+if($id_sha1_projet_song[0]!=""){
+  require "data/blog/blog_audio_description0.php" ; 
+}
+ 
 
 ?>
  

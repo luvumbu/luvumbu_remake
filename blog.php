@@ -3,6 +3,114 @@ require_once "data/all/requare_one_1.php";
 require_once "Class/SessionTracker.php" ; 
 $stories = array();
 ?>
+
+
+ <style>
+.story-box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin: 20px auto;
+    padding: 15px;
+}
+select {
+    border: 1px solid rgba(0,0,0,0.2);
+    color: rgba(0,0,0,0.5);
+    padding: 6px;
+    border-radius: 6px;
+    margin-bottom:10px;
+}
+button {
+    margin-right: 8px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+}
+.play { background: green; }
+.pause { background: orange; }
+.stop { background: red; }
+.reader-container { margin-bottom: 30px; }
+</style>
+<script>
+  class SpeechController {
+    constructor(text, options = {}) {
+        this.text = text;
+        this.lang = options.lang || 'fr-FR';
+        this.voiceSelect = document.getElementById(options.voiceSelectId);
+        this.playBtn = document.getElementById(options.playBtnId);
+        this.pauseBtn = document.getElementById(options.pauseBtnId);
+        this.stopBtn = document.getElementById(options.stopBtnId);
+        this.isPaused = false;
+        this.utterance = null;
+
+        this._loadVoices();
+        this._setupEvents();
+    }
+
+    _loadVoices() {
+        const load = () => {
+            let voices = speechSynthesis.getVoices();
+            if (!voices.length) return setTimeout(load, 50); // attendre les voix
+            this.voiceSelect.innerHTML = '';
+            voices.forEach(voice => {
+                const option = document.createElement('option');
+                option.value = voice.name;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                if (voice.lang.startsWith('fr')) option.textContent += ' 🇫🇷';
+                this.voiceSelect.appendChild(option);
+            });
+            const defaultVoice = voices.find(v => v.lang.startsWith('fr')) || voices[0];
+            if (defaultVoice) this.voiceSelect.value = defaultVoice.name;
+        };
+        load();
+        speechSynthesis.onvoiceschanged = load;
+    }
+
+    _setupEvents() {
+        this.playBtn.addEventListener('click', () => this.play());
+        this.pauseBtn.addEventListener('click', () => this.pause());
+        this.stopBtn.addEventListener('click', () => this.stop());
+        this.voiceSelect.addEventListener('change', () => this.changeVoice());
+    }
+
+    play() {
+        if (this.isPaused) {
+            speechSynthesis.resume();
+            this.isPaused = false;
+            return;
+        }
+        speechSynthesis.cancel();
+        this.utterance = new SpeechSynthesisUtterance(this.text);
+        this.utterance.lang = this.lang;
+        const voices = speechSynthesis.getVoices();
+        let selectedVoice = voices.find(v => v.name === this.voiceSelect.value) || voices[0];
+        this.utterance.voice = selectedVoice;
+        speechSynthesis.speak(this.utterance);
+    }
+
+    pause() {
+        if (speechSynthesis.speaking && !speechSynthesis.paused) {
+            speechSynthesis.pause();
+            this.isPaused = true;
+        }
+    }
+
+    stop() {
+        speechSynthesis.cancel();
+        this.isPaused = false;
+    }
+
+    changeVoice() {
+        if (speechSynthesis.speaking || speechSynthesis.paused) {
+            this.stop();
+            this.play();
+        }
+    }
+}
+
+</script>
 <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <?php
@@ -63,7 +171,7 @@ $db = new DatabaseHandler($dbname, $username);
 $result = $db->know_variables_name($nom_table, "_a", $req_sql);
 $id_sha1_user_projet_ = $id_sha1_user_projet[0];
 
-
+ 
  
 
 // Requête SQL pour récupérer toutes les données de la table
