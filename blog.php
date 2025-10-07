@@ -150,6 +150,7 @@ if ($id_projet) {
   $result = $db->know_variables_name("projet_img", "", $req_sql);
 
 
+ 
 
 
 
@@ -157,14 +158,7 @@ if ($id_projet) {
 
 
 
-
-
-
-
-
-
-
-
+$title_projet_0 =replace_element_2(AsciiConverter::asciiToString($title_projet[0])); 
 
 
 

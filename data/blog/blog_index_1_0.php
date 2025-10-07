@@ -56,13 +56,22 @@ echo '</div>';
 
 
 $filename = "img_dw/".$img_projet_src1[0];
+ 
 
+
+
+if($img_projet_src1[0]!=""){
+
+
+ 
 if (file_exists($filename)) {
+
+  
        echo "<div class='img_dw'>";
     echo "<img src='../img_dw/".$img_projet_src1[0]."' alt='image projet' onclick=\"openLightbox(this.src)\" />";
     echo "</div>";
 }  
- 
+ }
 
 
 
@@ -114,6 +123,7 @@ if($id_sha1_projet_song[0]!=""){
  
 
 ?>
+
  
 <style>
     .date_inscription{

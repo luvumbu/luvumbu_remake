@@ -1,18 +1,18 @@
 <?php
 // ---------------------- CONFIGURATION ----------------------
-$titre = "MON SITE WEB";
-$menu_items = ["Accueil","Projets","À propos","Contact","Galerie","Projets"];
+$titre = $title_projet_0;
+$menu_items = [];
+
+// Générer le menu
+for ($i = 0; $i < count($title_projet_a); $i++) {
+    array_push($menu_items, replace_element_2(AsciiConverter::asciiToString($title_projet_a[$i])));
+}
+
+// Vérifier si on doit afficher le burger
 $contenu_total = $titre . implode('', $menu_items);
 $longueur = strlen($contenu_total);
 $isBurger = $longueur > 60;
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Header adaptatif PHP + scroll</title>
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,10 +31,9 @@ body {
 }
 
 /* ==================== MENU TAILLE ==================== */
-/* Tablette (601px à 900px) → taille réduite du menu */
 @media (min-width: 601px) and (max-width: 900px) {
   .nav-menu a {
-    font-size: 0.8em !important; /* taille énorme pour tes besoins */
+    font-size: 0.8em !important;
   }
 }
 
@@ -49,6 +48,7 @@ body {
   box-sizing: border-box;
   position: relative;
   z-index: 1000;
+  color: white;
 }
 
 /* LOGO / TITRE */
@@ -87,7 +87,7 @@ body {
 .nav-menu a {
   color: #fff;
   text-decoration: none;
-  font-size: 1.1rem; /* taille par défaut */
+  font-size: 1.1rem;
   transition: color 0.2s;
 }
 
@@ -141,14 +141,12 @@ body {
 </style>
 </head>
 
-<body>
-
 <header class="main-header">
-  <div class="logo"><?php echo htmlspecialchars($titre); ?></div>
+  <div class="logo"><?= htmlspecialchars($titre) ?></div>
   <nav class="nav-menu" id="nav-menu">
-    <?php foreach ($menu_items as $item): ?>
-      <a href="#"><?php echo htmlspecialchars($item); ?></a>
-    <?php endforeach; ?>
+    <?php for ($i = 0; $i < count($menu_items); $i++): ?>
+      <a href="#<?= htmlspecialchars($id_sha1_projet_a[$i]) ?>"><?= htmlspecialchars($menu_items[$i]) ?></a>
+    <?php endfor; ?>
   </nav>
   <div class="burger" id="burger">
     <span></span><span></span><span></span>
@@ -158,11 +156,26 @@ body {
 <script>
 const burger = document.getElementById('burger');
 const menu = document.getElementById('nav-menu');
+
+// Toggle burger menu
 burger.addEventListener('click', () => {
   burger.classList.toggle('active');
   menu.classList.toggle('active');
 });
-</script>
 
-</body>
-</html>
+// Fermer le menu quand on clique sur un lien
+document.querySelectorAll('.nav-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    burger.classList.remove('active');
+    menu.classList.remove('active');
+  });
+});
+
+// Fermer le menu quand on clique en dehors
+document.addEventListener('click', (e) => {
+  if (!menu.contains(e.target) && !burger.contains(e.target)) {
+    burger.classList.remove('active');
+    menu.classList.remove('active');
+  }
+});
+</script>

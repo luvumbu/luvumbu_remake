@@ -2,7 +2,7 @@
 $nombre = rand(1, 6);
 // Avec mt_rand() (plus rapide et recommandé)
 $nombre2 = mt_rand(1, 6);
-$nombre = 1;
+$nombre = 8;
   require_once "data/blog/header/blog_index_head_{$nombre}.php";
 
  
@@ -21,6 +21,7 @@ if (count($id_projet_img) != 0) {
   ?>
 
  <style>
+    /*
 .section_3_1 {
     background-color: black;
     color: white;
@@ -56,20 +57,21 @@ if (count($id_projet_img) != 0) {
 
 }
 
+*/
 .section_1,
 .section_1_1,
 .section_1_2,
 .description_2_1,
 .description_2_2 {
     max-width: 100%;
-    /* reste dans la largeur de la page */
+    
     overflow-wrap: break-word;
-    /* coupe les mots trop longs si besoin */
+ 
     word-wrap: break-word;
-    /* compatibilité */
+ 
     word-break: break-word;
-    /* évite le débordement */
+ 
     box-sizing: border-box;
-    /* prend padding/border dans la largeur */
+     
 }
  </style>
