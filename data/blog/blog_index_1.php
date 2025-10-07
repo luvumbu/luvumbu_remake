@@ -105,7 +105,7 @@ echo "</div>";
 
 
  
- require_once "data/blog/blog_index_projet_child.php"; 
+ require_once "data/blog/blog_index_1_1.php"; 
 
 
 
@@ -155,7 +155,7 @@ $description_projet_boucle = $description_projet ;
  
  
 if($id_sha1_projet_song_a[$i]!=""){
-  require "data/blog/blog_audio_description.php" ; 
+  require "data/blog/blog_index_1_1_audio_1.php" ; 
 }
  
 
