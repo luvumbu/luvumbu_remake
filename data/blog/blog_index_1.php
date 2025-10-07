@@ -151,8 +151,10 @@ echo '</div>';
 
 
 $description_projet_boucle = $description_projet ; 
- $nombre_0 = $ii;
-if($id_sha1_projet_song_a[$ii]!=""){
+ $nombre_0 = $i;
+ 
+ 
+if($id_sha1_projet_song_a[$i]!=""){
   require "data/blog/blog_audio_description.php" ; 
 }
  

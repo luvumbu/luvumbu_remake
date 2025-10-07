@@ -1,65 +1,109 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Exemple H1 et P section_1_1</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: #fafafa;
-      color: #222;
+<?php
+$dossiersIgnore = ['qr_code_1', '.git', 'img', 'documentation'];
+
+$lignesParDossier = [];
+$cheminsDossier = [];
+$lignesParFichier = [];
+$elementsParFichier = [];
+
+function parcourirDossier($racine, &$totalLignes = 0, $dossiersIgnore = [], &$lignesParDossier = [], &$cheminsDossier = [], &$lignesParFichier = [], &$elementsParFichier = []) {
+    if (!is_dir($racine)) return;
+
+    $elements = scandir($racine);
+    $lignesDansDossier = 0;
+
+    foreach ($elements as $element) {
+        if ($element === '.' || $element === '..') continue;
+
+        $cheminComplet = $racine . DIRECTORY_SEPARATOR . $element;
+
+        if (is_dir($cheminComplet) && in_array($element, $dossiersIgnore)) continue;
+
+        if (is_dir($cheminComplet)) {
+            parcourirDossier($cheminComplet, $totalLignes, $dossiersIgnore, $lignesParDossier, $cheminsDossier, $lignesParFichier, $elementsParFichier);
+        } else {
+            $ext = strtolower(pathinfo($cheminComplet, PATHINFO_EXTENSION));
+            $extensionsIgnorees = ["jpg","jpeg","png","gif","exe","zip","pdf","mp4","mp3","bin","ico","mov","avi","rar"];
+            if (in_array($ext, $extensionsIgnorees)) continue;
+
+            $nbLignes = 0;
+            $elementsFichier = [];
+            $handle = @fopen($cheminComplet, "r");
+            if ($handle) {
+                while (!feof($handle)) {
+                    $line = fgets($handle);
+                    $nbLignes++;
+                    if(trim($line) !== '') $elementsFichier[] = $line; // compter chaque ligne comme un élément
+                }
+                fclose($handle);
+                $totalLignes += $nbLignes;
+                $lignesDansDossier += $nbLignes;
+
+                $lignesParFichier[$cheminComplet] = $nbLignes;
+                $elementsParFichier[$cheminComplet] = $elementsFichier;
+            }
+        }
     }
 
-    /* --- Conteneur général de la section --- */
-    .section_1_1 {
-      max-width: 800px;
-      margin: 50px auto; /* marge autour de la section */
-      padding: 20px;
-    }
+    $nomDossier = basename($racine);
+    $lignesParDossier[$nomDossier] = $lignesDansDossier;
+    $cheminsDossier[$nomDossier] = $racine;
+}
 
-    /* --- Titre section_1_1 --- */
-    .section_1_1_title h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: #222;
-      letter-spacing: 1px;
-      margin: 15px 0;
-      text-align: center;
-      border-bottom: 3px solid #444;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
+$racine = __DIR__;
+$totalLignes = 0;
+parcourirDossier($racine, $totalLignes, $dossiersIgnore, $lignesParDossier, $cheminsDossier, $lignesParFichier, $elementsParFichier);
 
-    /* --- Paragraphe section_1_1 --- */
-    .section_1_1_text p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #444;
-      background: #fff;
-      padding: 18px 25px;
-      border-radius: 8px;
-      text-align: justify;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-      margin: 20px 0;
-    }
-  </style>
-</head>
-<body>
+$jsDossiers = json_encode($cheminsDossier);
+$jsFichiers = json_encode($lignesParFichier);
+$jsElements = json_encode($elementsParFichier);
+?>
 
-  <div class="section_1_1">
-    <div class="section_1_1_title">
-      <h1>Titre élégant et simple</h1>
-    </div>
+<style>
+table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
+button.view-btn { background-color: #28a745; color: white; border: none; padding: 5px 12px; cursor: pointer; border-radius: 4px; }
+button.view-btn:hover { background-color: #218838; }
+</style>
 
-    <div class="section_1_1_text">
-      <p>
-        Voici un paragraphe avec un design minimaliste et lisible.  
-        Les couleurs sobres (gris, blanc, noir) assurent une esthétique élégante et professionnelle, 
-        sans surcharge visuelle.
-      </p>
-    </div>
-  </div>
+<h2>📊 Détails par dossier</h2>
+<table id="tableDossiers">
+<tr><th>Dossier</th><th>Chemin complet</th><th>Nombre de lignes</th><th>Action</th></tr>
+<?php foreach($lignesParDossier as $nom => $lignes): ?>
+<tr>
+<td><?php echo htmlspecialchars($nom); ?></td>
+<td><?php echo htmlspecialchars($cheminsDossier[$nom]); ?></td>
+<td><?php echo $lignes; ?></td>
+<td><button class="view-btn" data-dossier="<?php echo htmlspecialchars($nom); ?>">Voir fichiers</button></td>
+</tr>
+<?php endforeach; ?>
+</table>
 
-</body>
-</html>
+<h2>📄 Nombre d’éléments dans les fichiers du dossier sélectionné</h2>
+<table id="tableFichiers">
+<tr><th>Fichier</th><th>Nombre d’éléments</th></tr>
+</table>
+
+<script>
+const dossiers = <?php echo $jsDossiers; ?>;
+const fichiers = <?php echo $jsFichiers; ?>;
+const elementsFichiers = <?php echo $jsElements; ?>;
+
+document.querySelectorAll('button.view-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const dossier = btn.getAttribute('data-dossier');
+        const chemin = dossiers[dossier];
+
+        const fichiersDansDossier = Object.keys(fichiers).filter(f => f.startsWith(chemin));
+        const tableFichiers = document.getElementById('tableFichiers');
+        tableFichiers.innerHTML = "<tr><th>Fichier</th><th>Nombre d’éléments</th></tr>";
+
+        fichiersDansDossier.forEach(f => {
+            const nbElements = elementsFichiers[f].length;
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${f}</td><td>${nbElements}</td>`;
+            tableFichiers.appendChild(tr);
+        });
+    });
+});
+</script>

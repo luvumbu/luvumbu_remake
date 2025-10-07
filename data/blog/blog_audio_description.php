@@ -1,5 +1,4 @@
 <?php
-
  
 
 $histoire0 = replace_element_2(AsciiConverter::asciiToString($description_projet_a[$nombre_0]));
