@@ -88,6 +88,12 @@ for ($ii = 0; $ii < count($id_projet_imgx); $ii++) {
        echo "<img src='" . htmlspecialchars($src, ENT_QUOTES) . "' alt='image projet' onclick=\"openLightbox(this.src)\" />";
        echo "</div>";
    }
+
+   ?>
+
+
+
+<?php 
 }
 
 echo "</div>";
@@ -105,7 +111,6 @@ echo "</div>";
 
 
  
- require_once "data/blog/blog_index_1_1.php"; 
 
 
 
@@ -171,8 +176,10 @@ if($id_sha1_projet_song_a[$i]!=""){
 <div class="section_3_1">
         <a href="<?= $id_sha1_projet_a[$i] ?>" class="cta-button cta-primary">Voir page compléte</a>
 </div>
+
         <?php
 
+ require_once "data/blog/blog_index_1_1.php"; 
 
 
         }

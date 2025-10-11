@@ -1,167 +1,102 @@
-<?php
-// ---------------------- CONFIGURATION ----------------------
-$titre = "MON SITE WEB";
-$menu_items = ["Accueil","Projets","À propos","Contact","Galerie","Projets"];
-$contenu_total = $titre . implode('', $menu_items);
-$longueur = strlen($contenu_total);
-$isBurger = $longueur > 60;
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Header adaptatif PHP + scroll</title>
-
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-
+<title>Prise de rendez-vous</title>
 <style>
-/* ==================== BASE ==================== */
-body {
-  font-family: "Audiowide", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  margin: 0;
-  padding: 0;
-  color: white;
-}
+body { font-family: Arial, sans-serif; background: #f2f2f2; }
+.rdv-container { background: #fff;   margin: auto; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+h2 { text-align: center; }
+label { display: block; margin: 10px 0 5px; }
+select, input, button { width: 100%; padding: 8px; margin-bottom: 15px; border-radius: 4px; border: 1px solid #ccc; }
+button { background: #4CAF50; color: white; border: none; cursor: pointer; }
+button:hover { background: #45a049; }
 
-/* ==================== MENU TAILLE ==================== */
-/* Tablette (601px à 900px) → taille réduite du menu */
-@media (min-width: 601px) and (max-width: 900px) {
-  .nav-menu a {
-    font-size: 0.8em !important; /* taille énorme pour tes besoins */
-  }
-}
 
-/* ==================== HEADER ==================== */
-.main-header {
-  width: 100%;
-  padding: 15px 30px;
-  background: #111;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 1000;
-}
 
-/* LOGO / TITRE */
-.logo {
-  font-size: 1.4rem;
-  font-weight: bold;
+.rdv-container{
+  padding: 30px;
+  width: 40%;
 }
-
-/* ==================== BURGER ==================== */
-.burger {
-  width: 28px;
-  height: 22px;
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.burger span {
-  display: block;
-  height: 3px;
-  background: #fff;
-  border-radius: 2px;
-  transition: 0.3s;
-}
-
-/* ==================== MENU ==================== */
-.nav-menu {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  transition: 0.4s ease;
-}
-
-.nav-menu a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.1rem; /* taille par défaut */
-  transition: color 0.2s;
-}
-
-.nav-menu a:hover {
-  color: orange;
-}
-
-/* BURGER ANIMATION */
-.burger.active span:nth-child(1) { transform: rotate(45deg) translateY(9px); }
-.burger.active span:nth-child(2) { opacity: 0; }
-.burger.active span:nth-child(3) { transform: rotate(-45deg) translateY(-9px); }
-
-/* ==================== MODE BURGER PHP ==================== */
-<?php if ($isBurger): ?>
-.nav-menu {
-  position: fixed;
-  top: 0; right: 0;
-  height: 100vh; width: 220px;
-  background: #111;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 25px;
-  transform: translateX(100%);
-  overflow-y: auto;
-  padding-top: 50px;
-  box-sizing: border-box;
-}
-.nav-menu.active { transform: translateX(0); }
-.burger { display: flex; }
-<?php else: ?>
-@media (max-width: 700px) {
-  .burger { display: flex; }
-  .nav-menu {
-    position: fixed;
-    top: 0; right: 0;
-    height: 100vh; width: 220px;
-    background: #111;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 25px;
-    transform: translateX(100%);
-    overflow-y: auto;
-    padding-top: 50px;
-    box-sizing: border-box;
-  }
-  .nav-menu.active { transform: translateX(0); }
-}
-<?php endif; ?>
 </style>
 </head>
-
 <body>
 
-<header class="main-header">
-  <div class="logo"><?php echo htmlspecialchars($titre); ?></div>
-  <nav class="nav-menu" id="nav-menu">
-    <?php foreach ($menu_items as $item): ?>
-      <a href="#"><?php echo htmlspecialchars($item); ?></a>
-    <?php endforeach; ?>
-  </nav>
-  <div class="burger" id="burger">
-    <span></span><span></span><span></span>
-  </div>
-</header>
+<div class="rdv-container">
+  <h2>Prendre un rendez-vous</h2>
+  <input type="text" placeholder="Nom">
+  <input type="text" placeholder="Adresse mail">
+
+  <label for="date">Date :</label>
+  <input type="date" id="date" />
+
+  <label for="time">Heure :</label>
+  <select id="time">
+    <option value="">Sélectionnez une heure</option>
+  </select>
+
+  <button onclick="prendreRdv()">Confirmer le rendez-vous</button>
+  <p id="message" style="color:red;"></p>
+</div>
 
 <script>
-const burger = document.getElementById('burger');
-const menu = document.getElementById('nav-menu');
-burger.addEventListener('click', () => {
-  burger.classList.toggle('active');
-  menu.classList.toggle('active');
-});
+const debutHeure = 9;
+const finHeure = 19;
+const intervalMinutes = 30;
+
+const dateInput = document.getElementById('date');
+const timeSelect = document.getElementById('time');
+const message = document.getElementById('message');
+
+const now = new Date();
+const minDate = new Date(now.getTime() + 24*60*60*1000);
+dateInput.min = minDate.toISOString().split('T')[0];
+
+// Générer uniquement les créneaux valides
+function updateTimeOptions() {
+    timeSelect.innerHTML = '<option value="">Sélectionnez une heure</option>';
+    if (!dateInput.value) return;
+
+    const selectedDate = new Date(dateInput.value);
+    for (let h = debutHeure; h <= finHeure; h++) {
+        for (let m = 0; m < 60; m += intervalMinutes) {
+            const rdvTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), h, m);
+            if (rdvTime - now >= 24*60*60*1000) { // respect 24h
+                const option = document.createElement('option');
+                option.value = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
+                option.text = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
+                timeSelect.appendChild(option);
+            }
+        }
+    }
+}
+
+dateInput.addEventListener('change', updateTimeOptions);
+
+function prendreRdv() {
+    const selectedDate = dateInput.value;
+    const selectedTime = timeSelect.value;
+
+    if (!selectedDate || !selectedTime) {
+        message.style.color = "red";
+        message.textContent = "Veuillez choisir une date et une heure.";
+        return;
+    }
+
+    const [h, m] = selectedTime.split(':').map(Number);
+    const rdvDateTime = new Date(selectedDate);
+    rdvDateTime.setHours(h, m, 0, 0);
+
+    if (rdvDateTime - now < 24*60*60*1000) {
+        message.style.color = "red";
+        message.textContent = "Rendez-vous invalide : moins de 24h.";
+        return;
+    }
+
+    message.style.color = "green";
+    message.textContent = `Rendez-vous confirmé le ${selectedDate} à ${selectedTime}`;
+}
 </script>
 
 </body>

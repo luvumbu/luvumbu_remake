@@ -121,7 +121,7 @@ html {
     .text_continent_p1{
             font-size: 1.1rem;
       line-height: 1.6;
-      color: #444;
+   
       background: #fff;
       padding: 18px 25px;
       border-radius: 8px;
@@ -130,6 +130,49 @@ html {
     margin: auto;
       width: 90%;
     }
+</style>
+
+<style>
+    .story-box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  select {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: rgba(0, 0, 0, 0.5);
+    padding: 6px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    margin-right: 8px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .play {
+    background: green;
+  }
+
+  .pause {
+    background: orange;
+  }
+
+  .stop {
+    background: red;
+  }
+
+  .reader-container {
+    margin-bottom: 30px;
+  }
 </style>
 
 

@@ -2,50 +2,75 @@
 require_once "data/all/requare_one_1.php";
 require_once "Class/SessionTracker.php";
 $stories = array();
+
+
+require_once "data/blog/blog_index_head_8_css.php" ;  
+require_once "data/blog/blog_index_1_0_css.php" ; 
+require_once "data/blog/blog_index_1_1_css.php" ; 
+require_once "data/blog/blog_index_2_css.php" ; 
+require_once "data/blog/blog_index_3_css.php" ; 
+require_once "data/blog/blog_index_head_8_css.php" ; 
+require_once "data/blog/carouselles/carouselle_3_css.php" ; 
+
+
+ 
+ 
+ 
+/*require_once "data/blog/blog_index_1_0 _css.php" ; 
+require_once "data/blog/blog_index_1_0 _css.php" ; 
+*/
+
 ?>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Gowun+Dodum&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Gowun+Dodum&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  .story-box select,.play,.pause,.stop {
+ 
+width: 100px;
+padding: 12px;
+background-color: rgba(0, 0, 0, 0.1);
+border: 1px solid rgba(0, 0, 0, 0.1);
+color: rgba(0, 0, 0, 0.6);
+
+ 
+  }
+
+    .story-box select:hover,.play:hover,.pause:hover,.stop:hover {
+ 
+width: 100px;
+padding: 12px;
+background-color: rgba(146, 55, 55, 0.2);
+border: 1px solid rgba(66, 40, 138, 0.2);
+color: rgba(0, 0, 0, 0.6);
+cursor: pointer;
+ 
+  }
+
+</style>
 
 <style>
-  .story-box {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    margin: 20px auto;
-    padding: 15px;
-  }
+  /*
+ body{
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+  */
+</style>
+ 
 
-  select {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    color: rgba(0, 0, 0, 0.5);
-    padding: 6px;
-    border-radius: 6px;
-    margin-bottom: 10px;
-  }
+<style>
+body {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
-  button {
-    margin-right: 8px;
-    padding: 8px 14px;
-    border: none;
-    border-radius: 6px;
-    color: #fff;
-    cursor: pointer;
-  }
-
-  .play {
-    background: green;
-  }
-
-  .pause {
-    background: orange;
-  }
-
-  .stop {
-    background: red;
-  }
-
-  .reader-container {
-    margin-bottom: 30px;
-  }
 </style>
 <script>
   class SpeechController {
@@ -124,8 +149,7 @@ $stories = array();
     }
   }
 </script>
-<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+ 
 <?php
 
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
@@ -148,26 +172,7 @@ if ($id_projet) {
   $db = new DatabaseHandler($dbname, $username);
   // Appel de la fonction
   $result = $db->know_variables_name("projet_img", "", $req_sql);
-
-
- 
-
-
-
-
-
-
-
-$title_projet_0 =replace_element_2(AsciiConverter::asciiToString($title_projet[0])); 
-
-
-
-
-
-
-
-
-
+  $title_projet_0 =replace_element_2(AsciiConverter::asciiToString($title_projet[0])); 
 
   $img_projet_src1_ = $img_projet_src1[0];
   // Requête SQL pour récupérer toutes les données de la table
@@ -178,37 +183,14 @@ $title_projet_0 =replace_element_2(AsciiConverter::asciiToString($title_projet[0
   $result = $db->know_variables_name($nom_table, "_a", $req_sql);
   $id_sha1_user_projet_ = $id_sha1_user_projet[0];
 
-
-
-
   $style_projet_ = $style_projet[0];
-
-
   // Requête SQL pour récupérer toutes les données de la table
   $req_sql = 'SELECT * FROM `style_page` WHERE `id_style_page` ="' . $style_projet_ . '"';
   // Instanciation de la classe
   $db = new DatabaseHandler($dbname, $username);
   // Appel de la fonction
   $result = $db->know_variables_name("style_page", "", $req_sql);
-
-
-
-
-
   $text_style_page_ =  AsciiConverter::asciiToString($text_style_page[0]);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   // Requête SQL pour récupérer toutes les données de la table
   $req_sql = 'SELECT * FROM `' . $dbname . '` WHERE `id_sha1_user`="' . $id_sha1_user_projet_ . '" ';
@@ -240,15 +222,11 @@ $title_projet_0 =replace_element_2(AsciiConverter::asciiToString($title_projet[0
   $activation_user_b_       = $activation_user_b[0];
   $date_inscription_user_b_ = $date_inscription_user_b[0];
 
-
-
   $req_sql = 'SELECT * FROM `' . $dbname . '` WHERE `id_sha1_user`="' . $id_sha1_user_projet_ . '" ';
   // Instanciation de la classe
   $db = new DatabaseHandler($dbname, $username);
   // Appel de la fonction
   $result = $db->know_variables_name($dbname, "_c", $req_sql);
-
-
 
 ?>
 
@@ -256,27 +234,18 @@ $title_projet_0 =replace_element_2(AsciiConverter::asciiToString($title_projet[0
 
   <!DOCTYPE html>
   <html lang="fr">
-
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <?php
 
     if ($text_style_page_ == "style") {
-
-      echo $text_style_page_;
+     // echo $text_style_page_;
     } else {
-
-
       echo "<style>";
-      echo $text_style_page_;
+     // echo $text_style_page_;
       echo "</style>";
     }
-
-
-
 
     if ($img_projet_src1_ != "") {
       echo ' <link rel="icon" type="image/x-icon" href="img_dw/' . $img_projet_src1_ . '">';
@@ -289,8 +258,6 @@ $title_projet_0 =replace_element_2(AsciiConverter::asciiToString($title_projet[0
   </head>
 
   <body>
-
-
   <?php
   $password_projet_1 = AsciiConverter::stringToAscii($_SESSION["password_projet"]);
   $password_projet_2 = $password_projet[0];
@@ -341,84 +308,49 @@ $title_projet_0 =replace_element_2(AsciiConverter::asciiToString($title_projet[0
 } else {
   require_once 'data/blog/home_x_no2.php';
 }
-// -----------------------
-// Exemple d’utilisation
-$tracker = new SessionTracker();
-// Affichage global sur une seule ligne
-// Affichage individuel
-$ip = $tracker->getIp();
-$host = $tracker->getHost();
-$port = $tracker->getPort();
-$userAgent = $tracker->getUserAgent();
-$browser = $tracker->getBrowser();
-$os = $tracker->getOs();
-$language = $tracker->getLanguage();
-$referer = $tracker->getReferer();
-$method = $tracker->getPreviousPage();
-$serverIp = $tracker->getMethod();
-$serverName = $tracker->getServerIp();
-$uri = $tracker->getServerName();
-$protocol = $tracker->getUri();
-$https = $tracker->getProtocol();
-$visitDate = $tracker->getHttps();
+require_once "data/home/home_insert_ip.php" ; 
 
-if (isset($_SESSION["index"][3])) {
-  $info = $_SESSION["index"][3];
-} else {
-  $info = "";
-}
-
-$date_inscription_visit = date("Y-m-d H:i:s");
-$databaseHandler = new DatabaseHandler($dbname, $username);
-$databaseHandler->action_sql("INSERT INTO  `visite` (
-    `ip`,
-    `host`,
-    `port`,
-    `userAgent`,
-    `browser`,
-    `os`,
-    `language`,
-    `referer`,
-    `method`,
-    `serverIp`,
-    `serverName`,
-    `uri`,
-    `protocol`,
-    `https`,
-    `visitDate`,
-    `date_inscription_visit`,
-    `id_ip_1`,
-    `id_ip_2`
-
-
-
-) VALUES (
-    '$ip',
-    '$host',
-    '$port',
-    '$userAgent',
-    '$browser',
-    '$os',
-    '$language',
-    '$referer',
-    '$method',
-    '$serverIp',
-    '$serverName',
-    '$uri',
-    '$protocol',
-    '$https',
-    '$visitDate',
-    '$date_inscription_visit',
-    '$url_',
-    '$info'
-);");
-
-
-
-require_once "blog_css.php";
   ?>
 
+ <style>
+  .section_3_1{
+    background-color: black;
+    padding: 15px;
+    width: 300px;
+    text-align: center;
+
+  }
+  .section_3_1 a {
+    color: white;
+    text-decoration: none;
+  }
 
 
-  <!-- Ajouter dans le <head> de ton HTML -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+/* --- Défilement fluide --- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- Couleur du scroll (barre de défilement) --- */
+/* Pour Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* fond clair */
+}
+::-webkit-scrollbar-thumb {
+  background: #000; /* barre noire */
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333; /* légèrement gris au survol */
+}
+
+/* Pour Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #000 #f1f1f1;
+}
+ </style>
