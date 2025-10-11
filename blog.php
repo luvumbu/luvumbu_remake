@@ -268,7 +268,7 @@ if ($id_projet) {
     if ($_SESSION["password_projet"] ==  $password_projet_2) {
       require_once 'data/blog/blog_index.php';
     } else {
-      require_once 'data/blog/home_x_no1.php';
+      require_once 'data/blog/blog_x_no1.php';
     }
   } else {
 
@@ -285,7 +285,7 @@ if ($id_projet) {
           if ($id_sha1_projet_lock[0] != "") {
             require_once 'data/blog/blog_index.php';
           } else {
-            require_once 'data/blog/home_x_no1.php';
+            require_once 'data/blog/blog_x_no1.php';
           }
         }
       }
@@ -295,10 +295,10 @@ if ($id_projet) {
       } else {
 
         if ($visibility_1_projet[0] == "" && $id_sha1_projet_lock[0] == "") {
-          require_once 'data/blog/home_x_no1.php';
+          require_once 'data/blog/blog_x_no1.php';
         } else {
           if ($visibility_1_projet[0] == "") {
-            require_once 'data/blog/home_x_no1.php';
+            require_once 'data/blog/blog_x_no1.php';
           } else {
           }
         }
@@ -306,9 +306,9 @@ if ($id_projet) {
     }
   }
 } else {
-  require_once 'data/blog/home_x_no2.php';
+  require_once 'data/blog/blog_x_no2.php';
 }
-require_once "data/home/home_insert_ip.php" ; 
+require_once "data/blog/blog_insert_ip.php" ; 
 
   ?>
 
