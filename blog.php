@@ -192,6 +192,9 @@ if ($id_projet) {
   $result = $db->know_variables_name("style_page", "", $req_sql);
   $text_style_page_ =  AsciiConverter::asciiToString($text_style_page[0]);
 
+
+
+ 
   // Requête SQL pour récupérer toutes les données de la table
   $req_sql = 'SELECT * FROM `' . $dbname . '` WHERE `id_sha1_user`="' . $id_sha1_user_projet_ . '" ';
   // Instanciation de la classe
@@ -227,6 +230,8 @@ if ($id_projet) {
   $db = new DatabaseHandler($dbname, $username);
   // Appel de la fonction
   $result = $db->know_variables_name($dbname, "_c", $req_sql);
+ 
+ 
 
 ?>
 
@@ -240,10 +245,10 @@ if ($id_projet) {
     <?php
 
     if ($text_style_page_ == "style") {
-     // echo $text_style_page_;
+   echo $text_style_page_;
     } else {
       echo "<style>";
-     // echo $text_style_page_;
+   echo $text_style_page_;
       echo "</style>";
     }
 
@@ -353,4 +358,27 @@ html {
   scrollbar-width: thin;
   scrollbar-color: #000 #f1f1f1;
 }
+
+ 
+
  </style>
+
+ <style>
+section {
+  width: 100%;                  /* occupe toute la largeur disponible */
+  max-width: 100%;              /* empêche de dépasser le conteneur */
+  padding: 10px;                /* espace intérieur */
+ 
+  white-space: normal;          /* autorise le retour à la ligne */
+  word-break: break-word;       /* coupe les mots trop longs si possible */
+  overflow-wrap: break-word;    /* compatibilité navigateurs */
+  box-sizing: border-box;       /* inclut padding dans la largeur */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  
+  overflow-x: auto;             /* scroll horizontal si ça dépasse */
+  overflow-y: hidden;           /* pas de scroll vertical */
+}
+
+</style>

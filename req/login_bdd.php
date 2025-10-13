@@ -126,6 +126,22 @@ $columns = [
 "html_mode_projet_1" => "LONGTEXT NOT NULL",
 "html_mode_projet_2" => "LONGTEXT NOT NULL",
 "style_pages_projet" => "LONGTEXT NOT NULL",
+
+
+
+"meta_pages_projet" => "LONGTEXT NOT NULL",
+"header_1_pages_projet" => "LONGTEXT NOT NULL",
+"header_2_pages_projet" => "LONGTEXT NOT NULL",
+"header_3_pages_projet" => "LONGTEXT NOT NULL",
+
+"section_1_pages_projet" => "LONGTEXT NOT NULL",
+"section_2_pages_projet" => "LONGTEXT NOT NULL",
+"section_3_pages_projet" => "LONGTEXT NOT NULL",
+
+"footer_1_pages_projet" => "LONGTEXT NOT NULL",
+"footer_2_pages_projet" => "LONGTEXT NOT NULL",
+"footer_3_pages_projet" => "LONGTEXT NOT NULL",
+
 "name_pages_projet" => "LONGTEXT NOT NULL",
 "input_cryptage_projet" => "LONGTEXT NOT NULL",
 "name_projet" => "LONGTEXT NOT NULL",

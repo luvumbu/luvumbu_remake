@@ -1,103 +1,126 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prise de rendez-vous</title>
-<style>
-body { font-family: Arial, sans-serif; background: #f2f2f2; }
-.rdv-container { background: #fff;   margin: auto; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-h2 { text-align: center; }
-label { display: block; margin: 10px 0 5px; }
-select, input, button { width: 100%; padding: 8px; margin-bottom: 15px; border-radius: 4px; border: 1px solid #ccc; }
-button { background: #4CAF50; color: white; border: none; cursor: pointer; }
-button:hover { background: #45a049; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rappel Anniversaires</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
 
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 400px;
+    }
 
+    h2 {
+      text-align: center;
+      color: #333;
+    }
 
-.rdv-container{
-  padding: 30px;
-  width: 40%;
-}
-</style>
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    input, select {
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .anniversaires-list {
+      margin-top: 20px;
+    }
+
+    .anniversaire-item {
+      background-color: #e6f7ff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h2>Rappel Anniversaires</h2>
+    <form id="birthdayForm">
+      <label for="prenom">Prénom</label>
+      <input type="text" id="prenom" required>
 
-<div class="rdv-container">
-  <h2>Prendre un rendez-vous</h2>
-  <input type="text" placeholder="Nom">
-  <input type="text" placeholder="Adresse mail">
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" required>
 
-  <label for="date">Date :</label>
-  <input type="date" id="date" />
+      <label for="annee">Année de naissance</label>
+      <input type="number" id="annee" min="1900" max="2025" required>
 
-  <label for="time">Heure :</label>
-  <select id="time">
-    <option value="">Sélectionnez une heure</option>
-  </select>
+      <label for="relation">Relation</label>
+      <select id="relation" required>
+        <option value="">--Choisir--</option>
+        <option value="Famille">Famille</option>
+        <option value="Ami">Ami</option>
+        <option value="Autre">Autre</option>
+      </select>
 
-  <button onclick="prendreRdv()">Confirmer le rendez-vous</button>
-  <p id="message" style="color:red;"></p>
-</div>
+      <button type="submit">Ajouter</button>
+    </form>
 
-<script>
-const debutHeure = 9;
-const finHeure = 19;
-const intervalMinutes = 30;
+    <div class="anniversaires-list" id="anniversairesList">
+      <!-- Les anniversaires ajoutés apparaîtront ici -->
+    </div>
+  </div>
 
-const dateInput = document.getElementById('date');
-const timeSelect = document.getElementById('time');
-const message = document.getElementById('message');
+  <script>
+    const form = document.getElementById('birthdayForm');
+    const list = document.getElementById('anniversairesList');
 
-const now = new Date();
-const minDate = new Date(now.getTime() + 24*60*60*1000);
-dateInput.min = minDate.toISOString().split('T')[0];
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
 
-// Générer uniquement les créneaux valides
-function updateTimeOptions() {
-    timeSelect.innerHTML = '<option value="">Sélectionnez une heure</option>';
-    if (!dateInput.value) return;
+      const prenom = document.getElementById('prenom').value;
+      const nom = document.getElementById('nom').value;
+      const annee = document.getElementById('annee').value;
+      const relation = document.getElementById('relation').value;
 
-    const selectedDate = new Date(dateInput.value);
-    for (let h = debutHeure; h <= finHeure; h++) {
-        for (let m = 0; m < 60; m += intervalMinutes) {
-            const rdvTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), h, m);
-            if (rdvTime - now >= 24*60*60*1000) { // respect 24h
-                const option = document.createElement('option');
-                option.value = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
-                option.text = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}`;
-                timeSelect.appendChild(option);
-            }
-        }
-    }
-}
+      const item = document.createElement('div');
+      item.className = 'anniversaire-item';
+      item.textContent = `${prenom} ${nom} - Né(e) en ${annee} (${relation})`;
 
-dateInput.addEventListener('change', updateTimeOptions);
+      list.appendChild(item);
 
-function prendreRdv() {
-    const selectedDate = dateInput.value;
-    const selectedTime = timeSelect.value;
-
-    if (!selectedDate || !selectedTime) {
-        message.style.color = "red";
-        message.textContent = "Veuillez choisir une date et une heure.";
-        return;
-    }
-
-    const [h, m] = selectedTime.split(':').map(Number);
-    const rdvDateTime = new Date(selectedDate);
-    rdvDateTime.setHours(h, m, 0, 0);
-
-    if (rdvDateTime - now < 24*60*60*1000) {
-        message.style.color = "red";
-        message.textContent = "Rendez-vous invalide : moins de 24h.";
-        return;
-    }
-
-    message.style.color = "green";
-    message.textContent = `Rendez-vous confirmé le ${selectedDate} à ${selectedTime}`;
-}
-</script>
-
+      form.reset();
+    });
+  </script>
 </body>
 </html>
