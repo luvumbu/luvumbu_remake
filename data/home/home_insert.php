@@ -159,7 +159,7 @@ if ($id_sha1_user_projet_class == "") {
                         <select title="<?= $_SESSION["index"][4] ?>" name="choix" id="choix"
                             onchange="select_style(this)">
 
-
+ <option class="" value="">NONE</option>
 
                             <?php
                 for ($i_y = 0; $i_y < count($dynamicVariables['id_style_page']); $i_y++) {
@@ -579,74 +579,18 @@ if ($id_sha1_user_projet_class == "") {
                 </div>
             </div>
 
-            <div class="style_container">
 
-                <div class="menu_styles">
-                    <select title="header_select" id="header_select" onchange="selection_style_page(this)">
-                        <option value="">HEADER — Choisir un style</option>
+<?php 
+
+require_once "data/home/home_select_page_html.php";
+require_once "data/home/home_select_page_css.php";
+require_once "data/home/home_select_page_js.php";
 
 
-                        <?php
-$dir = 'data/blog/header/';
-
-if (is_dir($dir)) {
-    $files = scandir($dir);
-    // Affiche tous les fichiers/dossiers sauf '.' et '..'
-    foreach ($files as $file) {
-        if ($file !== '.' && $file !== '..') {
-            echo '<option value="'.$file.'">'.$file.'</option><br>';
-        }
-    }
-} else {
-    echo "Le dossier n'existe pas.";
-}
 ?>
-                    </select>
 
-                    <select title="section_select" id="section_select" onchange="selection_style_page(this)">
-                        <option value="">SECTION — Choisir un style</option>
-                        <?php
-$dir = 'data/blog/section/';
 
-if (is_dir($dir)) {
-    $files = scandir($dir);
-    // Affiche tous les fichiers/dossiers sauf '.' et '..'
-    foreach ($files as $file) {
-        if ($file !== '.' && $file !== '..') {
-            echo '<option value="'.$file.'">'.$file.'</option><br>';
-        }
-    }
-} else {
-    echo "Le dossier n'existe pas.";
-}
-?>
-                    </select>
-
-                    <select title="footer_select" id="footer_select" onchange="selection_style_page(this)">
-                        <option value="">FOOTER — Choisir un style</option>
-                        <?php
-$dir = 'data/blog/footer/';
-
-if (is_dir($dir)) {
-    $files = scandir($dir);
-    // Affiche tous les fichiers/dossiers sauf '.' et '..'
-    foreach ($files as $file) {
-        if ($file !== '.' && $file !== '..') {
-            echo '<option value="'.$file.'">'.$file.'</option><br>';
-        }
-    }
-} else {
-    echo "Le dossier n'existe pas.";
-}
-?>
-                    </select>
-                </div>
-
-                <header id="header_select_page" class="page_header"><?= $header_1_pages_projet ?></header>
-                <section id="section_select_page" class="page_section"><?= $section_1_pages_projet ?></section>
-                <footer id="footer_select_page" class="page_footer"><?= $footer_1_pages_projet ?></footer>
-
-            </div>
+            
 
 
 
@@ -897,125 +841,9 @@ function update_function_password(_this) {
 }
 </script>
 
-<style>
-.style_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 20px;
-    background: #1a1a1a;
-    border-radius: 12px;
-    width: 80%;
-    margin: 30px auto;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
-}
-
-/* --- Menus --- */
-.style_container .menu_styles {
-    display: flex;
-    gap: 10px;
-}
-
-.style_container select {
-    appearance: none;
-    background-color: #222;
-    color: #fff;
-    border: none;
-    padding: 10px 40px 10px 16px;
-    border-radius: 8px;
-    font-size: 15px;
-    cursor: pointer;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-    text-align: center;
-}
-
-/* --- Zones principales (avec couleurs de base différentes) --- */
-.style_container .page_header {
-    width: 90%;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-    background: #003366;
-    /* bleu profond */
-    color: #fff;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s ease;
-}
-
-.style_container .page_section {
-    width: 90%;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-    background: #264d00;
-    /* vert foncé */
-    color: #fff;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s ease;
-}
-
-.style_container .page_footer {
-    width: 90%;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-    background: #660000;
-    /* rouge foncé */
-    color: #fff;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s ease;
-}
-
-/* === Styles appliqués via menus === */
-.style_container .style1 {
-    background: #1b1b1b;
-    color: #00bfff;
-}
-
-.style_container .style2 {
-    background: #f5f5f5;
-    color: #222;
-}
-
-.style_container .style3 {
-    background: linear-gradient(135deg, #ff6b6b, #ffcc00);
-    color: #222;
-}
-</style>
 
 
 
 
-<script>
-function selection_style_page(_this) {
-    document.getElementById(_this.title + '_page').innerHTML = _this.value;
-    const myTimeout = setTimeout(x, 250);
-    function x() {
-
-       var ok = new Information("req_sql/updat_selection_style_page.php"); // création de la classe 
-       var header_select_page = document.getElementById("header_select_page").innerHTML ; 
-       var section_select_page = document.getElementById("section_select_page").innerHTML ; 
-       var footer_select_page = document.getElementById("footer_select_page").innerHTML ; 
-     
-        ok.add("header_select_page", header_select_page); // ajout de l'information pour lenvoi 
-        ok.add("section_select_page", section_select_page); // ajout de l'information pour lenvoi 
-        ok.add("footer_select_page", footer_select_page); // ajout de l'information pour lenvoi 
-        console.log(ok.info()); // demande l'information dans le tableau
-        ok.push(); // envoie l'information au code pkp 
 
 
-
-    }
-}
-</script>
-
-<?php
- 
- 
-
-
-?>

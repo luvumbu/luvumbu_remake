@@ -154,11 +154,21 @@ body {
 
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
 $url = new Give_url();
+
+
 // Utilisation de la méthode split_basename pour séparer par "_"
 $url->split_basename('__');
 $url_ = $url->get_elements()[0];
 $nom_table = "projet"; // Nom de la table cible
 $id_sha1_projet = $url_;
+ 
+
+ 
+
+
+ 
+
+
 // Requête SQL pour récupérer toutes les données de la table
 $req_sql = "SELECT * FROM `$nom_table` WHERE `id_sha1_projet` ='$id_sha1_projet'";
 // Instanciation de la classe
@@ -193,6 +203,7 @@ if ($id_projet) {
   $text_style_page_ =  AsciiConverter::asciiToString($text_style_page[0]);
 
 
+ 
 
  
   // Requête SQL pour récupérer toutes les données de la table
