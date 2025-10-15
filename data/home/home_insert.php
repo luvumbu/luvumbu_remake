@@ -9,6 +9,9 @@ $img_5 = "https://img.icons8.com/ios/40/high-volume--v1.png";
 $img_6 = "https://img.icons8.com/ios/40/no-audio--v1.png";
 $img_7 = "https://img.icons8.com/ios-glyphs/40/invisible.png";
 $img_8 = "https://img.icons8.com/ios-filled/40/invisible.png";
+$image_defaut_1 = "https://img.icons8.com/ios/80/link.png" ; 
+$image_defaut_2 = "https://img.icons8.com/dotty/80/gear.png" ; 
+$image_defaut_3 = "https://i.pinimg.com/736x/e6/17/f3/e617f3d21a19d5026ab702edebd5fc7c.jpg";
 
 require_once $home_insert_css;
 
@@ -159,7 +162,7 @@ if ($id_sha1_user_projet_class == "") {
                         <select title="<?= $_SESSION["index"][4] ?>" name="choix" id="choix"
                             onchange="select_style(this)">
 
- <option class="" value="">NONE</option>
+                            <option class="" value="">NONE</option>
 
                             <?php
                 for ($i_y = 0; $i_y < count($dynamicVariables['id_style_page']); $i_y++) {
@@ -580,7 +583,7 @@ if ($id_sha1_user_projet_class == "") {
             </div>
 
 
-<?php 
+            <?php 
 
 
 require_once "data/home/home_select_page_html.php";
@@ -593,7 +596,7 @@ require_once "data/home/home_select_page_js.php";
 ?>
 
 
-            
+
 
 
 
@@ -638,7 +641,7 @@ require_once "data/home/home_select_page_js.php";
                 <?php
             if ($img_projet_src1_c[$i] == '') {
             ?>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwfimb60bedU2xAWQhwyEC40kxb8z3efu7CtFK0XzOEE9iVfcBpEvM96wwTUKZ-hqKtMy3UN5KPuWUI1flHUY4nRY2sq-hKIEqvW3rox4"
+                <img src=<?=$image_defaut_3 ?>
                     alt="">
                 <?php
             } else {
@@ -651,16 +654,16 @@ require_once "data/home/home_select_page_js.php";
 
 
                 <div class="display_flex">
-                    <div>
+                    <div class="class_options">
                         <a href="<?= 'blog.php/' . $id_sha1_projet_cc[$i] ?>">
-                            <img style="width: 50px;height: 50px;" width="50" height="50"
-                                src="https://img.icons8.com/ios/50/link.png" alt="link" />
+                            <img style="width: 50px;height: 50px;" width="50" height="50" src="<?= $image_defaut_1 ?>"
+                                alt="link" />
                         </a>
                     </div>
-                    <div>
+                    <div class="class_options">
                         <img onclick="child_element(this)" style="width: 50px;height: 50px;"
-                            title="<?= $id_sha1_projet_cc[$i] ?>" width="50" height="50"
-                            src="https://img.icons8.com/ios/50/settings--v1.png" alt="settings--v1" />
+                            title="<?= $id_sha1_projet_cc[$i] ?>" width="50" height="50" src="<?= $image_defaut_2 ?>"
+                            alt="settings--v1" />
                     </div>
                 </div>
 
@@ -846,7 +849,16 @@ function update_function_password(_this) {
 
 
 
+<style>
+.class_options img {
+    padding: 5px;
+    margin-top: 20px;
+        border: 1px solid rgb(0, 0, 0,0);
 
+}
 
-
-
+.class_options img:hover {
+    opacity: 0.5;
+    border: 1px solid rgb(0, 0, 0,0.6);
+}
+</style>

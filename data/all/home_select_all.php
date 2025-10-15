@@ -94,6 +94,8 @@
 <?php
 $val_knock = "";
 $nom_table = "projet";
+
+$img_projet_src1_i_a_g = "https://i.pinimg.com/736x/e6/17/f3/e617f3d21a19d5026ab702edebd5fc7c.jpg" ;  
 $req_sql = "SELECT * FROM `$nom_table` WHERE 1";
 
 $img_projet_src1_01  = "https://i.pinimg.com/736x/b6/b9/cc/b6b9cc428522e74a9d51351945eebac7.jpg";
@@ -123,7 +125,7 @@ for ($i_a = 0; $i_a < count($id_sha1_projet); $i_a++) {
     if (!file_exists($filename)) {
         $databaseHandler_up_img = new DatabaseHandler($dbname, $username);
         $databaseHandler_up_img->action_sql('UPDATE  `projet` SET `img_projet_src1` = "" WHERE  `id_sha1_projet` ="' . $id_sha1_projet[$i_a] . '" ');
-        $img_projet_src1_i_a  = "src/img/lumumba.jpg";
+        $img_projet_src1_i_a  = $img_projet_src1_i_a_g;
     }
 
 
