@@ -209,7 +209,7 @@ if ($id_sha1_user_projet_class == "") {
 
                     <div id="edit_style" title="<?= $_SESSION["index"][4] ?>" class="display_none"
                         onclick="redirection_edit_text(this)">
-                        <a href="add_style.php">
+                        <a href=" ">
                             <img width="50" height="50" src="https://img.icons8.com/ios/50/create-new.png"
                                 alt="create-new" />
 

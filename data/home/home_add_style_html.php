@@ -164,7 +164,7 @@ $text_style_page_sha1 = AsciiConverter::asciiToString($dynamicVariables['text_st
 
         <div id="text_style_page_info" role="alert"></div>
 
-        <div class="submit" onclick="add_style(this)">Envoyer</div>
+        <div class="submit" onclick="add_style(this)" style="margin-bottom:100px">Envoyer</div>
 
 
 
@@ -180,6 +180,7 @@ $text_style_page_sha1 = AsciiConverter::asciiToString($dynamicVariables['text_st
         }
 
         ?>
+         <a  href="../../index.php"><img width="80" height="80" src="https://img.icons8.com/dotty/80/home.png" alt="home"/></a>
     </form>
 
     <script>
@@ -355,4 +356,3 @@ $text_style_page_sha1 = AsciiConverter::asciiToString($dynamicVariables['text_st
     }
 </style>
 
- 

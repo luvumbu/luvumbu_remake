@@ -1,5 +1,5 @@
 <?php
-ini_set('memory_limit', '256M'); // ou plus si besoin
+ini_set('memory_limit', '900M'); // ou plus si besoin
 
 function parcourirDossier($racine, $chaineRecherche, $mode = 1) {
     if (!is_dir($racine)) {

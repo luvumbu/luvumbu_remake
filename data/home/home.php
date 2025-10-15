@@ -30,7 +30,7 @@
          </li>
          <li>
              <img width="20" height="20" src="https://img.icons8.com/pulsar-gradient/20/women-shoe-side-view.png"
-                 alt="women-shoe-side-view" /> <a href="add_style.php" class="btn-style">Ajouter un style</a>
+                 alt="women-shoe-side-view" /> <a href="data/home/home_add_style.php" class="btn-style">Ajouter un style</a>
          </li>
          <li>
              <a href="mail_programe.php">
