@@ -33,7 +33,7 @@
                  alt="women-shoe-side-view" /> <a href="data/home/home_add_style.php" class="btn-style">Ajouter un style</a>
          </li>
          <li>
-             <a href="mail_programe.php">
+             <a href="data/mail_programe/mail_programe.php">
                  <img width="50" height="50" src="https://img.icons8.com/ios/50/mail.png" alt="mail" />
 
              </a>

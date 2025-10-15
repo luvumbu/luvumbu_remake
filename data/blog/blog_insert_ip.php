@@ -70,5 +70,5 @@ $databaseHandler->action_sql("INSERT INTO  `visite` (
     '$url_',
     '$info'
 );");
-//require_once "blog_css.php";
+
 ?>
