@@ -128,11 +128,11 @@ else{
                     <?php
 
 ?>
-                <?= $header_1_pages_projet ?></header>
+                <?= $header_3_pages_projet ?></header>
 
-                <section id="section_select_js_page" class="page_section"><?= $section_1_pages_projet ?></section>
+                <section id="section_select_js_page" class="page_section"><?= $section_3_pages_projet ?></section>
               
-                <footer id="footer_select_js_page" class="page_footer"><?= $footer_1_pages_projet ?></footer>
+                <footer id="footer_select_js_page" class="page_footer"><?= $footer_3_pages_projet ?></footer>
 
             </div>
 
@@ -250,13 +250,13 @@ function selection_style_page_js(_this) {
     function x() {
 
        var ok = new Information("req_sql/updat_selection_style_page.php"); // création de la classe 
-       var header_1_pages_projet = document.getElementById("header_select_js_page").innerHTML ; 
-       var section_1_pages_projet = document.getElementById("section_select_js_page").innerHTML ; 
-       var footer_1_pages_projet = document.getElementById("footer_select_js_page").innerHTML ; 
+       var header_3_pages_projet = document.getElementById("header_select_js_page").innerHTML ; 
+       var section_3_pages_projet = document.getElementById("section_select_js_page").innerHTML ; 
+       var footer_3_pages_projet = document.getElementById("footer_select_js_page").innerHTML ; 
      
-        ok.add("header_1_pages_projet", header_1_pages_projet); // ajout de l'information pour lenvoi 
-        ok.add("section_1_pages_projet", section_1_pages_projet); // ajout de l'information pour lenvoi 
-        ok.add("footer_1_pages_projet", footer_1_pages_projet); // ajout de l'information pour lenvoi 
+        ok.add("header_3_pages_projet", header_3_pages_projet); // ajout de l'information pour lenvoi 
+        ok.add("section_3_pages_projet", section_3_pages_projet); // ajout de l'information pour lenvoi 
+        ok.add("footer_3_pages_projet", footer_3_pages_projet); // ajout de l'information pour lenvoi 
        
         console.log(ok.info()); // demande l'information dans le tableau
         ok.push(); // envoie l'information au code pkp 

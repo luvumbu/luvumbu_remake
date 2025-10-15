@@ -24,37 +24,46 @@ require_once "data/blog/blog_index_1_0 _css.php" ;
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Gowun+Dodum&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Gowun+Dodum&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Gowun+Dodum&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Gowun+Dodum&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+    rel="stylesheet">
 <style>
-  .story-box select,.play,.pause,.stop {
- 
-width: 100px;
-padding: 12px;
-background-color: rgba(0, 0, 0, 0.1);
-border: 1px solid rgba(0, 0, 0, 0.1);
-color: rgba(0, 0, 0, 0.6);
+.story-box select,
+.play,
+.pause,
+.stop {
 
- 
-  }
+    width: 100px;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.6);
 
-    .story-box select:hover,.play:hover,.pause:hover,.stop:hover {
- 
-width: 100px;
-padding: 12px;
-background-color: rgba(146, 55, 55, 0.2);
-border: 1px solid rgba(66, 40, 138, 0.2);
-color: rgba(0, 0, 0, 0.6);
-cursor: pointer;
- 
-  }
 
+}
+
+.story-box select:hover,
+.play:hover,
+.pause:hover,
+.stop:hover {
+
+    width: 100px;
+    padding: 12px;
+    background-color: rgba(146, 55, 55, 0.2);
+    border: 1px solid rgba(66, 40, 138, 0.2);
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+
+}
 </style>
 
 <style>
-  /*
+/*
  body{
   font-family: "Audiowide", sans-serif;
   font-weight: 400;
@@ -62,94 +71,93 @@ cursor: pointer;
 }
   */
 </style>
- 
+
 
 <style>
 body {
-  font-family: "Audiowide", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
-
 </style>
 <script>
-  class SpeechController {
+class SpeechController {
     constructor(text, options = {}) {
-      this.text = text;
-      this.lang = options.lang || 'fr-FR';
-      this.voiceSelect = document.getElementById(options.voiceSelectId);
-      this.playBtn = document.getElementById(options.playBtnId);
-      this.pauseBtn = document.getElementById(options.pauseBtnId);
-      this.stopBtn = document.getElementById(options.stopBtnId);
-      this.isPaused = false;
-      this.utterance = null;
+        this.text = text;
+        this.lang = options.lang || 'fr-FR';
+        this.voiceSelect = document.getElementById(options.voiceSelectId);
+        this.playBtn = document.getElementById(options.playBtnId);
+        this.pauseBtn = document.getElementById(options.pauseBtnId);
+        this.stopBtn = document.getElementById(options.stopBtnId);
+        this.isPaused = false;
+        this.utterance = null;
 
-      this._loadVoices();
-      this._setupEvents();
+        this._loadVoices();
+        this._setupEvents();
     }
 
     _loadVoices() {
-      const load = () => {
-        let voices = speechSynthesis.getVoices();
-        if (!voices.length) return setTimeout(load, 50); // attendre les voix
-        this.voiceSelect.innerHTML = '';
-        voices.forEach(voice => {
-          const option = document.createElement('option');
-          option.value = voice.name;
-          option.textContent = `${voice.name} (${voice.lang})`;
-          if (voice.lang.startsWith('fr')) option.textContent += ' 🇫🇷';
-          this.voiceSelect.appendChild(option);
-        });
-        const defaultVoice = voices.find(v => v.lang.startsWith('fr')) || voices[0];
-        if (defaultVoice) this.voiceSelect.value = defaultVoice.name;
-      };
-      load();
-      speechSynthesis.onvoiceschanged = load;
+        const load = () => {
+            let voices = speechSynthesis.getVoices();
+            if (!voices.length) return setTimeout(load, 50); // attendre les voix
+            this.voiceSelect.innerHTML = '';
+            voices.forEach(voice => {
+                const option = document.createElement('option');
+                option.value = voice.name;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                if (voice.lang.startsWith('fr')) option.textContent += ' 🇫🇷';
+                this.voiceSelect.appendChild(option);
+            });
+            const defaultVoice = voices.find(v => v.lang.startsWith('fr')) || voices[0];
+            if (defaultVoice) this.voiceSelect.value = defaultVoice.name;
+        };
+        load();
+        speechSynthesis.onvoiceschanged = load;
     }
 
     _setupEvents() {
-      this.playBtn.addEventListener('click', () => this.play());
-      this.pauseBtn.addEventListener('click', () => this.pause());
-      this.stopBtn.addEventListener('click', () => this.stop());
-      this.voiceSelect.addEventListener('change', () => this.changeVoice());
+        this.playBtn.addEventListener('click', () => this.play());
+        this.pauseBtn.addEventListener('click', () => this.pause());
+        this.stopBtn.addEventListener('click', () => this.stop());
+        this.voiceSelect.addEventListener('change', () => this.changeVoice());
     }
 
     play() {
-      if (this.isPaused) {
-        speechSynthesis.resume();
-        this.isPaused = false;
-        return;
-      }
-      speechSynthesis.cancel();
-      this.utterance = new SpeechSynthesisUtterance(this.text);
-      this.utterance.lang = this.lang;
-      const voices = speechSynthesis.getVoices();
-      let selectedVoice = voices.find(v => v.name === this.voiceSelect.value) || voices[0];
-      this.utterance.voice = selectedVoice;
-      speechSynthesis.speak(this.utterance);
+        if (this.isPaused) {
+            speechSynthesis.resume();
+            this.isPaused = false;
+            return;
+        }
+        speechSynthesis.cancel();
+        this.utterance = new SpeechSynthesisUtterance(this.text);
+        this.utterance.lang = this.lang;
+        const voices = speechSynthesis.getVoices();
+        let selectedVoice = voices.find(v => v.name === this.voiceSelect.value) || voices[0];
+        this.utterance.voice = selectedVoice;
+        speechSynthesis.speak(this.utterance);
     }
 
     pause() {
-      if (speechSynthesis.speaking && !speechSynthesis.paused) {
-        speechSynthesis.pause();
-        this.isPaused = true;
-      }
+        if (speechSynthesis.speaking && !speechSynthesis.paused) {
+            speechSynthesis.pause();
+            this.isPaused = true;
+        }
     }
 
     stop() {
-      speechSynthesis.cancel();
-      this.isPaused = false;
+        speechSynthesis.cancel();
+        this.isPaused = false;
     }
 
     changeVoice() {
-      if (speechSynthesis.speaking || speechSynthesis.paused) {
-        this.stop();
-        this.play();
-      }
+        if (speechSynthesis.speaking || speechSynthesis.paused) {
+            this.stop();
+            this.play();
+        }
     }
-  }
+}
 </script>
- 
+
 <?php
 
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
@@ -215,6 +223,9 @@ if ($id_projet) {
 
 
 
+
+ 
+
   $id_user_b_               = $id_user_b[0];
   $date_user_b_             = $date_user_b[0];
   $id_sha1_user_b_          = $id_sha1_user_b[0];
@@ -248,9 +259,10 @@ if ($id_projet) {
 
 
 
-  <!DOCTYPE html>
-  <html lang="fr">
-  <head>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php
@@ -271,10 +283,10 @@ if ($id_projet) {
 
     ?>
     <title><?= replace_element_2(AsciiConverter::asciiToString($google_title_projet[0])) ?></title>
-  </head>
+</head>
 
-  <body>
-  <?php
+<body>
+    <?php
   $password_projet_1 = AsciiConverter::stringToAscii($_SESSION["password_projet"]);
   $password_projet_2 = $password_projet[0];
 
@@ -328,68 +340,80 @@ require_once "data/blog/blog_insert_ip.php" ;
 
   ?>
 
- <style>
-  .section_3_1{
-    background-color: black;
-    padding: 15px;
-    width: 300px;
-    text-align: center;
+    <style>
+    .section_3_1 {
+        background-color: black;
+        padding: 15px;
+        width: 300px;
+        text-align: center;
 
-  }
-  .section_3_1 a {
-    color: white;
-    text-decoration: none;
-  }
+    }
+
+    .section_3_1 a {
+        color: white;
+        text-decoration: none;
+    }
 
 
 
-/* --- Défilement fluide --- */
-html {
-  scroll-behavior: smooth;
-}
+    /* --- Défilement fluide --- */
+    html {
+        scroll-behavior: smooth;
+    }
 
-/* --- Couleur du scroll (barre de défilement) --- */
-/* Pour Chrome, Edge, Safari */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f1f1; /* fond clair */
-}
-::-webkit-scrollbar-thumb {
-  background: #000; /* barre noire */
-  border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #333; /* légèrement gris au survol */
-}
+    /* --- Couleur du scroll (barre de défilement) --- */
+    /* Pour Chrome, Edge, Safari */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
 
-/* Pour Firefox */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: #000 #f1f1f1;
-}
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        /* fond clair */
+    }
 
- 
+    ::-webkit-scrollbar-thumb {
+        background: #000;
+        /* barre noire */
+        border-radius: 5px;
+    }
 
- </style>
+    ::-webkit-scrollbar-thumb:hover {
+        background: #333;
+        /* légèrement gris au survol */
+    }
 
- <style>
-section {
-  width: 100%;                  /* occupe toute la largeur disponible */
-  max-width: 100%;              /* empêche de dépasser le conteneur */
-  padding: 10px;                /* espace intérieur */
- 
-  white-space: normal;          /* autorise le retour à la ligne */
-  word-break: break-word;       /* coupe les mots trop longs si possible */
-  overflow-wrap: break-word;    /* compatibilité navigateurs */
-  box-sizing: border-box;       /* inclut padding dans la largeur */
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  
-  overflow-x: auto;             /* scroll horizontal si ça dépasse */
-  overflow-y: hidden;           /* pas de scroll vertical */
-}
+    /* Pour Firefox */
+    html {
+        scrollbar-width: thin;
+        scrollbar-color: #000 #f1f1f1;
+    }
+    </style>
 
-</style>
+    <style>
+    section {
+        width: 100%;
+        /* occupe toute la largeur disponible */
+        max-width: 100%;
+        /* empêche de dépasser le conteneur */
+        padding: 10px;
+        /* espace intérieur */
+
+        white-space: normal;
+        /* autorise le retour à la ligne */
+        word-break: break-word;
+        /* coupe les mots trop longs si possible */
+        overflow-wrap: break-word;
+        /* compatibilité navigateurs */
+        box-sizing: border-box;
+        /* inclut padding dans la largeur */
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+
+        overflow-x: auto;
+        /* scroll horizontal si ça dépasse */
+        overflow-y: hidden;
+        /* pas de scroll vertical */
+    }
+    </style>
