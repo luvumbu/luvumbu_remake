@@ -1,5 +1,4 @@
 <?php
-
       for ($i = 0; $i < count($title_projet_a); $i++) {
 
      $title_projet_a_1 =     replace_element_1(AsciiConverter::asciiToString($title_projet_a[$i]))  ;
@@ -24,26 +23,10 @@
             echo '</h1>';
             echo '</div>';
 
-
-
-
-
-
- 
- 
-
 $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet`="'.$id_sha1_projet_a[$i].'" ';
 $db = new DatabaseHandler($dbname, $username);
 // Appel de la fonction
 $result = $db->know_variables_name("projet", "x", $req_sql);
-
-
-
-
-
-
-
-
 
 
 
@@ -78,46 +61,18 @@ for ($ii = 0; $ii < count($id_projet_imgx); $ii++) {
 
 echo "</div>";
 
-
-
-
-
-
-
-
-
-
- 
-
-
- 
-
-
-
-
-
-
 echo '<div class="date_inscription">' ; 
 echo format_date_europeenne($date_inscription_projet_a[$i]) ;
 echo '</div>' ; 
 
 
-
-
 if($description_projet_toggle_a[$i]!=""){
-?>
-
-<?php
 echo '<div class="description_2_1">';
 echo "<p>";
-
 echo  $description_projet_a_1;
 echo '</p>';
 echo '</div>';
 
-?>
-
-<?php
 }
 else{
 echo '<div class="description_2_2">';
@@ -128,13 +83,6 @@ echo '</div>';
 
 }
 
- 
- 
-
-
-
-
-
 $description_projet_boucle = $description_projet ; 
  $nombre_0 = $i;
  
@@ -142,27 +90,12 @@ $description_projet_boucle = $description_projet ;
 if($id_sha1_projet_song_a[$i]!=""){
   require "data/blog/blog_index_1_1_audio_1.php" ; 
 }
- 
-
-
-
-
             $img_user_b_ = $img_projet_src1_a[$i];
-
-
-
-
             ?>
 <div class="section_3_1">
     <a href="<?= $id_sha1_projet_a[$i] ?>" class="cta-button cta-primary">Voir page compléte</a>
 </div>
-
 <?php
-
  require_once "data/blog/blog_index_1_1.php"; 
-
-
         }
-
-
-        ?>
+ ?>

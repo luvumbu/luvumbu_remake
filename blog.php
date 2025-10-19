@@ -3,7 +3,7 @@ require_once "data/all/requare_one_1.php";
 require_once "Class/SessionTracker.php";
 $stories = array();
 
-
+/*
 require_once "data/blog/blog_index_head_8_css.php" ;  
 require_once "data/blog/blog_index_1_0_css.php" ; 
 require_once "data/blog/blog_index_1_1_css.php" ; 
@@ -11,7 +11,7 @@ require_once "data/blog/blog_index_2_css.php" ;
 require_once "data/blog/blog_index_3_css.php" ; 
 require_once "data/blog/blog_index_head_8_css.php" ; 
 require_once "data/blog/carouselles/carouselle_3_css.php" ; 
-
+*/
 
  
  

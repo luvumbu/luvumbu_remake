@@ -586,11 +586,9 @@ if ($id_sha1_user_projet_class == "") {
             <?php 
 
 
-require_once "data/home/home_select_page_html.php";
+require_once "data/home/home_select_page_all.php";
  
-
-require_once "data/home/home_select_page_css.php";
-require_once "data/home/home_select_page_js.php";
+ 
  
 
 ?>

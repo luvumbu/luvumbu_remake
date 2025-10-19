@@ -25,41 +25,77 @@ $id_sha1_user_projet__ = $dynamicVariables['id_sha1_user_projet'][0];
 
  
 
- $header_1_pages_projet = $dynamicVariables["header_1_pages_projet"][0] ; 
- $section_1_pages_projet = $dynamicVariables["section_1_pages_projet"][0] ; 
- $footer_1_pages_projet = $dynamicVariables["footer_1_pages_projet"][0] ; 
+ $header_html_pages_projet = $dynamicVariables["header_html_pages_projet"][0] ; 
+  $header_css_pages_projet = $dynamicVariables["header_css_pages_projet"][0] ; 
+   $header_js_pages_projet = $dynamicVariables["header_js_pages_projet"][0] ; 
+    $header_sql_pages_projet = $dynamicVariables["header_sql_pages_projet"][0] ; 
+     $header_src_pages_projet = $dynamicVariables["header_src_pages_projet"][0] ; 
+
+
+     
+ $section_html_pages_projet = $dynamicVariables["section_html_pages_projet"][0] ; 
+  $section_css_pages_projet = $dynamicVariables["section_css_pages_projet"][0] ; 
+   $section_js_pages_projet = $dynamicVariables["section_js_pages_projet"][0] ; 
+    $section_sql_pages_projet = $dynamicVariables["section_sql_pages_projet"][0] ; 
+     $section_src_pages_projet = $dynamicVariables["section_src_pages_projet"][0] ; 
 
 
 
+     
+ $section_child_html_pages_projet = $dynamicVariables["section_child_html_pages_projet"][0] ; 
+  $section_child_css_pages_projet = $dynamicVariables["section_child_css_pages_projet"][0] ; 
+   $section_child_js_pages_projet = $dynamicVariables["section_child_js_pages_projet"][0] ; 
+    $section_child_sql_pages_projet = $dynamicVariables["section_child_sql_pages_projet"][0] ; 
+     $section_child_src_pages_projet = $dynamicVariables["section_child_src_pages_projet"][0] ; 
 
-  $header_2_pages_projet = $dynamicVariables["header_2_pages_projet"][0] ; 
- $section_2_pages_projet = $dynamicVariables["section_2_pages_projet"][0] ; 
- $footer_2_pages_projet = $dynamicVariables["footer_2_pages_projet"][0] ; 
 
+     
+ $footer_html_pages_projet = $dynamicVariables["footer_html_pages_projet"][0] ; 
+  $footer_css_pages_projet = $dynamicVariables["footer_css_pages_projet"][0] ; 
+   $footer_js_pages_projet = $dynamicVariables["footer_js_pages_projet"][0] ; 
+    $footer_sql_pages_projet = $dynamicVariables["footer_sql_pages_projet"][0] ; 
+     $footer_src_pages_projet = $dynamicVariables["footer_src_pages_projet"][0] ; 
+ 
+  
 
-
-   $header_3_pages_projet = $dynamicVariables["header_3_pages_projet"][0] ; 
- $section_3_pages_projet = $dynamicVariables["section_3_pages_projet"][0] ; 
- $footer_3_pages_projet = $dynamicVariables["footer_3_pages_projet"][0] ;
  
  
+$home_select_page_all_array = [
+    // HEADER
+    $dynamicVariables["header_html_pages_projet"][0],
+    $dynamicVariables["header_css_pages_projet"][0],
+    $dynamicVariables["header_js_pages_projet"][0],
+    $dynamicVariables["header_sql_pages_projet"][0],
+    $dynamicVariables["header_src_pages_projet"][0],
+
+    // SECTION
+    $dynamicVariables["section_html_pages_projet"][0],
+    $dynamicVariables["section_css_pages_projet"][0],
+    $dynamicVariables["section_js_pages_projet"][0],
+    $dynamicVariables["section_sql_pages_projet"][0],
+    $dynamicVariables["section_src_pages_projet"][0],
+
+    // SECTION CHILD
+    $dynamicVariables["section_child_html_pages_projet"][0],
+    $dynamicVariables["section_child_css_pages_projet"][0],
+    $dynamicVariables["section_child_js_pages_projet"][0],
+    $dynamicVariables["section_child_sql_pages_projet"][0],
+    $dynamicVariables["section_child_src_pages_projet"][0],
+
+    // FOOTER
+    $dynamicVariables["footer_html_pages_projet"][0],
+    $dynamicVariables["footer_css_pages_projet"][0],
+    $dynamicVariables["footer_js_pages_projet"][0],
+    $dynamicVariables["footer_sql_pages_projet"][0],
+    $dynamicVariables["footer_src_pages_projet"][0]
+];
+ 
+
+ 
 
 
-
-$header_1_pages_projet_check_box = $dynamicVariables["header_1_pages_projet_check_box"][0] ;
-$header_2_pages_projet_check_box = $dynamicVariables["header_2_pages_projet_check_box"][0] ;
-$header_3_pages_projet_check_box = $dynamicVariables["header_3_pages_projet_check_box"][0] ;
-$section_1_pages_projet_check_box = $dynamicVariables["section_1_pages_projet_check_box"][0] ;
-$section_2_pages_projet_check_box = $dynamicVariables["section_2_pages_projet_check_box"][0] ;
-$section_3_pages_projet_check_box = $dynamicVariables["section_3_pages_projet_check_box"][0] ;
-$footer_1_pages_projet_check_box = $dynamicVariables["footer_1_pages_projet_check_box"][0] ;
-$footer_2_pages_projet_check_box = $dynamicVariables["footer_2_pages_projet_check_box"][0] ;
-$footer_3_pages_projet_check_box = $dynamicVariables["footer_3_pages_projet_check_box"][0] ;
-
-
-
-
-
+ 
+ 
 
 
 

@@ -22,12 +22,10 @@ $isBurger = $longueur > 60;
 <style>
 /* ==================== BASE ==================== */
 body {
-  font-family: "Audiowide", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+ 
   margin: 0;
   padding: 0;
-  color: white;
+ 
 }
 
 /* ==================== MENU TAILLE ==================== */

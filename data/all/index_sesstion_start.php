@@ -99,6 +99,8 @@ require_once $pathGiveUrl;
 require_once $pathNettoyerTexte;
 require_once $removeHtmlTags;
 require_once $getFileExtension;
+
+require_once "Class/getFilesFromDir.php" ;
 // Variable dépendante des inclusions
 $urlParams = str_replace('index.php/', '', parse_url($requestUri, PHP_URL_PATH));
 $urlPath = parse_url($requestUri, PHP_URL_PATH);
