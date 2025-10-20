@@ -41,16 +41,11 @@ $result = $db->know_variables_name("projet", "x", $req_sql);
 
 
 
- 
 
 
 
- 
-?>
 
 
-
-<?php
 
 
 $req_sql = 'SELECT * FROM `projet_img` WHERE `id_sha1_projet_img`="'.$id_sha1_projet_a[$i].'" ';
@@ -82,9 +77,6 @@ for ($ii = 0; $ii < count($id_projet_imgx); $ii++) {
 }
 
 echo "</div>";
-
-
-
 
 
 
@@ -152,20 +144,6 @@ if($id_sha1_projet_song_a[$i]!=""){
 }
  
 
-/*
-var_dump($id_sha1_projetx) ;
-
-
-var_dump($img_projet_src1x) ; 
-
-
- 
-$chemin = "ploads/1760890983_9_1760891043.jpg";
-$extension = pathinfo($chemin, PATHINFO_EXTENSION);
-
-echo $extension; // Affiche : jpg
-*/
-
 
 
 
@@ -178,84 +156,8 @@ echo $extension; // Affiche : jpg
 <div class="section_3_1">
     <a href="<?= $id_sha1_projet_a[$i] ?>" class="cta-button cta-primary">Voir page compléte</a>
 </div>
-<div class="child_imgs_all"> 
+
 <?php
-
-
- 
-
-for ($yy=0; $yy < count($id_sha1_projetx); $yy++) { 
- 
- // echo $img_projet_src1x[$yy];
-
-
-$chemin = $img_projet_src1x[$yy];
-$extension = pathinfo($chemin, PATHINFO_EXTENSION);
-
-
-
-$imgx = '../img_dw/'.str_replace(".".$extension,"",$img_projet_src1x[$yy]).'_400px.' . $extension;
-
-$imgx = str_replace("uploads/","uploads/copy/",$imgx);
-
-//echo $extension; // Affiche : jpg
-
- 
-
-
-//var_dump($imgx) ;
- 
-
-
- 
- 
-
-
-?>
-<a href="<?= $id_sha1_projetx[$yy]?>" class="no_decoration">
-
-
-<div class="child_imgs">
-    
-
-    <?php 
-
-if(strlen($imgx)>20){
-
-
- 
-  ?>
-
-<img src="<?= $imgx?>" alt="" srcset="">
-<?php 
-}
-else{
-  ?>
-<img src="https://cdn.pixabay.com/animation/2022/11/16/14/56/14-56-49-778_512.gif" alt="" srcset="">
-
-
-<?php 
-}
-?>
-<p>
-  <?=
-
- 
-$resultat = substr(replace_element_2(AsciiConverter::asciiToString($title_projetx[$yy])), 0, 5); // 0 = début, 5 = longueur
-echo $resultat;
-
-  ?>
-</p>
-</div>
-</a>
-<?php 
-
-}
-
-?>
-
-</div>
-<?php 
 
  require_once "data/blog/blog_index_1_1.php"; 
 
@@ -264,47 +166,3 @@ echo $resultat;
 
 
         ?>
-
-<style>
-.child_imgs img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    /* L’image remplit la zone sans déformation */
-    border-radius: 8px;
-    /* optionnel : coins arrondis */
-  box-shadow: 1px 2px 1px   rgba(0, 0, 0, 0.9);
-cursor: pointer;
-
-}
-.child_imgs img:hover {
- 
-  box-shadow: 1px 2px 4px   rgba(0, 0, 0, 0.9);
-
-}
-.child_imgs_all{
-  display: flex;
-  justify-content: space-around;
-
-  margin-top: 100px;
-  margin-bottom: 100px;
-  flex-wrap: wrap;
-
-}
-.child_imgs_all div{
-}
-.child_imgs p {
- 
-  text-align: center;
-  margin-bottom: 45px;
-}
-.no_decoration{
-  text-decoration: none;
-  padding: 10px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.9);
-  border-radius: 9px;
-  margin-bottom: 100px;
-
-}
-</style>

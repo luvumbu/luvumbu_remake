@@ -1,9 +1,14 @@
 <?php
 require_once "data/all/requare_one_1.php";
 require_once "Class/SessionTracker.php";
+require_once "Class/SpeechController.php";
+
 $stories = array();
 
-/*
+
+
+
+ 
 require_once "data/blog/blog_index_head_8_css.php" ;  
 require_once "data/blog/blog_index_1_0_css.php" ; 
 require_once "data/blog/blog_index_1_1_css.php" ; 
@@ -11,14 +16,10 @@ require_once "data/blog/blog_index_2_css.php" ;
 require_once "data/blog/blog_index_3_css.php" ; 
 require_once "data/blog/blog_index_head_8_css.php" ; 
 require_once "data/blog/carouselles/carouselle_3_css.php" ; 
-*/
+ 
 
  
  
- 
-/*require_once "data/blog/blog_index_1_0 _css.php" ; 
-require_once "data/blog/blog_index_1_0 _css.php" ; 
-*/
 
 ?>
 
@@ -32,55 +33,9 @@ require_once "data/blog/blog_index_1_0 _css.php" ;
 <link
     href="https://fonts.googleapis.com/css2?family=Audiowide&family=Gowun+Dodum&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
     rel="stylesheet">
-<style>
-.story-box select,
-.play,
-.pause,
-.stop {
-
-    width: 100px;
-    padding: 12px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0.6);
-
-
-}
-
-.story-box select:hover,
-.play:hover,
-.pause:hover,
-.stop:hover {
-
-    width: 100px;
-    padding: 12px;
-    background-color: rgba(146, 55, 55, 0.2);
-    border: 1px solid rgba(66, 40, 138, 0.2);
-    color: rgba(0, 0, 0, 0.6);
-    cursor: pointer;
-
-}
-</style>
-
-<style>
-/*
- body{
-  font-family: "Audiowide", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-  */
-</style>
-
-
-<style>
-body {
-    font-family: "Audiowide", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-</style>
+ 
 <script>
+    
 class SpeechController {
     constructor(text, options = {}) {
         this.text = text;
@@ -156,6 +111,8 @@ class SpeechController {
         }
     }
 }
+
+
 </script>
 
 <?php
@@ -341,8 +298,10 @@ require_once "data/blog/blog_insert_ip.php" ;
   ?>
 
     <style>
+
+        /*
     .section_3_1 {
-        background-color: black;
+    
         padding: 15px;
         width: 300px;
         text-align: center;
@@ -356,64 +315,91 @@ require_once "data/blog/blog_insert_ip.php" ;
 
 
 
-    /* --- Défilement fluide --- */
+  
     html {
         scroll-behavior: smooth;
     }
 
-    /* --- Couleur du scroll (barre de défilement) --- */
-    /* Pour Chrome, Edge, Safari */
+  
     ::-webkit-scrollbar {
         width: 10px;
     }
 
     ::-webkit-scrollbar-track {
         background: #f1f1f1;
-        /* fond clair */
+      
     }
 
     ::-webkit-scrollbar-thumb {
         background: #000;
-        /* barre noire */
+     
         border-radius: 5px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
         background: #333;
-        /* légèrement gris au survol */
+      
     }
 
-    /* Pour Firefox */
+  
     html {
         scrollbar-width: thin;
         scrollbar-color: #000 #f1f1f1;
     }
-    </style>
-
-    <style>
+ 
     section {
         width: 100%;
-        /* occupe toute la largeur disponible */
+       
         max-width: 100%;
-        /* empêche de dépasser le conteneur */
+         
         padding: 10px;
-        /* espace intérieur */
+       
 
         white-space: normal;
-        /* autorise le retour à la ligne */
+      
         word-break: break-word;
-        /* coupe les mots trop longs si possible */
+        
         overflow-wrap: break-word;
-        /* compatibilité navigateurs */
+        
         box-sizing: border-box;
-        /* inclut padding dans la largeur */
+         
         font-family: Arial, sans-serif;
         font-size: 16px;
         line-height: 1.5;
 
         overflow-x: auto;
-        /* scroll horizontal si ça dépasse */
+         
         overflow-y: hidden;
-        /* pas de scroll vertical */
+         
+    }  
+    body{
+        color:     rgba(0, 0, 0, 0.9);
     }
+    .section_3_1{
+        background-color:  rgba(0, 0, 0, 0.9);
+        padding: 15px;
+        width: 300px;
+margin: auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        text-align: center;
+
+    }
+    .section_3_1 a {
+        text-decoration: none;
+        color: white;
+
+    }
+    .main-header{
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+      */
+       body {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+ 
+}
     </style>

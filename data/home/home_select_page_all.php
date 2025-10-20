@@ -285,19 +285,82 @@ else{
 
             </div>
 
-            <div class="legend">
-                <?php foreach($elementColors as $el): ?>
-                <div class="legend-item">
-                    <div class="color-display" style="background:<?= $el['color'] ?>"><?= $el['number'] ?></div>
-                    <span><?= $el['name'] ?></span>
-                </div>
-                <?php endforeach; ?>
-            </div>
+
         </div>
         <?php endforeach; ?>
     </div>
 
  
+<div class="legend">
+    <?php 
+    $count = count($elementColors);
+    for ($i = 0; $i < $count; $i++): 
+        $el = $elementColors[$i];
+    ?>
+        <div class="legend-item">
+            <div class="color-display" style="background:<?= $el['color'] ?>"><?= $el['number'] ?></div>
+            <div><?= $el['name'] ?></div>
+        </div>
+
+        <?php if (($i + 1) % 3 === 0): ?>
+            <div class="barr_noir"></div>
+        <?php endif; ?>
+
+    <?php endfor; ?>
+</div>
+
+<style>
+.legend {
+    display: flex;
+    flex-wrap: wrap; /* permet de passer à la ligne automatiquement */
+    gap: 10px; /* espace entre les éléments */
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    
+
+}
+.legend-item div{
+ 
+    width: 100%;
+    text-align: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: #f5f5f5;
+    flex: 1 1 calc(33.333% - 20px); /* 3 items par ligne */
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+
+}
+
+.color-display {
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.barr_noir {
+    height: 2px;
+    background-color: #f5f5f562;
+    width: 100%;
+    margin: 6px 0;
+}
+</style>
+
+
 
 
     <script>
@@ -470,6 +533,8 @@ else{
     });
     </script>
 
+
+ 
 </body>
 
 </html>

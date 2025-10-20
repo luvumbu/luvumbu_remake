@@ -5,11 +5,6 @@ $description_projet_0=  AsciiConverter::asciiToString($description_projet[0]);
  
  
 
- 
- 
-
- 
-
 
  
 if($title_projet_toggle[0]==""){

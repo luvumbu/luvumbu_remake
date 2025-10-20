@@ -34,7 +34,7 @@ body {
 
 .nav-menu a {
   text-decoration: none;
-  color: black;
+  color: rgba(0, 0, 0, 0.9) ;
   font-size: 14px;
 }
 
@@ -54,7 +54,7 @@ body {
 
 .burger span {
   height: 2px;
-  background: black;
+  background: rgba(0, 0, 0, 0.9);
   border-radius: 1px;
 }
 

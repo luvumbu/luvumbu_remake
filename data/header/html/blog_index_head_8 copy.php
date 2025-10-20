@@ -27,7 +27,7 @@ body {
   font-style: normal;
   margin: 0;
   padding: 0;
-  color: white;
+ 
 }
 
 /* ==================== MENU TAILLE ==================== */
@@ -39,16 +39,15 @@ body {
 
 /* ==================== HEADER ==================== */
 .main-header {
-  width: 100%;
-  padding: 15px 30px;
-  background: #111;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-sizing: border-box;
+  padding: 12px 32px;
+  border-bottom: 1px solid #ddd; /* fine ligne grise */
+  background-color: white;       /* fond blanc */
+  letter-spacing: 2px;
   position: relative;
   z-index: 1000;
-  color: white;
 }
 
 /* LOGO / TITRE */
@@ -67,11 +66,12 @@ body {
   cursor: pointer;
   z-index: 1001;
 }
+ 
 
 .burger span {
   display: block;
   height: 3px;
-  background: #fff;
+  background: #550a0aff;
   border-radius: 2px;
   transition: 0.3s;
 }
@@ -85,7 +85,7 @@ body {
 }
 
 .nav-menu a {
-  color: #fff;
+ 
   text-decoration: none;
   font-size: 1.1rem;
   transition: color 0.2s;
@@ -93,6 +93,11 @@ body {
 
 .nav-menu a:hover {
   color: orange;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: black;
 }
 
 /* BURGER ANIMATION */
@@ -106,7 +111,7 @@ body {
   position: fixed;
   top: 0; right: 0;
   height: 100vh; width: 220px;
-  background: #111;
+  background: #ffffffff;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -125,7 +130,8 @@ body {
     position: fixed;
     top: 0; right: 0;
     height: 100vh; width: 220px;
-    background: #111;
+    background: #ffffffff;
+box-shadow: 1px 2px 2px black;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -179,6 +185,3 @@ document.addEventListener('click', (e) => {
   }
 });
 </script>
-
-
- 

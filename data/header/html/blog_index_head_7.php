@@ -179,6 +179,3 @@ document.addEventListener('click', (e) => {
   }
 });
 </script>
-
-
- 
