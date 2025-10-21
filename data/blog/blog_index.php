@@ -6,14 +6,15 @@ $nombre = 7;
  
   $header_1_pages_projet_ = $header_1_pages_projet[0] ; 
  
-if( $header_1_pages_projet_!=""){
- require_once "data/blog/header/html/blog_index_head_{$nombre}.php";
- // require_once "data/blog/header/html/{$header_1_pages_projet_}";
-}
-else{
- require_once "data/blog/header/html/blog_index_head_{$nombre}.php";
-  //require_once "data/blog/header/html/{$header_1_pages_projet_}";
-}
+
+ 
+ 
+
+
+require_once "data/blog/header/html/".$header_html_pages_projet[0];
+
+
+ 
  
 echo '<section class="section_1">';
 require_once "data/blog/section/html/section_1.php";

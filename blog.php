@@ -9,6 +9,9 @@ $stories = array();
 
 
  
+
+  
+
 require_once "data/blog/blog_index_head_8_css.php" ;  
 require_once "data/blog/blog_index_1_0_css.php" ; 
 require_once "data/blog/blog_index_1_1_css.php" ; 
@@ -309,7 +312,7 @@ require_once "data/blog/blog_insert_ip.php" ;
     }
 
     .section_3_1 a {
-        color: white;
+       
         text-decoration: none;
     }
 
@@ -355,7 +358,7 @@ require_once "data/blog/blog_insert_ip.php" ;
         padding: 10px;
        
 
-        white-space: normal;
+ 
       
         word-break: break-word;
         
@@ -387,7 +390,7 @@ margin: auto;
     }
     .section_3_1 a {
         text-decoration: none;
-        color: white;
+       
 
     }
     .main-header{
@@ -402,4 +405,94 @@ margin: auto;
   padding: 0;
  
 }
+ html {
+  scroll-behavior: smooth; /* rend le défilement progressif */
+}
+
+.btn-scroll {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-scroll:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+#target {
+  margin-top: 1000px; /* juste pour avoir à scroller */
+  padding: 100px;
+  background: #f0f0f0;
+  border-radius: 20px;
+}
+
+.section_3_1{
+  margin-top: 100px;
+}
+.section_3_1 a{
+
+text-decoration: none;
+  color: white;
+  background-color: black;
+ padding: 20px;
+
+
+
+}
+
+.section_3_1 a:hover{
+
+ 
+  background-color: rgba(0, 0, 0, 0.6);
+ 
+
+
+
+}
+.description_1_1 ,.title_1_2,.title_2_2 ,.description_1_2{
+  width: 100%;
+  max-height: 300px; /* hauteur max avant scroll (à ajuster) */
+  overflow-y: auto;  /* active un scroll vertical si ça déborde */
+  overflow-x: auto; /* pas de scroll horizontal */
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+   margin-bottom: 40px;
+}
+
+/* ===== Scroll global pour toute la page ===== */
+body {
+  scrollbar-width: thin; /* pour Firefox */
+  scrollbar-color: #c91432 #f0f0f0; /* curseur / fond */
+}
+
+/* Pour Chrome, Edge et Safari */
+::-webkit-scrollbar {
+  width: 10px; /* largeur du scroll vertical */
+  height: 10px; /* hauteur du scroll horizontal */
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* couleur du fond du rail */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #9b111e, #c91432); /* double rouge rubis */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #b51227, #e01a3d); /* plus vif au survol */
+}
+
+::-webkit-scrollbar-corner {
+  background: #f0f0f0; /* coin entre les barres si présent */
+}
+
+
     </style>
