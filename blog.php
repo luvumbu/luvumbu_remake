@@ -11,7 +11,7 @@ $stories = array();
  
 
   
-
+/*
 require_once "data/blog/blog_index_head_8_css.php" ;  
 require_once "data/blog/blog_index_1_0_css.php" ; 
 require_once "data/blog/blog_index_1_1_css.php" ; 
@@ -19,7 +19,7 @@ require_once "data/blog/blog_index_2_css.php" ;
 require_once "data/blog/blog_index_3_css.php" ; 
 require_once "data/blog/blog_index_head_8_css.php" ; 
 require_once "data/blog/carouselles/carouselle_3_css.php" ; 
- 
+ */
 
  
  
@@ -153,6 +153,8 @@ if ($id_projet) {
   $title_projet_0 =replace_element_2(AsciiConverter::asciiToString($title_projet[0])); 
 
   $img_projet_src1_ = $img_projet_src1[0];
+
+  
   // Requête SQL pour récupérer toutes les données de la table
   $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ="' . $id_sha1_projet[0] . '" ORDER BY `id_sha1_parent_projet` ASC';
   // Instanciation de la classe
@@ -496,3 +498,40 @@ body {
 
 
     </style>
+    <script>
+  // Fonction pour ouvrir la lightbox
+  function openLightbox(src) {
+    // Créer l'élément lightbox
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.style.position = 'fixed';
+    lightbox.style.top = '0';
+    lightbox.style.left = '0';
+    lightbox.style.width = '100%';
+    lightbox.style.height = '100%';
+    lightbox.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    lightbox.style.display = 'flex';
+    lightbox.style.justifyContent = 'center';
+    lightbox.style.alignItems = 'center';
+    lightbox.style.zIndex = '1000';
+
+    // Créer l'image agrandie
+    const img = document.createElement('img');
+    img.src = src;
+    img.style.maxWidth = '90%';
+    img.style.maxHeight = '90%';
+    img.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.5)';
+    img.style.borderRadius = '10px';
+
+    // Ajouter l'image à la lightbox
+    lightbox.appendChild(img);
+
+    // Ajouter la lightbox au corps du document
+    document.body.appendChild(lightbox);
+
+    // Fermer la lightbox au clic
+    lightbox.addEventListener('click', function() {
+      document.body.removeChild(lightbox);
+    });
+  }
+</script>
