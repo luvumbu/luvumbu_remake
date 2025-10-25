@@ -1,152 +1,233 @@
-<?php
-// ✅ Tableau d’options réutilisable
-$test_array = ["Option AA", "Option BN"];
-
-// ✅ Tableau principal des menus
-$allMenus = [
-    "HTML" => [
-        array_merge(["HEADER HTML"], $test_array),
-        array_merge(["HEADER JS"], $test_array),
-        array_merge(["SECTION HTML"], $test_array),
-        array_merge(["SECTION CSS"], $test_array),
-        array_merge(["SECTION JS"], $test_array),
-        array_merge(["SECTION CHILD HTML"], $test_array),
-        array_merge(["SECTION CHILD CSS"], $test_array),
-        array_merge(["SECTION CHILD JS"], $test_array),
-        array_merge(["FOOTER HTML"], $test_array),
-        array_merge(["FOOTER CSS"], $test_array),
-        array_merge(["FOOTER JS"], $test_array)
-    ]
-];
-
-$headerColors = ["#a0d8f1", "#70c1e0", "#3caed6"];
-$sectionColors = ["#a8d5ba", "#7ebf95", "#5fae7b", "#3f9f5e", "#2d8149", "#1f6e3e"];
-$footerColors = ["#d9b382", "#c79c6e", "#b3825c", "#9f6e45"];
-$autoColor = true;
-?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menus multiples PHP + JS</title>
-<style>
-.menu-container { display: flex; align-items: center; gap: 100px; position: relative; border: 1px solid #ccc; padding: 20px; margin-bottom:40px; background:#fff; border-radius:10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);}
-.menu-title { font-size: 50px; font-weight: bold; position: relative; z-index: 2; color:#333; }
-.menu-branches { display: flex; flex-direction: column; justify-content: flex-start; gap: 20px; position: relative; z-index: 2; }
-.menu-branch { display: flex; align-items: center; gap: 10px; }
-.menu-branch select { padding: 5px 10px; font-size: 16px; border: 2px solid #000; cursor: pointer; border-radius: 5px; color:#fff; font-weight:bold; }
-.color-display { width:30px; height:30px; border:1px solid #000; border-radius:5px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold; font-size:14px; }
-.legend { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; border-top:1px solid #ccc; padding-top:10px; }
-.legend-item { display: flex; align-items: center; gap: 5px; font-weight:bold; color:#333; }
-svg.connections { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: visible; z-index: 1; }
-path { fill: none; stroke: #333; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 400; stroke-dashoffset: 400; animation: draw 1.5s ease forwards; }
-path.marker { marker-end: url(#arrow); }
-@keyframes draw { to { stroke-dashoffset: 0; } }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog — Exemple avec recherche</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent: #6ee7b7;
+      --glass: rgba(255,255,255,0.03);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#071022 0%, #0b1220 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    header{
+      padding:18px 28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      position:sticky;
+      top:0;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));
+      border-bottom:1px solid rgba(255,255,255,0.03);
+      z-index:10;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:700;color:#021018
+    }
+    nav ul{display:flex;gap:12px;list-style:none;padding:0;margin:0}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+    nav a:hover{color:var(--accent);background:var(--glass)}
+    .search-wrap{display:flex;align-items:center;gap:8px}
+    .search{
+      display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);
+    }
+    .search input{background:transparent;border:0;outline:none;color:inherit;width:260px}
+    .container{max-width:1100px;margin:28px auto;padding:0 18px}
+
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+
+    /* Main column */
+    main{display:flex;flex-direction:column;gap:16px}
+    .post-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .post-card h2{margin:0 0 6px 0;font-size:1.2rem}
+    .meta{font-size:0.85rem;color:var(--muted);margin-bottom:10px}
+    .excerpt{color:#cfe7ee}
+    .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--muted)}
+
+    /* Sidebar */
+    aside .card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .popular li{margin-bottom:10px}
+    .small{font-size:0.9rem;color:var(--muted)}
+
+    footer{max-width:1100px;margin:28px auto;padding:18px;color:var(--muted);text-align:center}
+
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr;}
+      nav ul{display:none}
+      .search input{width:140px}
+    }
+  </style>
 </head>
 <body>
-
-<div id="menu-root">
-    <?php foreach($allMenus as $title => $menus): ?>
-    <div class="menu-container">
-        <div class="menu-title"><?= $title ?></div>
-        <div class="menu-branches">
-            <?php 
-            $elementColors = [];
-            $sectionIndex = 0;
-            $counter = 1;
-            foreach($menus as $index => $menu): 
-                $elementName = $menu[0];
-                if(strpos($elementName,"HEADER")!==false){
-                    $color = $headerColors[$index % count($headerColors)];
-                } elseif(strpos($elementName,"SECTION")!==false){
-                    $color = $sectionColors[$sectionIndex % count($sectionColors)];
-                    $sectionIndex++;
-                } else { // FOOTER
-                    $color = $footerColors[$index % count($footerColors)];
-                }
-                $elementColors[] = ['name'=>$elementName, 'color'=>$color, 'number'=>$counter];
-            ?>
-            <div class="menu-branch">
-                <select style="background:<?= $color ?>">
-                    <?php foreach($menu as $option): ?>
-                    <option><?= $option ?></option>
-                    <?php endforeach; ?>
-                </select>
-                <div class="color-display" style="background:<?= $color ?>"><?= $counter ?></div>
-            </div>
-            <?php 
-            $counter++;
-            endforeach; 
-            ?>
-        </div>
-
-        <div class="legend">
-            <?php foreach($elementColors as $el): ?>
-            <div class="legend-item">
-                <div class="color-display" style="background:<?= $el['color'] ?>"><?= $el['number'] ?></div>
-                <span><?= $el['name'] ?></span>
-            </div>
-            <?php endforeach; ?>
-        </div>
+  <header>
+    <div class="brand">
+      <div class="logo">B</div>
+      <div>
+        <div style="font-weight:700">Mon Blog</div>
+        <div style="font-size:12px;color:var(--muted)">Écrits — idées — tutoriels</div>
+      </div>
     </div>
-    <?php endforeach; ?>
-</div>
 
-<script>
-function generateConnections(container) {
-    const titleDiv = container.querySelector('.menu-title');
-    const branches = container.querySelectorAll('.menu-branch select');
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Articles</a></li>
+        <li><a href="#">À propos</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
 
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.classList.add('connections');
-    svg.setAttribute("viewBox", `0 0 ${container.offsetWidth} ${container.offsetHeight}`);
+    <div class="search-wrap">
+      <div class="search" role="search" aria-label="Recherche sur le blog">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle></svg>
+        <input id="searchInput" type="search" placeholder="Rechercher par mot-clé..." aria-label="Rechercher" />
+      </div>
+    </div>
+  </header>
 
-    const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
-    const marker = document.createElementNS("http://www.w3.org/2000/svg", "marker");
-    marker.setAttribute("id", "arrow");
-    marker.setAttribute("markerWidth", "10");
-    marker.setAttribute("markerHeight", "10");
-    marker.setAttribute("refX", "8");
-    marker.setAttribute("refY", "3");
-    marker.setAttribute("orient", "auto");
-    const pathArrow = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    pathArrow.setAttribute("d", "M0,0 L0,6 L9,3 z");
-    pathArrow.setAttribute("fill", "#333");
-    marker.appendChild(pathArrow);
-    defs.appendChild(marker);
-    svg.appendChild(defs);
+  <div class="container">
+    <div class="grid">
+      <main id="posts">
+        <!-- Les posts seront inclus ici statiquement pour l'exemple -->
+        <article class="post-card" data-keywords="javascript,tutoriel,web" data-title="Débuter en JavaScript">
+          <h2>Débuter en JavaScript</h2>
+          <div class="meta">Publié le 10 octobre 2025 — Tutoriel</div>
+          <div class="excerpt">Un guide pas-à-pas pour comprendre les bases du langage JavaScript, variables, fonctions, et DOM.</div>
+          <div class="tags"><span class="tag">javascript</span><span class="tag">tutoriel</span><span class="tag">web</span></div>
+        </article>
 
-    const titleRect = titleDiv.getBoundingClientRect();
-    const containerRect = container.getBoundingClientRect();
-    const titleY = titleRect.top - containerRect.top + titleRect.height / 2;
-    const titleX = titleRect.right - containerRect.left;
+        <article class="post-card" data-keywords="css,design,astuce" data-title="Astuce CSS — grilles et responsive">
+          <h2>Astuce CSS — grilles et responsive</h2>
+          <div class="meta">Publié le 3 octobre 2025 — Design</div>
+          <div class="excerpt">Comment construire une grille adaptable et garder un rendu propre sur mobile sans trop de médias queries.</div>
+          <div class="tags"><span class="tag">css</span><span class="tag">design</span></div>
+        </article>
 
-    branches.forEach(branch => {
-        const branchRect = branch.getBoundingClientRect();
-        const branchY = branchRect.top - containerRect.top + branchRect.height / 2;
-        const branchX = branchRect.left - containerRect.left;
+        <article class="post-card" data-keywords="php,backend,exemples" data-title="Organiser son projet PHP">
+          <h2>Organiser son projet PHP</h2>
+          <div class="meta">Publié le 28 septembre 2025 — Backend</div>
+          <div class="excerpt">Bonnes pratiques pour structurer un projet PHP, autoload, controllers, et sécurité basique.</div>
+          <div class="tags"><span class="tag">php</span><span class="tag">backend</span></div>
+        </article>
 
-        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        path.classList.add('marker');
-        const offsetY = (branchY - titleY) * 0.3;
-        const midX = (titleX + branchX) / 2;
-        const midY = titleY + offsetY;
-        path.setAttribute("d",
-            `M${titleX},${titleY} C${midX},${titleY} ${midX},${midY} ${branchX},${branchY}`);
-        svg.appendChild(path);
-    });
+        <article class="post-card" data-keywords="athletisme,entrainement,400m" data-title="Programme pour améliorer le 400m">
+          <h2>Programme pour améliorer le 400m</h2>
+          <div class="meta">Publié le 15 septembre 2025 — Sport</div>
+          <div class="excerpt">Séances hebdomadaires, fractionnés et renforcement pour gagner du temps sur 400 m.</div>
+          <div class="tags"><span class="tag">athletisme</span><span class="tag">entrainement</span></div>
+        </article>
 
-    container.appendChild(svg);
-}
+      </main>
 
-window.addEventListener('load', () => {
-    document.querySelectorAll('.menu-container').forEach(container => {
-        generateConnections(container);
-    });
-});
-</script>
+      <aside>
+        <div class="card">
+          <h3>Rechercher — astuces</h3>
+          <p class="small">Tape un mot-clé (ex: "php", "css", "athletisme") et les articles correspondant s'afficheront automatiquement.</p>
+        </div>
 
+        <div style="height:12px"></div>
+
+        <div class="card">
+          <h3>Articles populaires</h3>
+          <ul class="popular">
+            <li><a href="#">Débuter en JavaScript</a></li>
+            <li><a href="#">Organiser son projet PHP</a></li>
+            <li><a href="#">Astuce CSS — grilles et responsive</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer>
+    © Mon Blog — Exemple. Créé automatiquement.
+  </footer>
+
+  <script>
+    // Recherche par mot-clé simple — filtre en temps réel
+    (function(){
+      const input = document.getElementById('searchInput');
+      const posts = Array.from(document.querySelectorAll('#posts .post-card'));
+
+      function normalize(str){
+        return (str||'').toString().trim().toLowerCase();
+      }
+
+      function matches(post, q){
+        if(!q) return true;
+        const terms = q.split(/\s+/).filter(Boolean).map(normalize);
+        const data = normalize(post.dataset.keywords + ' ' + post.dataset.title + ' ' + post.innerText);
+        return terms.every(t => data.indexOf(t) !== -1);
+      }
+
+      function render(){
+        const q = input.value;
+        let anyVisible = false;
+        posts.forEach(p => {
+          if(matches(p,q)){
+            p.style.display = '';
+            anyVisible = true;
+          } else {
+            p.style.display = 'none';
+          }
+        });
+        // Si aucun résultat, afficher un message
+        let noEl = document.getElementById('no-results');
+        if(!anyVisible){
+          if(!noEl){
+            noEl = document.createElement('div');
+            noEl.id = 'no-results';
+            noEl.style.marginTop = '8px';
+            noEl.style.padding = '12px';
+            noEl.style.background = 'rgba(255,255,255,0.02)';
+            noEl.style.border = '1px solid rgba(255,255,255,0.03)';
+            noEl.style.borderRadius = '8px';
+            noEl.innerText = 'Aucun article ne correspond à votre recherche.';
+            document.querySelector('main').appendChild(noEl);
+          }
+        } else if(noEl){
+          noEl.remove();
+        }
+      }
+
+      input.addEventListener('input', render);
+
+      // Recherche si l'utilisateur presse Enter: focus premier résultat
+      input.addEventListener('keydown', function(e){
+        if(e.key === 'Enter'){
+          const first = posts.find(p => p.style.display !== 'none');
+          if(first){
+            first.scrollIntoView({behavior:'smooth', block:'start'});
+            first.style.boxShadow = '0 6px 18px rgba(0,0,0,0.6)';
+            setTimeout(()=> first.style.boxShadow = '', 1400);
+          }
+        }
+      });
+
+      // initial render
+      render();
+
+    })();
+  </script>
 </body>
 </html>

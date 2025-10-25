@@ -1,8 +1,27 @@
 
 <div class="inputs_val">
-    <div id="info" class="info"></div>
-    <input id="password_projet" type="password" placeholder="Mot de passe">
+
+<div>
+    <?php 
+ 
+
+if( isset( $password_projet[0]) ){
+    echo "Le mot de passe est défini." ; 
+} else {
+    echo "Le mot de passe n'est pas défini. cliquer pour entrer dans la page" ; 
+
+    ?>
+
+
+<div>
+    <div class="info">🔒 Cette page est protégée. Veuillez entrer le mot de passe :</div>
+ 
     <div class="password_projet" onclick="password_projet(this)">Valider</div>
+</div>
+<?php 
+}
+?>
+
 </div>
 
 <style>
@@ -80,22 +99,11 @@ img {
 }
 </style>
 <script>
-
-    <?php 
-
-if( $password_projet[0]==""){
-?>
-
-
-<?php 
-
-}
-?>
 function password_projet(_this) {
-
 
 _this.style.display="none" ; 
     const password_projet = document.getElementById("password_projet").value;
+ 
     console.log(password_projet);
     var ok = new Information("../req_sql/password_projet.php"); // création de la classe 
     ok.add("password_projet", password_projet); // ajout de l'information pour lenvoi 
@@ -106,7 +114,7 @@ _this.style.display="none" ;
     const myTimeout = setTimeout(x, 250);
 
     function x() {
-      location.reload();
+   location.reload();
     }
 
 
@@ -116,24 +124,3 @@ _this.style.display="none" ;
 }
 </script>
 <img src="../src/img/404.webp" alt="">
-
-
-<?php 
-
-if($password_projet[0]!=""){
-?>
-<script>
-    document.getElementById("info").innerHTML = "🔒 Cette page est protégée. Veuillez entrer le mot de passe :🔒 ";
-</script>
-<?php 
-}
-else{
-?>
-<script>
-    document.getElementById("info").innerHTML = "✅ Pour entrer, cliquez sur valider. ✅";
-</script>
-<?php
-}
-
-?>
-

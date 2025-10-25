@@ -227,6 +227,8 @@ if ($id_projet) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <?php
 
     if ($text_style_page_ == "style") {
@@ -255,9 +257,10 @@ if ($id_projet) {
   //echo "01";
   if (isset($_SESSION["password_projet"])) {
 
-    if ($_SESSION["password_projet"] ==  $password_projet_2) {
+    if ($password_projet_1==  $password_projet[0]) {
       require_once 'data/blog/blog_index.php';
     } else {
+ 
       require_once 'data/blog/blog_x_no1.php';
     }
   } else {
@@ -272,6 +275,8 @@ if ($id_projet) {
           header('Location: ../index.php');
           exit();
         } else {
+
+     
           if ($id_sha1_projet_lock[0] != "") {
             require_once 'data/blog/blog_index.php';
           } else {
@@ -285,10 +290,10 @@ if ($id_projet) {
       } else {
 
         if ($visibility_1_projet[0] == "" && $id_sha1_projet_lock[0] == "") {
-          require_once 'data/blog/blog_x_no1.php';
+           require_once 'data/blog/blog_x_no1.php';
         } else {
           if ($visibility_1_projet[0] == "") {
-            require_once 'data/blog/blog_x_no1.php';
+           require_once 'data/blog/blog_x_no1.php';
           } else {
           }
         }

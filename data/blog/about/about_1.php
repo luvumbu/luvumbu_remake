@@ -127,7 +127,7 @@
   font-size: 1.05em;
   line-height: 1.9;
   color: #ddd;
-  padding: 25px 35px;
+ 
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(123, 108, 255, 0.15);
@@ -158,7 +158,7 @@
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 768px) {
   .about {
-    padding: 60px 15px;
+ 
   }
 
   .about .section-title {
