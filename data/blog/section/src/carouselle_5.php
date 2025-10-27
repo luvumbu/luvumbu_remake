@@ -13,17 +13,10 @@ for ($i = 0; $i < count($img_projet_src_img); $i++) {
        echo "</div>";
    }
 }
-
+ 
 echo "</div>";
 
-// Ajout du conteneur lightbox
-echo "
-<div id='lightbox' class='lightbox' onclick='closeLightbox()'>
-    <span class='close'>&times;</span>
-    <img id='lightbox-img' src='' alt='image agrandie'>
-</div>
-";
-
+ 
 ?>
 
 

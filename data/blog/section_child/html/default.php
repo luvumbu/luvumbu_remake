@@ -124,11 +124,11 @@ echo $resultat;
   <style>
 /* ==================== VARIABLES GLOBALES (THÈME SOMBRE) ==================== */
 :root {
-  --color-primary: #00bfa5;      /* turquoise sombre */
+  --color-primary: #072b26ff;      /* turquoise sombre */
   --color-secondary: #007bff;    /* bleu profond */
   --color-accent: #d63f72;       /* rose foncé */
-  --color-text: #e0e0e0;         /* gris clair lisible */
-  --color-text-muted: #999;      /* gris doux */
+  --color-text: #1b1515ff;         /* gris clair lisible */
+  --color-text-muted: #050404ff;      /* gris doux */
 
   --color-bg-light: rgba(30, 30, 30, 0.6);
   --color-border-light: rgba(255, 255, 255, 0.05);

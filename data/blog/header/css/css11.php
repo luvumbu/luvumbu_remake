@@ -21,18 +21,7 @@ $isBurger = $longueur > 60;
 
 
 </head>
-
-<header class="main-header">
-  <div class="logo"><?= htmlspecialchars($titre) ?></div>
-  <nav class="nav-menu" id="nav-menu">
-    <?php for ($i = 0; $i < count($menu_items); $i++): ?>
-      <a href="#<?= htmlspecialchars($id_sha1_projet_a[$i]) ?>"><?= htmlspecialchars($menu_items[$i]) ?></a>
-    <?php endfor; ?>
-  </nav>
-  <div class="burger" id="burger">
-    <span></span><span></span><span></span>
-  </div>
-</header>
+ 
 
 <script>
   
@@ -69,24 +58,22 @@ document.addEventListener('click', (e) => {
 
 
 <style>
-    /* ==================== BASE ==================== */
+/* ==================== BASE ==================== */
 :root {
-  --bg-blur: rgba(255, 255, 255, 0.08);
-  --border-color: rgba(255, 255, 255, 0.2);
-  --accent-color: #5ee7df;
-  --hover-color: #b490ca;
-  --text-color: #e0e0e0;
-  --transition: 0.35s ease;
-  --shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(15px);
+  --bg-color: rgba(15, 15, 20, 0.8);
+  --accent-color: #00c3ff;
+  --text-color: #f0f0f0;
+  --hover-color: #00ffe0;
+  --transition: 0.3s ease;
+  backdrop-filter: blur(10px);
 }
+
 
 /* ==================== HEADER ==================== */
 .main-header {
   width: 100%;
-  padding: 12px 28px;
-  background: var(--bg-blur);
-  border-bottom: 1px solid var(--border-color);
+  padding: 15px 30px;
+  background: var(--bg-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -94,65 +81,24 @@ document.addEventListener('click', (e) => {
   position: fixed;
   top: 0;
   z-index: 1000;
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
-  border-radius: 0 0 15px 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
 }
 
 /* ==================== LOGO ==================== */
 .logo {
-  font-family: "Audiowide", sans-serif;
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
   letter-spacing: 1px;
-  background: linear-gradient(45deg, var(--accent-color), var(--hover-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
-}
-
-/* ==================== MENU ==================== */
-.nav-menu {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-  transition: var(--transition);
-}
-
-.nav-menu a {
-  color: var(--text-color);
-  text-decoration: none;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
-  position: relative;
-  padding: 4px 0;
-  transition: var(--transition);
-}
-
-.nav-menu a::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent-color), var(--hover-color));
-  transition: var(--transition);
-  transform: translateX(-50%);
-  border-radius: 2px;
-}
-
-.nav-menu a:hover {
-  color: #fff;
-}
-.nav-menu a:hover::before {
-  width: 100%;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
 }
 
 /* ==================== BURGER ==================== */
 .burger {
-  width: 28px;
-  height: 22px;
+  width: 30px;
+  height: 24px;
   display: none;
   flex-direction: column;
   justify-content: space-between;
@@ -161,10 +107,12 @@ document.addEventListener('click', (e) => {
 }
 
 .burger span {
+  display: block;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent-color), var(--hover-color));
-  border-radius: 3px;
+  background: var(--accent-color);
+  border-radius: 2px;
   transition: var(--transition);
+  box-shadow: 0 0 6px var(--accent-color);
 }
 
 .burger.active span:nth-child(1) {
@@ -175,6 +123,42 @@ document.addEventListener('click', (e) => {
 }
 .burger.active span:nth-child(3) {
   transform: rotate(-45deg) translateY(-9px);
+}
+
+/* ==================== MENU ==================== */
+.nav-menu {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.nav-menu a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.1rem;
+  position: relative;
+  transition: var(--transition);
+}
+
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent-color);
+  transition: var(--transition);
+}
+
+.nav-menu a:hover {
+  color: var(--hover-color);
+  text-shadow: 0 0 6px var(--hover-color);
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
 }
 
 /* ==================== RESPONSIVE ==================== */
@@ -191,20 +175,17 @@ document.addEventListener('click', (e) => {
   top: 0;
   right: 0;
   height: 100vh;
-  width: 230px;
-  background: rgba(25, 25, 35, 0.7);
+  width: 240px;
+  background: rgba(20, 20, 30, 0.9);
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 28px;
+  gap: 30px;
   transform: translateX(100%);
   padding-top: 80px;
   box-sizing: border-box;
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
   transition: transform var(--transition);
-  border-left: 1px solid var(--border-color);
-  backdrop-filter: blur(20px);
-  border-radius: 20px 0 0 20px;
 }
 .nav-menu.active {
   transform: translateX(0);
@@ -222,27 +203,23 @@ document.addEventListener('click', (e) => {
     top: 0;
     right: 0;
     height: 100vh;
-    width: 230px;
-    background: rgba(25, 25, 35, 0.7);
+    width: 240px;
+    background: rgba(20, 20, 30, 0.9);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 28px;
+    gap: 30px;
     transform: translateX(100%);
     padding-top: 80px;
     box-sizing: border-box;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
     transition: transform var(--transition);
-    border-left: 1px solid var(--border-color);
-    backdrop-filter: blur(20px);
-    border-radius: 20px 0 0 20px;
   }
   .nav-menu.active {
     transform: translateX(0);
   }
 }
 <?php endif; ?>
-
 </style>
 
 

@@ -4,24 +4,14 @@ $nombre = rand(1, 6);
 $nombre2 = mt_rand(1, 6);
 $nombre = 7; 
 $header_1_pages_projet_ = $header_1_pages_projet[0] ; 
+ echo "12345689...." ;
+if($header_html_pages_projet[0]==""){
+require_once "data/blog/header/html/default.php";
+}
+else{
+require_once "data/blog/header/html/".$header_html_pages_projet[0];
+}  
  
-    if($header_html_pages_projet[0]==""){
-    require_once "data/blog/header/html/default.php";
-    }
-    else{
-    require_once "data/blog/header/html/".$header_html_pages_projet[0];
-    }  
- 
-
-    if($header_css_pages_projet[0]==""){
-      
-  require_once "data/blog/header/css/default.php";
-    }
-    else{
-  require_once "data/blog/header/css/".$header_css_pages_projet[0];
-    }
-
-    
  
  
 echo '<section class="section_1">'; 
@@ -50,9 +40,6 @@ else{
 }
 
 
- 
- 
- 
 
 
 
@@ -66,13 +53,7 @@ else{
     else{
   require_once "data/blog/section_child/html/".$section_child_html_pages_projet[0];
     }
- 
 
- 
- 
-
-
-    
     
   require_once "data/blog/about/about_1.php"; 
   echo '</section>';
