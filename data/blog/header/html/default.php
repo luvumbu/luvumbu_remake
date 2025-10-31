@@ -20,9 +20,9 @@ $isBurger = $longueur > 60;
 <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 
 </head>
-
-<header class="main-header">
-  <div class="logo"><?= htmlspecialchars($titre) ?></div>
+<div id="main-header"></div>
+<header class="main-header" >
+  <div class="logo"> <a class="mon_titre" href="#main-header"><?= htmlspecialchars($titre) ?></a></div>
   <nav class="nav-menu" id="nav-menu">
     <?php for ($i = 0; $i < count($menu_items); $i++): ?>
       <a href="#<?= htmlspecialchars($id_sha1_projet_a[$i]) ?>"><?= htmlspecialchars($menu_items[$i]) ?></a>
@@ -32,6 +32,7 @@ $isBurger = $longueur > 60;
     <span></span><span></span><span></span>
   </div>
 </header>
+ 
 
 <script>
 const burger = document.getElementById('burger');
@@ -61,3 +62,13 @@ document.addEventListener('click', (e) => {
 </script>
 
 
+<style>
+  .mon_titre {
+ 
+    font-size: 24px;
+    color: #66fcf1;
+    text-decoration: none;
+  }
+</style>
+
+ 
