@@ -28,14 +28,29 @@ document.addEventListener('click', (e) => {
 <style>
 /* ==================== BASE ==================== */
 :root {
-  --bg-blur: rgba(255, 255, 255, 0.08);
-  --accent-color: #5ee7df;
-  --hover-color: #b490ca;
-  --text-color: #e0e0e0;
+  /* ==== Couleurs principales ==== */
+  --bg-blur: rgba(10, 10, 20, 0.7);     /* Fond sombre bleuté translucide */
+  --accent-color: #00c6ff;              /* Bleu cyan lumineux */
+  --hover-color: #8a2be2;               /* Violet néon profond */
+  --text-color: #e8f0ff;                /* Blanc bleuté lisible sur fond sombre */
+
+  /* ==== Nouvelles couleurs extraites ==== */
+  --white: #ffffff;
+  --white-dim: rgba(255, 255, 255, 0.1);
+  --dark-bg1: rgba(15, 15, 25, 0.85);
+  --dark-bg2: rgba(25, 25, 45, 0.9);
+  --dark-bg3: rgba(10, 10, 20, 0.7);
+  --shadow-dark: rgba(0, 0, 0, 0.6);
+  --shadow-side: rgba(0, 0, 40, 0.4);
+  --shadow-soft: rgba(0, 0, 30, 0.25);
+
+  /* ==== Transitions & effets ==== */
   --transition: 0.35s ease;
-  --shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(15px);
+  --shadow: 0 4px 25px var(--shadow-dark);
+
+  backdrop-filter: blur(18px) saturate(160%) brightness(1.1);
 }
+
 
 /* ==================== HEADER ==================== */
 .main-header {
@@ -62,7 +77,7 @@ document.addEventListener('click', (e) => {
   background: linear-gradient(45deg, var(--accent-color), var(--hover-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 8px var(--white-dim);
 }
 
 /* ==================== MENU ==================== */
@@ -96,7 +111,7 @@ document.addEventListener('click', (e) => {
 }
 
 .nav-menu a:hover {
-  color: #fff;
+  color: var(--white);
 }
 
 .nav-menu a:hover::before {
@@ -147,7 +162,7 @@ document.addEventListener('click', (e) => {
   right: 0;
   height: 100vh;
   width: 230px;
-  background: rgba(25, 25, 35, 0.7);
+  background: var(--dark-bg1);
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -155,7 +170,7 @@ document.addEventListener('click', (e) => {
   transform: translateX(100%);
   padding-top: 80px;
   box-sizing: border-box;
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
+  box-shadow: -5px 0 15px var(--shadow-side);
   transition: transform var(--transition);
   backdrop-filter: blur(20px);
 }
@@ -177,18 +192,15 @@ document.addEventListener('click', (e) => {
   height: 100vh;
   width: 230px;
 
-  /* Dégradé vertical avec deux opacités différentes */
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.6),    /* gauche : plus opaque */
-    rgba(0, 0, 0, 0.3)   /* droite : moins opaque */
+    var(--dark-bg2),
+    var(--dark-bg3)
   );
 
-  /* Flou et effet miroir */
-  backdrop-filter: blur(20px) saturate(180%) contrast(120%) brightness(1.1);
+  backdrop-filter: blur(20px) saturate(180%) contrast(110%) brightness(1.05);
 
-  /* Ombre douce */
-  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+  box-shadow: -5px 0 30px var(--shadow-soft);
 
   flex-direction: column;
   justify-content: flex-start;
@@ -200,7 +212,6 @@ document.addEventListener('click', (e) => {
 
   transition: transform var(--transition);
 }
-
 
   .nav-menu.active {
     transform: translateX(0);

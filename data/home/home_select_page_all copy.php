@@ -266,14 +266,10 @@ if($j==0){
 <?php
 }
 else{
-
-if( $menu[$j]!="default_x"){
 ?>
     <option><?= $menu[$j] ?></option>
+
 <?php
-}
-
-
 }
 
 

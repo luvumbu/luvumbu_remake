@@ -1,15 +1,15 @@
 <style>
-    /* ===================== CAROUSEL 3 IMAGES — SANS BORDURE ===================== */
+  /* ===================== CAROUSEL 4 IMAGES — SANS BORDURE ===================== */
 
-/* Wrapper pleine largeur — plus de border-radius ni box-shadow */
+/* Wrapper pleine largeur */
 .carousel-wrapper {
   position: relative;
   width: 100%;
   max-width: 100%;
-  margin: 80px 0;   /* ajuste si besoin */
+  margin: 80px 0;
   overflow: hidden;
-  border-radius: 0;    /* plus d'arrondi */
-  box-shadow: none;    /* plus d'ombre */
+  border-radius: 0;
+  box-shadow: none;
   background: transparent;
   backdrop-filter: none;
 }
@@ -23,22 +23,22 @@
   height: 100%;
 }
 
-/* Chaque item occupe 1/3 (3 images visibles) */
+/* Chaque item occupe 1/4 (4 images visibles) */
 .carousel-item {
-  flex: 0 0 33.3333%;
-  max-width: 33.3333%;
+  flex: 0 0 25%;
+  max-width: 25%;
   position: relative;
   overflow: hidden;
   margin: 0;
   padding: 0;
-  border-radius: 0; /* sans arrondi */
+  border-radius: 0;
 }
 
-/* Image : remplit l'item sans déformation (crop si nécessaire) */
+/* Image : remplit parfaitement sans déformation */
 .carousel-item img {
   width: 100%;
-  height: 550px;           /* conserve ta hauteur d'origine */
-  object-fit: cover;       /* pas de déformation */
+  height: 480px;           /* ajuste la hauteur si tu veux */
+  object-fit: cover;
   object-position: center;
   display: block;
   filter: brightness(0.95);
@@ -47,13 +47,13 @@
   backface-visibility: hidden;
 }
 
-/* léger zoom au survol (optionnel) */
+/* Zoom léger au survol */
 .carousel-item img:hover {
   transform: scale(1.03);
   filter: brightness(1);
 }
 
-/* ===================== CAPTION (si tu l'utilises) ===================== */
+/* ===================== CAPTION ===================== */
 .caption {
   position: absolute;
   bottom: 20px;
@@ -66,7 +66,7 @@
   backdrop-filter: blur(4px);
 }
 
-/* ===================== NAV BUTTONS ===================== */
+/* ===================== NAVIGATION ===================== */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -79,6 +79,7 @@
   padding: 8px 14px;
   border-radius: 50%;
   z-index: 12;
+  transition: background 0.3s ease;
 }
 
 .carousel-btn:hover {
@@ -117,7 +118,7 @@
 /* Tablette : 2 images visibles */
 @media (max-width: 900px) {
   .carousel-item { flex: 0 0 50%; max-width: 50%; }
-  .carousel-item img { height: 420px; }
+  .carousel-item img { height: 400px; }
 }
 
 /* Mobile : 1 image visible */

@@ -66,7 +66,7 @@ document.addEventListener('click', (e) => {
   .mon_titre {
  
     font-size: 24px;
-    color: #66fcf1;
+
     text-decoration: none;
   }
 </style>

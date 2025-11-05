@@ -161,52 +161,6 @@ footer {
   position: relative;
   overflow: hidden;
   padding-top: 25px;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-   background: var(--bg-blur);
- 
- 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 /* ==================== LIENS ==================== */
@@ -239,43 +193,6 @@ footer {
   border-radius: 2px;
   transition: all 0.3s ease;
   transform: translateX(-50%);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 }
 
 .footer-links a:hover {

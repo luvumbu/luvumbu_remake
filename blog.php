@@ -1,4 +1,6 @@
 <?php
+
+ 
 require_once "data/all/requare_one_1.php";
 require_once "Class/SessionTracker.php";
 require_once "Class/SpeechController.php";
@@ -305,6 +307,13 @@ if ($id_projet) {
 }
 require_once "data/blog/blog_insert_ip.php" ; 
 
+
+
+echo "<div class='blog_settings'>"  ; 
+
+require_once "data/blog/blog_settings.php" ; 
+echo "<div>"  ; 
+  
   ?>
 
     <style>

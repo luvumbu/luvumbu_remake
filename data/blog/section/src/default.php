@@ -1,117 +1,66 @@
-    <link href="../templatemo-3d-coverflow.css" rel="stylesheet">
-    <!-- Header -->
-    <header class="header" id="header">
-        <a href="#home" class="logo-container">
-            <div class="logo">
-
-            </div>
-
-        </a>
-
-
-
-        <div class="menu-toggle" id="menuToggle"> </div>
-    </header>
-
-    <!-- Home Section -->
-    <section id="home" class="section">
-        <div class="coverflow-wrapper">
-            <div class="coverflow-container" tabindex="0">
-                <div class="coverflow" id="coverflow">
-
-
-
-
-
-
-
-                    <?php
-
-
-
-                    for ($i = 0; $i < count($id_projet_img); $i++) {
-
-
-
-
-
-                        $img_user_b_  =  $id_projet_img[$i];
-
-
-
-                        if ($img_user_b_ != "") {
-                            if (file_exists('img_dw/' . $img_user_b_)) {
-                                $img_user_b_ = '../img_dw/' . $img_user_b_;
-
-
-
-
-                                if ($img_activate[$i] != "") {
-
-                    ?>
-
-
-
-
-
-
-
-
-
-
-
-
-                                    <div class="coverflow-item" data-index="2">
-                                        <div class="cover image-loading">
-                                            <img src="<?= $img_user_b_ ?>" alt="Lake Reflection" loading="lazy">
-                                        </div>
-                                        <div class="reflection"></div>
-                                    </div>
-
-
-
-                    <?php
-
-                                }
-                            }
-                        }
-                    }
-
-
-                    ?>
-
-
-
-                    <?php
-
-
-                    ?>
-
-                </div>
-
-                <button class="nav-button prev" onclick="navigate(-1)">⟵</button>
-                <button class="nav-button next" onclick="navigate(1)">⟶</button>
-
-                <div class="dots-container" id="dots"></div>
-
-                <!-- Play/Pause Button -->
-                <button class="play-pause-button" id="playPauseBtn" onclick="toggleAutoplay()">
-                    <span class="play-icon">▶</span>
-                    <span class="pause-icon" style="display: none;">❚❚</span>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-
-
-    <!-- Scroll to top button -->
-
-
-
-
-
-    <link rel="stylesheet" href="../data/blog/css/blog_template_img_css.css">
-
-    <script src="../data/blog/js/blog_template_img_js.js"></script>
+<style>
+/* =================== CARROUSEL =================== */
+.carousel-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 50px auto;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0a0a1e, #1b1b3a);
+  box-shadow: 0 6px 20px rgba(0, 0, 50, 0.6);
+}
+
+/* Conteneur des images */
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scrollInfinite 25s linear infinite;
+}
+
+/* Chaque image */
+.carousel-item {
+  position: relative;
+  width: 300px;
+  height: 300px; /* carré parfait */
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+/* Filtre noir transparent */
+.carousel-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  z-index: 1;
+  transition: background 0.5s ease;
+}
+
+.carousel-item:hover::after {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Image */
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* conserve le cadrage sans déformer */
+  object-position: center;
+  image-rendering: crisp-edges;
+  transform: translateZ(0);
+
+}
+
+
+
+/* Animation de défilement infini */
+@keyframes scrollInfinite {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Supprime les points */
+.carousel-dots { display: none; }
+</style>

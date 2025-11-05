@@ -73,22 +73,5 @@ $img_projet_src1_00 = "../img_dw/".$img_projet_src1[0] ;
  
 ?>
 
-<style>
-    #img_projet_src1_0 {
-  width: 100%;
-  height: 560px;
-  background-image: url('<?= $img_projet_src1_00 ?>');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  color: var(--text-white);
-  text-shadow: 0 0 8px var(--accent-color);
-  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.8);
-}
+ 
 
-</style>
