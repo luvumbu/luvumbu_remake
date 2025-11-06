@@ -288,7 +288,15 @@ if ($id_projet) {
       }
     } else {
       if ($_SESSION["index"][3] == $id_sha1_user_c[0]) {
+
+        
         require_once 'data/blog/blog_index.php';
+
+
+        echo "<div class='blog_settings'>"  ; 
+
+require_once "data/blog/blog_settings.php" ; 
+echo "<div>"  ;
       } else {
 
         if ($visibility_1_projet[0] == "" && $id_sha1_projet_lock[0] == "") {
@@ -309,10 +317,7 @@ require_once "data/blog/blog_insert_ip.php" ;
 
 
 
-echo "<div class='blog_settings'>"  ; 
-
-require_once "data/blog/blog_settings.php" ; 
-echo "<div>"  ; 
+ 
   
   ?>
 
