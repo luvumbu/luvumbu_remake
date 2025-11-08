@@ -73,7 +73,7 @@ echo "<div id='section_css_pages_projet'>" ;
 echo "</div>" ; 
 
 
-    require_once "data/blog/section/src/default_x/default_x.php";
+    require_once "data/blog/section/html/default_caroussel.php";
 echo "<div id='section_src_pages_projet'>" ; 
 
         if($section_src_pages_projet[0]==""){

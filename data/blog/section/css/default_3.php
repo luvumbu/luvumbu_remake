@@ -1,5 +1,6 @@
 <style>
-  /* ===================== STYLE GLASSMORPHISME RAFFINÉ ===================== */
+/* ===================== STYLE GLASSMORPHISME RAFFINÉ — THÈME NÉBULEUSE ===================== */
+
 #img_projet_src1_0::after {
   content: "";
   position: absolute;
@@ -12,7 +13,7 @@
   z-index: 1;
 }
 
-/* Titre principal */
+/* ---------- Titre principal ---------- */
 .title_1_1 {
   position: relative;
   z-index: 2;
@@ -36,31 +37,31 @@
   font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
-  background: linear-gradient(90deg, #00b4d8, #48cae4);
+  background: linear-gradient(90deg, #8e2de2, #ff6ec7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Date d’inscription */
+/* ---------- Date d’inscription ---------- */
 .date_inscription {
   margin-top: 10px;
   font-size: 0.9rem;
-  color: #b0bec5;
+  color: #b39ddb;
   text-align: right;
   font-style: italic;
   letter-spacing: 0.5px;
 }
 
-/* Description */
+/* ---------- Description ---------- */
 .description_1_2 {
   margin: 60px auto;
   padding: 25px 30px;
   width: 85%;
   border-radius: 16px;
-  color: #263238;
+  color: #2e003e;
   line-height: 1.8;
   font-size: 1.05rem;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(250, 240, 255, 0.55);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -72,11 +73,11 @@
 }
 
 .description_1_2 strong {
-  color: #006d77;
+  color: #9c27b0;
   font-weight: 700;
 }
 
-/* Animation subtile */
+/* ---------- Animation subtile ---------- */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -115,5 +116,4 @@
     margin: 40px auto;
   }
 }
-
 </style>
