@@ -259,15 +259,33 @@ if ($id_projet) {
   //echo "01";
   if (isset($_SESSION["password_projet"])) {
 
+    
+
     if ($password_projet_1==  $password_projet[0]) {
-      require_once 'data/blog/blog_index.php';
+     require_once 'data/blog/blog_index.php';
+ 
+ 
+
+ 
+
+if(isset($_SESSION["index"][3])){
+             echo "<div class='blog_settings'>"  ; 
+      require_once "data/blog/blog_settings.php" ; 
+              echo "<div>"  ;
+}
+
+
     } else {
  
       require_once 'data/blog/blog_x_no1.php';
     }
+
+
+
   } else {
 
     if (!isset($_SESSION["index"][3])) {
+      
 
       if ($visibility_1_projet[0] == "" && $id_sha1_projet_lock[0] == "") {
         header('Location: ../index.php');
@@ -287,18 +305,19 @@ if ($id_projet) {
         }
       }
     } else {
+
+      
       if ($_SESSION["index"][3] == $id_sha1_user_c[0]) {
 
         
         require_once 'data/blog/blog_index.php';
 
 
-        echo "<div class='blog_settings'>"  ; 
 
-require_once "data/blog/blog_settings.php" ; 
-echo "<div>"  ;
       } else {
 
+
+        
         if ($visibility_1_projet[0] == "" && $id_sha1_projet_lock[0] == "") {
            require_once 'data/blog/blog_x_no1.php';
         } else {
