@@ -56,8 +56,7 @@ echo "</div>" ;
     }
       
  
-
-
+ 
 
 
 
@@ -72,7 +71,7 @@ echo "<div id='section_css_pages_projet'>" ;
     }
 echo "</div>" ; 
 
-
+ 
     require_once "data/blog/section/html/default_caroussel.php";
 echo "<div id='section_src_pages_projet'>" ; 
 
@@ -83,6 +82,7 @@ echo "<div id='section_src_pages_projet'>" ;
       require_once "data/blog/section/src/".$section_src_pages_projet[0];
     }
 echo "</div>" ; 
+ 
 
     
  
@@ -90,21 +90,23 @@ echo "</div>" ;
 echo "<div id='section_child_css_pages_projet'>" ; 
             if($section_child_css_pages_projet[0]==""){
           
-      require_once "data/blog/section_child/css/default.php";
+       require_once "data/blog/section_child/css/default.php";
         }
         else{
-      require_once "data/blog/section_child/css/".$section_child_css_pages_projet[0];
+       require_once "data/blog/section_child/css/".$section_child_css_pages_projet[0];
         }
 
 echo "</div>" ; 
-
+ 
 
         if($section_child_html_pages_projet[0]==""){
           
-      require_once "data/blog/section_child/html/default.php";
+       require_once "data/blog/section_child/html/default.php";
         }
         else{
-      require_once "data/blog/section_child/html/".$section_child_html_pages_projet[0];
+     // require_once "data/blog/section_child/html/".$section_child_html_pages_projet[0];
+      require_once "data/blog/section_child/html/default.php";
+
         }
 
 
@@ -118,8 +120,7 @@ echo "</div>" ;
 
 </section>
 <?php 
-
-
+ 
 
 if($footer_css_pages_projet[0]==""){
   require_once "data/blog/footer/css/default.php";
@@ -139,8 +140,9 @@ else{
 }
 
  
-
  
 
  
  ?>
+
+ 

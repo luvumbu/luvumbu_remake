@@ -33,7 +33,7 @@ if($description_projet_toggle[0]==""){
 ?>
 
     <?php
-echo '<div class="description_1_1">';
+echo '<div class="description_1_2">';
 echo "<p>";
 
 
@@ -147,7 +147,7 @@ $img_projet_src1_00 = "../img_dw/".$img_projet_src1[0] ;
 
 .description_1_2 strong {
   color: #111;
-  font-weight: 700;
+ 
 }
 
 /* ===================== Responsive ===================== */

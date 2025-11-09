@@ -33,7 +33,7 @@ if($description_projet_toggle[0]==""){
 ?>
 
     <?php
-echo '<div class="description_1_1">';
+echo '<div class="description_1_2">';
 echo "<p>";
 
 

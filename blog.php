@@ -495,8 +495,8 @@ text-decoration: none;
 
 }
 .description_1_1 ,.title_1_2,.title_2_2 ,.description_1_2{
-  width: 100%;
-  max-height: 300px; /* hauteur max avant scroll (à ajuster) */
+ 
+  max-height: 1000px; /* hauteur max avant scroll (à ajuster) */
   overflow-y: auto;  /* active un scroll vertical si ça déborde */
   overflow-x: auto; /* pas de scroll horizontal */
   padding: 10px;
