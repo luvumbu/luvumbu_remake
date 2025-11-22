@@ -1,23 +1,42 @@
 <style>
-    /* ==================== SECTION À PROPOS ==================== */
+ /*
+    :root {
+   
+    --card-bg: #ffffff;
+    --accent: #4f46e5;
+    --muted: #6b7280;
+    --text: #111827;
+    --glass: rgba(255, 255, 255, 0.6);
+    --border: #d1d5db;
+    --logo-gradient-start: #3b82f6;
+    --logo-gradient-end: #60a5fa;
+    
+
+}
+*/
+ 
+</style>
+
+
+
+<style>
+  /* ==================== SECTION À PROPOS ==================== */
 .about {
   width: 100%;
- 
- 
-  color: #000024ff;
+  color: var(--text);
   text-align: center;
   overflow: hidden;
-  border-top: 1px solid rgba(123, 108, 255, 0.15);
-  border-bottom: 1px solid rgba(123, 108, 255, 0.1);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 /* ==================== TITRE ==================== */
 .about .section-title {
   font-size: 2.3em;
-  color: #7b6cff;
+  color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 0 0 10px #7b6cff, 0 0 20px #3affff;
+  text-shadow: 0 0 10px var(--logo-gradient-start), 0 0 20px var(--logo-gradient-end);
   margin-bottom: 40px;
   position: relative;
   display: inline-block;
@@ -30,9 +49,9 @@
   width: 60%;
   height: 3px;
   margin: 12px auto 0;
-  background: linear-gradient(90deg, #7b6cff, #3affff);
+  background: linear-gradient(90deg, var(--logo-gradient-start), var(--logo-gradient-end));
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(123, 108, 255, 0.6);
+  box-shadow: 0 0 10px var(--logo-gradient-start);
 }
 
 /* ==================== CONTENEUR IMAGE ==================== */
@@ -49,8 +68,8 @@
   height: 230px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid rgba(105, 105, 105, 0.6);
-  box-shadow: 0 0 30px rgba(123, 108, 255, 0.4);
+  border: 3px solid var(--border);
+  box-shadow: 0 0 30px var(--logo-gradient-start);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   margin: 0 auto;
 }
@@ -65,7 +84,7 @@
 
 .img_dw2:hover {
   transform: scale(1.06);
-  box-shadow: 0 0 40px rgba(58, 255, 255, 0.4);
+  box-shadow: 0 0 40px var(--logo-gradient-end);
 }
 
 .img_dw2 img:hover {
@@ -76,7 +95,7 @@
 /* ==================== TEXTE INFOS ==================== */
 .date_inscription {
   font-size: 1em;
-  color: #aaaaf0;
+  color: var(--muted);
   margin: 25px auto;
   font-style: italic;
   text-align: center;
@@ -91,12 +110,10 @@
   text-align: justify;
   font-size: 1.05em;
   line-height: 1.9;
-  color: #08041dff;
- 
+  color: var(--text);
+  background: var(--card-bg);
   border-radius: 20px;
- 
- 
-  box-shadow: inset 0 0 25px rgba(123, 108, 255, 0.08);
+  box-shadow: inset 0 0 25px var(--border);
   animation: fadeInUp 1s ease forwards;
 }
 
@@ -122,10 +139,6 @@
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 768px) {
-  .about {
- 
-  }
-
   .about .section-title {
     font-size: 1.8em;
   }
@@ -137,76 +150,28 @@
 
   .text_continent_p1 {
     font-size: 1em;
-  
   }
 }
- 
-    .qr_code{
-        text-align: center;
-        margin-bottom: 150px;
-    }
-    .qr_code img{
-        width: 250px;
-    }
- 
-  /* ==================== FOOTER ==================== */
+
+.qr_code {
+  text-align: center;
+  margin-bottom: 150px;
+}
+.qr_code img {
+  width: 250px;
+}
+
+/* ==================== FOOTER ==================== */
 footer {
   width: 100%;
-  background: radial-gradient(circle at bottom right, #060612, #0a0a1e 90%);
-  color: #d8d8ff;
- 
+  background: var(--card-bg);
+  color: var(--text);
   text-align: center;
-  border-top: 1px solid rgba(123, 108, 255, 0.2);
-  box-shadow: 0 -2px 25px rgba(123, 108, 255, 0.15);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -2px 25px var(--border);
   position: relative;
   overflow: hidden;
   padding-top: 25px;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-   background: var(--bg-blur);
- 
- 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 /* ==================== LIENS ==================== */
@@ -221,7 +186,7 @@ footer {
 
 .footer-links a {
   text-decoration: none;
-  color: #9f9fff;
+  color: var(--accent);
   font-weight: 500;
   letter-spacing: 0.6px;
   transition: color 0.3s ease, text-shadow 0.3s ease;
@@ -235,52 +200,15 @@ footer {
   bottom: -4px;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #7b6cff, #3affff);
+  background: linear-gradient(90deg, var(--logo-gradient-start), var(--logo-gradient-end));
   border-radius: 2px;
   transition: all 0.3s ease;
   transform: translateX(-50%);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 }
 
 .footer-links a:hover {
-  color: #3affff;
-  text-shadow: 0 0 8px #3affff;
+  color: var(--logo-gradient-end);
+  text-shadow: 0 0 8px var(--logo-gradient-end);
 }
 
 .footer-links a:hover::after {
@@ -290,7 +218,7 @@ footer {
 /* ==================== COPYRIGHT ==================== */
 .copyright {
   font-size: 0.95em;
-  color: #aaaaf0;
+  color: var(--muted);
   max-width: 900px;
   margin: 0 auto;
   line-height: 1.7;
@@ -298,15 +226,15 @@ footer {
 }
 
 .copyright a {
-  color: #7b6cff;
+  color: var(--accent);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .copyright a:hover {
-  color: #3affff;
-  text-shadow: 0 0 8px #3affff;
+  color: var(--logo-gradient-end);
+  text-shadow: 0 0 8px var(--logo-gradient-end);
 }
 
 /* ==================== DÉCORATION LUMIÈRE BAS ==================== */
@@ -317,22 +245,10 @@ footer::before {
   left: 50%;
   width: 400px;
   height: 120px;
-  background: radial-gradient(circle, rgba(123, 108, 255, 0.25), transparent 70%);
+  background: radial-gradient(circle, var(--logo-gradient-start), transparent 70%);
   transform: translateX(-50%);
   filter: blur(50px);
-  opacity: 0.7;
-}
-
-/* ==================== ANIMATION ==================== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  opacity: 0.5;
 }
 
 /* ==================== RESPONSIVE ==================== */
@@ -344,7 +260,6 @@ footer::before {
 
   .copyright {
     font-size: 0.9em;
-    
   }
 }
 

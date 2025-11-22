@@ -268,11 +268,7 @@ if ($id_projet) {
 
  
 
-if(isset($_SESSION["index"][3])){
-             echo "<div class='blog_settings'>"  ; 
-      require_once "data/blog/blog_settings.php" ; 
-              echo "<div>"  ;
-}
+
 
 
     } else {

@@ -1,5 +1,10 @@
 
     <?php 
+
+
+
+ 
+
 $title_projet_0 =  AsciiConverter::asciiToString($title_projet[0]);
 $description_projet_0=  AsciiConverter::asciiToString($description_projet[0]);
 if($title_projet_toggle[0]==""){

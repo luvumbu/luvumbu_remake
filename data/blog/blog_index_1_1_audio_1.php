@@ -9,10 +9,12 @@ $histoire0 = replace_element_2(AsciiConverter::asciiToString($description_projet
 <!-- Lecteur Histoire 1 -->
 <div class="story-box reader-container" id="reader<?= $nombre_0 ?>">
     <label for="voiceSelect<?= $nombre_0 ?>">🎤 Choisir une voix pour Histoire <?= $nombre_0 ?> :</label>
-    <select id="voiceSelect<?= $nombre_0 ?>"></select>
-    <button id="playBtn<?= $nombre_0 ?>" class="play">▶️ Lire</button>
-    <button id="pauseBtn<?= $nombre_0 ?>" class="pause">⏸️ Pause</button>
-    <button id="stopBtn<?= $nombre_0 ?>" class="stop">⏹️ Stop</button>
+    <select style="border-radius: 17px;padding:15px; border:1px solid rgba(0,0,0,0)" id="voiceSelect<?= $nombre_0 ?>"></select>
+ 
+   
+    <button style="border-radius: 17px;padding:15px; border:1px solid rgba(0,0,0,0)" id="playBtn<?= $nombre_0 ?>" class="play">▶️ Lire</button>
+    <button style="border-radius: 17px;padding:15px; border:1px solid rgba(0,0,0,0)" id="pauseBtn<?= $nombre_0 ?>" class="pause">⏸️ Pause</button>
+    <button style="border-radius: 17px;padding:15px; border:1px solid rgba(0,0,0,0)" id="stopBtn<?= $nombre_0 ?>" class="stop">⏹️ Stop</button>
 </div>
 
  

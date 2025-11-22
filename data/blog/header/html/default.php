@@ -2,6 +2,7 @@
 // ---------------------- CONFIGURATION ----------------------
 $titre = $title_projet_0;
 $menu_items = [];
+$max_string = 10;
 
 // Générer le menu
 for ($i = 0; $i < count($title_projet_a); $i++) {
@@ -11,64 +12,62 @@ for ($i = 0; $i < count($title_projet_a); $i++) {
 // Vérifier si on doit afficher le burger
 $contenu_total = $titre . implode('', $menu_items);
 $longueur = strlen($contenu_total);
-$isBurger = $longueur > 60;
+$mberger = $longueur > 60;
+
+ 
+ 
+ 
+
+  
 ?>
-
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-
-</head>
-<div id="main-header"></div>
-<header class="main-header" >
-  <div class="logo"> <a class="mon_titre" href="#main-header"><?= htmlspecialchars($titre) ?></a></div>
-  <nav class="nav-menu" id="nav-menu">
-    <?php for ($i = 0; $i < count($menu_items); $i++): ?>
-      <a href="#<?= htmlspecialchars($id_sha1_projet_a[$i]) ?>"><?= htmlspecialchars($menu_items[$i]) ?></a>
-    <?php endfor; ?>
-  </nav>
-  <div class="burger" id="burger">
-    <span></span><span></span><span></span>
-  </div>
-</header>
- 
-
-<script>
-const burger = document.getElementById('burger');
-const menu = document.getElementById('nav-menu');
-
-// Toggle burger menu
-burger.addEventListener('click', () => {
-  burger.classList.toggle('active');
-  menu.classList.toggle('active');
-});
-
-// Fermer le menu quand on clique sur un lien
-document.querySelectorAll('.nav-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    burger.classList.remove('active');
-    menu.classList.remove('active');
-  });
-});
-
-// Fermer le menu quand on clique en dehors
-document.addEventListener('click', (e) => {
-  if (!menu.contains(e.target) && !burger.contains(e.target)) {
-    burger.classList.remove('active');
-    menu.classList.remove('active');
-  }
-});
-</script>
-
-
 <style>
-  .mon_titre {
- 
-    font-size: 24px;
+    :root {
+    /* Couleurs claires */
+    --card-bg: #ffffff;
+    --accent: #1e6333ff;
 
-    text-decoration: none;
-  }
+    --muted: #6b7280;
+    --text: #111827;
+    --glass: rgba(255, 255, 255, 0.6);
+    --border: #d1d5db;
+    --logo-gradient-start: var(--accent);
+    --logo-gradient-end: #60a5fa;
+}
+
 </style>
 
+
+     <header>
+        <div class="brand">
+            <div class="logo"><?= htmlspecialchars($titre) ?></div>    
+        </div>
+
+        <nav aria-label="Menu principal">
+            <ul>
+        <?php 
+
+
+ for ($i=0; $i < count($menu_items); $i++) { 
+   ?>
+ <li><a href="#<?= htmlspecialchars($id_sha1_projet_a[$i]) ?>"><?=  $menu_items[$i] ?></a></li>
+
+<?php 
+ }
+
+?>
  
+            </ul>
+        </nav>
+
+        <div class="search-wrap">
+            <div class="search" role="search" aria-label="Recherche sur le blog">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"></path>
+                    <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round"></circle>
+                </svg>
+                <input id="searchInput" type="search" placeholder="Rechercher par mot-clé..." aria-label="Rechercher" />
+            </div>
+        </div>
+    </header>

@@ -1,10 +1,10 @@
 <!-- ===================== HEADER ===================== -->
-<header class="header" id="header">
+<section class="header" id="header">
     <a href="#home" class="logo-container">
         <div class="logo"></div>
     </a>
     <div class="menu-toggle" id="menuToggle"></div>
-</header>
+</section>
 
 <!-- ===================== SECTION HOME ===================== -->
 <section id="home" class="section">

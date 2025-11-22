@@ -28,26 +28,12 @@ document.addEventListener('click', (e) => {
 <style>
 /* ==================== BASE ==================== */
 :root {
-  /* ==== Couleurs principales ==== */
-  --bg-blur: rgba(25, 20, 15, 0.65);   /* Fond sombre chaud */
-  --accent-color: #ffb347;             /* Doré chaud */
-  --hover-color: #ffcc33;              /* Jaune éclatant */
-  --text-color: #f5e6ca;               /* Beige doux lisible */
-
-  /* ==== Nouvelles couleurs extraites ==== */
-  --white: #ffffff;
-  --white-dim: rgba(255, 255, 255, 0.12);
-  --dark-bg1: rgba(35, 25, 15, 0.85);
-  --dark-bg2: rgba(50, 35, 20, 0.9);
-  --dark-bg3: rgba(25, 20, 15, 0.65);
-  --shadow-dark: rgba(0, 0, 0, 0.5);
-  --shadow-side: rgba(0, 0, 0, 0.4);
-  --shadow-soft: rgba(0, 0, 0, 0.3);
-
-  /* ==== Transitions & effets ==== */
+  --bg-blur: rgba(255, 255, 255, 0.08);
+  --accent-color: #5ee7df;
+  --hover-color: #b490ca;
+  --text-color: #e0e0e0;
   --transition: 0.35s ease;
-  --shadow: 0 4px 25px var(--shadow-dark);
-
+  --shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(15px);
 }
 
@@ -76,7 +62,7 @@ document.addEventListener('click', (e) => {
   background: linear-gradient(45deg, var(--accent-color), var(--hover-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 8px var(--white-dim);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
 }
 
 /* ==================== MENU ==================== */
@@ -110,7 +96,7 @@ document.addEventListener('click', (e) => {
 }
 
 .nav-menu a:hover {
-  color: var(--white);
+  color: #fff;
 }
 
 .nav-menu a:hover::before {
@@ -160,8 +146,8 @@ document.addEventListener('click', (e) => {
   top: 0;
   right: 0;
   height: 100vh;
-  width: 100%;
-  background: var(--dark-bg1);
+  width: 230px;
+  background: rgba(25, 25, 35, 0.7);
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -169,7 +155,7 @@ document.addEventListener('click', (e) => {
   transform: translateX(100%);
   padding-top: 80px;
   box-sizing: border-box;
-  box-shadow: -5px 0 15px var(--shadow-side);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
   transition: transform var(--transition);
   backdrop-filter: blur(20px);
 }
@@ -189,17 +175,20 @@ document.addEventListener('click', (e) => {
   top: 0;
   right: 0;
   height: 100vh;
-  width: 100%;
+  width: 230px;
 
+  /* Dégradé vertical avec deux opacités différentes */
   background: linear-gradient(
     to right,
-    var(--dark-bg2),
-    var(--dark-bg3)
+    rgba(0, 0, 0, 0.6),    /* gauche : plus opaque */
+    rgba(0, 0, 0, 0.3)   /* droite : moins opaque */
   );
 
-  backdrop-filter: blur(20px) saturate(180%) contrast(110%) brightness(1.05);
+  /* Flou et effet miroir */
+  backdrop-filter: blur(20px) saturate(180%) contrast(120%) brightness(1.1);
 
-  box-shadow: -5px 0 30px var(--shadow-soft);
+  /* Ombre douce */
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
 
   flex-direction: column;
   justify-content: flex-start;
@@ -211,6 +200,7 @@ document.addEventListener('click', (e) => {
 
   transition: transform var(--transition);
 }
+
 
   .nav-menu.active {
     transform: translateX(0);

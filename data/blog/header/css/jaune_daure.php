@@ -28,28 +28,27 @@ document.addEventListener('click', (e) => {
 <style>
 /* ==================== BASE ==================== */
 :root {
-  /* ==== Couleurs principales ==== */
-  --bg-blur: rgba(25, 20, 15, 0.65);   /* Fond sombre chaud */
-  --accent-color: #ffb347;             /* Doré chaud */
-  --hover-color: #ffcc33;              /* Jaune éclatant */
-  --text-color: #f5e6ca;               /* Beige doux lisible */
+  --bg-blur: rgba(50, 45, 10, 0.6);
+  --accent-color: #f5c518;
+  --hover-color: #ffe066;
+  --text-color: #fff9e6;
 
-  /* ==== Nouvelles couleurs extraites ==== */
   --white: #ffffff;
-  --white-dim: rgba(255, 255, 255, 0.12);
-  --dark-bg1: rgba(35, 25, 15, 0.85);
-  --dark-bg2: rgba(50, 35, 20, 0.9);
-  --dark-bg3: rgba(25, 20, 15, 0.65);
-  --shadow-dark: rgba(0, 0, 0, 0.5);
-  --shadow-side: rgba(0, 0, 0, 0.4);
-  --shadow-soft: rgba(0, 0, 0, 0.3);
+  --white-dim: rgba(255, 255, 200, 0.15);
+  --dark-bg1: rgba(45, 40, 5, 0.75);
+  --dark-bg2: rgba(60, 50, 15, 0.85);
+  --dark-bg3: rgba(50, 45, 10, 0.6);
+  --shadow-dark: rgba(0, 0, 0, 0.4);
+  --shadow-side: rgba(0, 0, 0, 0.45);
+  --shadow-soft: rgba(0, 0, 0, 0.25);
 
-  /* ==== Transitions & effets ==== */
   --transition: 0.35s ease;
   --shadow: 0 4px 25px var(--shadow-dark);
 
   backdrop-filter: blur(15px);
 }
+
+
 
 /* ==================== HEADER ==================== */
 .main-header {
@@ -160,7 +159,7 @@ document.addEventListener('click', (e) => {
   top: 0;
   right: 0;
   height: 100vh;
-  width: 100%;
+  width: 230px;
   background: var(--dark-bg1);
   flex-direction: column;
   justify-content: flex-start;
@@ -189,7 +188,7 @@ document.addEventListener('click', (e) => {
   top: 0;
   right: 0;
   height: 100vh;
-  width: 100%;
+  width: 230px;
 
   background: linear-gradient(
     to right,
