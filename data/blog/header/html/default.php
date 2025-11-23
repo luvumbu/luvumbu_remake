@@ -48,8 +48,24 @@ $mberger = $longueur > 60;
 
 
  for ($i=0; $i < count($menu_items); $i++) { 
-   ?>
+
+
+
+    if($id_sha1_projet_lock_a[$i]!="1"){
+        
+       
+    
+    
+    }  
+    else{
+        ?>
  <li><a href="#<?= htmlspecialchars($id_sha1_projet_a[$i]) ?>"><?=  $menu_items[$i] ?></a></li>
+
+        <?php
+    }
+
+
+   ?>
 
 <?php 
  }

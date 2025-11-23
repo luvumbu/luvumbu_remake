@@ -215,6 +215,7 @@ echo '</div>';
 
 <script>
     function home_all_element_projet(_this) {
+       
         var ok = new Information("data/all/req_sql/home_all_element_projet.php");
         ok.add("index_4", _this.title);
         ok.push();

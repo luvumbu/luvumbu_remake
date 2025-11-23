@@ -6,7 +6,7 @@
        
 
 
-
+ 
 
 <?php
 
@@ -94,7 +94,22 @@ echo "</div>";
 ?>
                 <article class="post-card" data-keywords="javascript,tutoriel,web" data-title="Débuter en JavaScript">
 
+                    <div class="div_article_img">
+                                    <div class="div_article_img">
 
+
+                                    <?php 
+
+if($src_last=="../img_dw/"){
+    $src_last ="https://i.pinimg.com/736x/2f/ff/60/2fff60b4baa56053c732611728d4cc99.jpg";
+ 
+
+}
+?>
+                        <img src="<?=  $src_last ?> "
+                            alt="JavaScript">
+                    </div>
+                    </div>
 <?php 
 
 
@@ -133,22 +148,7 @@ else{
                
                                       <h2><?=     $title_projet_a_1_final ?></h2>
 
-                    <div class="div_article_img">
-                                    <div class="div_article_img">
 
-
-                                    <?php 
-
-if($src_last=="../img_dw/"){
-    $src_last ="https://i.pinimg.com/736x/2f/ff/60/2fff60b4baa56053c732611728d4cc99.jpg";
- 
-
-}
-?>
-                        <img src="<?=  $src_last ?> "
-                            alt="JavaScript">
-                    </div>
-                    </div>
                     <div class="meta"><?php  echo '<div class="date_inscription">' ; 
 echo format_date_europeenne($date_inscription_projet_a[$i]) ;
 echo '</div>' ;  ?></div>
@@ -320,6 +320,9 @@ $img_user_b_ = $img_projet_src1_a[$i];
     text-align: center;
     width: 250px;
     background-color: aquamarine;
+    margin-top: 45px;
+    margin-bottom: 45px;
+
   }
   .section_3_1_ a{
     text-decoration: none;

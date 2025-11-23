@@ -8,12 +8,12 @@ $header_1_pages_projet_ = $header_1_pages_projet[0] ;
 
 
 
-/*
+ 
 
-require_once "data/blog/blog_settings.php" ; 
+//require_once "data/blog/blog_settings.php" ; 
 
 
-*/
+ 
 
 echo "<div id='header_css_pages_projet'></div>" ; 
 
@@ -34,7 +34,6 @@ echo "<div id='header_css_pages_projet'></div>" ;
   require_once "data/blog/header/css/".$header_css_pages_projet[0];
     } 
 
- 
 
 
 
@@ -45,8 +44,6 @@ echo "<div id='header_css_pages_projet'></div>" ;
 
 
  
-
-
 
 
  
@@ -76,7 +73,7 @@ echo "<div id='section_css_pages_projet'>" ;
     require_once "data/blog/section/css/".$section_css_pages_projet[0];
     }
 echo "</div>" ; 
- 
+
    // require_once "data/blog/section/html/default_caroussel.php";
   echo "<div id='section_src_pages_projet'>" ; 
 
@@ -102,7 +99,7 @@ echo "<div id='section_child_css_pages_projet'>" ;
         }
 
 echo "</div>" ; 
- 
+
 
         if($section_child_html_pages_projet[0]==""){
           
@@ -115,7 +112,7 @@ echo "</div>" ;
         }
 
 
-
+ 
  
 
 
@@ -154,7 +151,6 @@ else{
 }
               
 
- 
  
  ?>
 

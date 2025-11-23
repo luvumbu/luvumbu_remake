@@ -12,6 +12,11 @@ $info_user_3 = $_POST["info_user_3"];
  
 
 $id_sha1_user = $_SESSION["index"][3] ; 
+
+ 
+
+
+
 $title_user =        AsciiConverter::stringToAscii($title_user); // Affiche "72,101,108,108,111"
 $description_user =  AsciiConverter::stringToAscii($description_user); // Affiche "72,101,108,108,111"
  

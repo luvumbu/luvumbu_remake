@@ -1,223 +1,125 @@
 <style>
-  /* ============================================================
-   LAYOUT GLOBAL
-============================================================ */
-.container {
-    max-width: 1100px;
-    margin: 28px auto;
-    padding: 0 18px;
+/* ===================== STYLE GLASSMORPHISME — PALETTE PERSONNALISÉE ===================== */
+
+#img_projet_src1_0::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 10%,
+    rgba(0, 0, 0, 0.1) 80%
+  );
+  z-index: 1;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 18px;
+/* ---------- Titre principal ---------- */
+.title_1_1 {
+  position: relative;
+  z-index: 2;
+  padding: 25px 40px;
+  margin-bottom: 25px;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+.title_1_1:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 }
 
-/* ============================================================
-   POST CARD
-============================================================ */
-.post-card {
-    background: var(--card-bg);
-    padding: 16px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+.title_1_1 h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  /* Dégradé texte aux couleurs de ta palette */
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--logo-gradient-end)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.post-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+/* ---------- Date d’inscription ---------- */
+.date_inscription {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: right;
+  font-style: italic;
+  letter-spacing: 0.5px;
 }
 
-.post-card h2 {
-    margin: 0 0 6px 0;
-    font-size: 1.2rem;
-    color: var(--text);
+/* ---------- Description ---------- */
+.description_1_2 {
+  margin: 60px auto;
+  padding: 25px 30px;
+  width: 85%;
+  border-radius: 16px;
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.meta {
-    font-size: 0.85rem;
-    color: var(--muted);
-    margin-bottom: 10px;
+.description_1_2:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
 }
 
-.excerpt {
-    color: var(--text);
+.description_1_2 strong {
+  color: var(--accent);
+  font-weight: 700;
 }
 
-/* TAGS */
-.tags {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-top: 12px;
+/* ---------- Animation subtile ---------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.tag {
-    font-size: 12px;
-    padding: 6px 8px;
-    border-radius: 999px;
-    background: #e5e7eb;
-    color: var(--muted);
+.title_1_1, .description_1_2 {
+  animation: fadeInUp 0.9s ease both;
 }
 
-/* ============================================================
-   IMAGES
-============================================================ */
-.div_article_img {
-    width: 100%;
-    margin: 20px 0;
-}
-
-.div_article_img img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* ============================================================
-   SIDEBAR
-============================================================ */
-aside .card {
-    background: var(--card-bg);
-    padding: 16px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    color: var(--text);
-}
-
-.popular li {
-    margin-bottom: 10px;
-}
-
-.popular a {
-    color: var(--accent);
-    text-decoration: none;
-}
-
-.popular a:hover {
-    text-decoration: underline;
-}
-
-.small {
-    font-size: 0.9rem;
-    color: var(--muted);
-}
-
-/* ============================================================
-   📱 RESPONSIVE — TOUS LES BREAKPOINTS
-============================================================ */
-
-/* === ÉCRANS TRÈS PETITS ≤ 360px === */
-@media (max-width: 360px) {
-    .post-card {
-        padding: 12px;
-    }
-    .post-card h2 {
-        font-size: 1rem;
-    }
-    .div_article_img img {
-        height: 180px;
-    }
-}
-
-/* === PETITS TÉLÉPHONES ≤ 480px === */
-@media (max-width: 480px) {
-    .container {
-        padding: 0 10px;
-    }
-    .div_article_img img {
-        height: 200px;
-    }
-    .tag {
-        font-size: 10px;
-        padding: 4px 6px;
-    }
-}
-
-/* === GRANDS TÉLÉPHONES / PHABLETTES ≤ 600px === */
-@media (max-width: 600px) {
-    .post-card {
-        padding: 14px;
-    }
-    .post-card h2 {
-        font-size: 1.05rem;
-    }
-    .grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    aside {
-        order: 2;
-    }
-    main {
-        order: 1;
-    }
-    .div_article_img img {
-        height: 220px;
-    }
-}
-
-/* === PETITES TABLETTES ≤ 768px === */
+/* ===================== Responsive ===================== */
 @media (max-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-    .div_article_img img {
-        height: 240px;
-    }
-}
+  #img_projet_src1_0 {
+    height: 220px;
+  }
 
-/* === TABLETTES STANDARDS ≤ 900px === */
-@media (max-width: 900px) {
-    .grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-    aside .card {
-        padding: 14px;
-    }
-}
+  .title_1_1 {
+    padding: 15px 25px;
+    margin-bottom: 15px;
+  }
 
-/* === GRANDES TABLETTES / PETITS LAPTOPS ≤ 1024px === */
-@media (max-width: 1024px) {
-    .container {
-        max-width: 960px;
-    }
-    .post-card {
-        padding: 18px;
-    }
-}
+  .title_1_1 h1 {
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+  }
 
-/* === LAPTOPS CLASSIQUES ≤ 1280px === */
-@media (max-width: 1280px) {
-    .container {
-        max-width: 1000px;
-    }
+  .description_1_2 {
+    width: 92%;
+    font-size: 0.95rem;
+    padding: 20px;
+    margin: 40px auto;
+  }
 }
-
-/* === ÉCRANS LARGES ≤ 1440px === */
-@media (max-width: 1440px) {
-    .container {
-        max-width: 1050px;
-    }
-}
-
-/* === ÉCRANS TRÈS GRANDS ≤ 1920px === */
-@media (max-width: 1920px) {
-    .container {
-        max-width: 1100px;
-    }
-}
-
 </style>

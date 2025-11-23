@@ -1,9 +1,18 @@
 <?php
+
+ 
 require_once "data/all/requare_one_1.php";
 require_once "Class/SessionTracker.php";
 require_once "Class/SpeechController.php";
+
 $stories = array();
 
+
+
+
+ 
+
+  
 /*
 require_once "data/blog/blog_index_head_8_css.php" ;  
 require_once "data/blog/blog_index_1_0_css.php" ; 
@@ -123,12 +132,12 @@ $url_ = $url->get_elements()[0];
 $nom_table = "projet"; // Nom de la table cible
 $id_sha1_projet = $url_;
  
+
  
+
+
  
- 
-  // CEtte ligne permet de stocker l'identifiant du projet dans la session pour une utilisation ultérieure.
- 
- 
+
 
 // Requête SQL pour récupérer toutes les données de la table
 $req_sql = "SELECT * FROM `$nom_table` WHERE `id_sha1_projet` ='$id_sha1_projet'";
@@ -249,43 +258,83 @@ if ($id_projet) {
   $password_projet_2 = $password_projet[0];
 
   //echo "01";
+  if (isset($_SESSION["password_projet"])) {
 
+    
 
+    if ($password_projet_1==  $password_projet[0]) {
+     require_once 'data/blog/blog_index.php';
+ 
+ 
 
  
 
 
-if ($password_projet_1 !=1) {
 
-   
-     if ($password_projet_1 == $password_projet_2) {
 
-  require_once 'data/blog/blog_index.php';
-
-     }
-     else
-     {
+    } else {
+ 
       require_once 'data/blog/blog_x_no1.php';
-     }
+    }
 
+
+
+  } else {
+
+    if (!isset($_SESSION["index"][3])) {
+      
+
+      if ($visibility_1_projet[0] == "" && $id_sha1_projet_lock[0] == "") {
+        header('Location: ../index.php');
+        exit();
+      } else {
+        if ($visibility_1_projet[0] == "") {
+          header('Location: ../index.php');
+          exit();
+        } else {
+
+     
+          if ($id_sha1_projet_lock[0] != "") {
+            require_once 'data/blog/blog_index.php';
+          } else {
+            require_once 'data/blog/blog_x_no1.php';
+          }
+        }
+      }
+    } else {
+
+      if ($_SESSION["index"][3] == $id_sha1_user_c[0]) {
+
+        
+        require_once 'data/blog/blog_index.php';
+
+       
+
+
+      } else {
+
+
+        
+        if ($visibility_1_projet[0] == "" && $id_sha1_projet_lock[0] == "") {
+           require_once 'data/blog/blog_x_no1.php';
+        } else {
+          if ($visibility_1_projet[0] == "") {
+           require_once 'data/blog/blog_x_no1.php';
+          } else {
+          }
+        }
+      }
+    }
+  }
+} else {
+  require_once 'data/blog/blog_x_no2.php';
 }
-else{
-
-
- 
-   require_once 'data/blog/blog_index.php';
-}
-
 require_once "data/blog/blog_insert_ip.php" ; 
 
 
 
  
-  }
-  else {
-     require_once 'data/blog/blog_x_no2.php';
-
-  }
+ 
   ?>
 
     <style>

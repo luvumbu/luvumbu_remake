@@ -4,6 +4,9 @@ if(isset( $_SESSION["select_style"])){
  unset($_SESSION["select_style"]);
 }
  
+
+
+ 
 /*
 Variables globales liées à la base :
   $dbname, $username, $dbCheck
