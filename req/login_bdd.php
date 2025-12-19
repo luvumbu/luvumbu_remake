@@ -112,6 +112,7 @@ $columns = [
 "id_sha1_user_projet" => "LONGTEXT NOT NULL",
 "id_sha1_projet" => "LONGTEXT NOT NULL",
 "id_sha1_projet_lock" => "LONGTEXT NOT NULL",
+"id_sha1_projet_lock_price" => "LONGTEXT NOT NULL",
 "id_sha1_projet_song" => "LONGTEXT NOT NULL",
 "color_projet" => "LONGTEXT NOT NULL",
 "google_title_projet" => "LONGTEXT NOT NULL",

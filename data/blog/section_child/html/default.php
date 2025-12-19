@@ -105,6 +105,7 @@ if($src_last=="../img_dw/"){
  
 
 }
+ 
 ?>
                         <img src="<?=  $src_last ?> "
                             alt="JavaScript">
@@ -225,20 +226,15 @@ $img_user_b_ = $img_projet_src1_a[$i];
      </main>
 
              <aside>
-                <div class="card">
-                    <h3>Rechercher — astuces</h3>
-                    <p class="small">Tape un mot-clé (ex: "php", "css", "athletisme") et les articles correspondant
-                        s'afficheront automatiquement.</p>
-                </div>
+        
 
                 <div style="height:12px"></div>
 
                 <div class="card">
-                    <h3>Articles populaires</h3>
+                    <h3><a href="https://mariondelval.com">WEB TRANSFERT</a></h3>
                     <ul class="popular">
-                        <li><a href="#">Débuter en JavaScript</a></li>
-                        <li><a href="#">Organiser son projet PHP</a></li>
-                        <li><a href="#">Astuce CSS — grilles et responsive</a></li>
+                        <li><a href="https://bokonzi.com">BOKONZI</a></li>
+                        <li><a href="https://bokonzi.fr">BOKONZI total projet</a></li>                  
                     </ul>
                 </div>
             </aside>

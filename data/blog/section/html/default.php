@@ -14,9 +14,9 @@ else{
 $title_projet_00 = '<div class="title_1_2"><h1>' . replace_element_1($title_projet_0) . '</h1></div>';
 }
 $filename = "img_dw/".$img_projet_src1[0];
-if($img_projet_src1[0]!=""){
  
-if (file_exists($filename)) {
+ 
+ 
  
 
     ?>
@@ -24,8 +24,8 @@ if (file_exists($filename)) {
 <?= $title_projet_00?>
 </div>
 <?php 
-}  
- }
+ 
+ 
 
 
  
@@ -71,18 +71,43 @@ if($id_sha1_projet_song[0]!=""){
 }
  
 $img_projet_src1_00 = "../img_dw/".$img_projet_src1[0] ;
+$img_projet_src1_000 = "img_dw/".$img_projet_src1[0] ;
+
 
  
+$filename1 = $img_projet_src1_00;
 
 
- 
+// Choisir l'image : locale si elle existe, sinon la GIF
+$background = file_exists($filename1) ? $img_projet_src1_00 : $filename1;
+
+
+
+
+
+
+
+$filename = $img_projet_src1_000 ;
+
+if (file_exists($filename)) {
+  $background  = $img_projet_src1_00;
+} else {
+     $background  =$filename2 ;
+
+}
+
+
+
+
+
+
 ?>
 
 <style>
-    #img_projet_src1_0 {
+#img_projet_src1_0 {
   width: 100%;
   height: 560px;
-  background-image: url('<?= $img_projet_src1_00 ?>');
+  background-image: url('<?= $background ?>');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -95,5 +120,4 @@ $img_projet_src1_00 = "../img_dw/".$img_projet_src1[0] ;
   text-shadow: 0 0 8px var(--accent-color);
   box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.8);
 }
-
 </style>

@@ -115,6 +115,7 @@ $google_title_projet__ = AsciiConverter::asciiToString($dynamicVariables['google
 $id_projet_ = $dynamicVariables['id_projet'][0];
 $id_sha1_user_projet__ =   $dynamicVariables['id_sha1_user_projet'][0];
 $id_sha1_projet_lock__ = $dynamicVariables['id_sha1_projet_lock'][0];
+$id_sha1_projet_lock_price__ = $dynamicVariables['id_sha1_projet_lock_price'][0];
 $id_sha1_projet_song__ = $dynamicVariables['id_sha1_projet_song'][0];
 $change_meta_name_projet_toggle =  $dynamicVariables['change_meta_name_projet_toggle'][0];
 $change_meta_content_projet_toggle =  $dynamicVariables['change_meta_content_projet_toggle'][0];

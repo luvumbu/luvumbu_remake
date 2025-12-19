@@ -559,7 +559,13 @@ if ($id_sha1_user_projet_class == "") {
                             alt="ok-hand-medium-dark-skin-tone" />
                         <?php
               }
+
+          
               ?>
+                            <input type="number" style="width: 60px;" max="9999" onchange="id_sha1_projet_lock_price(this)"
+                                title="<?= $id_sha1_projet__ ?>" value="<?= $id_sha1_projet_lock_price__ ?>"
+                                placeholder="Prix €">
+
                     </div>
                 </div>
                 <div>
@@ -783,6 +789,27 @@ function select_style(_this) {
 
 
 }
+
+
+
+function id_sha1_projet_lock_price(_this) {
+
+
+ 
+
+    var ok = new Information("req_sql/update_id_sha1_projet_lock_price.php"); // création de la classe 
+    ok.add("id_sha1_projet", _this.title); // ajout de l'information pour lenvoi 
+    ok.add("id_sha1_projet_lock_price", _this.value); // ajout de l'information pour lenvoi 
+
+
+    console.log(ok.info()); // demande l'information dans le tableau
+    ok.push(); // envoie l'information au code pkp  
+
+
+}
+
+
+
 
 
 function redirection_edit_text(_this) {

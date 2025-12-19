@@ -4,51 +4,23 @@ $nombre = rand(1, 6);
 $nombre2 = mt_rand(1, 6);
 $nombre = 7; 
 $header_1_pages_projet_ = $header_1_pages_projet[0] ; 
- 
-
-
-
- 
-
 //require_once "data/blog/blog_settings.php" ; 
-
-
- 
-
 echo "<div id='header_css_pages_projet'></div>" ; 
-
     if($header_html_pages_projet[0]==""){
     require_once "data/blog/header/html/default.php";
     }
     else{
     require_once "data/blog/header/html/".$header_html_pages_projet[0];
     }  
-
-
-
     if($header_css_pages_projet[0]==""){
-      
   require_once "data/blog/header/css/default.php";
     }
     else{
   require_once "data/blog/header/css/".$header_css_pages_projet[0];
     } 
-
-
-
-
 ?>
 <section class="section_1">
- 
 <?php  
-
-
- 
-
-
- 
- 
-
     if (count($id_projet_img) != 0) {
             if($section_html_pages_projet[0]==""){
                 require_once "data/blog/section/html/default.php";
@@ -57,7 +29,7 @@ echo "<div id='header_css_pages_projet'></div>" ;
               require_once "data/blog/section/html/".$section_html_pages_projet[0];
             }
     }
-      
+
 
  
 

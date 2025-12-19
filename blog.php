@@ -2,8 +2,8 @@
 require_once "data/all/requare_one_1.php";
 require_once "Class/SessionTracker.php";
 require_once "Class/SpeechController.php";
+$filename2 = "https://i.pinimg.com/originals/8f/e3/43/8fe343d318886ee93a2a470ca75c6cba.gif";
 $stories = array();
-
 /*
 require_once "data/blog/blog_index_head_8_css.php" ;  
 require_once "data/blog/blog_index_1_0_css.php" ; 
@@ -13,10 +13,6 @@ require_once "data/blog/blog_index_3_css.php" ;
 require_once "data/blog/blog_index_head_8_css.php" ; 
 require_once "data/blog/carouselles/carouselle_3_css.php" ; 
  */
-
- 
- 
-
 ?>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,9 +25,7 @@ require_once "data/blog/carouselles/carouselle_3_css.php" ;
 <link
     href="https://fonts.googleapis.com/css2?family=Audiowide&family=Gowun+Dodum&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
     rel="stylesheet">
- 
 <script>
-    
 class SpeechController {
     constructor(text, options = {}) {
         this.text = text;
@@ -107,29 +101,18 @@ class SpeechController {
         }
     }
 }
-
-
 </script>
 
 <?php
 
 // Création d'une instance de la classe, avec $_SERVER['PHP_SELF'] par défaut
 $url = new Give_url();
-
-
 // Utilisation de la méthode split_basename pour séparer par "_"
 $url->split_basename('__');
 $url_ = $url->get_elements()[0];
 $nom_table = "projet"; // Nom de la table cible
-$id_sha1_projet = $url_;
- 
- 
- 
- 
-  // CEtte ligne permet de stocker l'identifiant du projet dans la session pour une utilisation ultérieure.
- 
- 
-
+$id_sha1_projet = $url_; 
+// CEtte ligne permet de stocker l'identifiant du projet dans la session pour une utilisation ultérieure.
 // Requête SQL pour récupérer toutes les données de la table
 $req_sql = "SELECT * FROM `$nom_table` WHERE `id_sha1_projet` ='$id_sha1_projet'";
 // Instanciation de la classe
@@ -144,10 +127,7 @@ if ($id_projet) {
   // Appel de la fonction
   $result = $db->know_variables_name("projet_img", "", $req_sql);
   $title_projet_0 =replace_element_2(AsciiConverter::asciiToString($title_projet[0])); 
-
   $img_projet_src1_ = $img_projet_src1[0];
-
-  
   // Requête SQL pour récupérer toutes les données de la table
   $req_sql = 'SELECT * FROM `projet` WHERE `id_sha1_parent_projet` ="' . $id_sha1_projet[0] . '" ORDER BY `id_sha1_parent_projet` ASC';
   // Instanciation de la classe
@@ -155,7 +135,6 @@ if ($id_projet) {
   // Appel de la fonction
   $result = $db->know_variables_name($nom_table, "_a", $req_sql);
   $id_sha1_user_projet_ = $id_sha1_user_projet[0];
-
   $style_projet_ = $style_projet[0];
   // Requête SQL pour récupérer toutes les données de la table
   $req_sql = 'SELECT * FROM `style_page` WHERE `id_style_page` ="' . $style_projet_ . '"';
@@ -165,9 +144,6 @@ if ($id_projet) {
   $result = $db->know_variables_name("style_page", "", $req_sql);
   $text_style_page_ =  AsciiConverter::asciiToString($text_style_page[0]);
 
-
- 
-
  
   // Requête SQL pour récupérer toutes les données de la table
   $req_sql = 'SELECT * FROM `' . $dbname . '` WHERE `id_sha1_user`="' . $id_sha1_user_projet_ . '" ';
@@ -176,10 +152,6 @@ if ($id_projet) {
   // Appel de la fonction
   $result = $db->know_variables_name($dbname, "_b", $req_sql);
 
-
-
-
- 
 
   $id_user_b_               = $id_user_b[0];
   $date_user_b_             = $date_user_b[0];
@@ -207,14 +179,8 @@ if ($id_projet) {
   $db = new DatabaseHandler($dbname, $username);
   // Appel de la fonction
   $result = $db->know_variables_name($dbname, "_c", $req_sql);
- 
- $lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
-
+  $lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -222,7 +188,6 @@ if ($id_projet) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
- 
     <?php
 
     if ($text_style_page_ == "style") {
@@ -245,52 +210,194 @@ if ($id_projet) {
 
 <body>
     <?php
+
+   
   $password_projet_1 = AsciiConverter::stringToAscii($_SESSION["password_projet"]);
-  $password_projet_2 = $password_projet[0];
-
-  //echo "01";
-
 
 
  
 
 
-if ($password_projet_1 !=1) {
+  $password_projet_2 = $password_projet[0];
+ $password_projet_3 =  AsciiConverter::asciiToString( $password_projet_2); 
+
+   $_SESSION["password_projet_session"]  = $password_projet_3  ; 
+ 
+  //echo "01";
+  require_once "data/blog/blog_insert_ip.php" ; 
+  }
+  else {
+   //  require_once 'data/blog/blog_x_no2.php';
+  }
+  if(isset($_SESSION["index"])){
+
+
+    // si je suis connecté 
+    /*
+echo 'SESSION ON';
+var_dump($id_sha1_user_projet) ; 
+var_dump($_SESSION["index"]) ; 
+//  require_once 'data/blog/blog_x_no2.php';
+var_dump($visibility_1_projet) ; 
+var_dump($id_sha1_projet_lock) ; 
+ var_dump($id_sha1_projet_lock_price_ ) ; 
+*/
+ if($id_sha1_user_projet[0]==$_SESSION["index"][3]){
+ 
+     switch ($id_sha1_projet_lock_price[0]) {
+  case "":
+    case "0":
+  
+
+
+if($id_sha1_projet_lock[0]=="1"){
+ require_once 'data/blog/blog_index.php';
+}
+else{
 
    
-     if ($password_projet_1 == $password_projet_2) {
 
-  require_once 'data/blog/blog_index.php';
 
-     }
-     else
-     {
-      require_once 'data/blog/blog_x_no1.php';
-     }
+
+if($_SESSION["password_projet"]==$password_projet_3){
+ require_once 'data/blog/blog_index.php';
+    
+}
+else{
+
+   require_once 'data/blog/blog_x_no1.php';
+}
+     
+
+}
+  
+
+
+
+    break;
+
+      
+   //require_once 'data/blog/blog_index.php';
+   
+   
+
+  default:
+  $_SESSION["amount"] = $id_sha1_projet_lock_price[0]*100;
+$_SESSION["etat_paiement_result"][0]=$url_ ;
+
+
+
+ if($_SESSION["password_projet"]==$password_projet_3){
+
+
+ require_once 'data/blog/blog_index.php';
+
+
+ }
+ else{
+
+
+ 
+echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  ';
+   ?>
+ 
+
+    <?php 
+ 
+    
+}
+ }
+
+
+
+
+
+
+       
+    
+ }
+ else{
+    require_once 'data/blog/blog_x_no1.php';
+ }
+  }
+  else{
+//echo 'SESSION OFF';
+if($visibility_1_projet[0]==""){
+echo "<br/>";
+echo "session invisible connectee vous ";
+      require_once 'data/blog/blog_x_no3.php';
+}
+else{
+if($id_sha1_projet_lock[0]==""){
+    if($password_projet_1==$password_projet_2){
+           if($id_sha1_projet_lock_price[0]=="" || $id_sha1_projet_lock_price[0]=="0"){
+      require_once 'data/blog/blog_index.php';
+    }
+    else{
+$_SESSION["amount"] = $id_sha1_projet_lock_price[0]*100;
+$_SESSION["etat_paiement_result"][0]=$url_ ;
+if($_SESSION["etat_paiement_result"][1]=="OK"){
+    require_once 'data/blog/blog_index.php';
 
 }
 else{
 
-
  
-   require_once 'data/blog/blog_index.php';
+ echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  ';
+
+}
+ 
+
+    
+    }
+
+
+
+
+    
+
+    }
+    else{
+
+    //  var_dump($id_sha1_projet_lock_price);
+
+/*
+      switch ($id_sha1_projet_lock_price) {
+  case "red":
+    echo "Your favorite color is red!";
+    break;
+  case "blue":
+    echo "Your favorite color is blue!";
+    break;
+  case "green":
+    echo "Your favorite color is green!";
+    break;
+  default:
+    echo "Your favorite color is neither red, blue, nor green!";
+}
+*/
+     require_once 'data/blog/blog_x_no1.php';
+    }
 }
 
-require_once "data/blog/blog_insert_ip.php" ; 
+}
 
 
 
- 
+
+
+
+
   }
-  else {
-     require_once 'data/blog/blog_x_no2.php';
 
-  }
-  ?>
+$id_sha1_projet_lock_price_ = (int) $id_sha1_projet_lock_price[0];
+
+
+
+   ?>
 
     <style>
-
-        /*
+    /*
     .section_3_1 {
     
         padding: 15px;
@@ -385,139 +492,156 @@ margin: auto;
       background-color: rgba(0, 0, 0, 0.9);
     }
       */
-       body {
-  font-family: "Audiowide", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  margin: 0;
-  padding: 0;
- 
-}
- html {
-  scroll-behavior: smooth; /* rend le défilement progressif */
-}
+    body {
+        font-family: "Audiowide", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        margin: 0;
+        padding: 0;
 
-.btn-scroll {
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
-}
+    }
 
-.btn-scroll:hover {
-  background: #0056b3;
-  transform: scale(1.05);
-}
+    html {
+        scroll-behavior: smooth;
+        /* rend le défilement progressif */
+    }
 
-#target {
-  margin-top: 1000px; /* juste pour avoir à scroller */
-  padding: 100px;
-  background: #f0f0f0;
-  border-radius: 20px;
-}
+    .btn-scroll {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+    }
 
-.section_3_1{
-  margin-top: 100px;
-}
-.section_3_1 a{
+    .btn-scroll:hover {
+        background: #0056b3;
+        transform: scale(1.05);
+    }
 
-text-decoration: none;
-  color: white;
-  background-color: black;
- padding: 20px;
+    #target {
+        margin-top: 1000px;
+        /* juste pour avoir à scroller */
+        padding: 100px;
+        background: #f0f0f0;
+        border-radius: 20px;
+    }
 
+    .section_3_1 {
+        margin-top: 100px;
+    }
 
+    .section_3_1 a {
 
-}
-
-.section_3_1 a:hover{
-
- 
-  background-color: rgba(0, 0, 0, 0.6);
- 
+        text-decoration: none;
+        color: white;
+        background-color: black;
+        padding: 20px;
 
 
 
-}
-.description_1_1 ,.title_1_2,.title_2_2 ,.description_1_2{
- 
-  max-height: 1000px; /* hauteur max avant scroll (à ajuster) */
-  overflow-y: auto;  /* active un scroll vertical si ça déborde */
-  overflow-x: auto; /* pas de scroll horizontal */
-  padding: 10px;
-  box-sizing: border-box;
-  border-radius: 8px;
-   margin-bottom: 40px;
-}
+    }
 
-/* ===== Scroll global pour toute la page ===== */
-body {
-  scrollbar-width: thin; /* pour Firefox */
-  scrollbar-color: #c91432 #f0f0f0; /* curseur / fond */
-}
-
-/* Pour Chrome, Edge et Safari */
-::-webkit-scrollbar {
-  width: 10px; /* largeur du scroll vertical */
-  height: 10px; /* hauteur du scroll horizontal */
-}
-
-::-webkit-scrollbar-track {
-  background: #f0f0f0; /* couleur du fond du rail */
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #9b111e, #c91432); /* double rouge rubis */
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #b51227, #e01a3d); /* plus vif au survol */
-}
-
-::-webkit-scrollbar-corner {
-  background: #f0f0f0; /* coin entre les barres si présent */
-}
+    .section_3_1 a:hover {
 
 
+        background-color: rgba(0, 0, 0, 0.6);
+
+
+
+
+    }
+
+    .description_1_1,
+    .title_1_2,
+    .title_2_2,
+    .description_1_2 {
+
+        max-height: 1000px;
+        /* hauteur max avant scroll (à ajuster) */
+        overflow-y: auto;
+        /* active un scroll vertical si ça déborde */
+        overflow-x: auto;
+        /* pas de scroll horizontal */
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 8px;
+        margin-bottom: 40px;
+    }
+
+    /* ===== Scroll global pour toute la page ===== */
+    body {
+        scrollbar-width: thin;
+        /* pour Firefox */
+        scrollbar-color: #c91432 #f0f0f0;
+        /* curseur / fond */
+    }
+
+    /* Pour Chrome, Edge et Safari */
+    ::-webkit-scrollbar {
+        width: 10px;
+        /* largeur du scroll vertical */
+        height: 10px;
+        /* hauteur du scroll horizontal */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f0f0f0;
+        /* couleur du fond du rail */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #9b111e, #c91432);
+        /* double rouge rubis */
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #b51227, #e01a3d);
+        /* plus vif au survol */
+    }
+
+    ::-webkit-scrollbar-corner {
+        background: #f0f0f0;
+        /* coin entre les barres si présent */
+    }
     </style>
     <script>
-  // Fonction pour ouvrir la lightbox
-  function openLightbox(src) {
-    // Créer l'élément lightbox
-    const lightbox = document.createElement('div');
-    lightbox.id = 'lightbox';
-    lightbox.style.position = 'fixed';
-    lightbox.style.top = '0';
-    lightbox.style.left = '0';
-    lightbox.style.width = '100%';
-    lightbox.style.height = '100%';
-    lightbox.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-    lightbox.style.display = 'flex';
-    lightbox.style.justifyContent = 'center';
-    lightbox.style.alignItems = 'center';
-    lightbox.style.zIndex = '1000';
+    // Fonction pour ouvrir la lightbox
+    function openLightbox(src) {
+        // Créer l'élément lightbox
+        const lightbox = document.createElement('div');
+        lightbox.id = 'lightbox';
+        lightbox.style.position = 'fixed';
+        lightbox.style.top = '0';
+        lightbox.style.left = '0';
+        lightbox.style.width = '100%';
+        lightbox.style.height = '100%';
+        lightbox.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        lightbox.style.display = 'flex';
+        lightbox.style.justifyContent = 'center';
+        lightbox.style.alignItems = 'center';
+        lightbox.style.zIndex = '1000';
 
-    // Créer l'image agrandie
-    const img = document.createElement('img');
-    img.src = src;
-    img.style.maxWidth = '90%';
-    img.style.maxHeight = '90%';
-    img.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.5)';
-    img.style.borderRadius = '10px';
+        // Créer l'image agrandie
+        const img = document.createElement('img');
+        img.src = src;
+        img.style.maxWidth = '90%';
+        img.style.maxHeight = '90%';
+        img.style.boxShadow = '0 0 20px rgba(255, 255, 255, 0.5)';
+        img.style.borderRadius = '10px';
 
-    // Ajouter l'image à la lightbox
-    lightbox.appendChild(img);
+        // Ajouter l'image à la lightbox
+        lightbox.appendChild(img);
 
-    // Ajouter la lightbox au corps du document
-    document.body.appendChild(lightbox);
+        // Ajouter la lightbox au corps du document
+        document.body.appendChild(lightbox);
 
-    // Fermer la lightbox au clic
-    lightbox.addEventListener('click', function() {
-      document.body.removeChild(lightbox);
-    });
-  }
-</script>
+        // Fermer la lightbox au clic
+        lightbox.addEventListener('click', function() {
+            document.body.removeChild(lightbox);
+        });
+    }
+    </script>
