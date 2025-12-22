@@ -286,7 +286,19 @@ else{
  else{
 
 
- 
+     if(isset($_SESSION["index"])){
+if($_SESSION["index"][3]==$id_sha1_user_projet_){
+ require_once 'data/blog/blog_index.php';
+
+}
+else{
+ echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  '; 
+
+}
+    }
+    else{
+  echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  ';
+    }
 
  }
 
