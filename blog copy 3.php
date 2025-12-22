@@ -3,8 +3,6 @@ require_once "data/all/requare_one_1.php";
 require_once "Class/SessionTracker.php";
 require_once "Class/SpeechController.php";
 $filename2 = "src/img/gif/image_not_found.gif" ;
-$lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
 $stories = array();
 /*
 require_once "data/blog/blog_index_head_8_css.php" ;  
@@ -112,7 +110,6 @@ $url = new Give_url();
 // Utilisation de la méthode split_basename pour séparer par "_"
 $url->split_basename('__');
 $url_ = $url->get_elements()[0];
-$_SESSION["url_projet"] = $url_ ;
 $nom_table = "projet"; // Nom de la table cible
 $id_sha1_projet = $url_; 
 // CEtte ligne permet de stocker l'identifiant du projet dans la session pour une utilisation ultérieure.
@@ -122,8 +119,6 @@ $req_sql = "SELECT * FROM `$nom_table` WHERE `id_sha1_projet` ='$id_sha1_projet'
 $db = new DatabaseHandler($dbname, $username);
 // Appel de la fonction
 $result = $db->know_variables_name($nom_table, "", $req_sql);
-
-
 if ($id_projet) {
   // Requête SQL pour récupérer toutes les données de la table
   $req_sql = 'SELECT * FROM `projet_img` WHERE `id_sha1_projet_img`="' . $id_sha1_projet[0] . '" ';
@@ -184,8 +179,7 @@ if ($id_projet) {
   $db = new DatabaseHandler($dbname, $username);
   // Appel de la fonction
   $result = $db->know_variables_name($dbname, "_c", $req_sql);
-
-
+  $lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -233,73 +227,6 @@ var_dump($visibility_1_projet) ;
 var_dump($id_sha1_projet_lock) ; 
  var_dump($id_sha1_projet_lock_price_ ) ; 
 */
-
- 
-
-switch ($id_sha1_projet_lock_price[0]) {
-  case "0":
-  case "":
-  // require_once 'data/blog/blog_index.php';
-    
-  
-      if($password_projet_3===$_SESSION["password_projet"] ){
- require_once 'data/blog/blog_index.php';
-    }
-    else{
- require_once 'data/blog/blog_x_no1.php';   
-
-    }
-  break;
- 
- 
-  default:
-  $_SESSION["amount"] = $id_sha1_projet_lock_price[0]*100;
-  $_SESSION["etat_paiement_result"][0]=$url_ ;
-
- if(isset($_SESSION["strype_payment_total_info"][3] )){
-
-
-    if($_SESSION["strype_payment_total_info"][3] ==true){
-    require_once 'data/blog/blog_index.php';
-    }
-    else{
-  echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  '; 
-
-   
-
-
-    if(isset($_SESSION["index"])){
-if($_SESSION["index"][3]==$id_sha1_user_projet_){
- require_once 'data/blog/blog_index.php';
-
-}
-else{
- echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  '; 
-
-}
-    }
-    else{
-  echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  ';
-    }
-    }
- }
- else{
-
-
- 
-
- }
-
-
-
-}
-}
-else{
-      require_once 'data/blog/blog_x_no2.php';
-}
-/*
-
-
  switch ($id_sha1_projet_lock_price[0]) {
   case "":
   case "0":
@@ -341,8 +268,6 @@ $id_sha1_projet_lock_price_ = (int) $id_sha1_projet_lock_price[0];
   else {
      require_once 'data/blog/blog_x_no2.php';
   }
-
-  */
 ?>
 <style>
     /*
