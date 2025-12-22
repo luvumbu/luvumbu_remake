@@ -33,3 +33,4 @@ all_projet
 all_projet_img
 all_projet_img_json
 all_projet_json
+strype_payment_key.php

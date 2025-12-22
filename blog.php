@@ -2,7 +2,7 @@
 require_once "data/all/requare_one_1.php";
 require_once "Class/SessionTracker.php";
 require_once "Class/SpeechController.php";
-$filename2 = "https://i.pinimg.com/originals/8f/e3/43/8fe343d318886ee93a2a470ca75c6cba.gif";
+$filename2 = "src/img/gif/image_not_found.gif" ;
 $stories = array();
 /*
 require_once "data/blog/blog_index_head_8_css.php" ;  
@@ -210,27 +210,12 @@ if ($id_projet) {
 
 <body>
     <?php
-
-   
-  $password_projet_1 = AsciiConverter::stringToAscii($_SESSION["password_projet"]);
-
-
- 
-
-
-  $password_projet_2 = $password_projet[0];
+ $password_projet_1 = AsciiConverter::stringToAscii($_SESSION["password_projet"]);
+ $password_projet_2 = $password_projet[0];
  $password_projet_3 =  AsciiConverter::asciiToString( $password_projet_2); 
-
-   $_SESSION["password_projet_session"]  = $password_projet_3  ; 
- 
-  //echo "01";
+ $_SESSION["password_projet_session"]  = $password_projet_3  ; 
+   //echo "01";
   require_once "data/blog/blog_insert_ip.php" ; 
-  }
-  else {
-   //  require_once 'data/blog/blog_x_no2.php';
-  }
-  if(isset($_SESSION["index"])){
-
 
     // si je suis connecté 
     /*
@@ -242,161 +227,49 @@ var_dump($visibility_1_projet) ;
 var_dump($id_sha1_projet_lock) ; 
  var_dump($id_sha1_projet_lock_price_ ) ; 
 */
- if($id_sha1_user_projet[0]==$_SESSION["index"][3]){
- 
-     switch ($id_sha1_projet_lock_price[0]) {
+ switch ($id_sha1_projet_lock_price[0]) {
   case "":
-    case "0":
-  
-
-
+  case "0":
 if($id_sha1_projet_lock[0]=="1"){
  require_once 'data/blog/blog_index.php';
 }
-else{
+else{ 
 
-   
-
-
-
-if($_SESSION["password_projet"]==$password_projet_3){
+    if($password_projet_3===$_SESSION["password_projet"] ){
  require_once 'data/blog/blog_index.php';
-    
-}
-else{
-
-   require_once 'data/blog/blog_x_no1.php';
-}
-     
-
-}
-  
-
-
-
-    break;
-
-      
-   //require_once 'data/blog/blog_index.php';
-   
-   
-
-  default:
-  $_SESSION["amount"] = $id_sha1_projet_lock_price[0]*100;
-$_SESSION["etat_paiement_result"][0]=$url_ ;
-
-
-
- if($_SESSION["password_projet"]==$password_projet_3){
-
-
- require_once 'data/blog/blog_index.php';
-
-
- }
- else{
-
-
- 
-echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  ';
-   ?>
- 
-
-    <?php 
- 
-    
-}
- }
-
-
-
-
-
-
-       
-    
- }
- else{
-    require_once 'data/blog/blog_x_no1.php';
- }
-  }
-  else{
-//echo 'SESSION OFF';
-if($visibility_1_projet[0]==""){
-echo "<br/>";
-echo "session invisible connectee vous ";
-      require_once 'data/blog/blog_x_no3.php';
-}
-else{
-if($id_sha1_projet_lock[0]==""){
-    if($password_projet_1==$password_projet_2){
-           if($id_sha1_projet_lock_price[0]=="" || $id_sha1_projet_lock_price[0]=="0"){
-      require_once 'data/blog/blog_index.php';
     }
     else{
+ require_once 'data/blog/blog_x_no1.php';   
+
+    }
+
+ 
+ 
+}
+break;
+//require_once 'data/blog/blog_index.php';
+default:
 $_SESSION["amount"] = $id_sha1_projet_lock_price[0]*100;
 $_SESSION["etat_paiement_result"][0]=$url_ ;
-if($_SESSION["etat_paiement_result"][1]=="OK"){
-    require_once 'data/blog/blog_index.php';
-
+if($_SESSION["password_projet"]==$password_projet_3){
+ require_once 'data/blog/blog_index.php';
+ }
+ else{ 
+if(isset($_SESSION["index"])){
+ require_once 'data/blog/blog_x_no1.php';    
 }
 else{
-
- 
- echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  ';
-
+  echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  '; 
 }
- 
-
-    
-    }
-
-
-
-
-    
-
-    }
-    else{
-
-    //  var_dump($id_sha1_projet_lock_price);
-
-/*
-      switch ($id_sha1_projet_lock_price) {
-  case "red":
-    echo "Your favorite color is red!";
-    break;
-  case "blue":
-    echo "Your favorite color is blue!";
-    break;
-  case "green":
-    echo "Your favorite color is green!";
-    break;
-  default:
-    echo "Your favorite color is neither red, blue, nor green!";
 }
-*/
-     require_once 'data/blog/blog_x_no1.php';
-    }
-}
-
-}
-
-
-
-
-
-
-
-  }
-
+ }
 $id_sha1_projet_lock_price_ = (int) $id_sha1_projet_lock_price[0];
-
-
-
-   ?>
-
-    <style>
+  }
+  else {
+     require_once 'data/blog/blog_x_no2.php';
+  }
+?>
+<style>
     /*
     .section_3_1 {
     
@@ -607,8 +480,8 @@ margin: auto;
         background: #f0f0f0;
         /* coin entre les barres si présent */
     }
-    </style>
-    <script>
+</style>
+<script>
     // Fonction pour ouvrir la lightbox
     function openLightbox(src) {
         // Créer l'élément lightbox
@@ -644,4 +517,4 @@ margin: auto;
             document.body.removeChild(lightbox);
         });
     }
-    </script>
+</script>

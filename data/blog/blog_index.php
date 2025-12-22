@@ -29,11 +29,15 @@ echo "<div id='header_css_pages_projet'></div>" ;
               require_once "data/blog/section/html/".$section_html_pages_projet[0];
             }
     }
+    else{
+        require_once "data/blog/section/html/default.php";
+    }
 
 
  
 
 
+               
 
 
  

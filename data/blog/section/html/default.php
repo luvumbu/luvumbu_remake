@@ -18,7 +18,7 @@ $filename = "img_dw/".$img_projet_src1[0];
  
  
  
-
+ 
     ?>
 <div id="img_projet_src1_0">
 <?= $title_projet_00?>
@@ -102,6 +102,8 @@ if (file_exists($filename)) {
 
 
 ?>
+
+ 
 
 <style>
 #img_projet_src1_0 {
