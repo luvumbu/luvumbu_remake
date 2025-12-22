@@ -246,7 +246,32 @@ switch ($id_sha1_projet_lock_price[0]) {
  require_once 'data/blog/blog_index.php';
     }
     else{
- require_once 'data/blog/blog_x_no1.php';   
+ 
+ 
+ if($id_sha1_projet_lock[0]=="1"){
+ require_once 'data/blog/blog_index.php';
+}
+else{ 
+
+    if($password_projet_3===$_SESSION["password_projet"] ){
+ require_once 'data/blog/blog_index.php';
+    }
+    else{
+     if(isset($_SESSION["index"])){
+if($_SESSION["index"][3]==$id_sha1_user_projet_){
+ require_once 'data/blog/blog_index.php';
+
+}
+else{
+ echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  '; 
+
+}
+    }
+    else{
+  echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  ';
+    }
+
+    }}
 
     }
   break;
@@ -356,7 +381,7 @@ $id_sha1_projet_lock_price_ = (int) $id_sha1_projet_lock_price[0];
 
   */
 ?>
-<style>
+    <style>
     /*
     .section_3_1 {
     
@@ -567,8 +592,8 @@ margin: auto;
         background: #f0f0f0;
         /* coin entre les barres si présent */
     }
-</style>
-<script>
+    </style>
+    <script>
     // Fonction pour ouvrir la lightbox
     function openLightbox(src) {
         // Créer l'élément lightbox
@@ -604,4 +629,4 @@ margin: auto;
             document.body.removeChild(lightbox);
         });
     }
-</script>
+    </script>
