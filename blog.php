@@ -235,12 +235,11 @@ var_dump($id_sha1_projet_lock) ;
 */
 
  
-
+ 
 switch ($id_sha1_projet_lock_price[0]) {
   case "0":
   case "":
-  // require_once 'data/blog/blog_index.php';
-    
+
   
       if($password_projet_3===$_SESSION["password_projet"] ){
  require_once 'data/blog/blog_index.php';
@@ -257,19 +256,8 @@ else{
  require_once 'data/blog/blog_index.php';
     }
     else{
-     if(isset($_SESSION["index"])){
-if($_SESSION["index"][3]==$id_sha1_user_projet_){
- require_once 'data/blog/blog_index.php';
-
-}
-else{
- echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  '; 
-
-}
-    }
-    else{
-  echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  ';
-    }
+ require_once 'data/blog/blog_x_no1.php';   
+ 
 
     }}
 
@@ -278,57 +266,27 @@ else{
  
  
   default:
-  $_SESSION["amount"] = $id_sha1_projet_lock_price[0]*100;
-  $_SESSION["etat_paiement_result"][0]=$url_ ;
+ 
+if(isset($_SESSION["index"])){
 
- if(isset($_SESSION["strype_payment_total_info"][3] )){
-
-
-    if($_SESSION["strype_payment_total_info"][3] ==true){
-    require_once 'data/blog/blog_index.php';
+        if($password_projet_3===$_SESSION["password_projet"] ){
+ require_once 'data/blog/blog_index.php';
     }
     else{
+ require_once 'data/blog/blog_x_no1.php';   
+
+    }
+
+}
+else{
+    $_SESSION["amount"] = $id_sha1_projet_lock_price[0]*100;
+    $_SESSION["etat_paiement_result"][0]=$url_ ;
   echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  '; 
 
-   
 
-
-    if(isset($_SESSION["index"])){
-if($_SESSION["index"][3]==$id_sha1_user_projet_){
- require_once 'data/blog/blog_index.php';
-
+  
 }
-else{
- echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  '; 
-
-}
-    }
-    else{
-  echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  ';
-    }
-    }
- }
- else{
-
-
-     if(isset($_SESSION["index"])){
-if($_SESSION["index"][3]==$id_sha1_user_projet_){
- require_once 'data/blog/blog_index.php';
-
-}
-else{
- echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  '; 
-
-}
-    }
-    else{
-  echo  ' <meta http-equiv="refresh" content="0; url=../strype_payment.php">  ';
-    }
-
- }
-
-
-
+ 
 }
 }
 else{
