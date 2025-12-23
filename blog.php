@@ -273,7 +273,19 @@ if(isset($_SESSION["index"])){
  require_once 'data/blog/blog_index.php';
     }
     else{
- require_once 'data/blog/blog_x_no1.php';   
+
+
+
+
+ if( $_SESSION["index"][3]==$id_sha1_user_projet[0]){
+ require_once 'data/blog/blog_index.php';
+ 
+
+ }
+ else{
+    require_once 'data/blog/blog_x_no1.php'; 
+ }
+   
 
     }
 
